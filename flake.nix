@@ -60,6 +60,8 @@
             minecraft-server = vanilla-server;
           } // (
             pkgs.lib.mapAttrs (n: v: pkgs.callPackage v) (digga.lib.rakeLeaves ./pkgs/helpers)
+          ) // (
+            pkgs.lib.mapAttrs (n: v: pkgs.callPackage v { }) (digga.lib.rakeLeaves ./pkgs/scripts)
           );
         };
 
