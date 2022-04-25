@@ -1,22 +1,24 @@
 { stdenv
 , fetchurl
+, jq
 , id
-, responseHash
+, hash
+, fetchPrimary ? true
 }:
 let
   version = builtins.fromJSON
     (builtins.readFile
       (fetchurl {
         url = "https://api.modrinth.com/v2/version/${id}";
-        sha256 = responseHash;
+        sha256 = hash;
+        downloadToTemp = true;
+        postFetch = ''
+          cat $downloadedFile | jq '.files | ${if fetchPrimary then ".[] | select(.primary == true)" else ".[0]"}' > $out
+        '';
+        nativeBuildInputs = [ jq ];
       }));
-  file = (builtins.elemAt version.files 0);
 in
 fetchurl {
-  url = file.url;
-  sha512 = file.hashes.sha512;
-  # Since Modrinth is kind enough to give the hash, we can grab it from the API result
-  # And pre-fetch the API response instead of the file.
-  #
-  # $ nix-prefetch-url https://api.modrinth.com/v2/version/$version-id
+  url = version.url;
+  sha512 = version.hashes.sha512;
 }

@@ -89,18 +89,18 @@ Not yet present, but in the future the ~quiltServers~ will function the same as 
 *** ~fetchModrinthMod~
 [[./pkgs/helpers/fetchModrinthMod.nix][Source]]
 
-*_WARNING_*: There is a major flaw with this fetcher, in that whenever the Modrinth API's response hash changes (such as when the downloads number is incremented), it will fail with a hash mismatch. I am looking into seeing if Modrinth could add a ~/version/{id}/static~ API endpoint to alleviate this issue.
-
 Helper function that fetches a mod from [[https://modrinth.com/][Modrinth]].
 
 To use it, first find a mod on Modrinth, and click on the version you want. Among the information displayed, there is a =Version ID= string. This version ID will be refers to that version of the mod. See ~services.minecraft-servers...symlinks~ below for an example usage.
 
 #+begin_src shell
-nix-prefetch-url https://api.modrinth.com/v2/version/version-id
+nix run github:Infinidoge/nix-minecraft#nix-prefetch-modrinth -- versionid
 #+end_src
 
+(This helper script can also be used in a temporary shell with ~nix shell github:Infinidoge/nix-minecraft#nix-prefetch-modrinth~)
+
 #+begin_src nix
-pkgs.fetchModrinthMod { id = "version id"; responseHash = "hash from above command"; }
+pkgs.fetchModrinthMod { id = "versionid"; hash = "hash from above command"; }
 #+end_src
 
 *** TODO: ~fetchCurseForgeMod~
