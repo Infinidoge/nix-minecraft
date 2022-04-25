@@ -13,7 +13,7 @@ let
         downloadToTemp = true;
         postFetch = ''
           cat $downloadedFile \
-          | jq '.files | (.[] | select(.primary == true)) // .[0] | {url: .url, sha512: .hashes.sha512}' > $out
+          | jq -c '.files | (.[] | select(.primary == true)) // .[0] | {url: .url, sha512: .hashes.sha512}' > $out
         '';
         nativeBuildInputs = [ jq ];
       }));
