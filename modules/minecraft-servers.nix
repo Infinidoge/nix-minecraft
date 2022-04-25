@@ -322,7 +322,9 @@ in
                       (concatStringsSep "\n"
                         (mapAttrsToList
                           (n: v: ''
-                            if [[ -e "${n}" ]]; then
+                            if [[ -L "${n}" ]]; then
+                              unlink ${n}
+                            elif [[ -e "${n}" ]]; then
                               echo "${n} already exists, moving"
                               mv "${n}" "${n}.bak"
                             fi
