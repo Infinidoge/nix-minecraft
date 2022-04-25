@@ -52,7 +52,7 @@
         {
           packages = rec {
             vanillaServers = pkgs.callPackage ./pkgs/minecraft-servers { };
-            fabricServers = pkgs.callPackage ./pkgs/fabric-server { inherit vanillaServers; };
+            fabricServers = pkgs.callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
             minecraftServers = vanillaServers // fabricServers;
 
             vanilla-server = vanillaServers.vanilla;
