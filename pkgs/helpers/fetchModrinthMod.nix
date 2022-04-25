@@ -3,7 +3,6 @@
 , jq
 , id
 , hash
-, fetchPrimary ? true
 }:
 let
   version = builtins.fromJSON
@@ -13,7 +12,7 @@ let
         sha256 = hash;
         downloadToTemp = true;
         postFetch = ''
-          cat $downloadedFile | jq '.files | ${if fetchPrimary then ".[] | select(.primary == true)" else ".[0]"}' > $out
+          cat $downloadedFile | jq '.files | (.[] | select(.primary == true)) // .[0]' > $out
         '';
         nativeBuildInputs = [ jq ];
       }));
