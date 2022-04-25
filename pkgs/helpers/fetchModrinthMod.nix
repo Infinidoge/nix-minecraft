@@ -12,12 +12,10 @@ let
         sha256 = hash;
         downloadToTemp = true;
         postFetch = ''
-          cat $downloadedFile | jq '.files | (.[] | select(.primary == true)) // .[0]' > $out
+          cat $downloadedFile \
+          | jq '.files | (.[] | select(.primary == true)) // .[0] | {url: .url, sha512: .hashes.sha512}' > $out
         '';
         nativeBuildInputs = [ jq ];
       }));
 in
-fetchurl {
-  url = version.url;
-  sha512 = version.hashes.sha512;
-}
+fetchurl { inherit (version) url sha512; }

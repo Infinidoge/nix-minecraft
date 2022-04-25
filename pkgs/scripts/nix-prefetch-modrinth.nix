@@ -8,7 +8,7 @@ writeShellScriptBin "nix-prefetch-modrinth" ''
   fi
 
   echo $input \
-  | ${jq}/bin/jq -c '.files | (.[] | select(.primary == true)) // .[0]' \
+  | ${jq}/bin/jq -c '.files | (.[] | select(.primary == true)) // .[0]  | {url: .url, sha512: .hashes.sha512}' \
   | ${coreutils}/bin/sha256sum \
   | ${gawk}/bin/awk '{print $1}'
 ''
