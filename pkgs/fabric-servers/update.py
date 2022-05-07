@@ -14,10 +14,13 @@ def versiontuple(v):
 ENDPOINT = "https://meta.fabricmc.net/v2/versions"
 
 # These filters specify which Fabric loader and Minecraft game versions to package.
+
+# Only package Fabric versions greater than 0.10.7 (all versions available in the installer)
 LOADER_VERSION_FILTER = lambda version: (
     version["separator"] == "." and versiontuple(version["version"]) >= (0, 10, 7)
 )
 
+# Package all game versions supported by Fabric
 GAME_VERSION_FILTER = lambda version: True
 
 # Uncomment to package only major releases:
@@ -25,24 +28,47 @@ GAME_VERSION_FILTER = lambda version: True
 
 
 def get_game_versions():
+    """
+    Returns a list of game versions that the Fabric loader supports, filtered
+    using the GAME_VERSION_FILTER above. The `version` variable is in the format
+    {"verson": string, "stable": bool}
+    """
     print("Fetching game versions")
     data = requests.get(f"{ENDPOINT}/game").json()
     return [version["version"] for version in data if GAME_VERSION_FILTER(version)]
 
 
 def get_loader_versions():
+    """
+    Returns a list of the Fabric loader versions that should be packaged, filtered
+    using the LOADER_VERSION_FILTER above. The `version` variable is in the format
+    {"separater": string, "build": int, "maven": string, "version": string, "stable": bool}
+    """
     print("Fetching loader versions")
     data = requests.get(f"{ENDPOINT}/loader").json()
     return [version["version"] for version in data if LOADER_VERSION_FILTER(version)]
 
 
 def fetch_version(game_version, loader_version):
+    """
+    Return the server json for a given game and loader version
+    """
     return requests.get(
         f"{ENDPOINT}/loader/{game_version}/{loader_version}/server/json"
     ).json()
 
 
 def gen_locks(version, libraries):
+    """
+    Return the lock information for a given server json, returned in the format
+    {
+        "mainClass": string,
+        "libraries": [
+            {"name": string, "url": string, "sha256": string},
+            ...
+        ]
+    }
+    """
     ret = {"mainClass": version["mainClass"], "libraries": []}
 
     for library in version["libraries"]:
@@ -69,6 +95,11 @@ def gen_locks(version, libraries):
 
 
 def main(versions, libraries, locks, lib_locks):
+    """
+    Fetch the relevant information and update the lockfiles.
+    `versions` and `libraries` are data from the existing files, while
+    `locks` and `lib_locks` are file objects to be written to
+    """
     loader_versions = get_loader_versions()
     game_versions = get_game_versions()
 
