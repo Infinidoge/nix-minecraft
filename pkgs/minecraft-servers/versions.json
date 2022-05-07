@@ -1,4 +1,16 @@
 {
+  "22w18a": {
+    "url": "https://launcher.mojang.com/v1/objects/d3259a8939a724c78ebbb995dfc31c1c364464e3/server.jar",
+    "sha1": "d3259a8939a724c78ebbb995dfc31c1c364464e3",
+    "version": "22w18a",
+    "javaVersion": 17
+  },
+  "22w17a": {
+    "url": "https://launcher.mojang.com/v1/objects/9b4d5a87b48d7c3784fdfc9d6982543e8d9296df/server.jar",
+    "sha1": "9b4d5a87b48d7c3784fdfc9d6982543e8d9296df",
+    "version": "22w17a",
+    "javaVersion": 17
+  },
   "22w16b": {
     "url": "https://launcher.mojang.com/v1/objects/a54810e8b1a7a043fa54a462309d680ad67da479/server.jar",
     "sha1": "a54810e8b1a7a043fa54a462309d680ad67da479",
