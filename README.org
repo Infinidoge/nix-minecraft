@@ -38,10 +38,6 @@ From there, you can setup the service or use the packages, as described below.
 This README file is incomplete, and doesn't fully describe the ~services.minecraft-servers~ module.
 Additionally, documentation should be added for the maintenance of the ~vanillaServers.*~ and ~fabricServers.*~.
 
-** TODO: Update [[./pkgs/minecraft-servers/update.py]]
-
-The existing script, directly modified from Nixpkgs, is
-
 * Packages
 
 ** ~vanillaServers.*~
