@@ -38,6 +38,10 @@ From there, you can setup the service or use the packages, as described below.
 This README file is incomplete, and doesn't fully describe the ~services.minecraft-servers~ module.
 Additionally, documentation should be added for the maintenance of the ~vanillaServers.*~ and ~fabricServers.*~.
 
+** TODO: Package Quilt
+
+Should be similar to Fabric.
+
 * Packages
 
 ** ~vanillaServers.*~
@@ -45,7 +49,7 @@ Additionally, documentation should be added for the maintenance of the ~vanillaS
 
 An attrset of all of the vanilla server versions, in the form of ~vanilla-version~, where ~version~ is the Minecraft version (=1.18=, =1.12.2=, =22w16b=, etc), with all periods and spaces replaced with underscores (=1_18=, =1_12_2=, etc).
 
-For convenience, ~vanillaServers.vanilla~ is equivalent to the latest version.
+For convenience, ~vanillaServers.vanilla~ is equivalent to the latest major version.
 
 #+begin_src
 vanillaServers.vanilla-1_18_2
@@ -60,7 +64,7 @@ An attrset of all of the Fabric server versions, in the form of ~fabric-mcversio
 
 The ~mcversion~ must be ~>=1.14~, and if specified, the ~fabricversion~ must be ~>=0.10.7~. The former is a limitation of Fabric, while the latter is the constraint I put on my packaging lockfile.
 
-For convenience, ~fabricServers.fabric~ is equivalent to the latest Minecraft and Fabric versions.
+For convenience, ~fabricServers.fabric~ is equivalent to the latest major Minecraft and Fabric versions.
 
 #+begin_src
 fabricServers.fabric-1_18_2
@@ -102,6 +106,10 @@ pkgs.fetchModrinthMod { id = "versionid"; hash = "hash from above command"; }
 *** TODO: ~fetchCurseForgeMod~
 
 Not yet available, however planned for the future, assuming an elegant-enough method can be found. For now, you can use ~fetchurl~ with the file URL and file hash.
+
+*** ~packwiz~
+
+A package of [[https://packwiz.infra.link/][Packwiz]], tracking the master branch at its [[github:packwiz/packwiz][GitHub repository]]
 
 * Modules
 
