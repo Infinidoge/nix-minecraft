@@ -62,7 +62,7 @@
           } // (
             pkgs.lib.mapAttrs (n: v: callPackage v) (digga.lib.rakeLeaves ./pkgs/helpers)
           ) // (
-            pkgs.lib.mapAttrs (n: v: callPackage v { }) (digga.lib.rakeLeaves ./pkgs/scripts)
+            pkgs.lib.mapAttrs (n: v: callPackage v { }) (digga.lib.rakeLeaves ./pkgs/tools)
           );
         };
 
