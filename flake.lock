@@ -202,10 +202,27 @@
         "type": "github"
       }
     },
+    "packwiz": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1653266347,
+        "narHash": "sha256-XwGacEVfQAduDCSMQFRw7Xnx4bND2zaV7l27B+2u5xg=",
+        "owner": "packwiz",
+        "repo": "packwiz",
+        "rev": "e71b63ea98283c8c1f0e03ee51ae40f452f22a61",
+        "type": "github"
+      },
+      "original": {
+        "owner": "packwiz",
+        "repo": "packwiz",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "digga": "digga",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "packwiz": "packwiz"
       }
     },
     "utils": {

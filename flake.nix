@@ -7,6 +7,9 @@
     digga.url = "github:divnix/digga";
     digga.inputs.nixpkgs.follows = "nixpkgs";
     digga.inputs.nixlib.follows = "nixpkgs";
+
+    # Packages
+    packwiz = { url = "github:packwiz/packwiz"; flake = false; };
   };
 
   outputs =
