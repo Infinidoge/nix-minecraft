@@ -48,20 +48,21 @@
       outputsBuilder = channels:
         let
           pkgs = channels.nixpkgs;
+          callPackage = pkgs.newScope { inherit inputs; };
         in
         {
           packages = rec {
-            vanillaServers = pkgs.callPackage ./pkgs/minecraft-servers { };
-            fabricServers = pkgs.callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
+            vanillaServers = callPackage ./pkgs/minecraft-servers { };
+            fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
             minecraftServers = vanillaServers // fabricServers;
 
             vanilla-server = vanillaServers.vanilla;
             fabric-server = fabricServers.fabric;
             minecraft-server = vanilla-server;
           } // (
-            pkgs.lib.mapAttrs (n: v: pkgs.callPackage v) (digga.lib.rakeLeaves ./pkgs/helpers)
+            pkgs.lib.mapAttrs (n: v: callPackage v) (digga.lib.rakeLeaves ./pkgs/helpers)
           ) // (
-            pkgs.lib.mapAttrs (n: v: pkgs.callPackage v { }) (digga.lib.rakeLeaves ./pkgs/scripts)
+            pkgs.lib.mapAttrs (n: v: callPackage v { }) (digga.lib.rakeLeaves ./pkgs/scripts)
           );
         };
 
