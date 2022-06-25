@@ -57,10 +57,12 @@
           packages = rec {
             vanillaServers = callPackage ./pkgs/minecraft-servers { };
             fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
-            minecraftServers = vanillaServers // fabricServers;
+            quiltServers = callPackage ./pkgs/quilt-servers { inherit vanillaServers; };
+            minecraftServers = vanillaServers // fabricServers // quiltServers;
 
             vanilla-server = vanillaServers.vanilla;
             fabric-server = fabricServers.fabric;
+            quilt-server = quiltServers.quilt;
             minecraft-server = vanilla-server;
           } // (
             pkgs.lib.mapAttrs (n: v: callPackage v) (digga.lib.rakeLeaves ./pkgs/helpers)
