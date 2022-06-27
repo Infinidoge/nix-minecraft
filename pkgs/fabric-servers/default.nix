@@ -6,8 +6,6 @@
 let
   versions = lib.importJSON ./locks.json;
 
-  merge = null;
-
   inherit (lib.our) escapeVersion;
   latestVersion = escapeVersion (lib.our.latestVersion versions);
 
