@@ -38,10 +38,6 @@ From there, you can setup the service or use the packages, as described below.
 This README file is incomplete, and doesn't fully describe the ~services.minecraft-servers~ module.
 Additionally, documentation should be added for the maintenance of the ~vanillaServers.*~ and ~fabricServers.*~.
 
-** TODO: Package Quilt
-
-Should be similar to Fabric.
-
 * Packages
 
 ** ~vanillaServers.*~
@@ -72,13 +68,14 @@ fabricServers.fabric-22w16b
 fabricServers.fabric-1_18_2-0_13_3 # Specific fabric loader version
 #+end_src
 
-** TODO: ~quiltServers.*~
+** ~quiltServers.*~
+[[./pkgs/quilt-servers][Source]]
 
-Not yet present, but in the future the ~quiltServers~ will function the same as ~fabricServers~, but with the Quilt mod loader.
+~quiltServers~ functions the same as ~fabricServers~, but with the Quilt mod loader.
 
 ** ~minecraftServers.*~
 
-~vanillaServers // fabricServers~. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs ~minecraftServers~.
+~vanillaServers // fabricServers // quiltServers~. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs ~minecraftServers~.
 
 ** Others
 

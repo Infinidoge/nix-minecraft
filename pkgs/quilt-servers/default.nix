@@ -16,7 +16,7 @@ let
           lib.mapAttrs'
             (gversion: lock:
               lib.nameValuePair
-                "fabric-${escapeVersion gversion}-${escapeVersion lversion}"
+                "quilt-${escapeVersion gversion}-${escapeVersion lversion}"
                 (callPackage ./server.nix { inherit lock; minecraft-server = vanillaServers."vanilla-${escapeVersion gversion}"; }))
             gversions)
         versions);
@@ -28,13 +28,13 @@ lib.recurseIntoAttrs (
       removeVanilla = n: escapeVersion (lib.removePrefix "vanilla-" n);
     in
     (lib.mapAttrs'
-      (n: v: lib.nameValuePair "fabric-${lib.removePrefix "vanilla-" n}" v)
+      (n: v: lib.nameValuePair "quilt-${lib.removePrefix "vanilla-" n}" v)
       (lib.genAttrs
         (builtins.filter
-          (n: (lib.hasPrefix "vanilla-" n) && (builtins.hasAttr "fabric-${removeVanilla n}-${latestVersion}" packages))
+          (n: (lib.hasPrefix "vanilla-" n) && (builtins.hasAttr "quilt-${removeVanilla n}-${latestVersion}" packages))
           (builtins.attrNames vanillaServers))
-        (gversion: builtins.getAttr "fabric-${removeVanilla gversion}-${latestVersion}" packages)))
+        (gversion: builtins.getAttr "quilt-${removeVanilla gversion}-${latestVersion}" packages)))
   ) // {
-    fabric = builtins.getAttr "fabric-${escapeVersion vanillaServers.vanilla.version}-${latestVersion}" packages;
+    quilt = builtins.getAttr "quilt-${escapeVersion vanillaServers.vanilla.version}-${latestVersion}" packages;
   }
 )
