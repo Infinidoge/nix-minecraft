@@ -4,9 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    digga.url = "github:divnix/digga";
-    digga.inputs.nixpkgs.follows = "nixpkgs";
-    digga.inputs.nixlib.follows = "nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
 
     # Packages
     packwiz = { url = "github:packwiz/packwiz"; flake = false; };
@@ -15,62 +13,40 @@
   outputs =
     { self
     , nixpkgs
-    , digga
+    , flake-utils
     , ...
     }@inputs:
-    digga.lib.mkFlake {
-      inherit self inputs;
-
-      channelsConfig = { allowUnfree = true; };
-
-      sharedOverlays = [
-        (final: prev: {
-          __dontExport = true;
-          lib = prev.lib.extend (lfinal: lprev: {
-            our = self.lib;
-          });
-        })
-
-        (final: prev: {
-          lib = prev.lib.extend (lfinal: lprev: {
-            maintainers = lprev.maintainers // {
-              # Add myself as a maintainer
-              infinidoge = {
-                name = "Infinidoge";
-                email = "infinidoge@inx.moe";
-                github = "Infinidoge";
-                githubId = 22727114;
-              };
-            };
-          });
-        })
-      ];
-
-      lib = import ./lib { lib = digga.lib // nixpkgs.lib; };
-
-      outputsBuilder = channels:
+    let
+      packages = pkgs:
         let
-          pkgs = channels.nixpkgs;
-          callPackage = pkgs.newScope { inherit inputs; };
+          callPackage = pkgs.newScope {
+            inherit inputs;
+            lib = pkgs.lib.extend (_: _: { our = self.lib; });
+          };
         in
-        {
-          packages = rec {
-            vanillaServers = callPackage ./pkgs/minecraft-servers { };
-            fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
-            minecraftServers = vanillaServers // fabricServers;
+        rec {
+          vanillaServers = callPackage ./pkgs/minecraft-servers { };
+          fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
+          minecraftServers = vanillaServers // fabricServers;
 
-            vanilla-server = vanillaServers.vanilla;
-            fabric-server = fabricServers.fabric;
-            minecraft-server = vanilla-server;
-          } // (
-            pkgs.lib.mapAttrs (n: v: callPackage v) (digga.lib.rakeLeaves ./pkgs/helpers)
-          ) // (
-            pkgs.lib.mapAttrs (n: v: callPackage v { }) (digga.lib.rakeLeaves ./pkgs/tools)
-          );
-        };
+          vanilla-server = vanillaServers.vanilla;
+          fabric-server = fabricServers.fabric;
+          minecraft-server = vanilla-server;
+        } // (
+          builtins.mapAttrs (n: v: callPackage v) (self.lib.rakeLeaves ./pkgs/helpers)
+        ) // (
+          builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./pkgs/tools)
+        );
+    in
+    {
+      lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
 
-      overlay = final: prev: self.packages.x86_64-linux;
-
-      nixosModules = digga.lib.rakeLeaves ./modules;
-    };
+      overlay = final: prev: packages prev;
+      nixosModules = self.lib.rakeLeaves ./modules;
+    } // flake-utils.lib.eachDefaultSystem (system: {
+      packages = packages (import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+      });
+    });
 }
