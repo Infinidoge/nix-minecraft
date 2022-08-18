@@ -1663,5 +1663,25 @@
     "name": "intermediary-1.19.1-pre5.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre5/intermediary-1.19.1-pre5.jar",
     "sha256": "11n9vf715ig5pixnim52cz0nij4p8v3vak8vdw6h7k80ymy3vrsj"
+  },
+  "net.fabricmc:intermediary:1.19.2": {
+    "name": "intermediary-1.19.2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2/intermediary-1.19.2.jar",
+    "sha256": "01wfynywcz4p82f175qp3x00wsi0y3vfnls2496akz7i438jb1d9"
+  },
+  "net.fabricmc:fabric-loader:0.14.9": {
+    "name": "fabric-loader-0.14.9.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.9/fabric-loader-0.14.9.jar",
+    "sha256": "06gv8rkmf4cv7f235zhwa4pmi57yxix38dd3mpxylfa58cyg1rir"
+  },
+  "net.fabricmc:intermediary:1.19.2-rc2": {
+    "name": "intermediary-1.19.2-rc2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2-rc2/intermediary-1.19.2-rc2.jar",
+    "sha256": "1qhm930j291f6yslc2hxjxaym68yaj8d52nax6phl0rrvmrpn12q"
+  },
+  "net.fabricmc:intermediary:1.19.2-rc1": {
+    "name": "intermediary-1.19.2-rc1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2-rc1/intermediary-1.19.2-rc1.jar",
+    "sha256": "08hb5dbnbb58p6za4507qf95zaw6wyxh7s9k09aha6cdc71nqqga"
   }
 }
