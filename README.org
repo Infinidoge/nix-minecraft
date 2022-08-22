@@ -104,10 +104,6 @@ pkgs.fetchModrinthMod { id = "versionid"; hash = "hash from above command"; }
 
 Not yet available, however planned for the future, assuming an elegant-enough method can be found. For now, you can use ~fetchurl~ with the file URL and file hash.
 
-*** ~packwiz~
-
-A package of [[https://packwiz.infra.link/][Packwiz]], tracking the master branch at its [[github:packwiz/packwiz][GitHub repository]]
-
 * Modules
 
 ** ~services.minecraft-servers~
