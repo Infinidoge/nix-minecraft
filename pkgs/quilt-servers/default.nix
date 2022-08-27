@@ -18,7 +18,7 @@ let
             (gversion: lock:
               lib.nameValuePair
                 "quilt-${escapeVersion gversion}-${escapeVersion lversion}"
-                (callPackage ./server.nix { inherit lock; minecraft-server = vanillaServers."vanilla-${escapeVersion gversion}"; }))
+                (callPackage ./server.nix { inherit lock; minecraft-server = vanillaServers."vanilla-${escapeVersion gversion}"; version = "${escapeVersion gversion}-${escapeVersion lversion}"; }))
             gversions)
         versions);
 in
