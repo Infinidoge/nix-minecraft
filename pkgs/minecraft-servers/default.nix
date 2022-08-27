@@ -1,5 +1,6 @@
 { callPackage
 , lib
+, our
 , javaPackages
 }:
 let
@@ -9,7 +10,7 @@ let
 
   packages = lib.mapAttrs'
     (version: value: {
-      name = "vanilla-${lib.our.escapeVersion version}";
+      name = "vanilla-${our.lib.escapeVersion version}";
       value = callPackage ./derivation.nix {
         inherit (value) version url sha1;
         jre_headless = getJavaVersion value.javaVersion;
@@ -17,8 +18,6 @@ let
     })
     versions;
 in
-lib.recurseIntoAttrs (
-  packages // {
-    vanilla = builtins.getAttr "vanilla-${lib.our.escapeVersion (lib.our.latestVersion versions)}" packages;
-  }
-)
+packages // {
+  vanilla = builtins.getAttr "vanilla-${our.lib.escapeVersion (our.lib.latestVersion versions)}" packages;
+}

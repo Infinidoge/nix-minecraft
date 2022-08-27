@@ -2,11 +2,9 @@
 
 ## About
 
-`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem. As of currently, it packages all (and I mean all) of the Vanilla versions, along with all supported versions of the Fabric and Quilt loaders.
+`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem. As of currently, it packages all versions of minecraft vanilla, along with all supported versions of the Fabric and Quilt loaders.
 
 ## Installation
-
-This repository is made exclusively as a Nix flake. Due to a lack of understanding of now Nix flake compat works, I have not included it, however if a PR is made to add compatibility, I may accept it.
 
 In your `flake.nix`:
 ```nix
@@ -21,85 +19,72 @@ In your system configuration:
 ```nix
 { inputs, ... }: # Make sure the flake inputs are in your system's config
 {
+  # For the service module
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
-  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+
+  # For the package overlay, laid out as: `pkgs.nix-minecraft.PACKAGE`
+  nixpkgs.overlays = [ inputs.nix-minecraft.overlays.default ];
 }
 ```
 
 From there, you can setup the service or use the packages, as described below.
 
-## Roadmap
-
-### TODO: Finish documentation
-
-This README file is incomplete, and doesn't fully describe the `services.minecraft-servers` module.
-Additionally, documentation should be added for the maintenance of the `vanillaServers.*`, `fabricServers.*`, and `quiltServers.*`.
+There is also possibility of using this repo in a non-flake thanks to `flake-compat` using its outputs for `packages.<system>.PACKAGE`, `nixosModules.nix-minecraft`, and similar.
 
 ## Packages
 
-### `vanillaServers.*`
+### Vanilla servers
 [Source](./pkgs/minecraft-servers)
 
-An attrset of all of the vanilla server versions, in the form of `vanilla-version`, where `version` is the Minecraft version (`1.18`, `1.12.2`, `22w16b`, etc), with all periods and spaces replaced with underscores (`1_18`, `1_12_2`, etc).
+This repo contains all of the vanilla server versions, in the form of `vanilla-version`, where `version` is the Minecraft version (`1.18`, `1.12.2`, `22w16b`, etc), with all periods and spaces replaced with underscores (`1_18`, `1_12_2`, etc).
 
-For convenience, `vanillaServers.vanilla` is equivalent to the latest major version.
+For convenience, `vanilla` is equivalent to the latest stable version.
 
 ```
-vanillaServers.vanilla-1_18_2
-vanillaServers.vanilla-22w16b
-vanillaServers.vanilla-22w13oneblockatatime
+vanilla-1_18_2
+vanilla-22w16b
+vanilla-22w13oneblockatatime
 ```
 
-### `fabricServers.*`
+Or through the overlay:
+```
+pkgs.nix-minecraft.vanilla-1_18_2
+```
+
+
+### Fabric servers
 [Source](./pkgs/fabric-servers)
 
-An attrset of all of the Fabric server versions, in the form of `fabric-mcversion` or `fabric-mcversion-fabricversion`, following the same format as described above for version numbers. If the `fabricversion` isn't specified, it uses the latest version.
+This repo contains all versions of the fabric loader, in the form of `fabric-mcversion` and `fabric-mcversion-fabricversion`, following the same format as vanilla servers for its version numbers. If the `fabricversion` isn't specified, it will use the latest version.
 
-The `mcversion` must be `>=1.14`, and if specified, the `fabricversion` must be `>=0.10.7`. The former is a limitation of Fabric, while the latter is the constraint I put on my packaging lockfile.
+The `mcversion` must be `>=1.14`, and if specified, the `fabricversion` must be `>=0.10.7`. The former is a limitation of Fabric, while the latter is the constraint put on the packaging lockfile to avoid exponential growth.
 
-For convenience, `fabricServers.fabric` is equivalent to the latest major Minecraft and Fabric versions.
+For convenience, `fabric` is equivalent to the latest stable Minecraft and Fabric loader versions.
 
 ```
-fabricServers.fabric-1_18_2
-fabricServers.fabric-22w16b
-fabricServers.fabric-1_18_2-0_13_3 # Specific fabric loader version
+fabric-1_18_2
+fabric-22w16b
+fabric-1_18_2-0_13_3 # Specific fabric loader version
 ```
 
-### `quiltServers.*`
+Or through the overlay:
+```
+pkgs.nix-minecraft.fabric-1_18_2
+```
+
+### Quilt servers
 [Source](./pkgs/quilt-servers)
 
-`quiltServers` functions the same as `fabricServers`, but with the Quilt mod loader.
+Quilt servers function the same as fabric servers, but with the Quilt mod loader.
 
-### `minecraftServers.*`
-
-`vanillaServers // fabricServers // quiltServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
-
-### Others
-
-* `vanilla-server`: Same as `vanillaServers.vanilla`
-* `fabric-server`: Same as `fabricServers.fabric`
-* `minecraft-server`: Same as `vanilla-server`
-
-#### `fetchModrinthMod`
-[Source](./pkgs/helpers/fetchModrinthMod.nix)
-
-Helper function that fetches a mod from [Modrinth](https://modrinth.com/).
-
-To use it, first find a mod on Modrinth, and click on the version you want. Among the information displayed, there is a `Version ID` string. This version ID will be refers to that version of the mod. See `services.minecraft-servers` below for an example usage.
-
-```shell
-nix run github:Infinidoge/nix-minecraft#nix-prefetch-modrinth -- versionid
+```
+quilt-1_19
 ```
 
-(This helper script can also be used in a temporary shell with `nix shell github:Infinidoge/nix-minecraft#nix-prefetch-modrinth`)
-
-```nix
-pkgs.fetchModrinthMod { id = "versionid"; hash = "hash from above command"; }
+Or though the overlay:
 ```
-
-#### TODO: `fetchCurseForgeMod`
-
-Not yet available, however planned for the future, assuming an elegant-enough method can be found. For now, you can use `fetchurl` with the file URL and file hash.
+pkgs.nix-minecraft.quilt-1_19
+```
 
 ## Modules
 
@@ -153,3 +138,10 @@ This example takes an attrset of the IDs and hashes for Modrinth mods, fetches e
   };
 }
 ```
+
+## Roadmap
+
+### TODO: Finish documentation
+
+This README file is incomplete, and doesn't fully describe the `services.minecraft-servers` module.
+Additionally, documentation should be added for the maintenance of the `vanilla-servers`, `fabric-servers`, and `quilt-servers`.
