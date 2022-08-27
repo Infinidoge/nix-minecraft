@@ -122,22 +122,52 @@ Would symlink a file containing `"Some text"` into the server's folder.
 
 This option is quite powerful, and can be used for a number of things, though most notably it can be used for declaratively setting up mods or plugins for the server.
 
-This example takes an attrset of the IDs and hashes for Modrinth mods, fetches each one, and makes a folder containing those mods. (`linkFarmFromDrvs` is quite useful because it can take a list of derivations and produce a folder suitable for this purpose.) The names in this attrset are meaningless, I only included them as convenient labels.
+This example takes a list of the IDs and hashes for Modrinth mods, fetches each one, and makes a folder containing those mods. (`linkFarmFromDrvs` is quite useful because it can take a list of derivations and produce a folder suitable for this purpose.)
 
 ```nix
 {
   symlinks = {
-    mods = pkgs.linkFarmFromDrvs "mods" (map pkgs.fetchModrinthMod (builtins.attrValues {
-      Starlight = { id = "4ew9whL8"; hash = "00w0alwq2bnbi1grxd2c22kylv93841k8dh0d5501cl57j7p0hgb"; };
-      Lithium = { id = "MoF1cn6g"; hash = "0gw75p4zri2l582zp6l92vcvpywsqafhzc5a61jcpgasjsp378v1"; };
-      FerriteCore = { id = "776Z5oW9"; hash = "1gvy92q1dy6zb7335yxib4ykbqrdvfxwwb2a40vrn7gkkcafh6dh"; };
-      Krypton = { id = "vJQ7plH2"; hash = "1y6sn1pjd9kl2ig73zg3zb7f6p2a36sa9f7gjzawrpnp0q6az4cf"; };
-      LazyDFU = { id = "C6e265zK"; hash = "1fga62yiz8189qrl33l4p5m05ic90dda3y9bg7iji6z97p4js8mj"; };
-      C2ME = { id = "5P5gJ4ws"; hash = "1xyhyy7v99k4cvxq5b47jgra481m73zx025ylps0kjlwx7b90jkh"; };
-    }));
-  };
+    mods = pkgs.linkFarmFromDrvs "mods" [
+      (builtins.fetchurl {
+        name = "lithium-fabric.jar";
+        url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/mc1.19.2-0.8.3/lithium-fabric-mc1.19.2-0.8.3.jar";
+        sha256 = "0vw0bp4y5aw6x97n8kwm99c0hzhkbj3vfp6ixflxampacacd9fgk";
+      })
+      (builtins.fetchurl {
+        name = "starlight.jar";
+        url = "https://cdn.modrinth.com/data/H8CaAYZC/versions/1.1.1+1.19/starlight-1.1.1%2Bfabric.ae22326.jar";
+        sha256 = "0hiscgm8s2na41ql9x6y5y49775dnhwq71msm8rsh9hkjj16dpgj";
+      })
+      (builtins.fetchurl {
+        name = "ferritecore-fabric.jar";
+        url = "https://cdn.modrinth.com/data/uXXizFIs/versions/5.0.0-fabric/ferritecore-5.0.0-fabric.jar";
+        sha256 = "0pakzs3mx43xzf5lmcb1rdp33f7zljyb4z88z4z1mvlmzzrc43n3";
+      })
+      (builtins.fetchurl {
+        name = "lazydfu.jar";
+        url = "https://cdn.modrinth.com/data/hvFnDODi/versions/0.1.3/lazydfu-0.1.3.jar";
+        sha256 = "1j3q4w974fd06q2w373wpg0mfra2wiiiwdsqvfl1kl2p7ckpffsg";
+      })
+      (builtins.fetchurl {
+        name = "krypton.jar";
+        url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/0.2.1/krypton-0.2.1.jar";
+        sha256 = "16hwhfkv44v4qhpsp1jrr7s1jca76y1yw4qniwr3f081miw7agv8";
+      })
+    ];
 }
 ```
+
+A tip is that you can use `nix-prefetch-url URL` to generate the hash you need to put in. The name attribute can be set to be anything as long as it ends with `.jar`, but if you change the name you should write the command as `nix-prefetch-url URL --name NAME`.
+
+If you want an easier alternative to this, you can look into `packwiz` and `ferium` as minecraft mod package managers. Both are currently packaged in nixpkgs, but require you to configure them outside of nix.
+
+## Testing a server
+
+Change `PACKAGE_NAME` to the server you want to test. For example `quilt-1_19` or `vanilla-1_18_2`.
+
+`nix shell .#PACKAGE_NAME.passthru.tests.minecraft-server.driver -c nixos-test-driver`
+
+Please file an issue if you do find a server which fails this test. We do not have the capacity to test every release of minecraft and its variants that we ship in this repo.
 
 ## Roadmap
 
