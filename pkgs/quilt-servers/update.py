@@ -140,9 +140,14 @@ def main(versions, libraries, locks, lib_locks):
 
 if __name__ == "__main__":
     folder = Path(__file__).parent
+    lo = folder / "locks.json"
+    li = folder / "libraries.json"
+    lo.touch()
+    li.touch()
+
     with (
-        open(lo := folder / "locks.json", "r") as locks,
-        open(li := folder / "libraries.json", "r") as lib_locks,
+        open(lo, "r") as locks,
+        open(li, "r") as lib_locks,
     ):
         versions = {} if lo.stat().st_size == 0 else json.load(locks)
         libraries = {} if li.stat().st_size == 0 else json.load(lib_locks)
