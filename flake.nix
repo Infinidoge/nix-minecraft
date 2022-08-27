@@ -15,7 +15,7 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       makeMinecraftServersFor = (pkgs:
         let
-          vanillaServers = import ./pkgs/minecraft-servers { our = self; inherit (pkgs) lib callPackage javaPackages; };
+          vanillaServers = import ./pkgs/minecraft-servers { our = self; inherit (pkgs) lib callPackage jre8_headless jre_headless; };
         in
         vanillaServers
         // import ./pkgs/fabric-servers { our = self; inherit vanillaServers; inherit (pkgs) lib callPackage; }
@@ -29,7 +29,19 @@
       });
       nixosModules.minecraft-servers = import ./modules/minecraft-servers.nix;
       packages = forAllSystems (system:
-        makeMinecraftServersFor (import nixpkgs { inherit system; config.allowUnfree = true; })
+        makeMinecraftServersFor (import nixpkgs {
+          inherit system;
+          # Every package in this repo is unfree, using this repo you accept that you will be using unfree packages.
+          config.allowUnfree = true;
+          # JRE cannot compile without these packages currently: https://github.com/NixOS/nixpkgs/issues/170825
+          config.permittedInsecurePackages = [
+            "openjdk-headless-16+36"
+            "openjdk-headless-15.0.1-ga"
+            "openjdk-headless-14.0.2-ga"
+            "openjdk-headless-13.0.2-ga"
+            "openjdk-headless-12.0.2-ga"
+          ];
+        })
       );
     };
 }
