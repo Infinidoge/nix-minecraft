@@ -2,11 +2,9 @@
 
 ## About
 
-`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem. As of currently, it packages all (and I mean all) of the Vanilla versions, along with all supported versions of the Fabric and Quilt loaders.
+`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem. As of currently, it packages all versions of minecraft vanilla, along with all supported versions of the Fabric and Quilt loaders.
 
 ## Installation
-
-This repository is made exclusively as a Nix flake. Due to a lack of understanding of now Nix flake compat works, I have not included it, however if a PR is made to add compatibility, I may accept it.
 
 In your `flake.nix`:
 ```nix
@@ -21,85 +19,72 @@ In your system configuration:
 ```nix
 { inputs, ... }: # Make sure the flake inputs are in your system's config
 {
+  # For the service module
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
-  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+
+  # For the package overlay, laid out as: `pkgs.nix-minecraft.PACKAGE`
+  nixpkgs.overlays = [ inputs.nix-minecraft.overlays.default ];
 }
 ```
 
 From there, you can setup the service or use the packages, as described below.
 
-## Roadmap
-
-### TODO: Finish documentation
-
-This README file is incomplete, and doesn't fully describe the `services.minecraft-servers` module.
-Additionally, documentation should be added for the maintenance of the `vanillaServers.*`, `fabricServers.*`, and `quiltServers.*`.
+There is also possibility of using this repo in a non-flake thanks to `flake-compat` using its outputs for `packages.<system>.PACKAGE`, `nixosModules.nix-minecraft`, and similar.
 
 ## Packages
 
-### `vanillaServers.*`
+### Vanilla servers
 [Source](./pkgs/minecraft-servers)
 
-An attrset of all of the vanilla server versions, in the form of `vanilla-version`, where `version` is the Minecraft version (`1.18`, `1.12.2`, `22w16b`, etc), with all periods and spaces replaced with underscores (`1_18`, `1_12_2`, etc).
+This repo contains all of the vanilla server versions, in the form of `vanilla-version`, where `version` is the Minecraft version (`1.18`, `1.12.2`, `22w16b`, etc), with all periods and spaces replaced with underscores (`1_18`, `1_12_2`, etc).
 
-For convenience, `vanillaServers.vanilla` is equivalent to the latest major version.
+For convenience, `vanilla` is equivalent to the latest stable version.
 
 ```
-vanillaServers.vanilla-1_18_2
-vanillaServers.vanilla-22w16b
-vanillaServers.vanilla-22w13oneblockatatime
+vanilla-1_18_2
+vanilla-22w16b
+vanilla-22w13oneblockatatime
 ```
 
-### `fabricServers.*`
+Or through the overlay:
+```
+pkgs.nix-minecraft.vanilla-1_18_2
+```
+
+
+### Fabric servers
 [Source](./pkgs/fabric-servers)
 
-An attrset of all of the Fabric server versions, in the form of `fabric-mcversion` or `fabric-mcversion-fabricversion`, following the same format as described above for version numbers. If the `fabricversion` isn't specified, it uses the latest version.
+This repo contains all versions of the fabric loader, in the form of `fabric-mcversion` and `fabric-mcversion-fabricversion`, following the same format as vanilla servers for its version numbers. If the `fabricversion` isn't specified, it will use the latest version.
 
-The `mcversion` must be `>=1.14`, and if specified, the `fabricversion` must be `>=0.10.7`. The former is a limitation of Fabric, while the latter is the constraint I put on my packaging lockfile.
+The `mcversion` must be `>=1.14`, and if specified, the `fabricversion` must be `>=0.10.7`. The former is a limitation of Fabric, while the latter is the constraint put on the packaging lockfile to avoid exponential growth.
 
-For convenience, `fabricServers.fabric` is equivalent to the latest major Minecraft and Fabric versions.
+For convenience, `fabric` is equivalent to the latest stable Minecraft and Fabric loader versions.
 
 ```
-fabricServers.fabric-1_18_2
-fabricServers.fabric-22w16b
-fabricServers.fabric-1_18_2-0_13_3 # Specific fabric loader version
+fabric-1_18_2
+fabric-22w16b
+fabric-1_18_2-0_13_3 # Specific fabric loader version
 ```
 
-### `quiltServers.*`
+Or through the overlay:
+```
+pkgs.nix-minecraft.fabric-1_18_2
+```
+
+### Quilt servers
 [Source](./pkgs/quilt-servers)
 
-`quiltServers` functions the same as `fabricServers`, but with the Quilt mod loader.
+Quilt servers function the same as fabric servers, but with the Quilt mod loader.
 
-### `minecraftServers.*`
-
-`vanillaServers // fabricServers // quiltServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
-
-### Others
-
-* `vanilla-server`: Same as `vanillaServers.vanilla`
-* `fabric-server`: Same as `fabricServers.fabric`
-* `minecraft-server`: Same as `vanilla-server`
-
-#### `fetchModrinthMod`
-[Source](./pkgs/helpers/fetchModrinthMod.nix)
-
-Helper function that fetches a mod from [Modrinth](https://modrinth.com/).
-
-To use it, first find a mod on Modrinth, and click on the version you want. Among the information displayed, there is a `Version ID` string. This version ID will be refers to that version of the mod. See `services.minecraft-servers` below for an example usage.
-
-```shell
-nix run github:Infinidoge/nix-minecraft#nix-prefetch-modrinth -- versionid
+```
+quilt-1_19
 ```
 
-(This helper script can also be used in a temporary shell with `nix shell github:Infinidoge/nix-minecraft#nix-prefetch-modrinth`)
-
-```nix
-pkgs.fetchModrinthMod { id = "versionid"; hash = "hash from above command"; }
+Or though the overlay:
 ```
-
-#### TODO: `fetchCurseForgeMod`
-
-Not yet available, however planned for the future, assuming an elegant-enough method can be found. For now, you can use `fetchurl` with the file URL and file hash.
+pkgs.nix-minecraft.quilt-1_19
+```
 
 ## Modules
 
@@ -137,19 +122,56 @@ Would symlink a file containing `"Some text"` into the server's folder.
 
 This option is quite powerful, and can be used for a number of things, though most notably it can be used for declaratively setting up mods or plugins for the server.
 
-This example takes an attrset of the IDs and hashes for Modrinth mods, fetches each one, and makes a folder containing those mods. (`linkFarmFromDrvs` is quite useful because it can take a list of derivations and produce a folder suitable for this purpose.) The names in this attrset are meaningless, I only included them as convenient labels.
+This example takes a list of the IDs and hashes for Modrinth mods, fetches each one, and makes a folder containing those mods. (`linkFarmFromDrvs` is quite useful because it can take a list of derivations and produce a folder suitable for this purpose.)
 
 ```nix
 {
   symlinks = {
-    mods = pkgs.linkFarmFromDrvs "mods" (map pkgs.fetchModrinthMod (builtins.attrValues {
-      Starlight = { id = "4ew9whL8"; hash = "00w0alwq2bnbi1grxd2c22kylv93841k8dh0d5501cl57j7p0hgb"; };
-      Lithium = { id = "MoF1cn6g"; hash = "0gw75p4zri2l582zp6l92vcvpywsqafhzc5a61jcpgasjsp378v1"; };
-      FerriteCore = { id = "776Z5oW9"; hash = "1gvy92q1dy6zb7335yxib4ykbqrdvfxwwb2a40vrn7gkkcafh6dh"; };
-      Krypton = { id = "vJQ7plH2"; hash = "1y6sn1pjd9kl2ig73zg3zb7f6p2a36sa9f7gjzawrpnp0q6az4cf"; };
-      LazyDFU = { id = "C6e265zK"; hash = "1fga62yiz8189qrl33l4p5m05ic90dda3y9bg7iji6z97p4js8mj"; };
-      C2ME = { id = "5P5gJ4ws"; hash = "1xyhyy7v99k4cvxq5b47jgra481m73zx025ylps0kjlwx7b90jkh"; };
-    }));
-  };
+    mods = pkgs.linkFarmFromDrvs "mods" [
+      (builtins.fetchurl {
+        name = "lithium-fabric.jar";
+        url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/mc1.19.2-0.8.3/lithium-fabric-mc1.19.2-0.8.3.jar";
+        sha256 = "0vw0bp4y5aw6x97n8kwm99c0hzhkbj3vfp6ixflxampacacd9fgk";
+      })
+      (builtins.fetchurl {
+        name = "starlight.jar";
+        url = "https://cdn.modrinth.com/data/H8CaAYZC/versions/1.1.1+1.19/starlight-1.1.1%2Bfabric.ae22326.jar";
+        sha256 = "0hiscgm8s2na41ql9x6y5y49775dnhwq71msm8rsh9hkjj16dpgj";
+      })
+      (builtins.fetchurl {
+        name = "ferritecore-fabric.jar";
+        url = "https://cdn.modrinth.com/data/uXXizFIs/versions/5.0.0-fabric/ferritecore-5.0.0-fabric.jar";
+        sha256 = "0pakzs3mx43xzf5lmcb1rdp33f7zljyb4z88z4z1mvlmzzrc43n3";
+      })
+      (builtins.fetchurl {
+        name = "lazydfu.jar";
+        url = "https://cdn.modrinth.com/data/hvFnDODi/versions/0.1.3/lazydfu-0.1.3.jar";
+        sha256 = "1j3q4w974fd06q2w373wpg0mfra2wiiiwdsqvfl1kl2p7ckpffsg";
+      })
+      (builtins.fetchurl {
+        name = "krypton.jar";
+        url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/0.2.1/krypton-0.2.1.jar";
+        sha256 = "16hwhfkv44v4qhpsp1jrr7s1jca76y1yw4qniwr3f081miw7agv8";
+      })
+    ];
 }
 ```
+
+A tip is that you can use `nix-prefetch-url URL` to generate the hash you need to put in. The name attribute can be set to be anything as long as it ends with `.jar`, but if you change the name you should write the command as `nix-prefetch-url URL --name NAME`.
+
+If you want an easier alternative to this, you can look into `packwiz` and `ferium` as minecraft mod package managers. Both are currently packaged in nixpkgs, but require you to configure them outside of nix.
+
+## Testing a server
+
+Change `PACKAGE_NAME` to the server you want to test. For example `quilt-1_19` or `vanilla-1_18_2`.
+
+`nix shell .#PACKAGE_NAME.passthru.tests.minecraft-server.driver -c nixos-test-driver`
+
+Please file an issue if you do find a server which fails this test. We do not have the capacity to test every release of minecraft and its variants that we ship in this repo.
+
+## Roadmap
+
+### TODO: Finish documentation
+
+This README file is incomplete, and doesn't fully describe the `services.minecraft-servers` module.
+Additionally, documentation should be added for the maintenance of the `vanilla-servers`, `fabric-servers`, and `quilt-servers`.

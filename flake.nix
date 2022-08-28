@@ -1,50 +1,47 @@
 {
   description = "An attempt to better support Minecraft-related content for the Nix ecosystem";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-  };
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  outputs =
-    { self
-    , nixpkgs
-    , flake-utils
-    , ...
-    }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
-      packages = pkgs:
+      supportedSystems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      makeMinecraftServersFor = (pkgs:
         let
-          callPackage = pkgs.newScope {
-            inherit inputs;
-            lib = pkgs.lib.extend (_: _: { our = self.lib; });
-          };
+          vanillaServers = import ./pkgs/minecraft-servers { our = self; inherit (pkgs) lib callPackage jre8_headless jre_headless; };
         in
-        rec {
-          vanillaServers = callPackage ./pkgs/minecraft-servers { };
-          fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
-          quiltServers = callPackage ./pkgs/quilt-servers { inherit vanillaServers; };
-          minecraftServers = vanillaServers // fabricServers // quiltServers;
-
-          vanilla-server = vanillaServers.vanilla;
-          fabric-server = fabricServers.fabric;
-          quilt-server = quiltServers.quilt;
-          minecraft-server = vanilla-server;
-        } // (
-          builtins.mapAttrs (n: v: callPackage v) (self.lib.rakeLeaves ./pkgs/helpers)
-        ) // (
-          builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./pkgs/tools)
-        );
+        vanillaServers
+        // import ./pkgs/fabric-servers { our = self; inherit vanillaServers; inherit (pkgs) lib callPackage; }
+        // import ./pkgs/quilt-servers { our = self; inherit vanillaServers; inherit (pkgs) lib callPackage; }
+      );
     in
     {
-      lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
-
-      overlay = final: prev: packages prev;
-      nixosModules = self.lib.rakeLeaves ./modules;
-    } // flake-utils.lib.eachDefaultSystem (system: {
-      packages = packages (import nixpkgs {
-        inherit system;
-        config = { allowUnfree = true; };
+      lib = import ./lib { inherit (nixpkgs) lib; };
+      overlays.default = (final: prev: {
+        nix-minecraft = prev.lib.recurseIntoAttrs (makeMinecraftServersFor prev);
       });
-    });
+      nixosModules.minecraft-servers = import ./modules/minecraft-servers.nix;
+      packages = forAllSystems (system:
+        makeMinecraftServersFor (import nixpkgs {
+          inherit system;
+          # Every package in this repo is unfree, using this repo you accept that you will be using unfree packages.
+          config.allowUnfree = true;
+          # JRE cannot compile without these packages currently: https://github.com/NixOS/nixpkgs/issues/170825
+          config.permittedInsecurePackages = [
+            "openjdk-headless-16+36"
+            "openjdk-headless-15.0.1-ga"
+            "openjdk-headless-14.0.2-ga"
+            "openjdk-headless-13.0.2-ga"
+            "openjdk-headless-12.0.2-ga"
+          ];
+        })
+      );
+    };
 }

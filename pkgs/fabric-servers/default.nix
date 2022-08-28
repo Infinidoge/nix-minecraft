@@ -1,13 +1,14 @@
 { callPackage
 , lib
+, our
 , vanillaServers
 }:
 
 let
   versions = lib.importJSON ./locks.json;
 
-  inherit (lib.our) escapeVersion;
-  latestVersion = escapeVersion (lib.our.latestVersion versions);
+  inherit (our.lib) escapeVersion removeVanillaPrefix;
+  latestVersion = escapeVersion (our.lib.latestVersion versions);
 
   packages =
     builtins.foldl' (x: y: x // y) { }
@@ -17,24 +18,18 @@ let
             (gversion: lock:
               lib.nameValuePair
                 "fabric-${escapeVersion gversion}-${escapeVersion lversion}"
-                (callPackage ./server.nix { inherit lock; minecraft-server = vanillaServers."vanilla-${escapeVersion gversion}"; }))
+                (callPackage ./server.nix { inherit lock; minecraft-server = vanillaServers."vanilla-${escapeVersion gversion}"; version = "${escapeVersion gversion}-${escapeVersion lversion}"; }))
             gversions)
         versions);
 in
-lib.recurseIntoAttrs (
-  packages
-  // (
-    let
-      removeVanilla = n: escapeVersion (lib.removePrefix "vanilla-" n);
-    in
-    (lib.mapAttrs'
-      (n: v: lib.nameValuePair "fabric-${lib.removePrefix "vanilla-" n}" v)
-      (lib.genAttrs
-        (builtins.filter
-          (n: (lib.hasPrefix "vanilla-" n) && (builtins.hasAttr "fabric-${removeVanilla n}-${latestVersion}" packages))
-          (builtins.attrNames vanillaServers))
-        (gversion: builtins.getAttr "fabric-${removeVanilla gversion}-${latestVersion}" packages)))
-  ) // {
-    fabric = builtins.getAttr "fabric-${escapeVersion vanillaServers.vanilla.version}-${latestVersion}" packages;
-  }
-)
+packages // (
+	(lib.mapAttrs'
+		(n: v: lib.nameValuePair "fabric-${lib.removePrefix "vanilla-" n}" v)
+		(lib.genAttrs
+			(builtins.filter
+				(n: (lib.hasPrefix "vanilla-" n) && (builtins.hasAttr "fabric-${removeVanillaPrefix n}-${latestVersion}" packages))
+				(builtins.attrNames vanillaServers))
+			(gversion: builtins.getAttr "fabric-${removeVanillaPrefix gversion}-${latestVersion}" packages)))
+) // {
+	fabric = builtins.getAttr "fabric-${escapeVersion vanillaServers.vanilla.version}-${latestVersion}" packages;
+}
