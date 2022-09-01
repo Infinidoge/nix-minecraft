@@ -15,7 +15,7 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       makeMinecraftServersFor = (pkgs:
         let
-          vanillaServers = import ./pkgs/minecraft-servers { our = self; inherit (pkgs) lib callPackage jre8_headless jre_headless; };
+          vanillaServers = import ./pkgs/vanilla-servers { our = self; inherit (pkgs) lib callPackage jre8_headless jre_headless; };
         in
         vanillaServers
         // import ./pkgs/fabric-servers { our = self; inherit vanillaServers; inherit (pkgs) lib callPackage; }
