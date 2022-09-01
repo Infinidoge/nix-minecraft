@@ -22,7 +22,9 @@ LOADER_VERSION_FILTER = lambda version: (
 
 # Package all game versions supported by Fabric
 GAME_VERSION_FILTER = lambda version: (
-    not "combat" in version["version"] or not "3D Shareware" in version["version"]
+    not "combat" in version["version"]
+    and not "1.18_experimental" in version["version"]
+    and not "1.19_deep_dark_experimental" in version["version"]
 )
 
 # Uncomment to package only major releases:
