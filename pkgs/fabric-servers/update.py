@@ -16,9 +16,9 @@ ENDPOINT = "https://meta.fabricmc.net/v2/versions"
 
 # These filters specify which Fabric loader and Minecraft game versions to package.
 
-# Only package Fabric versions greater than 0.10.7 (all versions available in the installer)
+# Only package Fabric versions greater than 0.13.0. (Should all be backwards compatible)
 LOADER_VERSION_FILTER = lambda version: (
-    version["separator"] == "." and versiontuple(version["version"]) >= (0, 10, 7)
+    version["separator"] == "." and versiontuple(version["version"]) >= (0, 13, 0)
 )
 
 # Package all game versions supported by Fabric

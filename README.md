@@ -57,14 +57,14 @@ pkgs.nix-minecraft.vanilla-1_18_2
 
 This repo contains all versions of the fabric loader, in the form of `fabric-mcversion` and `fabric-mcversion-fabricversion`, following the same format as vanilla servers for its version numbers. If the `fabricversion` isn't specified, it will use the latest version.
 
-The `mcversion` must be `>=1.14`, and if specified, the `fabricversion` must be `>=0.10.7`. The former is a limitation of Fabric, while the latter is the constraint put on the packaging lockfile to avoid exponential growth.
+The `mcversion` must be `>=1.14`, and if specified, the `fabricversion` must be `>=0.13.0`. The former is a limitation of Fabric, while the latter is the constraint put on the packaging lockfile to avoid exponential growth.
 
 For convenience, `fabric` is equivalent to the latest stable Minecraft and Fabric loader versions.
 
 ```
 fabric-1_18_2
 fabric-22w16b
-fabric-1_18_2-0_13_3 # Specific fabric loader version
+fabric-1_18_2-0_14_3 # Specific fabric loader version
 ```
 
 Or through the overlay:
