@@ -43,5 +43,20 @@
           ];
         })
       );
+      checks.x86_64-linux =
+        let
+          system = "x86_64-linux";
+          pkgs = nixpkgs.legacyPackages.${system};
+          mkTest = minecraft-package: (import ./tests/minecraft-servers.nix {
+            makeTest = import (nixpkgs + "/nixos/tests/make-test-python.nix");
+            nixosModule = self.nixosModules.minecraft-servers;
+            inherit pkgs minecraft-package;
+          }).minecraft-server-test;
+        in
+        {
+          vanilla = mkTest self.packages.${system}.vanilla;
+          fabric = mkTest self.packages.${system}.fabric;
+          quilt = mkTest self.packages.${system}.quilt;
+        };
     };
 }
