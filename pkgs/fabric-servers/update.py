@@ -4,6 +4,7 @@
 import json
 import subprocess
 import requests
+import urllib.parse
 from pathlib import Path
 
 
@@ -82,10 +83,10 @@ def gen_locks(version, libraries):
             print(f"- - - Fetching library {name}")
             ldir, lname, lversion = name.split(":")
             lfilename = f"{lname}-{lversion}.zip"
-            lurl = f"{url}{ldir.replace('.', '/')}/{lname}/{lversion}/{lname}-{lversion}.jar"
+            lurl = f"{url}{ldir.replace('.', '/')}" + urllib.parse.quote(f"/{lname}/{lversion}/{lname}-{lversion}.jar")
 
             lhash = subprocess.run(
-                ["nix-prefetch-url", lurl], capture_output=True, encoding="UTF-8"
+                ["nix-prefetch-url", "--name", f"{lname}-{lversion}.jar".replace(" ", "_"), lurl], capture_output=True, encoding="UTF-8"
             ).stdout.rstrip("\n")
 
             libraries[name] = {"name": lfilename, "url": lurl, "sha256": lhash}
