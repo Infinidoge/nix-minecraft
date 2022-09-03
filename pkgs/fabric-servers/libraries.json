@@ -1,12 +1,12 @@
 {
   "net.fabricmc:tiny-mappings-parser:0.3.0+build.17": {
     "name": "tiny-mappings-parser-0.3.0+build.17.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-mappings-parser/0.3.0+build.17/tiny-mappings-parser-0.3.0+build.17.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-mappings-parser/0.3.0%2Bbuild.17/tiny-mappings-parser-0.3.0%2Bbuild.17.jar",
     "sha256": "19kvhxfk5v01f2rvl7j02vqhn3nd2bh5jsgbk44rpzqv9f6074db"
   },
   "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5": {
     "name": "sponge-mixin-0.11.4+mixin.0.8.5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.4+mixin.0.8.5/sponge-mixin-0.11.4+mixin.0.8.5.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.4%2Bmixin.0.8.5/sponge-mixin-0.11.4%2Bmixin.0.8.5.jar",
     "sha256": "0nphha3qmzlhdiq1xah8qnda0fvprndv20jdkvah1zy0km3zbsyg"
   },
   "net.fabricmc:tiny-remapper:0.8.2": {
@@ -44,15 +44,125 @@
     "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.3/asm-util-9.3.jar",
     "sha256": "14i1jsa3k18kcj0q8iwilcyvqsbqcv2qbyk7npyqlad03hlqzxvh"
   },
+  "net.fabricmc:intermediary:1.19.2": {
+    "name": "intermediary-1.19.2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2/intermediary-1.19.2.jar",
+    "sha256": "01wfynywcz4p82f175qp3x00wsi0y3vfnls2496akz7i438jb1d9"
+  },
+  "net.fabricmc:fabric-loader:0.14.9": {
+    "name": "fabric-loader-0.14.9.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.9/fabric-loader-0.14.9.jar",
+    "sha256": "06gv8rkmf4cv7f235zhwa4pmi57yxix38dd3mpxylfa58cyg1rir"
+  },
+  "net.fabricmc:intermediary:1.19.2-rc2": {
+    "name": "intermediary-1.19.2-rc2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2-rc2/intermediary-1.19.2-rc2.jar",
+    "sha256": "1qhm930j291f6yslc2hxjxaym68yaj8d52nax6phl0rrvmrpn12q"
+  },
+  "net.fabricmc:intermediary:1.19.2-rc1": {
+    "name": "intermediary-1.19.2-rc1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2-rc1/intermediary-1.19.2-rc1.jar",
+    "sha256": "08hb5dbnbb58p6za4507qf95zaw6wyxh7s9k09aha6cdc71nqqga"
+  },
+  "net.fabricmc:intermediary:1.19.1": {
+    "name": "intermediary-1.19.1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1/intermediary-1.19.1.jar",
+    "sha256": "0866rx8slwxg7aq10jxgcwqs6dnk9n8pr462h62janadj16sll2a"
+  },
+  "net.fabricmc:intermediary:1.19.1-rc3": {
+    "name": "intermediary-1.19.1-rc3.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-rc3/intermediary-1.19.1-rc3.jar",
+    "sha256": "1l81qxia8jq7kfxwafpxdn5jvn9q2wd0bjcgyl1jcw5fzc0i2ay5"
+  },
+  "net.fabricmc:intermediary:1.19.1-rc2": {
+    "name": "intermediary-1.19.1-rc2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-rc2/intermediary-1.19.1-rc2.jar",
+    "sha256": "0hv49dqz6lkiic3x34qbsdzkkz3zxwqd09qdai4n5i7f1chn7bv8"
+  },
+  "net.fabricmc:intermediary:1.19.1-pre6": {
+    "name": "intermediary-1.19.1-pre6.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre6/intermediary-1.19.1-pre6.jar",
+    "sha256": "1m1czpc8lmr6006xgvnpmmwlsl84wgjqprfhq63znaaxj67qdzn8"
+  },
+  "net.fabricmc:intermediary:1.19.1-pre5": {
+    "name": "intermediary-1.19.1-pre5.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre5/intermediary-1.19.1-pre5.jar",
+    "sha256": "11n9vf715ig5pixnim52cz0nij4p8v3vak8vdw6h7k80ymy3vrsj"
+  },
+  "net.fabricmc:intermediary:1.19.1-pre4": {
+    "name": "intermediary-1.19.1-pre4.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre4/intermediary-1.19.1-pre4.jar",
+    "sha256": "1p1vlzk1zxwagy12scvq5z7vskzn52dy27j75iay86a533c0hfkv"
+  },
+  "net.fabricmc:intermediary:1.19.1-pre3": {
+    "name": "intermediary-1.19.1-pre3.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre3/intermediary-1.19.1-pre3.jar",
+    "sha256": "1kmz5ain87kkc34xjjl2i34vxjvgcanrlzsbsm91isx98fzwz2pi"
+  },
+  "net.fabricmc:intermediary:1.19.1-pre2": {
+    "name": "intermediary-1.19.1-pre2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre2/intermediary-1.19.1-pre2.jar",
+    "sha256": "12a394wpvwwiymj9sczc116zag1856qckzgq8zd5cw2iwicwr6rx"
+  },
+  "net.fabricmc:intermediary:1.19.1-rc1": {
+    "name": "intermediary-1.19.1-rc1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-rc1/intermediary-1.19.1-rc1.jar",
+    "sha256": "1w4pcg8gh8a5q3z9va452ixmd49rkqcziwn38zsh0v0rg6hxjzcl"
+  },
+  "net.fabricmc:intermediary:1.19.1-pre1": {
+    "name": "intermediary-1.19.1-pre1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre1/intermediary-1.19.1-pre1.jar",
+    "sha256": "13lc455ykvrx3r9hwm05qv0hdvcq4igcv0hh6bd9g3sn2kijph16"
+  },
+  "net.fabricmc:intermediary:22w24a": {
+    "name": "intermediary-22w24a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w24a/intermediary-22w24a.jar",
+    "sha256": "1hzzgps3hwlh1v06587a9kngr1hkpf5b4dpb3hyf04jm63yf9yv2"
+  },
+  "net.fabricmc:intermediary:1.19": {
+    "name": "intermediary-1.19.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19/intermediary-1.19.jar",
+    "sha256": "0kb82n5zbynpwjanmqgx4p9fl39i00cxpvwc5mh0xqjy771qp9iq"
+  },
+  "net.fabricmc:intermediary:1.19-rc2": {
+    "name": "intermediary-1.19-rc2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-rc2/intermediary-1.19-rc2.jar",
+    "sha256": "1jirhbdgzq4bbyj40f0w3p2bb5jni92c8nln757ajjg9jafj9jcm"
+  },
+  "net.fabricmc:intermediary:1.19-rc1": {
+    "name": "intermediary-1.19-rc1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-rc1/intermediary-1.19-rc1.jar",
+    "sha256": "1026psj76c0cvhhmiv1dr33lz30qc7dgj0yispcchkbwy2his4bx"
+  },
+  "net.fabricmc:intermediary:1.19-pre5": {
+    "name": "intermediary-1.19-pre5.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre5/intermediary-1.19-pre5.jar",
+    "sha256": "1jvjg1092640xblkri644zbdaxrhchw0gwjbbm2ribqddac5pklg"
+  },
+  "net.fabricmc:intermediary:1.19-pre4": {
+    "name": "intermediary-1.19-pre4.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre4/intermediary-1.19-pre4.jar",
+    "sha256": "0ga1i3vap949a14gcgpyvxjmhahrg35jic9y309rbbf51vkbyn4k"
+  },
+  "net.fabricmc:intermediary:1.19-pre3": {
+    "name": "intermediary-1.19-pre3.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre3/intermediary-1.19-pre3.jar",
+    "sha256": "07i1kz3qrmxhprd8lvs4ps6v65r7fs4ykbazxg3bl5jix2pva5ww"
+  },
+  "net.fabricmc:intermediary:1.19-pre2": {
+    "name": "intermediary-1.19-pre2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre2/intermediary-1.19-pre2.jar",
+    "sha256": "1yfiqnx67ckv9kzvg18clwv0vj91m5jzmd3pikaz8njfj2f0plnh"
+  },
+  "net.fabricmc:intermediary:1.19-pre1": {
+    "name": "intermediary-1.19-pre1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre1/intermediary-1.19-pre1.jar",
+    "sha256": "1965iy58vfk3vifx1h55ndqwkrzqfpvbgdx8ihb96jsm5fdjv22y"
+  },
   "net.fabricmc:intermediary:22w19a": {
     "name": "intermediary-22w19a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w19a/intermediary-22w19a.jar",
     "sha256": "0jz7sjvbsygbw1fkmvw241jvxj6j0y579amkfkz1739dpfb36z0w"
-  },
-  "net.fabricmc:fabric-loader:0.14.5": {
-    "name": "fabric-loader-0.14.5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.5/fabric-loader-0.14.5.jar",
-    "sha256": "0pnibrffp78afm1i9as47h21amarb5vh5q9xrwp3la3m51vr8qlq"
   },
   "net.fabricmc:intermediary:22w18a": {
     "name": "intermediary-22w18a.zip",
@@ -916,23 +1026,23 @@
   },
   "net.fabricmc:intermediary:1.14.2 Pre-Release 4": {
     "name": "intermediary-1.14.2 Pre-Release 4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2 Pre-Release 4/intermediary-1.14.2 Pre-Release 4.jar",
-    "sha256": "0bwy5frw562br7bcvwzsf9wlq8q3pxws1a2am3cr3y6v1x0hbyxc"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2%20Pre-Release%204/intermediary-1.14.2%20Pre-Release%204.jar",
+    "sha256": "0j3mqixcbx3x5763ibkrnq410262ih9ailb80rpjid2ijpwdgabc"
   },
   "net.fabricmc:intermediary:1.14.2 Pre-Release 3": {
     "name": "intermediary-1.14.2 Pre-Release 3.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2 Pre-Release 3/intermediary-1.14.2 Pre-Release 3.jar",
-    "sha256": "0bwy5frw562br7bcvwzsf9wlq8q3pxws1a2am3cr3y6v1x0hbyxc"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2%20Pre-Release%203/intermediary-1.14.2%20Pre-Release%203.jar",
+    "sha256": "0j3mqixcbx3x5763ibkrnq410262ih9ailb80rpjid2ijpwdgabc"
   },
   "net.fabricmc:intermediary:1.14.2 Pre-Release 2": {
     "name": "intermediary-1.14.2 Pre-Release 2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2 Pre-Release 2/intermediary-1.14.2 Pre-Release 2.jar",
-    "sha256": "0bwy5frw562br7bcvwzsf9wlq8q3pxws1a2am3cr3y6v1x0hbyxc"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2%20Pre-Release%202/intermediary-1.14.2%20Pre-Release%202.jar",
+    "sha256": "0jgwnw70d9y0fcb31lnc9kxd21vnj7sp23186lcivrphixfx3c5s"
   },
   "net.fabricmc:intermediary:1.14.2 Pre-Release 1": {
     "name": "intermediary-1.14.2 Pre-Release 1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2 Pre-Release 1/intermediary-1.14.2 Pre-Release 1.jar",
-    "sha256": "0bwy5frw562br7bcvwzsf9wlq8q3pxws1a2am3cr3y6v1x0hbyxc"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.2%20Pre-Release%201/intermediary-1.14.2%20Pre-Release%201.jar",
+    "sha256": "1b7bh3swm2rdis3540103s2slhbpqg507wsb5jg2lsyp35qx29l0"
   },
   "net.fabricmc:intermediary:1.14.1": {
     "name": "intermediary-1.14.1.zip",
@@ -941,13 +1051,13 @@
   },
   "net.fabricmc:intermediary:1.14.1 Pre-Release 2": {
     "name": "intermediary-1.14.1 Pre-Release 2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.1 Pre-Release 2/intermediary-1.14.1 Pre-Release 2.jar",
-    "sha256": "0xpcrdwqjd4x4h8ccvs61jfrk2ghqldp49krhni7hs6q4gnx33fk"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.1%20Pre-Release%202/intermediary-1.14.1%20Pre-Release%202.jar",
+    "sha256": "04pbqngwvwd4h3nnhzd8vjb21wz7pqa3g3ssf5z1r12wdcij99al"
   },
   "net.fabricmc:intermediary:1.14.1 Pre-Release 1": {
     "name": "intermediary-1.14.1 Pre-Release 1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.1 Pre-Release 1/intermediary-1.14.1 Pre-Release 1.jar",
-    "sha256": "0xpcrdwqjd4x4h8ccvs61jfrk2ghqldp49krhni7hs6q4gnx33fk"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14.1%20Pre-Release%201/intermediary-1.14.1%20Pre-Release%201.jar",
+    "sha256": "1gnirhizsg8gmfv99wf1d2c8bjdxlvdlzzs27fd5q63kfqi1p762"
   },
   "net.fabricmc:intermediary:1.14": {
     "name": "intermediary-1.14.zip",
@@ -956,28 +1066,28 @@
   },
   "net.fabricmc:intermediary:1.14 Pre-Release 5": {
     "name": "intermediary-1.14 Pre-Release 5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14 Pre-Release 5/intermediary-1.14 Pre-Release 5.jar",
-    "sha256": "0bvb2q7w2wqr6x1lv0i395sqlb91azgn8rli49cyb6x2bnj5d15q"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14%20Pre-Release%205/intermediary-1.14%20Pre-Release%205.jar",
+    "sha256": "0hfm6l8dl5ly9pig5v4w3cf76izc9vsrxdl48g85rf656hcr7p8z"
   },
   "net.fabricmc:intermediary:1.14 Pre-Release 4": {
     "name": "intermediary-1.14 Pre-Release 4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14 Pre-Release 4/intermediary-1.14 Pre-Release 4.jar",
-    "sha256": "0bvb2q7w2wqr6x1lv0i395sqlb91azgn8rli49cyb6x2bnj5d15q"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14%20Pre-Release%204/intermediary-1.14%20Pre-Release%204.jar",
+    "sha256": "1y44ijj6lhsfgiarb1x1a3sjy4xl4vwk7aqhvq2hl04zl6k0l4wq"
   },
   "net.fabricmc:intermediary:1.14 Pre-Release 3": {
     "name": "intermediary-1.14 Pre-Release 3.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14 Pre-Release 3/intermediary-1.14 Pre-Release 3.jar",
-    "sha256": "0bvb2q7w2wqr6x1lv0i395sqlb91azgn8rli49cyb6x2bnj5d15q"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14%20Pre-Release%203/intermediary-1.14%20Pre-Release%203.jar",
+    "sha256": "0fga8b60i74x54byn93k804vn3x3hm1219hxhbfs475q2i8pykgv"
   },
   "net.fabricmc:intermediary:1.14 Pre-Release 2": {
     "name": "intermediary-1.14 Pre-Release 2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14 Pre-Release 2/intermediary-1.14 Pre-Release 2.jar",
-    "sha256": "0bvb2q7w2wqr6x1lv0i395sqlb91azgn8rli49cyb6x2bnj5d15q"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14%20Pre-Release%202/intermediary-1.14%20Pre-Release%202.jar",
+    "sha256": "05wx9gb2d9zvsgpp85k09a6raq54f0k7x7mjqzsk25bf4vfiizyf"
   },
   "net.fabricmc:intermediary:1.14 Pre-Release 1": {
     "name": "intermediary-1.14 Pre-Release 1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14 Pre-Release 1/intermediary-1.14 Pre-Release 1.jar",
-    "sha256": "0bvb2q7w2wqr6x1lv0i395sqlb91azgn8rli49cyb6x2bnj5d15q"
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.14%20Pre-Release%201/intermediary-1.14%20Pre-Release%201.jar",
+    "sha256": "1zqyrs959mx0aalki1y7wjzm4h6drca4j53szrsyb65r4m5hlsnf"
   },
   "net.fabricmc:intermediary:19w14b": {
     "name": "intermediary-19w14b.zip",
@@ -988,6 +1098,11 @@
     "name": "intermediary-19w14a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/19w14a/intermediary-19w14a.jar",
     "sha256": "1wji8bcqvrhws8xy4bpm8xsh2gyiik5774li0d02j9a1q1r4hars"
+  },
+  "net.fabricmc:intermediary:3D Shareware v1.34": {
+    "name": "intermediary-3D Shareware v1.34.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/3D%20Shareware%20v1.34/intermediary-3D%20Shareware%20v1.34.jar",
+    "sha256": "1324fik7nqkzs4bfnn57wp9xxr9plizzbf31zwx0kazi6amqkajn"
   },
   "net.fabricmc:intermediary:19w13b": {
     "name": "intermediary-19w13b.zip",
@@ -1134,9 +1249,29 @@
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/18w43b/intermediary-18w43b.jar",
     "sha256": "12w24k6npfgb01sryd6wsnzghx2pfy99yzf75pahrjw9mkh8wccx"
   },
+  "net.fabricmc:fabric-loader:0.14.8": {
+    "name": "fabric-loader-0.14.8.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.8/fabric-loader-0.14.8.jar",
+    "sha256": "07z9fvkl82xsfl7kdb2532953h88nk1p14kp7hpjjyfjgf01jd75"
+  },
+  "net.fabricmc:fabric-loader:0.14.7": {
+    "name": "fabric-loader-0.14.7.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.7/fabric-loader-0.14.7.jar",
+    "sha256": "1h3w4a11yjfndkjvpx10grxrimb4qy2j5q86y1pyximdfp3wiy7l"
+  },
+  "net.fabricmc:fabric-loader:0.14.6": {
+    "name": "fabric-loader-0.14.6.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.6/fabric-loader-0.14.6.jar",
+    "sha256": "0rs9wnyzwzkfml3l6pkin2f223hn0fvvcy1wrax9s77aqzpqvfdq"
+  },
+  "net.fabricmc:fabric-loader:0.14.5": {
+    "name": "fabric-loader-0.14.5.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.5/fabric-loader-0.14.5.jar",
+    "sha256": "0pnibrffp78afm1i9as47h21amarb5vh5q9xrwp3la3m51vr8qlq"
+  },
   "net.fabricmc:sponge-mixin:0.11.3+mixin.0.8.5": {
     "name": "sponge-mixin-0.11.3+mixin.0.8.5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.3+mixin.0.8.5/sponge-mixin-0.11.3+mixin.0.8.5.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.3%2Bmixin.0.8.5/sponge-mixin-0.11.3%2Bmixin.0.8.5.jar",
     "sha256": "1vd1yqc0nap5jy9sai357k1w93d2nm7f2ijy67nsq0nfbal49zcp"
   },
   "net.fabricmc:fabric-loader:0.14.4": {
@@ -1166,7 +1301,7 @@
   },
   "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5": {
     "name": "sponge-mixin-0.11.2+mixin.0.8.5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.2+mixin.0.8.5/sponge-mixin-0.11.2+mixin.0.8.5.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.2%2Bmixin.0.8.5/sponge-mixin-0.11.2%2Bmixin.0.8.5.jar",
     "sha256": "107f6y08hbhp10dnq1y6zdvyaf57qkma55k4bgp6p3c8yf708hkr"
   },
   "net.fabricmc:tiny-remapper:0.8.1": {
@@ -1211,7 +1346,7 @@
   },
   "net.fabricmc:sponge-mixin:0.11.1+mixin.0.8.5": {
     "name": "sponge-mixin-0.11.1+mixin.0.8.5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.1+mixin.0.8.5/sponge-mixin-0.11.1+mixin.0.8.5.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.11.1%2Bmixin.0.8.5/sponge-mixin-0.11.1%2Bmixin.0.8.5.jar",
     "sha256": "02n1l9ihsr2qhfdsz05whbpck1q5vj94cdqqz94wc9ndx0abjr31"
   },
   "net.fabricmc:fabric-loader:0.13.1": {
@@ -1223,400 +1358,5 @@
     "name": "fabric-loader-0.13.0.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.13.0/fabric-loader-0.13.0.jar",
     "sha256": "0np0rlx6b97sgfypkd8p0fdbsx3cj5sak0wzbb4p7f6hz4phb5j0"
-  },
-  "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4": {
-    "name": "sponge-mixin-0.10.7+mixin.0.8.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.10.7+mixin.0.8.4/sponge-mixin-0.10.7+mixin.0.8.4.jar",
-    "sha256": "18m5wksd9vjp676cxapkggnz8s3f8j89phln8gy5n8vxlrli8n0d"
-  },
-  "net.fabricmc:tiny-remapper:0.6.0": {
-    "name": "tiny-remapper-0.6.0.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/0.6.0/tiny-remapper-0.6.0.jar",
-    "sha256": "1ynjfxg7cj9rd9c4l450w7yp20p2csjdpnk3mcx5bdkjzhbgvgzf"
-  },
-  "net.fabricmc:access-widener:2.0.1": {
-    "name": "access-widener-2.0.1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/access-widener/2.0.1/access-widener-2.0.1.jar",
-    "sha256": "0a7s4x6dbaa9p59ps7pidzwrs0xwy5i17s35xrgh58i26szlsaxm"
-  },
-  "net.fabricmc:fabric-loader:0.12.12": {
-    "name": "fabric-loader-0.12.12.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.12/fabric-loader-0.12.12.jar",
-    "sha256": "070dpcp7kcj4xr75wp1j6pb1bgfzllwg8xmqk3sk79jfqiqwzizw"
-  },
-  "net.fabricmc:fabric-loader:0.12.11": {
-    "name": "fabric-loader-0.12.11.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.11/fabric-loader-0.12.11.jar",
-    "sha256": "153g653jp0l9cpzz8ix3rk5k8xq9kwj2nijadvbpwich0qf19q7s"
-  },
-  "net.fabricmc:fabric-loader:0.12.10": {
-    "name": "fabric-loader-0.12.10.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.10/fabric-loader-0.12.10.jar",
-    "sha256": "16df9sp1cdwblzq01n0m8vkhiiix0qh231insrii7x50wl7ibd0z"
-  },
-  "net.fabricmc:fabric-loader:0.12.9": {
-    "name": "fabric-loader-0.12.9.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.9/fabric-loader-0.12.9.jar",
-    "sha256": "1lm7kfaybh47lj8a4mkv4fz53rb57b1cfxp6s9w34d1daxicvgbx"
-  },
-  "net.fabricmc:fabric-loader:0.12.8": {
-    "name": "fabric-loader-0.12.8.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.8/fabric-loader-0.12.8.jar",
-    "sha256": "1b4bmlyac0zas8ihxj0hrw3ah61nfaygkiv40kx1shjnzx0k9dmm"
-  },
-  "net.fabricmc:fabric-loader:0.12.7": {
-    "name": "fabric-loader-0.12.7.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.7/fabric-loader-0.12.7.jar",
-    "sha256": "0v1y0r0q2c5vhnpp036gr1031prnz9w745a72xhb78s4707f77dr"
-  },
-  "net.fabricmc:fabric-loader:0.12.6": {
-    "name": "fabric-loader-0.12.6.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.6/fabric-loader-0.12.6.jar",
-    "sha256": "14pvircqsmw43fzp4ablj17irq3ll26cv43vwjx5z7pbmzjrbv21"
-  },
-  "net.fabricmc:sponge-mixin:0.10.6+mixin.0.8.4": {
-    "name": "sponge-mixin-0.10.6+mixin.0.8.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.10.6+mixin.0.8.4/sponge-mixin-0.10.6+mixin.0.8.4.jar",
-    "sha256": "096l0mfg1aqwp35a151bbpi6b550zi9xc3i3llfcxaiwg3mz46rm"
-  },
-  "net.fabricmc:fabric-loader:0.12.5": {
-    "name": "fabric-loader-0.12.5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.5/fabric-loader-0.12.5.jar",
-    "sha256": "14id451mv8yzjyfgvknqb5kflm45alf6rj8y2hd9vs4x518ll0kf"
-  },
-  "net.fabricmc:sponge-mixin:0.10.5+mixin.0.8.4": {
-    "name": "sponge-mixin-0.10.5+mixin.0.8.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.10.5+mixin.0.8.4/sponge-mixin-0.10.5+mixin.0.8.4.jar",
-    "sha256": "0dys2c85ig6wxp0yjy64a0hwqfi4lfkzrhy6yx0nqwrcqaqpdbgj"
-  },
-  "net.fabricmc:fabric-loader:0.12.4": {
-    "name": "fabric-loader-0.12.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.4/fabric-loader-0.12.4.jar",
-    "sha256": "0c0mca9s5104xhx51rp5znz1zxy8wpjfz2l2yz38rwx03h3p782z"
-  },
-  "net.fabricmc:sponge-mixin:0.10.4+mixin.0.8.4": {
-    "name": "sponge-mixin-0.10.4+mixin.0.8.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.10.4+mixin.0.8.4/sponge-mixin-0.10.4+mixin.0.8.4.jar",
-    "sha256": "0wam2cxa5w8q4zj9xjwzbqq8cmvaj96pn6hr0bx0y0lwp586xp9g"
-  },
-  "net.fabricmc:fabric-loader:0.12.3": {
-    "name": "fabric-loader-0.12.3.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.3/fabric-loader-0.12.3.jar",
-    "sha256": "05f8jrw5ja52878frdnkgz1pdcb0qdkyciks0vm1nwzjix2lhafy"
-  },
-  "net.fabricmc:sponge-mixin:0.10.3+mixin.0.8.4": {
-    "name": "sponge-mixin-0.10.3+mixin.0.8.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.10.3+mixin.0.8.4/sponge-mixin-0.10.3+mixin.0.8.4.jar",
-    "sha256": "11n8k29j2kf9da9h95xb3p6356lwp22566w37ai4fhsq6z87189f"
-  },
-  "net.fabricmc:access-widener:2.0.0": {
-    "name": "access-widener-2.0.0.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/access-widener/2.0.0/access-widener-2.0.0.jar",
-    "sha256": "08kcwgz2gvdg76qj5hmvrbqizbb7729h980v5yj7badnpwn39if6"
-  },
-  "net.fabricmc:fabric-loader:0.12.2": {
-    "name": "fabric-loader-0.12.2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.2/fabric-loader-0.12.2.jar",
-    "sha256": "1jmpjzir4cp1jc50r8d90359b1vn6bcw3rv8lvm8qnyp5i0cqxzd"
-  },
-  "net.fabricmc:sponge-mixin:0.10.2+mixin.0.8.4": {
-    "name": "sponge-mixin-0.10.2+mixin.0.8.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.10.2+mixin.0.8.4/sponge-mixin-0.10.2+mixin.0.8.4.jar",
-    "sha256": "177vqimzy66vb8wyfcbgk62b16rj16dpzanxjmg98hhpygwh5j4z"
-  },
-  "net.fabricmc:fabric-loader:0.12.1": {
-    "name": "fabric-loader-0.12.1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.1/fabric-loader-0.12.1.jar",
-    "sha256": "1arxh9c2hhmc81y1spw0f0jgj8nc5wzcrgmz9yg8id8s8s28vhf9"
-  },
-  "net.fabricmc:fabric-loader:0.12.0": {
-    "name": "fabric-loader-0.12.0.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.12.0/fabric-loader-0.12.0.jar",
-    "sha256": "1qsp77ssqlir2ssiwxviq73zixs49y9gkk252aqaw5ldsfvy7rd2"
-  },
-  "net.fabricmc:tiny-mappings-parser:0.2.2.14": {
-    "name": "tiny-mappings-parser-0.2.2.14.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-mappings-parser/0.2.2.14/tiny-mappings-parser-0.2.2.14.jar",
-    "sha256": "0my9m6idghq1qz4wdr7bjji18p4z93iqx7a77apcnbhprrdiny3p"
-  },
-  "net.fabricmc:sponge-mixin:0.9.4+mixin.0.8.2": {
-    "name": "sponge-mixin-0.9.4+mixin.0.8.2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.9.4+mixin.0.8.2/sponge-mixin-0.9.4+mixin.0.8.2.jar",
-    "sha256": "0fg83c14zgg4aghv1qwv57xr6gdk3bjzihb193wvgxj9zz0541l3"
-  },
-  "net.fabricmc:access-widener:1.0.0": {
-    "name": "access-widener-1.0.0.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/access-widener/1.0.0/access-widener-1.0.0.jar",
-    "sha256": "007crna1y29r07wvrr063fyl6nrx3z4g7y1d3qxn0zx57dlwarvc"
-  },
-  "net.fabricmc:fabric-loader-sat4j:2.3.5.4": {
-    "name": "fabric-loader-sat4j-2.3.5.4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader-sat4j/2.3.5.4/fabric-loader-sat4j-2.3.5.4.jar",
-    "sha256": "1b47v90pqn4ddml7dwmcf7z37ywacfh1gh398f6nj68135mlsl5i"
-  },
-  "com.google.jimfs:jimfs:1.2-fabric": {
-    "name": "jimfs-1.2-fabric.zip",
-    "url": "https://maven.fabricmc.net/com/google/jimfs/jimfs/1.2-fabric/jimfs-1.2-fabric.jar",
-    "sha256": "15k9fs4iacbsqv28x3lygm55a4qsh3glc4vbglfscrd0r2py2qw5"
-  },
-  "org.ow2.asm:asm:9.1": {
-    "name": "asm-9.1.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.1/asm-9.1.jar",
-    "sha256": "18pbdf9z11m9jjh31z3ska2xxm27jiiv8j3wrc5zyj5bbx2xx96d"
-  },
-  "org.ow2.asm:asm-analysis:9.1": {
-    "name": "asm-analysis-9.1.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.1/asm-analysis-9.1.jar",
-    "sha256": "0d5yqddg5gwayvg4j31772ap0j3c0jc60r4ri9ddmgmqn50q1a41"
-  },
-  "org.ow2.asm:asm-commons:9.1": {
-    "name": "asm-commons-9.1.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.1/asm-commons-9.1.jar",
-    "sha256": "0360f2s9csaljbpgbjl8qkgihbnqin8719mdk550qb613zf2djxg"
-  },
-  "org.ow2.asm:asm-tree:9.1": {
-    "name": "asm-tree-9.1.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.1/asm-tree-9.1.jar",
-    "sha256": "0wsa9dq9rgzpp1cjsvx01gzshxm7nkn9rc05c9jdg5cmksjay07x"
-  },
-  "org.ow2.asm:asm-util:9.1": {
-    "name": "asm-util-9.1.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.1/asm-util-9.1.jar",
-    "sha256": "1mjvrprfzjjkqsj8fai8gfjn0mwv2x4s16xsfqd0zk7p2v6jw3iq"
-  },
-  "net.fabricmc:fabric-loader:0.11.7": {
-    "name": "fabric-loader-0.11.7.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.11.7/fabric-loader-0.11.7.jar",
-    "sha256": "0r8cv26vc9cy5a83qlbi6w2wiqkapbni63s08rsb5nlwf9pn4ymz"
-  },
-  "com.google.guava:guava:21.0": {
-    "name": "guava-21.0.zip",
-    "url": "https://maven.fabricmc.net/com/google/guava/guava/21.0/guava-21.0.jar",
-    "sha256": "105l92cndc1i63x49bvsr4skz41cgg7sijvqza9li2mwi9qkj8cp"
-  },
-  "net.fabricmc:tiny-remapper:0.4.2": {
-    "name": "tiny-remapper-0.4.2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/0.4.2/tiny-remapper-0.4.2.jar",
-    "sha256": "092y0dvwx3bh9gid8111s7l2a68ibz7j73qmywjk3c026p69nn4y"
-  },
-  "net.fabricmc:fabric-loader:0.11.6": {
-    "name": "fabric-loader-0.11.6.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.11.6/fabric-loader-0.11.6.jar",
-    "sha256": "06ladrai65z9gfzq3phwkd8cjlwiwprn6wj6jwkf448yx5j0cc2f"
-  },
-  "net.fabricmc:tiny-remapper:0.4.1": {
-    "name": "tiny-remapper-0.4.1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/0.4.1/tiny-remapper-0.4.1.jar",
-    "sha256": "0rsaz4h4m5i8d4290xiadxj4ar551q7ahjffjq29ac18mhhl5jbl"
-  },
-  "net.fabricmc:fabric-loader:0.11.5": {
-    "name": "fabric-loader-0.11.5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.11.5/fabric-loader-0.11.5.jar",
-    "sha256": "0p1yhyr0jxvkw5qxs15c94vmg35yrj2m52g3gikzz06dd7mqpbz0"
-  },
-  "net.fabricmc:sponge-mixin:0.9.2+mixin.0.8.2": {
-    "name": "sponge-mixin-0.9.2+mixin.0.8.2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.9.2+mixin.0.8.2/sponge-mixin-0.9.2+mixin.0.8.2.jar",
-    "sha256": "0k8dnai1jxssf9qdqbb1nhymfkpav6a65kpsj14mpxzpjvay8jy6"
-  },
-  "net.fabricmc:tiny-remapper:0.3.0.70": {
-    "name": "tiny-remapper-0.3.0.70.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/0.3.0.70/tiny-remapper-0.3.0.70.jar",
-    "sha256": "080z7x0zyy681138kqpz7scqa3br5jmqwwg1fvx5c4xan8frc1g8"
-  },
-  "net.fabricmc:fabric-loader:0.11.3": {
-    "name": "fabric-loader-0.11.3.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.11.3/fabric-loader-0.11.3.jar",
-    "sha256": "1dfmrb2bx1zi8vzh0qb47hk66291d6rgwrhav5y1g5m1m5r6dlkn"
-  },
-  "net.fabricmc:fabric-loader:0.11.2": {
-    "name": "fabric-loader-0.11.2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.11.2/fabric-loader-0.11.2.jar",
-    "sha256": "02dy5s4hn8vaqx7yh68dal4ngv0krm19r2mgibjv7i8p9sbf4sam"
-  },
-  "net.fabricmc:sponge-mixin:0.8.2+build.24": {
-    "name": "sponge-mixin-0.8.2+build.24.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.8.2+build.24/sponge-mixin-0.8.2+build.24.jar",
-    "sha256": "175wjwy8kmjqja7y3xzb00iiz343i36nrvzfqgrr2brqc4i7kycj"
-  },
-  "org.ow2.asm:asm:9.0": {
-    "name": "asm-9.0.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.0/asm-9.0.jar",
-    "sha256": "1q48g3afm40a1yshp7i35idx8i9k1zhb834x6kyr5vjaj5s7by8d"
-  },
-  "org.ow2.asm:asm-analysis:9.0": {
-    "name": "asm-analysis-9.0.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.0/asm-analysis-9.0.jar",
-    "sha256": "19n2r4nk0nsy8189h479hh2vhzi8nyd4ad55kandm92nz1nxwiid"
-  },
-  "org.ow2.asm:asm-commons:9.0": {
-    "name": "asm-commons-9.0.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.0/asm-commons-9.0.jar",
-    "sha256": "0bq90arz3xy4gk87n8yfrb77jv9icch01yrc5znx8yz6nyn9140v"
-  },
-  "org.ow2.asm:asm-tree:9.0": {
-    "name": "asm-tree-9.0.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.0/asm-tree-9.0.jar",
-    "sha256": "03g0fv44wiwsxgl1m5pys10d2xsymidf8s457a462n5r5qrmzhp2"
-  },
-  "org.ow2.asm:asm-util:9.0": {
-    "name": "asm-util-9.0.zip",
-    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.0/asm-util-9.0.jar",
-    "sha256": "1dlva68k6qw3ns7g6abyji2s5c49lq31mh7kjd8yfqh83v8fgxia"
-  },
-  "net.fabricmc:fabric-loader:0.11.1": {
-    "name": "fabric-loader-0.11.1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.11.1/fabric-loader-0.11.1.jar",
-    "sha256": "08wbgb9darhmhffsqhb723hqgglrg2yrbrwlrq1qzbwq0p84cahh"
-  },
-  "net.fabricmc:fabric-loader:0.11.0": {
-    "name": "fabric-loader-0.11.0.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.11.0/fabric-loader-0.11.0.jar",
-    "sha256": "0hivzy9xkq7mhjjhzlr0p9rzz9yn0ygshkpsnz0fkp1vdkhl542s"
-  },
-  "net.fabricmc:fabric-loader:0.10.8": {
-    "name": "fabric-loader-0.10.8.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.10.8/fabric-loader-0.10.8.jar",
-    "sha256": "11ls284b8rcznr7hss3abcwxpnngjkf0qvf4bv9xj0qpwxwji2ci"
-  },
-  "net.fabricmc:fabric-loader:0.10.7": {
-    "name": "fabric-loader-0.10.7.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.10.7/fabric-loader-0.10.7.jar",
-    "sha256": "188fvns1h40h9lcjlqx7zfgvdfx9nfhml7wyvb5vp7qfk4jjrjvl"
-  },
-  "net.fabricmc:intermediary:1.19-pre1": {
-    "name": "intermediary-1.19-pre1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre1/intermediary-1.19-pre1.jar",
-    "sha256": "1965iy58vfk3vifx1h55ndqwkrzqfpvbgdx8ihb96jsm5fdjv22y"
-  },
-  "net.fabricmc:fabric-loader:0.14.6": {
-    "name": "fabric-loader-0.14.6.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.6/fabric-loader-0.14.6.jar",
-    "sha256": "0rs9wnyzwzkfml3l6pkin2f223hn0fvvcy1wrax9s77aqzpqvfdq"
-  },
-  "net.fabricmc:intermediary:1.19-pre2": {
-    "name": "intermediary-1.19-pre2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre2/intermediary-1.19-pre2.jar",
-    "sha256": "1yfiqnx67ckv9kzvg18clwv0vj91m5jzmd3pikaz8njfj2f0plnh"
-  },
-  "net.fabricmc:intermediary:1.19-pre3": {
-    "name": "intermediary-1.19-pre3.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre3/intermediary-1.19-pre3.jar",
-    "sha256": "07i1kz3qrmxhprd8lvs4ps6v65r7fs4ykbazxg3bl5jix2pva5ww"
-  },
-  "net.fabricmc:intermediary:1.19-pre4": {
-    "name": "intermediary-1.19-pre4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre4/intermediary-1.19-pre4.jar",
-    "sha256": "0ga1i3vap949a14gcgpyvxjmhahrg35jic9y309rbbf51vkbyn4k"
-  },
-  "net.fabricmc:intermediary:1.19-pre5": {
-    "name": "intermediary-1.19-pre5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-pre5/intermediary-1.19-pre5.jar",
-    "sha256": "1jvjg1092640xblkri644zbdaxrhchw0gwjbbm2ribqddac5pklg"
-  },
-  "net.fabricmc:intermediary:1.19-rc1": {
-    "name": "intermediary-1.19-rc1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-rc1/intermediary-1.19-rc1.jar",
-    "sha256": "1026psj76c0cvhhmiv1dr33lz30qc7dgj0yispcchkbwy2his4bx"
-  },
-  "net.fabricmc:intermediary:1.19-rc2": {
-    "name": "intermediary-1.19-rc2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19-rc2/intermediary-1.19-rc2.jar",
-    "sha256": "1jirhbdgzq4bbyj40f0w3p2bb5jni92c8nln757ajjg9jafj9jcm"
-  },
-  "net.fabricmc:intermediary:1.19": {
-    "name": "intermediary-1.19.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19/intermediary-1.19.jar",
-    "sha256": "0kb82n5zbynpwjanmqgx4p9fl39i00cxpvwc5mh0xqjy771qp9iq"
-  },
-  "net.fabricmc:fabric-loader:0.14.7": {
-    "name": "fabric-loader-0.14.7.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.7/fabric-loader-0.14.7.jar",
-    "sha256": "1h3w4a11yjfndkjvpx10grxrimb4qy2j5q86y1pyximdfp3wiy7l"
-  },
-  "net.fabricmc:intermediary:22w24a": {
-    "name": "intermediary-22w24a.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w24a/intermediary-22w24a.jar",
-    "sha256": "1hzzgps3hwlh1v06587a9kngr1hkpf5b4dpb3hyf04jm63yf9yv2"
-  },
-  "net.fabricmc:fabric-loader:0.14.8": {
-    "name": "fabric-loader-0.14.8.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.8/fabric-loader-0.14.8.jar",
-    "sha256": "07z9fvkl82xsfl7kdb2532953h88nk1p14kp7hpjjyfjgf01jd75"
-  },
-  "net.fabricmc:intermediary:1.19.1-pre1": {
-    "name": "intermediary-1.19.1-pre1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre1/intermediary-1.19.1-pre1.jar",
-    "sha256": "13lc455ykvrx3r9hwm05qv0hdvcq4igcv0hh6bd9g3sn2kijph16"
-  },
-  "net.fabricmc:intermediary:1.19.1-rc1": {
-    "name": "intermediary-1.19.1-rc1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-rc1/intermediary-1.19.1-rc1.jar",
-    "sha256": "1w4pcg8gh8a5q3z9va452ixmd49rkqcziwn38zsh0v0rg6hxjzcl"
-  },
-  "net.fabricmc:intermediary:1.19.1-pre2": {
-    "name": "intermediary-1.19.1-pre2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre2/intermediary-1.19.1-pre2.jar",
-    "sha256": "12a394wpvwwiymj9sczc116zag1856qckzgq8zd5cw2iwicwr6rx"
-  },
-  "net.fabricmc:intermediary:1.19.1-pre3": {
-    "name": "intermediary-1.19.1-pre3.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre3/intermediary-1.19.1-pre3.jar",
-    "sha256": "1kmz5ain87kkc34xjjl2i34vxjvgcanrlzsbsm91isx98fzwz2pi"
-  },
-  "net.fabricmc:intermediary:1.19.1-pre4": {
-    "name": "intermediary-1.19.1-pre4.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre4/intermediary-1.19.1-pre4.jar",
-    "sha256": "1p1vlzk1zxwagy12scvq5z7vskzn52dy27j75iay86a533c0hfkv"
-  },
-  "net.fabricmc:intermediary:1.19.1": {
-    "name": "intermediary-1.19.1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1/intermediary-1.19.1.jar",
-    "sha256": "0866rx8slwxg7aq10jxgcwqs6dnk9n8pr462h62janadj16sll2a"
-  },
-  "net.fabricmc:intermediary:1.19.1-rc3": {
-    "name": "intermediary-1.19.1-rc3.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-rc3/intermediary-1.19.1-rc3.jar",
-    "sha256": "1l81qxia8jq7kfxwafpxdn5jvn9q2wd0bjcgyl1jcw5fzc0i2ay5"
-  },
-  "net.fabricmc:intermediary:1.19.1-rc2": {
-    "name": "intermediary-1.19.1-rc2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-rc2/intermediary-1.19.1-rc2.jar",
-    "sha256": "0hv49dqz6lkiic3x34qbsdzkkz3zxwqd09qdai4n5i7f1chn7bv8"
-  },
-  "net.fabricmc:intermediary:1.19.1-pre6": {
-    "name": "intermediary-1.19.1-pre6.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre6/intermediary-1.19.1-pre6.jar",
-    "sha256": "1m1czpc8lmr6006xgvnpmmwlsl84wgjqprfhq63znaaxj67qdzn8"
-  },
-  "net.fabricmc:intermediary:1.19.1-pre5": {
-    "name": "intermediary-1.19.1-pre5.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.1-pre5/intermediary-1.19.1-pre5.jar",
-    "sha256": "11n9vf715ig5pixnim52cz0nij4p8v3vak8vdw6h7k80ymy3vrsj"
-  },
-  "net.fabricmc:intermediary:1.19.2": {
-    "name": "intermediary-1.19.2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2/intermediary-1.19.2.jar",
-    "sha256": "01wfynywcz4p82f175qp3x00wsi0y3vfnls2496akz7i438jb1d9"
-  },
-  "net.fabricmc:fabric-loader:0.14.9": {
-    "name": "fabric-loader-0.14.9.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.9/fabric-loader-0.14.9.jar",
-    "sha256": "06gv8rkmf4cv7f235zhwa4pmi57yxix38dd3mpxylfa58cyg1rir"
-  },
-  "net.fabricmc:intermediary:1.19.2-rc2": {
-    "name": "intermediary-1.19.2-rc2.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2-rc2/intermediary-1.19.2-rc2.jar",
-    "sha256": "1qhm930j291f6yslc2hxjxaym68yaj8d52nax6phl0rrvmrpn12q"
-  },
-  "net.fabricmc:intermediary:1.19.2-rc1": {
-    "name": "intermediary-1.19.2-rc1.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.2-rc1/intermediary-1.19.2-rc1.jar",
-    "sha256": "08hb5dbnbb58p6za4507qf95zaw6wyxh7s9k09aha6cdc71nqqga"
-  },
-  "net.fabricmc:intermediary:3D Shareware v1.34": {
-    "name": "intermediary-3D Shareware v1.34.zip",
-    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/3D Shareware v1.34/intermediary-3D Shareware v1.34.jar",
-    "sha256": "1324fik7nqkzs4bfnn57wp9xxr9plizzbf31zwx0kazi6amqkajn"
   }
 }
