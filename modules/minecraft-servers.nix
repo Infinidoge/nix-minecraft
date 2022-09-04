@@ -337,8 +337,8 @@ in
                     mkdir -p ${serverDir}
                     cd ${serverDir}
                     ln -sf ${eula} eula.txt
-                    ln -sf ${whitelist} whitelist.json
-                    cp -f ${serverProperties} server.properties
+                    ${if conf.whitelist != {} then "ln -sf ${whitelist} whitelist.json" else ""}
+                    ${if conf.serverProperties != {} then "cp -f ${serverProperties} server.properties" else ""}
                     ${mkSymlinks}
                   '';
 
