@@ -4,11 +4,11 @@
 , unzip
 , zip
 , jre_headless
-, lock
+, loaderLock
 }:
 let
   lib_lock = lib.importJSON ./libraries.json;
-  libraries = lib.forEach lock.libraries (l: fetchurl lib_lock.${l});
+  libraries = lib.forEach loaderLock.libraries (l: fetchurl lib_lock.${l});
 in
 stdenv.mkDerivation {
   name = "fabric-server-launch.jar";
@@ -29,7 +29,7 @@ stdenv.mkDerivation {
     EOF
 
     cat > fabric-server-launch.properties << EOF
-    launch.mainClass=${lock.mainClass}
+    launch.mainClass=${loaderLock.mainClass}
     EOF
   '';
 

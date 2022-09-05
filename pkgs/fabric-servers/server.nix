@@ -1,13 +1,20 @@
-{ callPackage
-, nixosTests
-, writeShellScriptBin
-, minecraft-server
+{ lib
+, callPackage
 , jre_headless
-, lock
-, version
+, writeShellScriptBin
+, nixosTests
+, our
+, vanillaServers
 }:
+{ minecraftVersion, loaderVersion }:
 let
-  loader = callPackage ./loader.nix { inherit lock; };
+  inherit (our.lib) escapeVersion;
+
+  versions = lib.importJSON ./locks.json;
+  minecraft-server = vanillaServers."vanilla-${escapeVersion minecraftVersion}";
+  loaderLock = builtins.getAttr minecraftVersion (builtins.getAttr loaderVersion versions);
+
+  loader = callPackage ./loader.nix { inherit loaderLock; };
 in
 
 # Taken from https://github.com/FabricMC/fabric-installer/issues/50#issuecomment-1013444858
@@ -15,8 +22,8 @@ in
   echo "serverJar=${minecraft-server}/lib/minecraft/server.jar" >> fabric-server-launcher.properties
   exec ${jre_headless}/bin/java -Dlog4j.configurationFile=${./log4j.xml} $@ -jar ${loader} nogui
 '').overrideAttrs (oldAttrs: rec {
-  name = "fabric-${version}";
-  inherit version;
+  name = "fabric-${escapeVersion minecraftVersion}-${escapeVersion loaderVersion}";
+  version = "${minecraftVersion}+${loaderVersion}";
   passthru = {
     tests = { inherit (nixosTests) minecraft-server; };
     updateScript = ./update.py;

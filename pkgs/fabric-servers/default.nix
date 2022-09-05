@@ -7,29 +7,17 @@
 let
   versions = lib.importJSON ./locks.json;
 
-  inherit (our.lib) escapeVersion removeVanillaPrefix;
-  latestVersion = escapeVersion (our.lib.latestVersion versions);
+  inherit (our.lib) escapeVersion latestVersion removeVanillaPrefix;
+  latestLoaderVersion = latestVersion versions;
+  createFabricServer = callPackage ./server.nix { inherit our vanillaServers; };
 
   packages =
-    builtins.foldl' (x: y: x // y) { }
-      (lib.mapAttrsToList
-        (lversion: gversions:
-          lib.mapAttrs'
-            (gversion: lock:
-              lib.nameValuePair
-                "fabric-${escapeVersion gversion}-${escapeVersion lversion}"
-                (callPackage ./server.nix { inherit lock; minecraft-server = vanillaServers."vanilla-${escapeVersion gversion}"; version = "${escapeVersion gversion}-${escapeVersion lversion}"; }))
-            gversions)
-        versions);
+      (lib.mapAttrs'
+        (minecraftVersion: _:
+          lib.nameValuePair
+            "fabric-${escapeVersion minecraftVersion}"
+            (lib.makeOverridable createFabricServer { inherit minecraftVersion; loaderVersion = latestLoaderVersion; }))
+        (builtins.getAttr latestLoaderVersion versions));
 in
-packages // (
-	(lib.mapAttrs'
-		(n: v: lib.nameValuePair "fabric-${lib.removePrefix "vanilla-" n}" v)
-		(lib.genAttrs
-			(builtins.filter
-				(n: (lib.hasPrefix "vanilla-" n) && (builtins.hasAttr "fabric-${removeVanillaPrefix n}-${latestVersion}" packages))
-				(builtins.attrNames vanillaServers))
-			(gversion: builtins.getAttr "fabric-${removeVanillaPrefix gversion}-${latestVersion}" packages)))
-) // {
-	fabric = builtins.getAttr "fabric-${escapeVersion vanillaServers.vanilla.version}-${latestVersion}" packages;
-}
+packages
+// { fabric = builtins.getAttr "fabric-${escapeVersion vanillaServers.vanilla.version}" packages; }

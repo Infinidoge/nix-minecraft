@@ -56,6 +56,7 @@
         {
           vanilla = mkTest self.packages.${system}.vanilla;
           fabric = mkTest self.packages.${system}.fabric;
+          fabric-with-override = mkTest (self.packages.${system}.fabric-1_14.override { loaderVersion = "0.13.0"; });
           quilt = mkTest self.packages.${system}.quilt;
         };
     };
