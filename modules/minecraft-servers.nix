@@ -51,10 +51,10 @@ in
     '';
 
     runDir = mkOpt' types.path "/run/minecraft" ''
-      Directory to place the runtime tmux sockets into.
-      Each server's console will be a tmux socket file in the form of <literal>servername.sock</literal>.
-      To connect to the console, run `tmux -S /run/minecraft/servername.sock attach`,
-      press `Ctrl + b` then `d` to detach.
+      Directory to place the runtime console sockets into.
+      Each server's console will be a socket file in the form of <literal>servername.sock</literal>.
+      To connect to the console, run `abduco -a /run/minecraft/servername.sock attach`,
+      press `Ctrl + \` to detach.
     '';
 
     user = mkOption {
@@ -74,7 +74,7 @@ in
       default = "minecraft";
       description = ''
         Name of the group to create and run servers under.
-        In order to modify the server files or attach to the tmux socket,
+        In order to modify the server files or attach to the console socket,
         your user must be a part of this group.
         It is recommended to leave this as the default, as it is
         the same group as <option>services.minecraft-server</option>.
@@ -117,7 +117,7 @@ in
 
           restart = mkOpt' types.str "always" ''
             Value of systemd's <literal>Restart=</literal> service configuration option.
-            Due to the servers being started in tmux sockets, values other than
+            Due to the servers being started in console sockets, values other than
             <literal>"no"</literal> and <literal>"always"</literal> may not work properly.
             As a consequence of the <literal>"always"</literal> option, stopping the server
             in-game with the <literal>stop</literal> command will cause the server to automatically restart.
@@ -257,15 +257,15 @@ in
           (name: conf:
             let
               serverDir = "${cfg.dataDir}/${name}";
-              tmux = "${getBin pkgs.tmux}/bin/tmux";
-              tmuxSock = "${cfg.runDir}/${name}.sock";
+              runner = "${getBin pkgs.abduco}/bin/abduco";
+              socket = "${cfg.runDir}/${name}.sock";
 
               startScript = pkgs.writeScript "minecraft-start-${name}" ''
                 #!${pkgs.runtimeShell}
 
                 umask u=rwx,g=rwx,o=rx
                 cd ${serverDir}
-                ${tmux} -S ${tmuxSock} new -d ${conf.package}/bin/minecraft-server ${conf.jvmOpts}
+                ${runner} -c ${socket} ${conf.package}/bin/minecraft-server ${conf.jvmOpts}
               '';
 
               stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
@@ -275,7 +275,7 @@ in
                   exit 0
                 fi
 
-                ${tmux} -S ${tmuxSock} send-keys stop Enter
+                echo "stop" | ${runner} -p -a ${socket}
               '';
             in
             {
@@ -343,7 +343,7 @@ in
                   '';
 
                 postStart = ''
-                  ${pkgs.coreutils}/bin/chmod 660 ${tmuxSock}
+                  ${pkgs.coreutils}/bin/chmod 660 ${socket}
                 '';
               };
             })
