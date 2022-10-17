@@ -548,5 +548,95 @@
     "name": "quilt-loader-0.17.5-beta.2.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.17.5-beta.2/quilt-loader-0.17.5-beta.2.jar",
     "sha256": "1y2j3shz97hdq40hzk7n13xqpyvxcybvz791qq50qkiw7xksl8dj"
+  },
+  "net.fabricmc:tiny-remapper:0.8.6": {
+    "name": "tiny-remapper-0.8.6.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/0.8.6/tiny-remapper-0.8.6.jar",
+    "sha256": "0jw2qhasdlm63crl0103hfv756m9pf606g68yaql97sdd08wxv53"
+  },
+  "org.quiltmc:quilt-json5:1.0.2": {
+    "name": "quilt-json5-1.0.2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-json5/1.0.2/quilt-json5-1.0.2.jar",
+    "sha256": "04g5hfvncnkxd90lwh7vjbq104kmj2f5046f4bqap8cvc29in02b"
+  },
+  "org.quiltmc:quilt-loader:0.17.5-beta.8": {
+    "name": "quilt-loader-0.17.5-beta.8.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.17.5-beta.8/quilt-loader-0.17.5-beta.8.jar",
+    "sha256": "0fg5bn5yzqb95d220aizfwj7n8pv2f0s8ifyv2zp2kkg288mnrxp"
+  },
+  "org.quiltmc:quilt-loader:0.17.5-beta.7": {
+    "name": "quilt-loader-0.17.5-beta.7.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.17.5-beta.7/quilt-loader-0.17.5-beta.7.jar",
+    "sha256": "1gnpvv5az7b147056y9sghv98rk9d6yvqclzd0nibbc4blc4yr07"
+  },
+  "org.quiltmc:quilt-loader:0.17.5-beta.6": {
+    "name": "quilt-loader-0.17.5-beta.6.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.17.5-beta.6/quilt-loader-0.17.5-beta.6.jar",
+    "sha256": "1qqm24x4i77v0kgdipfcfqw7mjd84s8g3j7p70szm2mb7p0b4b5k"
+  },
+  "org.quiltmc:quilt-loader:0.17.5-beta.5": {
+    "name": "quilt-loader-0.17.5-beta.5.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.17.5-beta.5/quilt-loader-0.17.5-beta.5.jar",
+    "sha256": "0z1kxvmgcv9lgfksmkfacjj6gwqv8jrdc3lyl6xqfym8z3d2nzs6"
+  },
+  "net.fabricmc:tiny-mappings-parser:${tiny_mappings_parser}": {
+    "name": "tiny-mappings-parser-${tiny_mappings_parser}.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-mappings-parser/${tiny_mappings_parser}/tiny-mappings-parser-${tiny_mappings_parser}.jar",
+    "sha256": ""
+  },
+  "net.fabricmc:sponge-mixin:${sponge_mixin}": {
+    "name": "sponge-mixin-${sponge_mixin}.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/${sponge_mixin}/sponge-mixin-${sponge_mixin}.jar",
+    "sha256": ""
+  },
+  "net.fabricmc:tiny-remapper:${tiny_remapper}": {
+    "name": "tiny-remapper-${tiny_remapper}.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/tiny-remapper/${tiny_remapper}/tiny-remapper-${tiny_remapper}.jar",
+    "sha256": ""
+  },
+  "net.fabricmc:access-widener:${access_widener}": {
+    "name": "access-widener-${access_widener}.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/access-widener/${access_widener}/access-widener-${access_widener}.jar",
+    "sha256": ""
+  },
+  "org.quiltmc:quilt-json5:${quilt_json5}": {
+    "name": "quilt-json5-${quilt_json5}.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-json5/${quilt_json5}/quilt-json5-${quilt_json5}.jar",
+    "sha256": ""
+  },
+  "org.ow2.asm:asm:${asm}": {
+    "name": "asm-${asm}.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm/${asm}/asm-${asm}.jar",
+    "sha256": ""
+  },
+  "org.ow2.asm:asm-analysis:${asm_analysis}": {
+    "name": "asm-analysis-${asm_analysis}.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/${asm_analysis}/asm-analysis-${asm_analysis}.jar",
+    "sha256": ""
+  },
+  "org.ow2.asm:asm-commons:${asm_commons}": {
+    "name": "asm-commons-${asm_commons}.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/${asm_commons}/asm-commons-${asm_commons}.jar",
+    "sha256": ""
+  },
+  "org.ow2.asm:asm-tree:${asm_tree}": {
+    "name": "asm-tree-${asm_tree}.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/${asm_tree}/asm-tree-${asm_tree}.jar",
+    "sha256": ""
+  },
+  "org.ow2.asm:asm-util:${asm_util}": {
+    "name": "asm-util-${asm_util}.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/${asm_util}/asm-util-${asm_util}.jar",
+    "sha256": ""
+  },
+  "org.quiltmc:quilt-config:${quilt_config}": {
+    "name": "quilt-config-${quilt_config}.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-config/${quilt_config}/quilt-config-${quilt_config}.jar",
+    "sha256": ""
+  },
+  "org.quiltmc:quilt-loader:0.17.5-beta.4": {
+    "name": "quilt-loader-0.17.5-beta.4.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.17.5-beta.4/quilt-loader-0.17.5-beta.4.jar",
+    "sha256": "19b168qsj79f3yp9d40nrnng95p72avdx476iz2kvm4py64k4gl6"
   }
 }
