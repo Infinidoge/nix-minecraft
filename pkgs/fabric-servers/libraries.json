@@ -1698,5 +1698,10 @@
     "name": "intermediary-22w43a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w43a/intermediary-22w43a.jar",
     "sha256": "04xn89g045c5m1qsyjg7nx6k589649if6xmg9y1fgd4wh7zjgaqp"
+  },
+  "net.fabricmc:intermediary:22w44a": {
+    "name": "intermediary-22w44a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w44a/intermediary-22w44a.jar",
+    "sha256": "1slf9awhdwqzxvkm076hix71dbiz8yrfl9l1q3jf4fj2v1rgw7j6"
   }
 }
