@@ -778,6 +778,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.1-beta.4"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.4"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.4"
+      ]
     }
   },
   "0.17.1-beta.3": {
@@ -1557,6 +1595,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.4",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.3"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.3"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.1-beta.3"
       ]
     }
@@ -2340,6 +2416,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.1-beta.2"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.2"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.2"
+      ]
     }
   },
   "0.17.1-beta.1": {
@@ -3119,6 +3233,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.4",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.1"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.1"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.1-beta.1"
       ]
     }
@@ -3902,6 +4054,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.0"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.0"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.0"
+      ]
     }
   },
   "0.17.0-beta.4": {
@@ -4681,6 +4871,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.4",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.4"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.4"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.0-beta.4"
       ]
     }
@@ -5464,6 +5692,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.0-beta.3"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.3"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.4",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.3"
+      ]
     }
   },
   "0.17.0-beta.2": {
@@ -6204,6 +6470,42 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.0-beta.2"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.2"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.2"
+      ]
     }
   },
   "0.17.0-beta.1": {
@@ -6942,6 +7244,42 @@
         "org.ow2.asm:asm-util:9.3",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.1"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.0-beta.1"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.0-beta.1"
       ]
     }
@@ -7725,6 +8063,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.3"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.3"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.3"
+      ]
     }
   },
   "0.17.2-beta.3": {
@@ -8504,6 +8880,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.5",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.2-beta.3"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.2-beta.3"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.2-beta.3"
       ]
     }
@@ -9287,6 +9701,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.2-beta.2"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.2-beta.2"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.2-beta.2"
+      ]
     }
   },
   "0.17.2-beta.1": {
@@ -10066,6 +10518,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.5",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.2-beta.1"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.2-beta.1"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.2-beta.1"
       ]
     }
@@ -10849,6 +11339,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.1"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.1"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.1"
+      ]
     }
   },
   "0.17.1-beta.6": {
@@ -11628,6 +12156,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.5",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.6"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.6"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.1-beta.6"
       ]
     }
@@ -12411,6 +12977,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.1-beta.5"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.5"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.1-beta.5"
+      ]
     }
   },
   "0.17.4": {
@@ -13190,6 +13794,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.5",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.4"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.4"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.5",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.4"
       ]
     }
@@ -13973,6 +14615,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.5-beta.1"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.1"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.1"
+      ]
     }
   },
   "0.17.5-beta.3": {
@@ -14752,6 +15432,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.3"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.3"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.5-beta.3"
       ]
     }
@@ -15535,6 +16253,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.5-beta.2"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.2"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.1",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.1",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.2"
+      ]
     }
   },
   "0.17.5-beta.8": {
@@ -16314,6 +17070,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.8"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.8"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.5-beta.8"
       ]
     }
@@ -17097,6 +17891,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.5-beta.7"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.7"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.7"
+      ]
     }
   },
   "0.17.5-beta.6": {
@@ -17876,6 +18708,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.6"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.6"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.5-beta.6"
       ]
     }
@@ -18659,6 +19529,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.5-beta.5"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.5"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.5"
+      ]
     }
   },
   "0.17.5-beta.4": {
@@ -19438,6 +20346,44 @@
         "org.quiltmc:quilt-config:${quilt_config}",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.4"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:${tiny_mappings_parser}",
+        "net.fabricmc:sponge-mixin:${sponge_mixin}",
+        "net.fabricmc:tiny-remapper:${tiny_remapper}",
+        "net.fabricmc:access-widener:${access_widener}",
+        "org.quiltmc:quilt-json5:${quilt_json5}",
+        "org.ow2.asm:asm:${asm}",
+        "org.ow2.asm:asm-analysis:${asm_analysis}",
+        "org.ow2.asm:asm-commons:${asm_commons}",
+        "org.ow2.asm:asm-tree:${asm_tree}",
+        "org.ow2.asm:asm-util:${asm_util}",
+        "org.quiltmc:quilt-config:${quilt_config}",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.4"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:${tiny_mappings_parser}",
+        "net.fabricmc:sponge-mixin:${sponge_mixin}",
+        "net.fabricmc:tiny-remapper:${tiny_remapper}",
+        "net.fabricmc:access-widener:${access_widener}",
+        "org.quiltmc:quilt-json5:${quilt_json5}",
+        "org.ow2.asm:asm:${asm}",
+        "org.ow2.asm:asm-analysis:${asm_analysis}",
+        "org.ow2.asm:asm-commons:${asm_commons}",
+        "org.ow2.asm:asm-tree:${asm_tree}",
+        "org.ow2.asm:asm-util:${asm_util}",
+        "org.quiltmc:quilt-config:${quilt_config}",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.5-beta.4"
       ]
     }
@@ -20221,6 +21167,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.5-beta.10"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.10"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.10"
+      ]
     }
   },
   "0.17.5-beta.9": {
@@ -21000,6 +21984,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.9"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5-beta.9"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.5-beta.9"
       ]
     }
@@ -21783,6 +22805,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.6-beta.2"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.6-beta.2"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.6-beta.2"
+      ]
     }
   },
   "0.17.6-beta.1": {
@@ -22562,6 +23622,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.6-beta.1"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.6-beta.1"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.6-beta.1"
       ]
     }
@@ -23345,6 +24443,44 @@
         "net.fabricmc:intermediary:22w44a",
         "org.quiltmc:quilt-loader:0.17.5"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.5"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.17.5"
+      ]
     }
   },
   "0.17.6": {
@@ -24124,6 +25260,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:22w44a",
         "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.17.6"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.17.6"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.17.6"
       ]
     }
@@ -24907,6 +26081,44 @@
         "net.fabricmc:intermediary:1.18.2-pre1",
         "org.quiltmc:quilt-loader:0.18.1-beta.8"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.8"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.8"
+      ]
     }
   },
   "0.18.1-beta.7": {
@@ -25686,6 +26898,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:1.18.2-pre1",
         "net.fabricmc:intermediary:1.18.2-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.7"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.7"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.18.1-beta.7"
       ]
     }
@@ -26469,6 +27719,44 @@
         "net.fabricmc:intermediary:1.18.2-pre1",
         "org.quiltmc:quilt-loader:0.18.1-beta.5"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.5"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.5"
+      ]
     }
   },
   "0.18.1-beta.4": {
@@ -27248,6 +28536,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:1.18.2-pre1",
         "net.fabricmc:intermediary:1.18.2-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.4"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.4"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.18.1-beta.4"
       ]
     }
@@ -28031,6 +29357,44 @@
         "net.fabricmc:intermediary:1.18.2-pre1",
         "org.quiltmc:quilt-loader:0.18.1-beta.3"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.3"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.3"
+      ]
     }
   },
   "0.18.1-beta.2": {
@@ -28810,6 +30174,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:1.18.2-pre1",
         "net.fabricmc:intermediary:1.18.2-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.2"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.2"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.18.1-beta.2"
       ]
     }
@@ -29593,6 +30995,44 @@
         "net.fabricmc:intermediary:1.18.2-pre1",
         "org.quiltmc:quilt-loader:0.18.1-beta.1"
       ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.1"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.1"
+      ]
     }
   },
   "0.18.1-beta.10": {
@@ -30372,6 +31812,44 @@
         "org.quiltmc:quilt-config:1.0.0-beta.6",
         "org.quiltmc:hashed:1.18.2-pre1",
         "net.fabricmc:intermediary:1.18.2-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.10"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.10"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
         "org.quiltmc:quilt-loader:0.18.1-beta.10"
       ]
     }
@@ -31154,6 +32632,1682 @@
         "org.quiltmc:hashed:1.18.2-pre1",
         "net.fabricmc:intermediary:1.18.2-pre1",
         "org.quiltmc:quilt-loader:0.18.1-beta.9"
+      ]
+    },
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.9"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.9"
+      ]
+    }
+  },
+  "0.18.1-beta.12": {
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w44a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w44a",
+        "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w43a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w43a",
+        "net.fabricmc:intermediary:22w43a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w42a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w42a",
+        "net.fabricmc:intermediary:22w42a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.2",
+        "net.fabricmc:intermediary:1.19.2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.2-rc2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.2-rc2",
+        "net.fabricmc:intermediary:1.19.2-rc2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.2-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.2-rc1",
+        "net.fabricmc:intermediary:1.19.2-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1",
+        "net.fabricmc:intermediary:1.19.1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-rc3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-rc3",
+        "net.fabricmc:intermediary:1.19.1-rc3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-rc2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-rc2",
+        "net.fabricmc:intermediary:1.19.1-rc2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-pre6": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre6",
+        "net.fabricmc:intermediary:1.19.1-pre6",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-pre5": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre5",
+        "net.fabricmc:intermediary:1.19.1-pre5",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-pre4": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre4",
+        "net.fabricmc:intermediary:1.19.1-pre4",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-pre3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre3",
+        "net.fabricmc:intermediary:1.19.1-pre3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-pre2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre2",
+        "net.fabricmc:intermediary:1.19.1-pre2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-rc1",
+        "net.fabricmc:intermediary:1.19.1-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19.1-pre1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre1",
+        "net.fabricmc:intermediary:1.19.1-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w24a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w24a",
+        "net.fabricmc:intermediary:22w24a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19",
+        "net.fabricmc:intermediary:1.19",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19-rc2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-rc2",
+        "net.fabricmc:intermediary:1.19-rc2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-rc1",
+        "net.fabricmc:intermediary:1.19-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19-pre5": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre5",
+        "net.fabricmc:intermediary:1.19-pre5",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19-pre4": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre4",
+        "net.fabricmc:intermediary:1.19-pre4",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19-pre3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre3",
+        "net.fabricmc:intermediary:1.19-pre3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19-pre2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre2",
+        "net.fabricmc:intermediary:1.19-pre2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.19-pre1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre1",
+        "net.fabricmc:intermediary:1.19-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w19a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w19a",
+        "net.fabricmc:intermediary:22w19a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w18a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w18a",
+        "net.fabricmc:intermediary:22w18a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w17a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w17a",
+        "net.fabricmc:intermediary:22w17a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w16b": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w16b",
+        "net.fabricmc:intermediary:22w16b",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w16a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w16a",
+        "net.fabricmc:intermediary:22w16a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w15a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w15a",
+        "net.fabricmc:intermediary:22w15a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w14a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w14a",
+        "net.fabricmc:intermediary:22w14a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w13oneblockatatime": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w13oneblockatatime",
+        "net.fabricmc:intermediary:22w13oneblockatatime",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w13a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w13a",
+        "net.fabricmc:intermediary:22w13a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w12a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w12a",
+        "net.fabricmc:intermediary:22w12a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "22w11a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w11a",
+        "net.fabricmc:intermediary:22w11a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.18.2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2",
+        "net.fabricmc:intermediary:1.18.2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.18.2-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-rc1",
+        "net.fabricmc:intermediary:1.18.2-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.18.2-pre3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-pre3",
+        "net.fabricmc:intermediary:1.18.2-pre3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.18.2-pre2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-pre2",
+        "net.fabricmc:intermediary:1.18.2-pre2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    },
+    "1.18.2-pre1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-pre1",
+        "net.fabricmc:intermediary:1.18.2-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.12"
+      ]
+    }
+  },
+  "0.18.1-beta.11": {
+    "22w46a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w46a",
+        "net.fabricmc:intermediary:22w46a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w45a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w45a",
+        "net.fabricmc:intermediary:22w45a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w44a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w44a",
+        "net.fabricmc:intermediary:22w44a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w43a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w43a",
+        "net.fabricmc:intermediary:22w43a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w42a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w42a",
+        "net.fabricmc:intermediary:22w42a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.2",
+        "net.fabricmc:intermediary:1.19.2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.2-rc2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.2-rc2",
+        "net.fabricmc:intermediary:1.19.2-rc2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.2-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.2-rc1",
+        "net.fabricmc:intermediary:1.19.2-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1",
+        "net.fabricmc:intermediary:1.19.1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-rc3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-rc3",
+        "net.fabricmc:intermediary:1.19.1-rc3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-rc2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-rc2",
+        "net.fabricmc:intermediary:1.19.1-rc2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-pre6": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre6",
+        "net.fabricmc:intermediary:1.19.1-pre6",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-pre5": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre5",
+        "net.fabricmc:intermediary:1.19.1-pre5",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-pre4": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre4",
+        "net.fabricmc:intermediary:1.19.1-pre4",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-pre3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre3",
+        "net.fabricmc:intermediary:1.19.1-pre3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-pre2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre2",
+        "net.fabricmc:intermediary:1.19.1-pre2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-rc1",
+        "net.fabricmc:intermediary:1.19.1-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19.1-pre1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19.1-pre1",
+        "net.fabricmc:intermediary:1.19.1-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w24a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w24a",
+        "net.fabricmc:intermediary:22w24a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19",
+        "net.fabricmc:intermediary:1.19",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19-rc2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-rc2",
+        "net.fabricmc:intermediary:1.19-rc2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-rc1",
+        "net.fabricmc:intermediary:1.19-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19-pre5": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre5",
+        "net.fabricmc:intermediary:1.19-pre5",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19-pre4": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre4",
+        "net.fabricmc:intermediary:1.19-pre4",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19-pre3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre3",
+        "net.fabricmc:intermediary:1.19-pre3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19-pre2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre2",
+        "net.fabricmc:intermediary:1.19-pre2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.19-pre1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.19-pre1",
+        "net.fabricmc:intermediary:1.19-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w19a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w19a",
+        "net.fabricmc:intermediary:22w19a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w18a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w18a",
+        "net.fabricmc:intermediary:22w18a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w17a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w17a",
+        "net.fabricmc:intermediary:22w17a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w16b": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w16b",
+        "net.fabricmc:intermediary:22w16b",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w16a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w16a",
+        "net.fabricmc:intermediary:22w16a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w15a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w15a",
+        "net.fabricmc:intermediary:22w15a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w14a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w14a",
+        "net.fabricmc:intermediary:22w14a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w13oneblockatatime": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w13oneblockatatime",
+        "net.fabricmc:intermediary:22w13oneblockatatime",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w13a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w13a",
+        "net.fabricmc:intermediary:22w13a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w12a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w12a",
+        "net.fabricmc:intermediary:22w12a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "22w11a": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:22w11a",
+        "net.fabricmc:intermediary:22w11a",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.18.2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2",
+        "net.fabricmc:intermediary:1.18.2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.18.2-rc1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-rc1",
+        "net.fabricmc:intermediary:1.18.2-rc1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.18.2-pre3": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-pre3",
+        "net.fabricmc:intermediary:1.18.2-pre3",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.18.2-pre2": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-pre2",
+        "net.fabricmc:intermediary:1.18.2-pre2",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
+      ]
+    },
+    "1.18.2-pre1": {
+      "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+      "libraries": [
+        "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+        "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+        "net.fabricmc:tiny-remapper:0.8.6",
+        "net.fabricmc:access-widener:2.1.0",
+        "org.quiltmc:quilt-json5:1.0.2",
+        "org.ow2.asm:asm:9.3",
+        "org.ow2.asm:asm-analysis:9.3",
+        "org.ow2.asm:asm-commons:9.3",
+        "org.ow2.asm:asm-tree:9.3",
+        "org.ow2.asm:asm-util:9.3",
+        "org.quiltmc:quilt-config:1.0.0-beta.6",
+        "org.quiltmc:hashed:1.18.2-pre1",
+        "net.fabricmc:intermediary:1.18.2-pre1",
+        "org.quiltmc:quilt-loader:0.18.1-beta.11"
       ]
     }
   }
