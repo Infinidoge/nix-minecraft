@@ -1703,5 +1703,15 @@
     "name": "intermediary-22w44a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w44a/intermediary-22w44a.jar",
     "sha256": "1slf9awhdwqzxvkm076hix71dbiz8yrfl9l1q3jf4fj2v1rgw7j6"
+  },
+  "net.fabricmc:intermediary:22w46a": {
+    "name": "intermediary-22w46a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w46a/intermediary-22w46a.jar",
+    "sha256": "19kj1g5hbhbqp3li1ssxvrypgbagr97859d9bnp06zfq660vasli"
+  },
+  "net.fabricmc:intermediary:22w45a": {
+    "name": "intermediary-22w45a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/22w45a/intermediary-22w45a.jar",
+    "sha256": "0346fpsxfsn7lkiimbblmdv04v1n8afsfkzk05s7grpcz47a6gh7"
   }
 }
