@@ -4113,27 +4113,34 @@
     "sha1": "008996e2d1e0d49d7f1b477f69106a6d23c5c103",
     "version": "22w42a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/98347f53e6b2412fa90479a501c77ad5943d0969/22w42a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/f05db54e4a5c0481850186546da66e9c37303abc/22w42a.json"
   },
   "22w43a": {
     "url": "https://piston-data.mojang.com/v1/objects/6718a5ac0b073644dbdfbd25f8218c68a1b390db/server.jar",
     "sha1": "6718a5ac0b073644dbdfbd25f8218c68a1b390db",
     "version": "22w43a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/a8fbb390d1139c15e8c61c2f55f377f8c6a06217/22w43a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/f1d8c227fb40056c9cf87f20167520114cd8594a/22w43a.json"
   },
   "22w44a": {
     "url": "https://piston-data.mojang.com/v1/objects/ed050b461b7dd347f383176ef03a71bacb844e69/server.jar",
     "sha1": "ed050b461b7dd347f383176ef03a71bacb844e69",
     "version": "22w44a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/d734e2494418748dfee00d847b2f9cef6a84effa/22w44a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/77d2bcfec58d1f3fd2babc4d8e6b0ed96532f824/22w44a.json"
   },
   "22w45a": {
     "url": "https://piston-data.mojang.com/v1/objects/d98f05500b14a8884b85e71be9fa1ef0d261029a/server.jar",
     "sha1": "d98f05500b14a8884b85e71be9fa1ef0d261029a",
     "version": "22w45a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/375bbc80700f75cf9aa4a1d47f4fed5132c2d881/22w45a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/605828bd86bd66c481c4083677d8e676cb52a3ed/22w45a.json"
+  },
+  "22w46a": {
+    "url": "https://piston-data.mojang.com/v1/objects/302ae4acba96e733fdbe144ebe2ba575b2bbf969/server.jar",
+    "sha1": "302ae4acba96e733fdbe144ebe2ba575b2bbf969",
+    "version": "22w46a",
+    "javaVersion": 17,
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/a9f5f7ddeedd7424b14912cac91d7ba1da210db7/22w46a.json"
   }
 }
