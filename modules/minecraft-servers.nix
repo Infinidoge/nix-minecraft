@@ -183,6 +183,11 @@ in
             a nix package/derivation. Can be used to declaratively manage
             arbitrary files in the server's data directory.
           '';
+          files = mkOpt' (types.attrsOf types.package) { } ''
+            Things to copy into this server's data directory. Similar to
+            symlinks, but these are actual files. Useful for configuration
+            files that don't behave well when read-only.
+          '';
         };
       });
     };
@@ -332,6 +337,22 @@ in
                             ln -sf "${v}" "${n}"
                           '')
                           conf.symlinks));
+
+                    mkFiles = pkgs.writeShellScript "minecraft-server-${name}-files"
+                      (concatStringsSep "\n"
+                        (mapAttrsToList
+                          (n: v: ''
+                            if [[ -L "${n}" ]]; then
+                              unlink ${n}
+                            elif ${pkgs.diffutils}/bin/cmp -s ${n} ${v}; then
+                              rm ${n}
+                            elif [[ -e "${n}" ]]; then
+                              echo "${n} already exists, moving"
+                              mv "${n}" "${n}.bak"
+                            fi
+                            cp -L --no-preserve all ${v} ${n}
+                          '')
+                          conf.files));
                   in
                   ''
                     umask u=rwx,g=rwx,o=rx
@@ -341,6 +362,7 @@ in
                     ${if conf.whitelist != {} then "ln -sf ${whitelist} whitelist.json" else ""}
                     ${if conf.serverProperties != {} then "cp -f ${serverProperties} server.properties" else ""}
                     ${mkSymlinks}
+                    ${mkFiles}
                   '';
 
                 postStart = ''
