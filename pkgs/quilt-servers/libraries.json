@@ -873,5 +873,40 @@
     "name": "quilt-loader-0.18.1-beta.13.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.13/quilt-loader-0.18.1-beta.13.jar",
     "sha256": "187qbaxarhjmn5f2sdiyvsjl9h42psnbzi36s7yvs2ds5d1mpc9q"
+  },
+  "org.quiltmc:hashed:1.19.3": {
+    "name": "hashed-1.19.3.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.19.3/hashed-1.19.3.jar",
+    "sha256": "009yfn0rzcp3ydgyjf843xg42mikckzy4lph6mrav45zhr47vi28"
+  },
+  "net.fabricmc:intermediary:1.19.3": {
+    "name": "intermediary-1.19.3.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.3/intermediary-1.19.3.jar",
+    "sha256": "0n6663y6lhybjgkdkd0rgk2ha0bi4ir4wrnwy156r622jd2yn25f"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.23": {
+    "name": "quilt-loader-0.18.1-beta.23.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.23/quilt-loader-0.18.1-beta.23.jar",
+    "sha256": "044zbylidm3afk8hz6b0f8p5p1rsi98v8xwh98j8flmy54cysdx8"
+  },
+  "org.quiltmc:hashed:1.19.3-rc3": {
+    "name": "hashed-1.19.3-rc3.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.19.3-rc3/hashed-1.19.3-rc3.jar",
+    "sha256": "04lcphqldxkb8q357h0a9mhizzkd704xrhf0asdf2d4m1s00iqd1"
+  },
+  "net.fabricmc:intermediary:1.19.3-rc3": {
+    "name": "intermediary-1.19.3-rc3.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.3-rc3/intermediary-1.19.3-rc3.jar",
+    "sha256": "0x4adby1kg3l3yafcbkm4g0rbma9kqkj5xgzcxxy8jqa4qm8wbla"
+  },
+  "org.quiltmc:hashed:1.19.3-rc2": {
+    "name": "hashed-1.19.3-rc2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.19.3-rc2/hashed-1.19.3-rc2.jar",
+    "sha256": "13bdzcma77mdsbc83nymfbnjl2zihgjd05k9f4brba0rhhgwgfwv"
+  },
+  "net.fabricmc:intermediary:1.19.3-rc2": {
+    "name": "intermediary-1.19.3-rc2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.3-rc2/intermediary-1.19.3-rc2.jar",
+    "sha256": "1g2m8qx8kx13lhb44f96jmxyvyg2s5gcka2nz0kydla7fa8zc365"
   }
 }
