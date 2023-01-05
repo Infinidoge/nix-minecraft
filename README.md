@@ -70,9 +70,17 @@ fabricServers.fabric-1_18_2-0_13_3 # Specific fabric loader version
 
 `quiltServers` functions the same as `fabricServers`, but with the Quilt mod loader.
 
+### `legacyFabricServers.*`
+
+[Source](./pkgs/legacy-fabric-servers)
+
+`legacyFabricServers` functions the same as `fabricServers`, but with versions provided by the Legacy Fabric project.
+
+Since Legacy Fabric does not have a defined newest version to target, it lacks a `legacy-fabric` attribute pointing to the latest version/loader version combination.
+
 ### `minecraftServers.*`
 
-`vanillaServers // fabricServers // quiltServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
+`vanillaServers // fabricServers // quiltServers // legacyFabricServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
 
 ### Others
 
