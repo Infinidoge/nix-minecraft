@@ -24,7 +24,8 @@
           vanillaServers = callPackage ./pkgs/minecraft-servers { };
           fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
           quiltServers = callPackage ./pkgs/quilt-servers { inherit vanillaServers; };
-          minecraftServers = vanillaServers // fabricServers // quiltServers;
+          legacyFabricServers = callPackage ./pkgs/legacy-fabric-servers { inherit vanillaServers; };
+          minecraftServers = vanillaServers // fabricServers // quiltServers // legacyFabricServers;
 
           vanilla-server = vanillaServers.vanilla;
           fabric-server = fabricServers.fabric;
