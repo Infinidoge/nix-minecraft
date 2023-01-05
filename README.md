@@ -2,7 +2,7 @@
 
 ## About
 
-`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem. As of currently, it packages all (and I mean all) of the Vanilla versions, along with all supported versions of the Fabric and Quilt loaders.
+`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem. As of currently, it packages all (and I mean all) of the Vanilla versions, along with all supported versions of the Fabric, Legacy Fabric, and Quilt loaders, and the Paper server.
 
 ## Installation
 
@@ -83,9 +83,15 @@ fabricServers.fabric-1_18_2-0_13_3 # Specific fabric loader version
 
 Since Legacy Fabric does not have a defined newest version to target, it lacks a `legacy-fabric` attribute pointing to the latest version/loader version combination.
 
+### `paperServers.*`
+
+[Source](./pkgs/paper-servers)
+
+`paperServers` functions the same as `fabricServers`, but with the Paper server software.
+
 ### `minecraftServers.*`
 
-`vanillaServers // fabricServers // quiltServers // legacyFabricServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
+`vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
 
 ### Others
 
