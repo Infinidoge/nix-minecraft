@@ -377,6 +377,23 @@ in
                 postStart = ''
                   ${pkgs.coreutils}/bin/chmod 660 ${tmuxSock}
                 '';
+
+                postStop =
+                  let
+                    rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
+                      (concatStringsSep "\n"
+                        (mapAttrsToList (n: v: "unlink ${n}") symlinks)
+                      );
+                    rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
+                      (concatStringsSep "\n"
+                        (mapAttrsToList (n: v: "rm -f ${n}") files)
+                      );
+                  in
+                  ''
+                    cd ${serverDir}
+                    ${rmSymlinks}
+                    ${rmFiles}
+                  '';
               };
             })
           servers;
