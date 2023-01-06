@@ -265,7 +265,7 @@ in
 
                 umask u=rwx,g=rwx,o=rx
                 cd ${serverDir}
-                ${tmux} -S ${tmuxSock} new -d ${conf.package}/bin/minecraft-server ${conf.jvmOpts}
+                ${tmux} -S ${tmuxSock} new -d ${getExe conf.package} ${conf.jvmOpts}
               '';
 
               stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
