@@ -9,6 +9,7 @@
 This repository is made exclusively as a Nix flake. Due to a lack of understanding of now Nix flake compat works, I have not included it, however if a PR is made to add compatibility, I may accept it.
 
 In your `flake.nix`:
+
 ```nix
 {
   inputs = {
@@ -18,6 +19,7 @@ In your `flake.nix`:
 ```
 
 In your system configuration:
+
 ```nix
 { inputs, ... }: # Make sure the flake inputs are in your system's config
 {
@@ -38,6 +40,7 @@ Additionally, documentation should be added for the maintenance of the `vanillaS
 ## Packages
 
 ### `vanillaServers.*`
+
 [Source](./pkgs/minecraft-servers)
 
 An attrset of all of the vanilla server versions, in the form of `vanilla-version`, where `version` is the Minecraft version (`1.18`, `1.12.2`, `22w16b`, etc), with all periods and spaces replaced with underscores (`1_18`, `1_12_2`, etc).
@@ -51,6 +54,7 @@ vanillaServers.vanilla-22w13oneblockatatime
 ```
 
 ### `fabricServers.*`
+
 [Source](./pkgs/fabric-servers)
 
 An attrset of all of the Fabric server versions, in the form of `fabric-mcversion` or `fabric-mcversion-fabricversion`, following the same format as described above for version numbers. If the `fabricversion` isn't specified, it uses the latest version.
@@ -66,6 +70,7 @@ fabricServers.fabric-1_18_2-0_13_3 # Specific fabric loader version
 ```
 
 ### `quiltServers.*`
+
 [Source](./pkgs/quilt-servers)
 
 `quiltServers` functions the same as `fabricServers`, but with the Quilt mod loader.
@@ -84,11 +89,12 @@ Since Legacy Fabric does not have a defined newest version to target, it lacks a
 
 ### Others
 
-* `vanilla-server`: Same as `vanillaServers.vanilla`
-* `fabric-server`: Same as `fabricServers.fabric`
-* `minecraft-server`: Same as `vanilla-server`
+- `vanilla-server`: Same as `vanillaServers.vanilla`
+- `fabric-server`: Same as `fabricServers.fabric`
+- `minecraft-server`: Same as `vanilla-server`
 
 #### `fetchModrinthMod`
+
 [Source](./pkgs/helpers/fetchModrinthMod.nix)
 
 Helper function that fetches a mod from [Modrinth](https://modrinth.com/).
@@ -112,6 +118,7 @@ Not yet available, however planned for the future, assuming an elegant-enough me
 ## Modules
 
 ### `services.minecraft-servers`
+
 [Source](./modules/minecraft-servers.nix)
 
 Module for hosting multiple servers at once.
