@@ -1,0 +1,24 @@
+name: Update package locks
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Daily at 00:00
+  workflow_dispatch: # Can be triggered manually as well
+
+jobs:
+  update:
+    name: Update lock files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cachix/install-nix-action@v18
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - uses: actions/checkout@v3
+      - name: Run scripts
+        run: |
+          for script in pkgs/*/update.py; do
+            ./$script
+          done
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[gha] update package lock files"
