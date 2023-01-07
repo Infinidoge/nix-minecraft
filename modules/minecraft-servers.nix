@@ -81,6 +81,17 @@ in
       '';
     };
 
+    environmentFile = mkOpt' (types.nullOr types.path) null ''
+      File consisting of lines in the form varname=value to define environment
+      variables for the minecraft servers.
+
+      Secrets (database passwords, secret keys, etc.) can be provided to server
+      files without adding them to the Nix store by defining them in the
+      environment file and referring to them in option
+      <option>services.minecraft-servers.servers.<name>.files</option> with the
+      syntax @varname@.
+    '';
+
     servers = mkOption {
       default = { };
       description = ''
@@ -330,6 +341,8 @@ in
                   GuessMainPID = true;
                   RuntimeDirectory = "minecraft";
                   RuntimeDirectoryPreserve = "yes";
+                  EnvironmentFile = mkIf (cfg.environmentFile != null)
+                    (toString cfg.environmentFile);
                 };
 
                 preStart =
@@ -362,7 +375,11 @@ in
                               mv "${n}" "${n}.bak"
                             fi
                             mkdir -p $(dirname ${n})
-                            cp -L --no-preserve all ${v} ${n}
+                            ${pkgs.gawk}/bin/awk '{
+                              for(varname in ENVIRON)
+                                gsub("@"varname"@", ENVIRON[varname])
+                              print
+                            }' "${v}" > "${n}"
                           '')
                           files));
                   in
