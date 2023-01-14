@@ -232,19 +232,17 @@ in
         networking.firewall =
           let
             toOpen = filterAttrs (_: cfg: cfg.openFirewall) servers;
-            UDPPorts = mapAttrsToList (name: conf: conf.serverProperties.server-port or 25565) toOpen;
-            TCPPorts = concatLists
-              (mapAttrsToList
-                (name: conf: with conf;
-                (optional (serverProperties.enable-rcon or false) (serverProperties."rcon.port" or 25575)) ++
-                (optional (serverProperties.enable-query or false) (serverProperties."query.port" or 25565))
-                )
-                toOpen
-              );
+            # Minecraft and RCON
+            getTCPPorts = n: c:
+              [ c.serverProperties.server-port or 25565 ] ++
+              (optional (c.serverProperties.enable-rcon or false) (c.serverProperties."rcon.port" or 25575));
+            # Query
+            getUDPPorts = n: c:
+              optional (c.serverProperties.enable-query or false) (c.serverProperties."query.port" or 25565);
           in
-          rec {
-            allowedUDPPorts = UDPPorts;
-            allowedTCPPorts = UDPPorts ++ TCPPorts;
+          {
+            allowedUDPPorts = flatten (mapAttrsToList getUDPPorts toOpen);
+            allowedTCPPorts = flatten (mapAttrsToList getTCPPorts toOpen);
           };
 
         system.activationScripts.minecraft-server-data-dir.text = ''
