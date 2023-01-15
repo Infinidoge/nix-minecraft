@@ -300,10 +300,10 @@ in
               symlinks = {
                 "eula.txt" = eulaFile;
               } // conf.symlinks;
-              files = {
-                "whitelist.json" = mkIf (conf.whitelist != { }) whitelistFile;
-                "server.properties" = mkIf (conf.serverProperties != { }) serverPropertiesFile;
-              } // conf.files;
+              files =
+                (optionalAttrs (conf.whitelist != { }) { "whitelist.json" = whitelistFile; }) //
+                (optionalAttrs (conf.serverProperties != { }) { "server.properties" = serverPropertiesFile; }) //
+                conf.files;
 
               startScript = pkgs.writeScript "minecraft-start-${name}" ''
                 #!${pkgs.runtimeShell}
