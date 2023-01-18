@@ -295,6 +295,7 @@ in
                   Type = "forking";
                   GuessMainPID = true;
                   RuntimeDirectory = "minecraft";
+                  RuntimeDirectoryPreserve = "yes";
                 };
 
                 preStart =
