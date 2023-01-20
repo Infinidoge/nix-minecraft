@@ -14587,6 +14587,10 @@
     "380": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/380/downloads/paper-1.19.3-380.jar",
       "sha256": "0124e36d01d75a3e65bb272b0ed5d4c2709951dcb6ab707bf7ac708bb2db3cda"
+    },
+    "381": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/381/downloads/paper-1.19.3-381.jar",
+      "sha256": "08c70453b7a32004816836851d792b11a2f4f74a750e55b27993a5c1427a5103"
     }
   }
 }
