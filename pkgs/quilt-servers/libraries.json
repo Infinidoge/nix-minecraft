@@ -1058,5 +1058,40 @@
     "name": "quilt-loader-0.18.1-beta.47.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.47/quilt-loader-0.18.1-beta.47.jar",
     "sha256": "10rwni99325ksysc7c9601ssrk739md8p9s8l01spxfypa6x3ipg"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.56": {
+    "name": "quilt-loader-0.18.1-beta.56.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.56/quilt-loader-0.18.1-beta.56.jar",
+    "sha256": "1kdx8w00dyvjx1k4nywrlqp1hbm4n0qpgrzs1rhpic1b4z1q754s"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.55": {
+    "name": "quilt-loader-0.18.1-beta.55.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.55/quilt-loader-0.18.1-beta.55.jar",
+    "sha256": "150djz5yiaakdslpnmkg51bs2a17f6xsfp5051prif1qfhr7vfwp"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.54": {
+    "name": "quilt-loader-0.18.1-beta.54.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.54/quilt-loader-0.18.1-beta.54.jar",
+    "sha256": "1z8b39qshfcgv8pwm53c98xfcb1k8a7akr0f8pxgii8swwjvmzgw"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.53": {
+    "name": "quilt-loader-0.18.1-beta.53.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.53/quilt-loader-0.18.1-beta.53.jar",
+    "sha256": "1x99hwqf24z0vlcjwk52ls46601s13x0m42cmfvwrmgvi0pi5fvz"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.52": {
+    "name": "quilt-loader-0.18.1-beta.52.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.52/quilt-loader-0.18.1-beta.52.jar",
+    "sha256": "0b4l59ndswrakfs1nmzlqrvf0nmrx3rnk4jygf9n76hb3527yac1"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.51": {
+    "name": "quilt-loader-0.18.1-beta.51.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.51/quilt-loader-0.18.1-beta.51.jar",
+    "sha256": "187bhd94q4l1824y48dipbm38z8nps1nvr5qhm0j349g3c6a2d9w"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.50": {
+    "name": "quilt-loader-0.18.1-beta.50.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.50/quilt-loader-0.18.1-beta.50.jar",
+    "sha256": "0aljbc09wqsw9nydsi5sdj8qa69pflfbha9dnv6ak5xb34gv8831"
   }
 }
