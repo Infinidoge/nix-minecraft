@@ -1113,5 +1113,10 @@
     "name": "intermediary-23w04a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/23w04a/intermediary-23w04a.jar",
     "sha256": "19m59rcm04cf6j1xhynywcbnp9dxgfgf398pzfbigcbp6ppsd3jb"
+  },
+  "org.quiltmc:quilt-loader:0.18.1-beta.59": {
+    "name": "quilt-loader-0.18.1-beta.59.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.59/quilt-loader-0.18.1-beta.59.jar",
+    "sha256": "0rsbwaik4m5lvf9n5jvfr8q5fijasm6bq31yq0fxfkhqlndp6vsf"
   }
 }
