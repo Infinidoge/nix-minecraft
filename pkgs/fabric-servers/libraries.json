@@ -1803,5 +1803,10 @@
     "name": "intermediary-23w05a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/23w05a/intermediary-23w05a.jar",
     "sha256": "1qy0ibb6bmwsdq5nkx5xcda49kilz3c0ybmqx3x1gx5gflkpmkwx"
+  },
+  "net.fabricmc:fabric-loader:0.14.14": {
+    "name": "fabric-loader-0.14.14.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.14/fabric-loader-0.14.14.jar",
+    "sha256": "0jvg1wlrgcm3r2n657xzd00rx69g6hwiyhpzvarw5smd9rkp342m"
   }
 }
