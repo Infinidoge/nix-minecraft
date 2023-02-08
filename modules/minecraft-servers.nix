@@ -328,8 +328,8 @@ in
                               echo "${n} already exists, moving"
                               mv "${n}" "${n}.bak"
                             fi
-                            mkdir -p $(dirname ${n})
-                            ln -sf ${v} ${n}
+                            mkdir -p "$(dirname "${n}")"
+                            ln -sf "${v}" "${n}"
                           '')
                           conf.symlinks));
                   in
