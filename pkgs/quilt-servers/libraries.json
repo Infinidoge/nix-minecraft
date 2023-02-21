@@ -1233,5 +1233,40 @@
     "name": "quilt-loader-0.18.1-beta.79.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1-beta.79/quilt-loader-0.18.1-beta.79.jar",
     "sha256": "1jyc0q1snsrmx0sqvnnj8aika51909yyfpbbwwv1z2h9sv1sm3kv"
+  },
+  "org.ow2.asm:asm:9.4": {
+    "name": "asm-9.4.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.4/asm-9.4.jar",
+    "sha256": "10gk2l71sfj4d0sgj971abh2d8cl19slay89kfh6bbs5vjry5l1r"
+  },
+  "org.ow2.asm:asm-analysis:9.4": {
+    "name": "asm-analysis-9.4.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.4/asm-analysis-9.4.jar",
+    "sha256": "0g9p7w2n94a78af1b1r1fcrdrszxwdwz69hdayxvahgk7dg8qpvv"
+  },
+  "org.ow2.asm:asm-commons:9.4": {
+    "name": "asm-commons-9.4.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.4/asm-commons-9.4.jar",
+    "sha256": "0r336bb5caxxrm5mflc9yl4bais2y5nd3xkjjaarhg7kqfg8l4hc"
+  },
+  "org.ow2.asm:asm-tree:9.4": {
+    "name": "asm-tree-9.4.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.4/asm-tree-9.4.jar",
+    "sha256": "1krabgknafs85zvnqc46m2sbv1jfxypfxxqan8ga4rj5yaf4fbf4"
+  },
+  "org.ow2.asm:asm-util:9.4": {
+    "name": "asm-util-9.4.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.4/asm-util-9.4.jar",
+    "sha256": "0gm2jwi2652hib3h618v3q3wvmdwjqgn1yvw3rj5cl7m7ywk4y9x"
+  },
+  "org.quiltmc:quilt-loader:0.18.2": {
+    "name": "quilt-loader-0.18.2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.2/quilt-loader-0.18.2.jar",
+    "sha256": "0986r4r0gvc241pwfw0abljg5h0gdjdm55j4wyw713s6d1c65y3f"
+  },
+  "org.quiltmc:quilt-loader:0.18.1": {
+    "name": "quilt-loader-0.18.1.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.1/quilt-loader-0.18.1.jar",
+    "sha256": "0icm2nzprgj1m2h2spw4fhf76m53nh58nd29hh9w0n7vki2f5qi6"
   }
 }
