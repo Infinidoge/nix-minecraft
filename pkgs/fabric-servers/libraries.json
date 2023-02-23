@@ -1818,5 +1818,20 @@
     "name": "intermediary-23w07a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/23w07a/intermediary-23w07a.jar",
     "sha256": "08daipfk31h7pjib4hkc7gyjvlkx3gv192rr46dq3ply342ybr67"
+  },
+  "net.fabricmc:sponge-mixin:0.12.3+mixin.0.8.5": {
+    "name": "sponge-mixin-0.12.3+mixin.0.8.5.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.12.3+mixin.0.8.5/sponge-mixin-0.12.3+mixin.0.8.5.jar",
+    "sha256": "1d9msdggpg72ajfl03axa4y8ifi92ahza3lnvlqf1k189rmnkcs8"
+  },
+  "net.fabricmc:intermediary:1.19.4-pre1": {
+    "name": "intermediary-1.19.4-pre1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.4-pre1/intermediary-1.19.4-pre1.jar",
+    "sha256": "0qaia2807m3yhmpd8j47s1bq1zplsirs4n7bjzk570mirra25v0r"
+  },
+  "net.fabricmc:fabric-loader:0.14.15": {
+    "name": "fabric-loader-0.14.15.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.15/fabric-loader-0.14.15.jar",
+    "sha256": "0i03bwsyq69bfmfjgfrlssbfb98ax71j83xdpdpdr07b04km69w7"
   }
 }
