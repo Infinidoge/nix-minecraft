@@ -226,6 +226,7 @@ in
                 counts = map (port: count (x: x == port) serverPorts) (unique serverPorts);
               in
               lib.all (x: x == 1) counts;
+            message = "Multiple servers are set to use the same port. Change one to use a different port.";
           }
         ];
 
