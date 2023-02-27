@@ -48,10 +48,7 @@ From there, you can setup the service or use the packages, as described below.
 
 ## Roadmap
 
-### TODO: Finish documentation
-
-This README file is incomplete, and doesn't fully describe the `services.minecraft-servers` module.
-Additionally, documentation should be added for the maintenance of the `vanillaServers.*`, `fabricServers.*`, and `quiltServers.*`.
+See [TODO.md](./TODO.md).
 
 ## Packages
 
