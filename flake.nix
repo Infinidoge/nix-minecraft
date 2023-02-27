@@ -26,12 +26,14 @@
           quiltServers = callPackage ./pkgs/quilt-servers { inherit vanillaServers; };
           legacyFabricServers = callPackage ./pkgs/legacy-fabric-servers { inherit vanillaServers; };
           paperServers = callPackage ./pkgs/paper-servers { };
+          velocityServers = callPackage ./pkgs/velocity-servers { };
           minecraftServers = vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers;
 
           vanilla-server = vanillaServers.vanilla;
           fabric-server = fabricServers.fabric;
           quilt-server = quiltServers.quilt;
           paper-server = paperServers.paper;
+          velocity-server = velocityServers.velocity;
           minecraft-server = vanilla-server;
         } // (
           builtins.mapAttrs (n: v: callPackage v) (self.lib.rakeLeaves ./pkgs/helpers)

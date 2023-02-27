@@ -89,6 +89,14 @@ Since Legacy Fabric does not have a defined newest version to target, it lacks a
 
 `paperServers` functions the same as `fabricServers`, but with the Paper server software.
 
+### `velocityServers.*`
+
+[Source](./pkgs/velocity-servers)
+
+An attrset of all of the Velocity server versions (differently from the others, the version does not include nor depend on specific minecraft versions).
+
+For convenience, `velocityServers.velocity` is equivalent to the latest version.
+
 ### `minecraftServers.*`
 
 `vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
