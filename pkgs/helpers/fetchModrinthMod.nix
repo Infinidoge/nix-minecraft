@@ -3,6 +3,7 @@
 , jq
 , id
 , hash
+, lib
 }:
 let
   version = builtins.fromJSON
@@ -18,4 +19,6 @@ let
         nativeBuildInputs = [ jq ];
       }));
 in
-fetchurl { inherit (version) url sha512; }
+lib.warn
+  "`fetchModrinthMod` is deprecated; use `fetchurl` with `nix-modrinth-prefetch` instead. see the CHANGELOG.md for more information"
+  (fetchurl { inherit (version) url sha512; })
