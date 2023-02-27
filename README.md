@@ -2,7 +2,23 @@
 
 ## About
 
-`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem. As of currently, it packages all (and I mean all) of the Vanilla versions, along with all supported versions of the Fabric, Legacy Fabric, and Quilt loaders, and the Paper server.
+`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem.
+As of currently, it packages:
+
+- All versions of Vanilla
+- All supported versions of the following mod/plugin loaders/servers:
+  - Fabric
+  - Legacy Fabric
+  - Quilt
+  - Paper
+- All supported versions of the following:
+  - Velocity proxy
+- Various tools
+  - `nix-modrinth-prefetch`
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md).
 
 ## Installation
 
@@ -107,9 +123,11 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 - `fabric-server`: Same as `fabricServers.fabric`
 - `minecraft-server`: Same as `vanilla-server`
 
-#### `fetchModrinthMod`
+#### **DEPRECATED** `fetchModrinthMod`
 
 [Source](./pkgs/helpers/fetchModrinthMod.nix)
+
+**`fetchModrinthMod` and `nix-prefetch-modrinth` are deprecated. Use `fetchurl` instead. See [CHANGELOG.md](./CHANGELOG.md) and `nix-modrinth-prefetch` below**
 
 Helper function that fetches a mod from [Modrinth](https://modrinth.com/).
 
@@ -125,9 +143,24 @@ nix run github:Infinidoge/nix-minecraft#nix-prefetch-modrinth -- versionid
 pkgs.fetchModrinthMod { id = "versionid"; hash = "hash from above command"; }
 ```
 
-#### TODO: `fetchCurseForgeMod`
+#### `nix-modrinth-prefetch`
 
-Not yet available, however planned for the future, assuming an elegant-enough method can be found. For now, you can use `fetchurl` with the file URL and file hash.
+[Source](./pkgs/tools/nix-modrinth-prefetch.nix)
+
+A helper script to fetch a Modrinth mod, which outputs the necessary `fetchurl` invocation.
+
+To use it, first find a mod on Modrinth, and click on the version you want.
+In the displayed information, there is a `Version ID` string.
+Click on it to copy the version ID.
+Then, run the script like so:
+
+```shell
+nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- versionid
+```
+
+(This helper script can also be used in a temporary shell with `nix shell github:Infinidoge/nix-minecraft#nix-modrinth-prefetch`)
+
+This `fetchurl` invocation directly fetches the mod, and can be copy-pasted to wherever necessary.
 
 ## Modules
 
