@@ -4113,132 +4113,139 @@
     "sha1": "008996e2d1e0d49d7f1b477f69106a6d23c5c103",
     "version": "22w42a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/893fc9b0ceefe988a971d5ce99110edc1390ee75/22w42a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/0941e34ff59100afeb66994da647dd5d8f5021d2/22w42a.json"
   },
   "22w43a": {
     "url": "https://piston-data.mojang.com/v1/objects/6718a5ac0b073644dbdfbd25f8218c68a1b390db/server.jar",
     "sha1": "6718a5ac0b073644dbdfbd25f8218c68a1b390db",
     "version": "22w43a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/d83b3ab57650c1d1bc4040e9144dbe4e8d5ed033/22w43a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/0f876aec97fd9df6afbea74dc30acb1fb04592bd/22w43a.json"
   },
   "22w44a": {
     "url": "https://piston-data.mojang.com/v1/objects/ed050b461b7dd347f383176ef03a71bacb844e69/server.jar",
     "sha1": "ed050b461b7dd347f383176ef03a71bacb844e69",
     "version": "22w44a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/8f1cbc6d666acb66b58498a07dbe2c9b98aaddfa/22w44a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/ebf525aa81d9923bd90d01e1b17ad0aebebd95b7/22w44a.json"
   },
   "22w45a": {
     "url": "https://piston-data.mojang.com/v1/objects/d98f05500b14a8884b85e71be9fa1ef0d261029a/server.jar",
     "sha1": "d98f05500b14a8884b85e71be9fa1ef0d261029a",
     "version": "22w45a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/9ef3bb4f3a3c53ce5ea75dc5360acf7337a99465/22w45a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/455acafd88acd10a0ce9098eec1b68c6a43a8dd4/22w45a.json"
   },
   "22w46a": {
     "url": "https://piston-data.mojang.com/v1/objects/302ae4acba96e733fdbe144ebe2ba575b2bbf969/server.jar",
     "sha1": "302ae4acba96e733fdbe144ebe2ba575b2bbf969",
     "version": "22w46a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/6b33e843c34b7d788976b0c19ff05947cc24b427/22w46a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/8409bd3011d0934dcaa8e0d09376ab808ce91812/22w46a.json"
   },
   "1.19.3-pre2": {
     "url": "https://piston-data.mojang.com/v1/objects/f8a18aa1e7b658de909470f69553c53d8662dfbe/server.jar",
     "sha1": "f8a18aa1e7b658de909470f69553c53d8662dfbe",
     "version": "1.19.3-pre2",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/fc529436960e0ff350280ad5c44b8fae1d1a1ff2/1.19.3-pre2.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/24bb62a39511e5d578152377348ebaccc7700ad7/1.19.3-pre2.json"
   },
   "1.19.3-pre1": {
     "url": "https://piston-data.mojang.com/v1/objects/046fee78cd174105cb9b958a8459c0405ab19959/server.jar",
     "sha1": "046fee78cd174105cb9b958a8459c0405ab19959",
     "version": "1.19.3-pre1",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/9e503a48183d096a1fd62c318d02391eeb09482b/1.19.3-pre1.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/c370fe5fc3102c53dfa420c8e09ea00648f78901/1.19.3-pre1.json"
   },
   "1.19.3-rc2": {
     "url": "https://piston-data.mojang.com/v1/objects/138c813e22102e1a82a1be7b76080f40235183fe/server.jar",
     "sha1": "138c813e22102e1a82a1be7b76080f40235183fe",
     "version": "1.19.3-rc2",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/0b29128fac9ebf82b3d20ef36a1be4f3aaec7bbb/1.19.3-rc2.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/c2bc1b180a3567a1f98d1dd22ef5372a4756e0c1/1.19.3-rc2.json"
   },
   "1.19.3-rc1": {
     "url": "https://piston-data.mojang.com/v1/objects/0c713920eff7358cb01c56979e8d732943bb893b/server.jar",
     "sha1": "0c713920eff7358cb01c56979e8d732943bb893b",
     "version": "1.19.3-rc1",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/7a0a072d10e09e7b9b97539ac0f68d0dbf659716/1.19.3-rc1.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/6c4ecdb4eae29941def254f672e0a41d42dada86/1.19.3-rc1.json"
   },
   "1.19.3-pre3": {
     "url": "https://piston-data.mojang.com/v1/objects/323175facb90c05b07dff84b4cff39fd9cab138a/server.jar",
     "sha1": "323175facb90c05b07dff84b4cff39fd9cab138a",
     "version": "1.19.3-pre3",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/d6538a64a39b3c893d3297094f2830ad81347c15/1.19.3-pre3.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/d641bf02d634711e3ef0eae4ff3115791cae0b39/1.19.3-pre3.json"
   },
   "1.19.3": {
     "url": "https://piston-data.mojang.com/v1/objects/c9df48efed58511cdd0213c56b9013a7b5c9ac1f/server.jar",
     "sha1": "c9df48efed58511cdd0213c56b9013a7b5c9ac1f",
     "version": "1.19.3",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/24522b43e388798930ecead78867c164a8f1c354/1.19.3.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/1e2c2c0c950ddaa51871d59902ed5b45f62fd9cb/1.19.3.json"
   },
   "1.19.3-rc3": {
     "url": "https://piston-data.mojang.com/v1/objects/5f459ba58558d797229c819c0314bec84e774ecb/server.jar",
     "sha1": "5f459ba58558d797229c819c0314bec84e774ecb",
     "version": "1.19.3-rc3",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/6752afe021ed87e18cafbe1c06a9e66504aed25d/1.19.3-rc3.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/58f6a369622d1a1828fb3d05880beb341e6c1d5e/1.19.3-rc3.json"
   },
   "23w03a": {
     "url": "https://piston-data.mojang.com/v1/objects/b033d57035b293a9eda548db0615c1c89c21ea28/server.jar",
     "sha1": "b033d57035b293a9eda548db0615c1c89c21ea28",
     "version": "23w03a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/bd50d8f239afb5cbb5a7898cab53ab0bc7f97af0/23w03a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/d5bd0520c48b56c452e5b70bfb42c617a53b3bab/23w03a.json"
   },
   "23w04a": {
     "url": "https://piston-data.mojang.com/v1/objects/2f31a8584ec1e70abd2d8b22d976feb52a6a3e31/server.jar",
     "sha1": "2f31a8584ec1e70abd2d8b22d976feb52a6a3e31",
     "version": "23w04a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/33833daabe25e01b5afac6973a4afb348e91d75e/23w04a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/639bd2d04d8dabad94447788eca9d2f64ffc8bc6/23w04a.json"
   },
   "23w05a": {
     "url": "https://piston-data.mojang.com/v1/objects/98cfa3f8f9aef61e1298c9cfd62f6eeaf8abe206/server.jar",
     "sha1": "98cfa3f8f9aef61e1298c9cfd62f6eeaf8abe206",
     "version": "23w05a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/50677118c5db375c433aeaed8c3c2842cda8e1f6/23w05a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/3d091dfe53ab7945b57bfcbc861e765bb44eabe0/23w05a.json"
   },
   "23w06a": {
     "url": "https://piston-data.mojang.com/v1/objects/daaed1fac98d17bd76f8fd43268f1c1b97230b59/server.jar",
     "sha1": "daaed1fac98d17bd76f8fd43268f1c1b97230b59",
     "version": "23w06a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/c44ec42e44d87bc372ff030a9f5abebb4876a9af/23w06a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/685e3b5798330d4f3ae1d396cda6d8febb1ce2a3/23w06a.json"
   },
   "23w07a": {
     "url": "https://piston-data.mojang.com/v1/objects/b919e6e1683a4b6f37f2717c7841e88e306bdc94/server.jar",
     "sha1": "b919e6e1683a4b6f37f2717c7841e88e306bdc94",
     "version": "23w07a",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/6887fa4e1de73e22a5f9a1dd192f0ccb996bc9d2/23w07a.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/b19326ef8313714d8c1cc56e79cf4be9ad998bce/23w07a.json"
   },
   "1.19.4-pre1": {
     "url": "https://piston-data.mojang.com/v1/objects/0bc471b96bb0edbc2f03e6cdc3ad981f7a4f5f8a/server.jar",
     "sha1": "0bc471b96bb0edbc2f03e6cdc3ad981f7a4f5f8a",
     "version": "1.19.4-pre1",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/f57008ee83019baaaff13ac2c3eca3755aa9d8f7/1.19.4-pre1.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/b2756cf5ff45f106b72586a11b1fd93e0de226fd/1.19.4-pre1.json"
   },
   "1.19.4-pre2": {
     "url": "https://piston-data.mojang.com/v1/objects/d0b48d637834e879c16de26ffc11226d2d8e6772/server.jar",
     "sha1": "d0b48d637834e879c16de26ffc11226d2d8e6772",
     "version": "1.19.4-pre2",
     "javaVersion": 17,
-    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/74ed36a4837fb89182b05bf8233190af4fa319bc/1.19.4-pre2.json"
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/160eb5de56b7a98d77e6c4b06c3d96bc02f4f579/1.19.4-pre2.json"
+  },
+  "1.19.4-pre3": {
+    "url": "https://piston-data.mojang.com/v1/objects/cedc29f7e4927bfe58c96e67495a73c7333c75cd/server.jar",
+    "sha1": "cedc29f7e4927bfe58c96e67495a73c7333c75cd",
+    "version": "1.19.4-pre3",
+    "javaVersion": 17,
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/48a2df5f2cc95715111acc76fbf8d7abbf05a4db/1.19.4-pre3.json"
   }
 }
