@@ -1318,5 +1318,20 @@
     "name": "quilt-loader-0.18.4-pre.1.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.4-pre.1/quilt-loader-0.18.4-pre.1.jar",
     "sha256": "02igklijr8z17qawwh0a9zb9x06klfw1bn6hg2n3f60ycqj78ksn"
+  },
+  "net.fabricmc:sponge-mixin:0.12.4+mixin.0.8.5": {
+    "name": "sponge-mixin-0.12.4+mixin.0.8.5.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.12.4+mixin.0.8.5/sponge-mixin-0.12.4+mixin.0.8.5.jar",
+    "sha256": "07f8d560kndj7anhpxwmgc16mpjkv9synn2wqanzw5k9k8q5ndil"
+  },
+  "org.quiltmc:quilt-loader:0.18.4-pre.3": {
+    "name": "quilt-loader-0.18.4-pre.3.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.4-pre.3/quilt-loader-0.18.4-pre.3.jar",
+    "sha256": "1jlma0ca28aq4drszalrm1639g7rvs72gwg2zmma7civpndvicis"
+  },
+  "org.quiltmc:quilt-loader:0.18.4-pre.2": {
+    "name": "quilt-loader-0.18.4-pre.2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.4-pre.2/quilt-loader-0.18.4-pre.2.jar",
+    "sha256": "0jg4n5q1k6va5h82mj6ykpg5nd65a7bw2qabb9gj694xd7wacl1n"
   }
 }
