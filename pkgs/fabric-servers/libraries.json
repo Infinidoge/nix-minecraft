@@ -1868,5 +1868,10 @@
     "name": "intermediary-1.19.4-rc1.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.4-rc1/intermediary-1.19.4-rc1.jar",
     "sha256": "1cknf47503pn2rfy4yk5knrjsnj4vw1fjmbmx11c52x13692wv5y"
+  },
+  "net.fabricmc:intermediary:1.19.4-rc2": {
+    "name": "intermediary-1.19.4-rc2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.19.4-rc2/intermediary-1.19.4-rc2.jar",
+    "sha256": "0n8nmrixnp2s6irf2a8ra1krkh3rq291nk2k77pxbrq8xcb7fr4f"
   }
 }
