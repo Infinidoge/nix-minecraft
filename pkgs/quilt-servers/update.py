@@ -21,7 +21,7 @@ LOADER_VERSION_FILTER = lambda version: (
     version["separator"] == "." and versiontuple(version["version"]) >= (0, 17, 0)
 )
 
-SNAPSHOT_REGEX = re.compile("([0-9]{2})w([0-9]{1,2})[a-z]+")
+SNAPSHOT_REGEX = re.compile("([0-9]{2})w([0-9]{1,2}).+")
 
 # Package all game versions supported by Quilt
 def GAME_VERSION_FILTER(version):
