@@ -4296,5 +4296,12 @@
     "version": "23w13a",
     "javaVersion": 17,
     "manifestUrl": "https://piston-meta.mojang.com/v1/packages/c4f1c7689088091cd37623e800d82a03836e2137/23w13a.json"
+  },
+  "23w13a_or_b": {
+    "url": "https://piston-data.mojang.com/v1/objects/6241fc14ce7a659f371683a72aa24c155f60cce1/server.jar",
+    "sha1": "6241fc14ce7a659f371683a72aa24c155f60cce1",
+    "version": "23w13a_or_b",
+    "javaVersion": 17,
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/f7dc73624306a835e2e7274b198260d361dc2005/23w13a_or_b.json"
   }
 }
