@@ -1,5 +1,5 @@
-{ lib, stdenv, fetchurl, nixosTests, jre_headless, version, url, sha1 }:
-stdenv.mkDerivation {
+{ lib, stdenvNoCC, fetchurl, nixosTests, jre_headless, version, url, sha1 }:
+stdenvNoCC.mkDerivation {
   pname = "minecraft-server";
   inherit version;
 

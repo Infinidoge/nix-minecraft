@@ -1,6 +1,6 @@
 { lib
 , fetchurl
-, stdenv
+, stdenvNoCC
 , unzip
 , zip
 , jre_headless
@@ -10,7 +10,7 @@ let
   lib_lock = lib.importJSON ./libraries.json;
   libraries = lib.forEach lock.libraries (l: fetchurl lib_lock.${l});
 in
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation {
   name = "fabric-server-launch.jar";
   nativeBuildInputs = [ unzip zip jre_headless ];
 

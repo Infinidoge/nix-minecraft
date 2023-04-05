@@ -1,5 +1,5 @@
-{ lib, stdenv, fetchurl, nixosTests, jre, version, url, sha256 }:
-stdenv.mkDerivation {
+{ lib, stdenvNoCC, fetchurl, nixosTests, jre, version, url, sha256 }:
+stdenvNoCC.mkDerivation {
   pname = "paper";
   inherit version;
 
