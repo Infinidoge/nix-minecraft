@@ -52,6 +52,8 @@ See [TODO.md](./TODO.md).
 
 ## Packages
 
+All of these are found under `legacyPackages`, since they are attrsets of derivations.
+
 ### `vanillaServers.*`
 
 [Source](./pkgs/minecraft-servers)
@@ -115,6 +117,8 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 `vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
 
 ### Others
+
+All of these packages are also available under `packages`, not just `legacyPackages`.
 
 - `vanilla-server`: Same as `vanillaServers.vanilla`
 - `fabric-server`: Same as `fabricServers.fabric`

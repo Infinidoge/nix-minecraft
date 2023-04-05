@@ -44,10 +44,37 @@
 
       overlay = final: prev: mkPackages prev;
       nixosModules = self.lib.rakeLeaves ./modules;
-    } // flake-utils.lib.eachDefaultSystem (system: {
-      packages = mkPackages (import nixpkgs {
+    } // flake-utils.lib.eachDefaultSystem (system: rec {
+      legacyPackages = mkPackages (import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
       });
+
+      packages = {
+        inherit (legacyPackages)
+          vanilla-server
+          fabric-server
+          quilt-server
+          paper-server
+          velocity-server
+          minecraft-server
+          nix-modrinth-prefetch;
+      } // (
+        nixpkgs.lib.mapAttrs
+          (name: set: nixpkgs.lib.warn
+            "`${name}` from the `packages` flake output is deprecated. Please use the `legacyPackages` flake output instead."
+            set
+          )
+          {
+            inherit (legacyPackages)
+              vanillaServers
+              fabricServers
+              quiltServers
+              legacyFabricServers
+              paperServers
+              VelocityServers
+              minecraftServers;
+          }
+      );
     });
 }

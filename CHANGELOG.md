@@ -2,6 +2,12 @@
 
 Documentation of major changes, newest first.
 
+## 2023-04-05: Deprecation/Move of attrsets from `packages` to `legacyPackages`
+
+The Nix flake CLI does not support attrsets of packages in the `packages` flake output.
+Everything under `packages` is now exposed under `legacyPackages` with no changes.
+They are still available under `packages` for now, for a deprecation period.
+
 ## 2023-04-05: Removal of `fetchModrinthMod` and `nix-prefetch-modrinth`
 
 As per the previous deprecation notice, `fetchModrinthMod` and `nix-prefetch-modrinth` have been removed.
