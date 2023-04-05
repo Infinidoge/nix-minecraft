@@ -118,6 +118,9 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 
 - `vanilla-server`: Same as `vanillaServers.vanilla`
 - `fabric-server`: Same as `fabricServers.fabric`
+- `quilt-server`: Same as `quiltServers.quilt`
+- `paper-server`: Same as `paperServers.paper`
+- `velocity-server`: Same as `velocityServers.velocity`
 - `minecraft-server`: Same as `vanilla-server`
 
 #### `nix-modrinth-prefetch`
