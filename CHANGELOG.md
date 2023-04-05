@@ -2,6 +2,10 @@
 
 Documentation of major changes, newest first.
 
+## 2023-04-05: Removal of `fetchModrinthMod` and `nix-prefetch-modrinth`
+
+As per the previous deprecation notice, `fetchModrinthMod` and `nix-prefetch-modrinth` have been removed.
+
 ## 2023-02-27: Deprecation of `fetchModrinthMod` and `nix-prefetch-modrinth`
 
 `fetchModrinthMod` and `nix-prefetch-modrinth` have been kinda just... bad from the beginning.

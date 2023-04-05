@@ -36,8 +36,6 @@
           velocity-server = velocityServers.velocity;
           minecraft-server = vanilla-server;
         } // (
-          builtins.mapAttrs (n: v: callPackage v) (self.lib.rakeLeaves ./pkgs/helpers)
-        ) // (
           builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./pkgs/tools)
         );
     in

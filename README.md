@@ -120,26 +120,6 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 - `fabric-server`: Same as `fabricServers.fabric`
 - `minecraft-server`: Same as `vanilla-server`
 
-#### **DEPRECATED** `fetchModrinthMod`
-
-[Source](./pkgs/helpers/fetchModrinthMod.nix)
-
-**`fetchModrinthMod` and `nix-prefetch-modrinth` are deprecated. Use `fetchurl` instead. See [CHANGELOG.md](./CHANGELOG.md) and `nix-modrinth-prefetch` below**
-
-Helper function that fetches a mod from [Modrinth](https://modrinth.com/).
-
-To use it, first find a mod on Modrinth, and click on the version you want. Among the information displayed, there is a `Version ID` string. This version ID will be refers to that version of the mod. See `services.minecraft-servers` below for an example usage.
-
-```shell
-nix run github:Infinidoge/nix-minecraft#nix-prefetch-modrinth -- versionid
-```
-
-(This helper script can also be used in a temporary shell with `nix shell github:Infinidoge/nix-minecraft#nix-prefetch-modrinth`)
-
-```nix
-pkgs.fetchModrinthMod { id = "versionid"; hash = "hash from above command"; }
-```
-
 #### `nix-modrinth-prefetch`
 
 [Source](./pkgs/tools/nix-modrinth-prefetch.nix)
