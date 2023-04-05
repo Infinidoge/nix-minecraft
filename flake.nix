@@ -13,7 +13,7 @@
     , ...
     }@inputs:
     let
-      packages = pkgs:
+      mkPackages = pkgs:
         let
           callPackage = pkgs.newScope {
             inherit inputs;
@@ -42,10 +42,10 @@
     {
       lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
 
-      overlay = final: prev: packages prev;
+      overlay = final: prev: mkPackages prev;
       nixosModules = self.lib.rakeLeaves ./modules;
     } // flake-utils.lib.eachDefaultSystem (system: {
-      packages = packages (import nixpkgs {
+      packages = mkPackages (import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
       });
