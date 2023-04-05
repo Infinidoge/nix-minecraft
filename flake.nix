@@ -47,7 +47,7 @@
       overlay = final: prev: packages prev;
       nixosModules = self.lib.rakeLeaves ./modules;
     } // flake-utils.lib.eachDefaultSystem (system: {
-      packages = packages (import nixpkgs {
+      legacyPackages = packages (import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
       });
