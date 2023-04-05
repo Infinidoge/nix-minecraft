@@ -6,7 +6,7 @@
 let
   versions = lib.importJSON ./locks.json;
 
-  inherit (lib.our) escapeVersion;
+  inherit (lib.our) escapeVersion removeVanilla;
   latestVersion = escapeVersion (lib.our.latestVersion versions);
 
   packages =
@@ -24,9 +24,6 @@ in
 lib.recurseIntoAttrs (
   packages
   // (
-    let
-      removeVanilla = n: escapeVersion (lib.removePrefix "vanilla-" n);
-    in
     (lib.mapAttrs'
       (n: v: lib.nameValuePair "legacy-fabric-${lib.removePrefix "vanilla-" n}" v)
       (lib.genAttrs

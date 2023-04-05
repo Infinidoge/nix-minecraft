@@ -12,6 +12,8 @@ rec {
 
   escapeVersion = builtins.replaceStrings [ "." " " ] [ "_" "_" ];
 
+  removeVanilla = n: escapeVersion (lib.removePrefix "vanilla-" n);
+
   # Stolen from digga: https://github.com/divnix/digga/blob/587013b2500031b71959496764b6fdd1b2096f9a/src/importers.nix#L61-L114
   rakeLeaves =
     dirPath:
