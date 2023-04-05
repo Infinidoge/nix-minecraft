@@ -13,7 +13,7 @@
     , ...
     }@inputs:
     let
-      packages = pkgs:
+      myPackages = pkgs:
         let
           callPackage = pkgs.newScope {
             inherit inputs;
@@ -44,12 +44,13 @@
     {
       lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
 
-      overlay = final: prev: packages prev;
+      overlay = final: prev: myPackages prev;
       nixosModules = self.lib.rakeLeaves ./modules;
-    } // flake-utils.lib.eachDefaultSystem (system: {
-      legacyPackages = packages (import nixpkgs {
+    } // flake-utils.lib.eachDefaultSystem (system: rec {
+      legacyPackages = myPackages (import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
       });
+      packages = nixpkgs.lib.warn "`packages` is deprecated; use `legacyPackages` instead. see CHANGELOG.md for more information" legacyPackages;
     });
 }

@@ -2,6 +2,10 @@
 
 Documentation of major changes, newest first.
 
+## 2023-04-05: Deprecation of `packages` flake output
+Since the packages are currently wrapped inside of attrsets, the flake is more or less "broken". According to the specs, the `packages` outputs may only contain derivations, no sets.
+Nixpkgs doesn't follow that structure either, that's why it uses the `legacyPackages` output instead. Doing the same thing with this flake "un-breaks" things like `nix flake show`
+
 ## 2023-02-27: Deprecation of `fetchModrinthMod` and `nix-prefetch-modrinth`
 
 `fetchModrinthMod` and `nix-prefetch-modrinth` have been kinda just... bad from the beginning.
