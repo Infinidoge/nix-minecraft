@@ -1513,5 +1513,10 @@
     "name": "quilt-loader-0.18.9.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.9/quilt-loader-0.18.9.jar",
     "sha256": "1wlvf2333dv2z7qawrdy1xfzqknm3skhgmqpngakziasvjwzq7sz"
+  },
+  "org.quiltmc:quilt-loader:0.18.10": {
+    "name": "quilt-loader-0.18.10.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.18.10/quilt-loader-0.18.10.jar",
+    "sha256": "18638iixyhbn6whhxd9y16ahikkglq7x1c7zvghskyrm90fr553c"
   }
 }
