@@ -72,7 +72,7 @@
               quiltServers
               legacyFabricServers
               paperServers
-              VelocityServers
+              velocityServers
               minecraftServers;
           }
       );
