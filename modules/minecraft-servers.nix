@@ -101,13 +101,6 @@ in
       the server name in this directory, such as <literal>/srv/minecraft/servername</literal>.
     '';
 
-    runDir = mkOpt' types.path "/run/minecraft" ''
-      Directory to place the runtime tmux sockets into.
-      Each server's console will be a tmux socket file in the form of <literal>servername.sock</literal>.
-      To connect to the console, run `tmux -S /run/minecraft/servername.sock attach`,
-      press `Ctrl + b` then `d` to detach.
-    '';
-
     user = mkOption {
       type = types.str;
       default = "minecraft";
@@ -125,8 +118,8 @@ in
       default = "minecraft";
       description = ''
         Name of the group to create and run servers under.
-        In order to modify the server files or attach to the tmux socket,
-        your user must be a part of this group.
+        In order to modify the server files your user must be a part of this
+        group.
         It is recommended to leave this as the default, as it is
         the same group as <option>services.minecraft-server</option>.
       '';
@@ -179,8 +172,6 @@ in
 
           restart = mkOpt' types.str "always" ''
             Value of systemd's <literal>Restart=</literal> service configuration option.
-            Due to the servers being started in tmux sockets, values other than
-            <literal>"no"</literal> and <literal>"always"</literal> may not work properly.
             As a consequence of the <literal>"always"</literal> option, stopping the server
             in-game with the <literal>stop</literal> command will cause the server to automatically restart.
           '';
@@ -337,9 +328,6 @@ in
         systemd.services = mapAttrs'
           (name: conf:
             let
-              tmux = "${getBin pkgs.tmux}/bin/tmux";
-              tmuxSock = "${cfg.runDir}/${name}.sock";
-
               symlinks = normalizeFiles ({
                 "eula.txt".value = { eula = true; };
                 "eula.txt".format = pkgs.formats.keyValue { };
@@ -348,21 +336,6 @@ in
                 "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
                 "server.properties".value = conf.serverProperties;
               } // conf.files);
-
-              startScript = pkgs.writeScript "minecraft-start-${name}" ''
-                #!${pkgs.runtimeShell}
-                ${tmux} -S ${tmuxSock} new -d ${getExe conf.package} ${conf.jvmOpts}
-              '';
-
-              stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
-                #!${pkgs.runtimeShell}
-
-                if ! [ -d "/proc/$1" ]; then
-                  exit 0
-                fi
-
-                ${tmux} -S ${tmuxSock} send-keys stop Enter
-              '';
             in
             {
               name = "minecraft-server-${name}";
@@ -374,17 +347,13 @@ in
                 enable = conf.enable;
 
                 serviceConfig = {
-                  ExecStart = "${startScript}";
-                  ExecStop = "${stopScript} $MAINPID";
+                  ExecStart = "${getExe conf.package} ${conf.jvmOpts}";
                   Restart = conf.restart;
                   WorkingDirectory = "${cfg.dataDir}/${name}";
                   User = "minecraft";
-                  Type = "forking";
-                  GuessMainPID = true;
-                  RuntimeDirectory = "minecraft";
-                  RuntimeDirectoryPreserve = "yes";
                   EnvironmentFile = mkIf (cfg.environmentFile != null)
                     (toString cfg.environmentFile);
+                  Type = "simple";
 
                   # Hardening
                   CapabilityBoundingSet = [ "" ];
@@ -401,6 +370,7 @@ in
                   ProtectKernelModules = true;
                   ProtectKernelTunables = true;
                   ProtectProc = "invisible";
+                  RestrictAddressFamilies = [ "AF_INET" "AF_INET6" ];
                   RestrictNamespaces = true;
                   RestrictRealtime = true;
                   RestrictSUIDSGID = true;
@@ -457,10 +427,6 @@ in
                     ${mkSymlinks}
                     ${mkFiles}
                   '';
-
-                postStart = ''
-                  ${pkgs.coreutils}/bin/chmod 660 ${tmuxSock}
-                '';
 
                 postStop =
                   let
