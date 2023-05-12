@@ -59,22 +59,6 @@
           velocity-server
           minecraft-server
           nix-modrinth-prefetch;
-      } // (
-        nixpkgs.lib.mapAttrs
-          (name: set: nixpkgs.lib.warn
-            "`${name}` from the `packages` flake output is deprecated. Please use the `legacyPackages` flake output instead."
-            set
-          )
-          {
-            inherit (legacyPackages)
-              vanillaServers
-              fabricServers
-              quiltServers
-              legacyFabricServers
-              paperServers
-              velocityServers
-              minecraftServers;
-          }
-      );
+      };
     });
 }

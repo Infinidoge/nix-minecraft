@@ -2,6 +2,10 @@
 
 Documentation of major changes, newest first.
 
+## 2023-05-13: Removal of attrsets from `packages`.
+
+As per the previous deprecation notice, all of the attrsets in `packages` have been removed, and are instead available under `legacyPackages`.
+
 ## 2023-04-05: Deprecation/Move of attrsets from `packages` to `legacyPackages`
 
 The Nix flake CLI does not support attrsets of packages in the `packages` flake output.
