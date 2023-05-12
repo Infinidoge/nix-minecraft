@@ -43,6 +43,8 @@
       lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
 
       overlay = final: prev: mkPackages prev;
+      overlays.default = self.overlay;
+
       nixosModules = self.lib.rakeLeaves ./modules;
     } // flake-utils.lib.eachDefaultSystem (system: rec {
       legacyPackages = mkPackages (import nixpkgs {
