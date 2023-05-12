@@ -21,6 +21,57 @@ let
     example = true;
   };
 
+  normalizeFiles = files: mapAttrs configToPath (filterAttrs (_: nonEmptyValue) files);
+  nonEmptyValue = x: nonEmpty x && (x ? value -> nonEmpty x.value);
+  nonEmpty = x: x != { } && x != [ ];
+
+  configToPath = name: config:
+    if isStringLike config # Includes paths and packages
+    then config
+    else (getFormat name config).generate name config.value;
+  getFormat = name: config:
+    if config ? format && config.format != null
+    then config.format
+    else inferFormat name;
+  inferFormat = name:
+    let
+      error = throw "nix-minecraft: Could not infer format from file '${name}'. Specify one using 'format'.";
+      extension = builtins.match "[^.]*\\.(.+)" name;
+    in
+    if extension != null && extension != [ ]
+    then formatExtensions.${head extension} or error
+    else error;
+
+  formatExtensions = with pkgs.formats; {
+    "yml" = yaml { };
+    "yaml" = yaml { };
+    "json" = json { };
+    "props" = keyValue { };
+    "properties" = keyValue { };
+    "toml" = toml { };
+    "ini" = ini { };
+  };
+
+  configType = types.submodule {
+    options = {
+      format = mkOption {
+        type = with types; nullOr attrs;
+        default = null;
+        description = ''
+          The format to use when converting "value" into a file. If set to
+          null (the default), we'll try to infer it from the file name.
+        '';
+        example = literalExpression "pkgs.formats.yaml { }";
+      };
+      value = mkOption {
+        type = with types; either (attrsOf anything) (listOf anything);
+        description = ''
+          A value that can be converted into the specified format.
+        '';
+      };
+    };
+  };
+
   mkEnableOpt = description: mkBoolOpt' false description;
 in
 {
@@ -58,7 +109,7 @@ in
     '';
 
     user = mkOption {
-      type = types.string;
+      type = types.str;
       default = "minecraft";
       description = ''
         Name of the user to create and run servers under.
@@ -70,7 +121,7 @@ in
     };
 
     group = mkOption {
-      type = types.string;
+      type = types.str;
       default = "minecraft";
       description = ''
         Name of the group to create and run servers under.
@@ -189,12 +240,12 @@ in
 
           jvmOpts = mkOpt' (types.separatedString " ") "-Xmx2G -Xms1G" "JVM options for this server.";
 
-          symlinks = mkOpt' (types.attrsOf types.package) { } ''
+          symlinks = with types; mkOpt' (attrsOf (either path configType)) { } ''
             Things to symlink into this server's data directory, in the form of
             a nix package/derivation. Can be used to declaratively manage
             arbitrary files in the server's data directory.
           '';
-          files = mkOpt' (types.attrsOf types.package) { } ''
+          files = with types; mkOpt' (attrsOf (either path configType)) { } ''
             Things to copy into this server's data directory. Similar to
             symlinks, but these are actual files. Useful for configuration
             files that don't behave well when read-only.
@@ -275,35 +326,14 @@ in
               tmux = "${getBin pkgs.tmux}/bin/tmux";
               tmuxSock = "${cfg.runDir}/${name}.sock";
 
-              managedFileComment = ''
-                # This file is managed by NixOS Configuration
-              '';
-
-              whitelistFile = pkgs.writeText "whitelist.json"
-                (builtins.toJSON (mapAttrsToList
-                  (n: v: { name = n; uuid = v; })
-                  conf.whitelist)
-                );
-              serverPropertiesFile =
-                let cfgToString = v:
-                  if builtins.isBool v then boolToString v
-                  else toString v;
-                in
-                pkgs.writeText "server.properties" (managedFileComment + (
-                  concatStringsSep "\n" (mapAttrsToList
-                    (n: v: "${n}=${cfgToString v}")
-                    conf.serverProperties)
-                ));
-              eulaFile = pkgs.writeText "eula.txt"
-                (managedFileComment + "eula=true");
-
-              symlinks = {
-                "eula.txt" = eulaFile;
-              } // conf.symlinks;
-              files =
-                (optionalAttrs (conf.whitelist != { }) { "whitelist.json" = whitelistFile; }) //
-                (optionalAttrs (conf.serverProperties != { }) { "server.properties" = serverPropertiesFile; }) //
-                conf.files;
+              symlinks = normalizeFiles ({
+                "eula.txt".value = { eula = true; };
+                "eula.txt".format = pkgs.formats.keyValue { };
+              } // conf.symlinks);
+              files = normalizeFiles ({
+                "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
+                "server.properties".value = conf.serverProperties;
+              } // conf.files);
 
               startScript = pkgs.writeScript "minecraft-start-${name}" ''
                 #!${pkgs.runtimeShell}
