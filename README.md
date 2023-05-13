@@ -20,6 +20,11 @@ As of currently, it packages:
 
 See [CHANGELOG.md](./CHANGELOG.md).
 
+## Deprecation Policy
+
+When something gets deprecated, an announcement gets added to the [changelog file](./CHANGELOG.md), and the respective parts in Nix get marked with an evaluation warning.
+Deprecated code is subject to removal after 1 month.
+
 ## Installation
 
 This repository is made exclusively as a Nix flake. Due to a lack of understanding of now Nix flake compat works, I have not included it, however if a PR is made to add compatibility, I may accept it.
