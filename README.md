@@ -61,7 +61,7 @@ All of these are found under `legacyPackages`, since they are attrsets of deriva
 
 ### `vanillaServers.*`
 
-[Source](./pkgs/minecraft-servers)
+[Source](./pkgs/vanilla-servers)
 
 An attrset of all of the vanilla server versions, in the form of `vanilla-version`, where `version` is the Minecraft version (`1.18`, `1.12.2`, `22w16b`, etc), with all periods and spaces replaced with underscores (`1_18`, `1_12_2`, etc).
 
