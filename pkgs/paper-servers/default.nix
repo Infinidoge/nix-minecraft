@@ -1,6 +1,8 @@
 { callPackage
 , lib
-, javaPackages
+, jdk8
+, jdk11
+, jdk
 }:
 let
   inherit (lib.our) escapeVersion;
@@ -12,13 +14,11 @@ let
   # Sort by attribute 'attr' using 'f' function
   sortBy = attr: f: builtins.sort (a: b: f a.${attr} b.${attr});
 
-  getJavaVersion = v: (builtins.getAttr "openjdk${toString v}" javaPackages.compiler);
   # https://docs.papermc.io/paper/getting-started#requirements
   getRecommendedJavaVersion = v:
-    if versionOlder v "1.11.2" then getJavaVersion 8
-    else if versionOlder v "1.16.5" then getJavaVersion 11
-    else if versionOlder v "1.17.1" then getJavaVersion 16
-    else getJavaVersion 17;
+    if versionOlder v "1.11.2" then jdk8
+    else if versionOlder v "1.16.5" then jdk11
+    else jdk;
 
   packages = mapAttrsToList
     (mcVersion: builds: sortBy "version" versionOlder (mapAttrsToList
