@@ -1938,5 +1938,10 @@
     "name": "intermediary-1.20-pre1.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre1/intermediary-1.20-pre1.jar",
     "sha256": "10p0wyhp01vbbdszsx3bph8ahkpls8h4r4fyk5fnn0sk9niclahl"
+  },
+  "net.fabricmc:intermediary:1.20-pre2": {
+    "name": "intermediary-1.20-pre2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre2/intermediary-1.20-pre2.jar",
+    "sha256": "1y3wfxb6f13bl1s29lcpmxq86725ii7ms5pkxq767fyn1hgy9qkk"
   }
 }
