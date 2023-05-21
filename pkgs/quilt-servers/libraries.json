@@ -1578,5 +1578,25 @@
     "name": "intermediary-1.20-pre2.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre2/intermediary-1.20-pre2.jar",
     "sha256": "1y3wfxb6f13bl1s29lcpmxq86725ii7ms5pkxq767fyn1hgy9qkk"
+  },
+  "org.quiltmc:hashed:1.20-pre4": {
+    "name": "hashed-1.20-pre4.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.20-pre4/hashed-1.20-pre4.jar",
+    "sha256": "0n20nc41gcsxwll4qvrzskscyg2p6qwa3b9rfww0r5b8zbrg7wyw"
+  },
+  "net.fabricmc:intermediary:1.20-pre4": {
+    "name": "intermediary-1.20-pre4.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre4/intermediary-1.20-pre4.jar",
+    "sha256": "13yi7v5176j7nfjbwfkr3caxc2s4if10izymyd9sffdcjzrshnhf"
+  },
+  "org.quiltmc:hashed:1.20-pre3": {
+    "name": "hashed-1.20-pre3.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.20-pre3/hashed-1.20-pre3.jar",
+    "sha256": "08k5d9z9dwnxb3bvxxnh1yscbqwhhh70gp0qnqbp2pgliw22f1w7"
+  },
+  "net.fabricmc:intermediary:1.20-pre3": {
+    "name": "intermediary-1.20-pre3.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre3/intermediary-1.20-pre3.jar",
+    "sha256": "1zli89g9q8jla44d9hycwbxc02z82h6ydx453vw49j1vh0626qr9"
   }
 }
