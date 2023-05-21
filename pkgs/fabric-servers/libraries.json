@@ -1943,5 +1943,15 @@
     "name": "intermediary-1.20-pre2.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre2/intermediary-1.20-pre2.jar",
     "sha256": "1y3wfxb6f13bl1s29lcpmxq86725ii7ms5pkxq767fyn1hgy9qkk"
+  },
+  "net.fabricmc:intermediary:1.20-pre4": {
+    "name": "intermediary-1.20-pre4.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre4/intermediary-1.20-pre4.jar",
+    "sha256": "13yi7v5176j7nfjbwfkr3caxc2s4if10izymyd9sffdcjzrshnhf"
+  },
+  "net.fabricmc:intermediary:1.20-pre3": {
+    "name": "intermediary-1.20-pre3.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre3/intermediary-1.20-pre3.jar",
+    "sha256": "1zli89g9q8jla44d9hycwbxc02z82h6ydx453vw49j1vh0626qr9"
   }
 }
