@@ -1608,5 +1608,15 @@
     "name": "intermediary-1.20-pre5.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre5/intermediary-1.20-pre5.jar",
     "sha256": "1p9hibw8pfvv48zlzjqpaw6vbxm067bxq174ixpcgxdiirfmpcrk"
+  },
+  "org.quiltmc:hashed:1.20-pre6": {
+    "name": "hashed-1.20-pre6.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.20-pre6/hashed-1.20-pre6.jar",
+    "sha256": "1d33ir6q6fd4xnbnp0h4smikx6461f7zjvi5nyjafk5lx84d0ww1"
+  },
+  "net.fabricmc:intermediary:1.20-pre6": {
+    "name": "intermediary-1.20-pre6.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre6/intermediary-1.20-pre6.jar",
+    "sha256": "1yv4isbvy45vpjgqlw1zg1d7j5dblvph104im3yd1vxl202ldbp1"
   }
 }
