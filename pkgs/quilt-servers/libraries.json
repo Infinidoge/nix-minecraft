@@ -1618,5 +1618,20 @@
     "name": "intermediary-1.20-pre6.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20-pre6/intermediary-1.20-pre6.jar",
     "sha256": "1yv4isbvy45vpjgqlw1zg1d7j5dblvph104im3yd1vxl202ldbp1"
+  },
+  "org.quiltmc:quilt-loader:0.19.0-beta.18": {
+    "name": "quilt-loader-0.19.0-beta.18.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.19.0-beta.18/quilt-loader-0.19.0-beta.18.jar",
+    "sha256": "1mv3vyqp0x64b6367q1cx4jm910n44ybv8b463ln7158n2jggzbm"
+  },
+  "org.quiltmc:quilt-loader:0.19.0-beta.17": {
+    "name": "quilt-loader-0.19.0-beta.17.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.19.0-beta.17/quilt-loader-0.19.0-beta.17.jar",
+    "sha256": "19f1b8si8qqzmy6nbj4q0w2wwixchz1khx4kmgnqplw8qigybd7r"
+  },
+  "org.quiltmc:quilt-loader:0.19.0-beta.16": {
+    "name": "quilt-loader-0.19.0-beta.16.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.19.0-beta.16/quilt-loader-0.19.0-beta.16.jar",
+    "sha256": "11zn91prxz7f5lwxcm609j6x82lbn565lp4jprrhyljc3l002wiv"
   }
 }
