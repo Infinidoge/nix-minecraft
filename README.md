@@ -15,6 +15,7 @@ As of currently, it packages:
   - Velocity proxy
 - Various tools
   - `nix-modrinth-prefetch`
+  - `fetchPackwizModpack`
 
 ## Changelog
 
@@ -57,7 +58,7 @@ See [TODO.md](./TODO.md).
 
 ## Packages
 
-All of these are found under `legacyPackages`, since they are attrsets of derivations.
+All of these are found under `legacyPackages`, since they are not derivations (i.e. an attrset of derivation, or a function that returns a derivation).
 
 ### `vanillaServers.*`
 
@@ -120,6 +121,77 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 ### `minecraftServers.*`
 
 `vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
+
+### `fetchPackwizModpack`
+
+[Source](./pkgs/tools/fetchPackwizModpack)
+
+This function allows you to easily package a [packwiz](https://packwiz.infra.link/) modpack, for example, to run it own your server. An example:
+
+```nix
+let
+  modpack = pkgs.fetchPackwizModpack {
+    url = "https://github.com/Misterio77/Modpack/raw/0.2.9/pack.toml";
+    packHash = "sha256-L5RiSktqtSQBDecVfGj1iDaXV+E90zrNEcf4jtsg+wk=";
+  };
+in
+{
+  services.minecraft-servers.servers.cool-modpack = {
+    enable = true;
+    package = pkgs.fabricServers.fabric-1_18_2-0_14_9;
+    symlinks = {
+      "mods" = "${modpack}/mods";
+    };
+  };
+}
+```
+
+This will symlink the modpack's final `mods` directory into the server's `mods` directory. You can also do this for `config`, or any files in the modpack you're interested in, in a granular way.
+
+**Note**: Be sure to use a stable URL (e.g. a git tag/commit) to the manifest, as it changing will cause the derivation to generate a different hash, breaking the build until you change it.
+
+The built modpack also exports a `manifest` attribute, that allows you to get any information from its `pack.toml` file, such as the MC or Modloader version. You can, this way, always sync the server's version with the one the modpack recommends:
+
+```nix
+let
+  modpack = pkgs.fetchPackwizModpack {
+    url = "https://github.com/Misterio77/Modpack/raw/0.2.9/pack.toml";
+    packHash = "sha256-L5RiSktqtSQBDecVfGj1iDaXV+E90zrNEcf4jtsg+wk=";
+  };
+  mcVersion = modpack.manifest.versions.minecraft;
+  fabricVersion = modpack.manifest.versions.fabric;
+  serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}-${fabricVersion}";
+in
+{
+  services.minecraft-servers.servers.cool-modpack = {
+    enable = true;
+    package = pkgs.fabricServers.${serverVersion};
+    symlinks = {
+      "mods" = "${modpack}/mods";
+    };
+  };
+}
+```
+
+**Note**: Using `manifest`, by default, will cause [IFD](https://nixos.wiki/wiki/Import_From_Derivation). If you want to avoid IFD while still having access to `manifest`, simply pass a `manifestHash` to the `fetchPackwizModpack` function, it will then fetch the manifest through `builtins.fetchurl`.
+
+Additionally, you can override/add files (e.g. server-specific mods) on the pack through `addFiles`. For example:
+
+```nix
+let
+  modpack = (pkgs.fetchPackwizModpack {
+    url = "https://github.com/Misterio77/Modpack/raw/0.2.9/pack.toml";
+    packHash = "sha256-L5RiSktqtSQBDecVfGj1iDaXV+E90zrNEcf4jtsg+wk=";
+  }).addFiles {
+    "mods/FabricProxy-lite.jar" = pkgs.fetchurl rec {
+      pname = "FabricProxy-Lite";
+      version = "1.1.6";
+      url = "https://cdn.modrinth.com/data/8dI2tmqs/versions/v${version}/${pname}-${version}.jar";
+      hash = "sha256-U+nXvILXlYdx0vgomVDkKxj0dGCtw60qW22EK4FhAJk=";
+    };
+  };
+in
+```
 
 ### Others
 
