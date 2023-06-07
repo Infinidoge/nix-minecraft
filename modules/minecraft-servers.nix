@@ -101,13 +101,6 @@ in
       the server name in this directory, such as <literal>/srv/minecraft/servername</literal>.
     '';
 
-    runDir = mkOpt' types.path "/run/minecraft" ''
-      Directory to place the runtime tmux sockets into.
-      Each server's console will be a tmux socket file in the form of <literal>servername.sock</literal>.
-      To connect to the console, run `tmux -S /run/minecraft/servername.sock attach`,
-      press `Ctrl + b` then `d` to detach.
-    '';
-
     user = mkOption {
       type = types.str;
       default = "minecraft";
@@ -125,8 +118,8 @@ in
       default = "minecraft";
       description = ''
         Name of the group to create and run servers under.
-        In order to modify the server files or attach to the tmux socket,
-        your user must be a part of this group.
+        In order to modify the server files your user must be a part of this
+        group.
         It is recommended to leave this as the default, as it is
         the same group as <option>services.minecraft-server</option>.
       '';
@@ -179,8 +172,6 @@ in
 
           restart = mkOpt' types.str "always" ''
             Value of systemd's <literal>Restart=</literal> service configuration option.
-            Due to the servers being started in tmux sockets, values other than
-            <literal>"no"</literal> and <literal>"always"</literal> may not work properly.
             As a consequence of the <literal>"always"</literal> option, stopping the server
             in-game with the <literal>stop</literal> command will cause the server to automatically restart.
           '';
@@ -198,6 +189,41 @@ in
             effect if
             <option>services.minecraft-servers.<name>.enableReload</option> is
             true.
+
+            This script has access to $SOCKET variable, that points to the
+            relevant stdin socket.
+          '';
+
+          extraPreStart = mkOpt' types.lines "" ''
+            Extra commands to run before starting the service.
+          '';
+
+          extraPostStart = mkOpt' types.lines "" ''
+            Extra commands to run after starting the service.
+
+            This script has access to $SOCKET variable, that points to the
+            relevant stdin socket.
+          '';
+
+          extraPreStop = mkOpt' types.lines "" ''
+            Extra commands to run before stopping the service.
+
+            This script has access to $SOCKET variable, that points to the
+            relevant stdin socket.
+          '';
+
+          extraPostStop = mkOpt' types.lines "" ''
+            Extra commands to run after stopping the service.
+          '';
+
+          stopCommand = mkOpt' (types.nullOr types.str) "stop" ''
+            Console command to run when cleanly stopping the server (ExecStop).
+            Defaults to <literal>stop</literal>, which works for most servers.
+            For proxies (bungeecord, velocity), you should set
+            <literal>end</literal>.
+
+            If set to <literal>null</literal>, the server will be stopped by
+            systemd without a explicit ExecStop.
           '';
 
           whitelist = mkOption {
@@ -336,12 +362,25 @@ in
           )
           servers;
 
+        systemd.sockets = mapAttrs'
+          (name: conf: {
+            name = "minecraft-server-${name}";
+            value = {
+              bindsTo = [ "minecraft-server-${name}.service" ];
+              socketConfig = {
+                ListenFIFO = "/run/minecraft-server/${name}.stdin";
+                SocketMode = "0660";
+                SocketUser = "minecraft";
+                SocketGroup = "minecraft";
+                RemoveOnStop = true;
+                FlushPending = true;
+              };
+            };
+          }) servers;
+
         systemd.services = mapAttrs'
           (name: conf:
             let
-              tmux = "${getBin pkgs.tmux}/bin/tmux";
-              tmuxSock = "${cfg.runDir}/${name}.sock";
-
               symlinks = normalizeFiles ({
                 "eula.txt".value = { eula = true; };
                 "eula.txt".format = pkgs.formats.keyValue { };
@@ -351,46 +390,134 @@ in
                 "server.properties".value = conf.serverProperties;
               } // conf.files);
 
-              startScript = pkgs.writeScript "minecraft-start-${name}" ''
-                #!${pkgs.runtimeShell}
-                ${tmux} -S ${tmuxSock} new -d ${getExe conf.package} ${conf.jvmOpts}
+              socketPath = config.systemd.sockets."minecraft-server-${name}".socketConfig.ListenFIFO;
 
-                # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
-                # See https://github.com/Infinidoge/nix-minecraft/issues/5
-                ${tmux} -S ${tmuxSock} server-access -aw nobody
+              # Added to relevant scripts, defines $SOCKET to help run in-game commands
+              # This may be expanded in the future to add more variables or shell functions
+              prelude = ''
+                SOCKET=${socketPath}
               '';
 
-              stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
-                #!${pkgs.runtimeShell}
+              stopScript = pkgs.writeShellScript "minecraft-server-stop" ''
+                ${prelude}
+                # There's no ExecStopPre, and stopPre conflicts with serviceConfig.ExecStop
+                # So put extraPreStop here instead.
+                ${conf.extraPreStop}
+                ${optionalString (conf.stopCommand != null) "echo ${escapeShellArg conf.stopCommand} > $SOCKET"}
 
-                if ! [ -d "/proc/$1" ]; then
-                  exit 0
-                fi
-
-                ${tmux} -S ${tmuxSock} send-keys stop Enter
+                # Wait for the PID of the minecraft server to disappear before
+                # returning, so systemd doesn't attempt to SIGKILL it.
+                tries=3
+                while kill -0 "$1" 2> /dev/null; do
+                  if [[ $tries -gt 0 ]]; then
+                    sleep 1s
+                  else
+                    echo >&2 "Timed out waiting for server to stop."
+                    exit 1
+                  fi
+                  ((tries--))
+                done
               '';
+
+              rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
+                (concatStringsSep "\n"
+                  (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks)
+                );
+              rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
+                (concatStringsSep "\n"
+                  (mapAttrsToList (n: v: "rm -f \"${n}\"") files)
+                );
+
+              mkSymlinks = pkgs.writeShellScript "minecraft-server-${name}-symlinks"
+                (concatStringsSep "\n"
+                  (mapAttrsToList
+                    (n: v: ''
+                      if [[ -L "${n}" ]]; then
+                        unlink "${n}"
+                      elif [[ -e "${n}" ]]; then
+                        echo "${n} already exists, moving"
+                        mv "${n}" "${n}.bak"
+                      fi
+                      mkdir -p "$(dirname "${n}")"
+                      ln -sf "${v}" "${n}"
+                    '')
+                    symlinks));
+
+              mkFiles = pkgs.writeShellScript "minecraft-server-${name}-files"
+                (concatStringsSep "\n"
+                  (mapAttrsToList
+                    (n: v: ''
+                      if [[ -L "${n}" ]]; then
+                        unlink "${n}"
+                      elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
+                        rm "${n}"
+                      elif [[ -e "${n}" ]]; then
+                        echo "${n} already exists, moving"
+                        mv "${n}" "${n}.bak"
+                      fi
+                      mkdir -p $(dirname "${n}")
+                      ${pkgs.gawk}/bin/awk '{
+                        for(varname in ENVIRON)
+                          gsub("@"varname"@", ENVIRON[varname])
+                        print
+                      }' "${v}" > "${n}"
+                    '')
+                    files));
             in
             {
               name = "minecraft-server-${name}";
-              value = rec {
+              value = {
                 description = "Minecraft Server ${name}";
                 wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
-                after = [ "network.target" ];
+                requires = [ "minecraft-server-${name}.socket" ];
+                after = [ "network.target" "minecraft-server-${name}.socket" ];
 
                 enable = conf.enable;
 
+                restartIfChanged = !conf.enableReload;
+                reloadIfChanged = conf.enableReload;
+
+                reload = ''
+                  ${prelude}
+                  ${rmSymlinks}
+                  ${rmFiles}
+                  ${mkSymlinks}
+                  ${mkFiles}
+                  ${conf.extraReload}
+                '';
+
+                preStart = ''
+                  ${prelude}
+                  ${mkSymlinks}
+                  ${mkFiles}
+                  ${conf.extraPreStart}
+                '';
+
+                postStart = ''
+                  ${prelude}
+                  ${conf.extraPostStart}
+                '';
+
+                postStop = ''
+                  ${prelude}
+                  ${rmSymlinks}
+                  ${rmFiles}
+                  ${conf.extraPostStop}
+                '';
+
                 serviceConfig = {
-                  ExecStart = "${startScript}";
+                  ExecStart = "${getExe conf.package} ${conf.jvmOpts}";
                   ExecStop = "${stopScript} $MAINPID";
                   Restart = conf.restart;
                   WorkingDirectory = "${cfg.dataDir}/${name}";
                   User = "minecraft";
-                  Type = "forking";
-                  GuessMainPID = true;
-                  RuntimeDirectory = "minecraft";
-                  RuntimeDirectoryPreserve = "yes";
                   EnvironmentFile = mkIf (cfg.environmentFile != null)
                     (toString cfg.environmentFile);
+                  Type = "simple";
+
+                  StandardInput = "socket";
+                  StandardOutput = "journal";
+                  StandardError = "journal";
 
                   # Hardening
                   CapabilityBoundingSet = [ "" ];
@@ -407,82 +534,13 @@ in
                   ProtectKernelModules = true;
                   ProtectKernelTunables = true;
                   ProtectProc = "invisible";
+                  RestrictAddressFamilies = [ "AF_INET" "AF_INET6" ];
                   RestrictNamespaces = true;
                   RestrictRealtime = true;
                   RestrictSUIDSGID = true;
                   SystemCallArchitectures = "native";
                   UMask = "0007";
                 };
-                restartIfChanged = !conf.enableReload;
-                reloadIfChanged = conf.enableReload;
-
-                reload = ''
-                  ${postStop}
-                  ${preStart}
-                '' + conf.extraReload;
-
-                preStart =
-                  let
-                    mkSymlinks = pkgs.writeShellScript "minecraft-server-${name}-symlinks"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList
-                          (n: v: ''
-                            if [[ -L "${n}" ]]; then
-                              unlink "${n}"
-                            elif [[ -e "${n}" ]]; then
-                              echo "${n} already exists, moving"
-                              mv "${n}" "${n}.bak"
-                            fi
-                            mkdir -p "$(dirname "${n}")"
-                            ln -sf "${v}" "${n}"
-                          '')
-                          symlinks));
-
-                    mkFiles = pkgs.writeShellScript "minecraft-server-${name}-files"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList
-                          (n: v: ''
-                            if [[ -L "${n}" ]]; then
-                              unlink "${n}"
-                            elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
-                              rm "${n}"
-                            elif [[ -e "${n}" ]]; then
-                              echo "${n} already exists, moving"
-                              mv "${n}" "${n}.bak"
-                            fi
-                            mkdir -p $(dirname "${n}")
-                            ${pkgs.gawk}/bin/awk '{
-                              for(varname in ENVIRON)
-                                gsub("@"varname"@", ENVIRON[varname])
-                              print
-                            }' "${v}" > "${n}"
-                          '')
-                          files));
-                  in
-                  ''
-                    ${mkSymlinks}
-                    ${mkFiles}
-                  '';
-
-                postStart = ''
-                  ${pkgs.coreutils}/bin/chmod 660 ${tmuxSock}
-                '';
-
-                postStop =
-                  let
-                    rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks)
-                      );
-                    rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList (n: v: "rm -f \"${n}\"") files)
-                      );
-                  in
-                  ''
-                    ${rmSymlinks}
-                    ${rmFiles}
-                  '';
               };
             })
           servers;
