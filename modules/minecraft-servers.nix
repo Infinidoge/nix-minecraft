@@ -265,6 +265,7 @@ in
           users.minecraft = {
             description = "Minecraft server service user";
             home = cfg.dataDir;
+            createHome = true;
             isSystemUser = true;
             group = "minecraft";
           };
@@ -313,16 +314,13 @@ in
             allowedTCPPorts = flatten (mapAttrsToList getTCPPorts toOpen);
           };
 
-        system.activationScripts.minecraft-server-data-dir.text = ''
-          mkdir -p ${cfg.dataDir}
-          chown minecraft:minecraft ${cfg.dataDir}
-          chmod -R 775 ${cfg.dataDir}
-        '';
+        systemd.tmpfiles.rules = mapAttrsToList (name: _:
+          "d '${cfg.dataDir}/${name}' 0700 ${cfg.user} - - -"
+        ) servers;
 
         systemd.services = mapAttrs'
           (name: conf:
             let
-              serverDir = "${cfg.dataDir}/${name}";
               tmux = "${getBin pkgs.tmux}/bin/tmux";
               tmuxSock = "${cfg.runDir}/${name}.sock";
 
@@ -337,9 +335,6 @@ in
 
               startScript = pkgs.writeScript "minecraft-start-${name}" ''
                 #!${pkgs.runtimeShell}
-
-                umask u=rwx,g=rwx,o=rx
-                cd ${serverDir}
                 ${tmux} -S ${tmuxSock} new -d ${getExe conf.package} ${conf.jvmOpts}
               '';
 
@@ -366,6 +361,7 @@ in
                   ExecStart = "${startScript}";
                   ExecStop = "${stopScript} $MAINPID";
                   Restart = conf.restart;
+                  WorkingDirectory = "${cfg.dataDir}/${name}";
                   User = "minecraft";
                   Type = "forking";
                   GuessMainPID = true;
@@ -373,6 +369,27 @@ in
                   RuntimeDirectoryPreserve = "yes";
                   EnvironmentFile = mkIf (cfg.environmentFile != null)
                     (toString cfg.environmentFile);
+
+                  # Hardening
+                  CapabilityBoundingSet = [ "" ];
+                  DeviceAllow = [ "" ];
+                  LockPersonality = true;
+                  PrivateDevices = true;
+                  PrivateTmp = true;
+                  PrivateUsers = true;
+                  ProtectClock = true;
+                  ProtectControlGroups = true;
+                  ProtectHome = true;
+                  ProtectHostname = true;
+                  ProtectKernelLogs = true;
+                  ProtectKernelModules = true;
+                  ProtectKernelTunables = true;
+                  ProtectProc = "invisible";
+                  RestrictNamespaces = true;
+                  RestrictRealtime = true;
+                  RestrictSUIDSGID = true;
+                  SystemCallArchitectures = "native";
+                  UMask = "0007";
                 };
 
                 preStart =
@@ -414,9 +431,6 @@ in
                           files));
                   in
                   ''
-                    umask u=rwx,g=rwx,o=rx
-                    mkdir -p ${serverDir}
-                    cd ${serverDir}
                     ${mkSymlinks}
                     ${mkFiles}
                   '';
@@ -437,7 +451,6 @@ in
                       );
                   in
                   ''
-                    cd ${serverDir}
                     ${rmSymlinks}
                     ${rmFiles}
                   '';
