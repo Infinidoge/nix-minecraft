@@ -191,6 +191,16 @@ in
             true.
           '';
 
+          stopCommand = mkOpt' (types.nullOr types.str) "stop" ''
+            Console command to run when cleanly stopping the server (ExecStop).
+            Defaults to <literal>stop</literal>, which works for most servers.
+            For proxies (bungeecord, velocity), you should set
+            <literal>end</literal>.
+
+            If set to <literal>null</literal>, the server will be stopped by
+            systemd without a explicit ExecStop.
+          '';
+
           whitelist = mkOption {
             type =
               let
@@ -325,6 +335,22 @@ in
           "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} - - -"
         ) servers;
 
+        systemd.sockets = mapAttrs'
+          (name: conf: {
+            name = "minecraft-server-${name}";
+            value = {
+              bindsTo = [ "minecraft-server-${name}.service" ];
+              socketConfig = {
+                ListenFIFO = "/run/minecraft-server/${name}.stdin";
+                SocketMode = "0660";
+                SocketUser = "minecraft";
+                SocketGroup = "minecraft";
+                RemoveOnStop = true;
+                FlushPending = true;
+              };
+            };
+          }) servers;
+
         systemd.services = mapAttrs'
           (name: conf:
             let
@@ -336,24 +362,48 @@ in
                 "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
                 "server.properties".value = conf.serverProperties;
               } // conf.files);
+
+              socketPath = config.systemd.sockets."minecraft-server-${name}".socketConfig.ListenFIFO;
+              stopScript = pkgs.writeShellScript "minecraft-server-stop" ''
+                echo ${escapeShellArg conf.stopCommand} > "${socketPath}"
+
+                # Wait for the PID of the minecraft server to disappear before
+                # returning, so systemd doesn't attempt to SIGKILL it.
+                tries=3
+                while kill -0 "$1" 2> /dev/null; do
+                  if [[ $tries -gt 0 ]]; then
+                    sleep 1s
+                  else
+                    echo >&2 "Timed out waiting for server to stop."
+                    exit 1
+                  fi
+                  ((tries--))
+                done
+              '';
             in
             {
               name = "minecraft-server-${name}";
               value = rec {
                 description = "Minecraft Server ${name}";
                 wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
-                after = [ "network.target" ];
+                requires = [ "minecraft-server-${name}.socket" ];
+                after = [ "network.target" "minecraft-server-${name}.socket" ];
 
                 enable = conf.enable;
 
                 serviceConfig = {
                   ExecStart = "${getExe conf.package} ${conf.jvmOpts}";
+                  ExecStop = mkIf (conf.stopCommand != null) "${stopScript} $MAINPID";
                   Restart = conf.restart;
                   WorkingDirectory = "${cfg.dataDir}/${name}";
                   User = "minecraft";
                   EnvironmentFile = mkIf (cfg.environmentFile != null)
                     (toString cfg.environmentFile);
                   Type = "simple";
+
+                  StandardInput = "socket";
+                  StandardOutput = "journal";
+                  StandardError = "journal";
 
                   # Hardening
                   CapabilityBoundingSet = [ "" ];
