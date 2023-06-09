@@ -39,6 +39,17 @@
         } // (
           builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./pkgs/tools)
         );
+
+      mkTests = pkgs:
+        let
+          callPackage = pkgs.newScope {
+            inherit (self) outputs;
+            lib = pkgs.lib.extend (_: _: { our = self.lib; });
+          };
+        in
+          if (pkgs.stdenv.isLinux)
+          then builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests)
+          else {};
     in
     {
       lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
@@ -46,11 +57,13 @@
       overlay = final: prev: mkPackages prev;
       overlays.default = self.overlay;
       nixosModules = self.lib.rakeLeaves ./modules;
-    } // flake-utils.lib.eachDefaultSystem (system: rec {
-      legacyPackages = mkPackages (import nixpkgs {
+    } // flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
-      });
+      };
+    in rec {
+      legacyPackages = mkPackages pkgs;
 
       packages = {
         inherit (legacyPackages)
@@ -62,5 +75,7 @@
           minecraft-server
           nix-modrinth-prefetch;
       };
+
+      checks = mkTests pkgs;
     });
 }
