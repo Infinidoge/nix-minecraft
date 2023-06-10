@@ -419,11 +419,11 @@ in
 
               rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
                 (concatStringsSep "\n"
-                  (mapAttrsToList (n: v: "unlink ${n}") symlinks)
+                  (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks)
                 );
               rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
                 (concatStringsSep "\n"
-                  (mapAttrsToList (n: v: "rm -f ${n}") files)
+                  (mapAttrsToList (n: v: "rm -f \"${n}\"") files)
                 );
 
               mkSymlinks = pkgs.writeShellScript "minecraft-server-${name}-symlinks"
@@ -431,7 +431,7 @@ in
                   (mapAttrsToList
                     (n: v: ''
                       if [[ -L "${n}" ]]; then
-                        unlink ${n}
+                        unlink "${n}"
                       elif [[ -e "${n}" ]]; then
                         echo "${n} already exists, moving"
                         mv "${n}" "${n}.bak"
@@ -446,14 +446,14 @@ in
                   (mapAttrsToList
                     (n: v: ''
                       if [[ -L "${n}" ]]; then
-                        unlink ${n}
-                      elif ${pkgs.diffutils}/bin/cmp -s ${n} ${v}; then
-                        rm ${n}
+                        unlink "${n}"
+                      elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
+                        rm "${n}"
                       elif [[ -e "${n}" ]]; then
                         echo "${n} already exists, moving"
                         mv "${n}" "${n}.bak"
                       fi
-                      mkdir -p $(dirname ${n})
+                      mkdir -p $(dirname "${n}")
                       ${pkgs.gawk}/bin/awk '{
                         for(varname in ENVIRON)
                           gsub("@"varname"@", ENVIRON[varname])
