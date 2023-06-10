@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, fetchurl, nixosTests, jre, version, url, sha256 }:
+{ lib, stdenvNoCC, fetchurl, nixosTests, jre, version, url, sha256, minecraft-server }:
 stdenvNoCC.mkDerivation {
   pname = "paper";
   inherit version;
@@ -23,6 +23,9 @@ stdenvNoCC.mkDerivation {
 
   passthru = {
     updateScript = ./update.py;
+    # If you plan on running paper without internet, be sure to link this jar
+    # to `cache/mojang_{version}.jar`.
+    vanillaJar = "${minecraft-server}/lib/minecraft/server.jar";
   };
 
   meta = with lib; {

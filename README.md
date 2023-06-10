@@ -110,6 +110,8 @@ Since Legacy Fabric does not have a defined newest version to target, it lacks a
 
 `paperServers` functions the same as `fabricServers`, but with the Paper server software.
 
+If you plan on running paper without internet, you'll have to link the vanilla jar to `cache/mojang_{version}.jar`. The relevant jar is available at the package's `vanillaJar` attribute.
+
 ### `velocityServers.*`
 
 [Source](./pkgs/velocity-servers)

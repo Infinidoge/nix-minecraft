@@ -3,6 +3,7 @@
 , jdk8
 , jdk11
 , jdk
+, vanillaServers
 }:
 let
   inherit (lib.our) escapeVersion;
@@ -26,6 +27,7 @@ let
         inherit (value) url sha256;
         version = "${mcVersion}-build.${buildNumber}";
         jre = getRecommendedJavaVersion mcVersion;
+        minecraft-server = vanillaServers."vanilla-${escapeVersion mcVersion}";
       })
       builds))
     versions;
