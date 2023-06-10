@@ -266,6 +266,7 @@ in
             description = "Minecraft server service user";
             home = cfg.dataDir;
             createHome = true;
+            homeMode = "770";
             isSystemUser = true;
             group = "minecraft";
           };
@@ -315,7 +316,7 @@ in
           };
 
         systemd.tmpfiles.rules = mapAttrsToList (name: _:
-          "d '${cfg.dataDir}/${name}' 0700 ${cfg.user} - - -"
+          "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} - - -"
         ) servers;
 
         systemd.services = mapAttrs'
