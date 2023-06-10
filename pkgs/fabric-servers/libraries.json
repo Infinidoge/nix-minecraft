@@ -2018,5 +2018,10 @@
     "name": "intermediary-1.20.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20/intermediary-1.20.jar",
     "sha256": "1k94zv1mm3gzxsx0jb506mc75891y5mgnc550bssaw45z6l1cy19"
+  },
+  "net.fabricmc:intermediary:1.20.1-rc1": {
+    "name": "intermediary-1.20.1-rc1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.1-rc1/intermediary-1.20.1-rc1.jar",
+    "sha256": "1m472ypxm71gmbkjmn8hjnh2b5npflidbg0j0j948n4325sz7mn1"
   }
 }
