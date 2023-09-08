@@ -1973,5 +1973,15 @@
     "name": "intermediary-1.20.2-pre1.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2-pre1/intermediary-1.20.2-pre1.jar",
     "sha256": "1rmsf07yljppmiyy4kkk1cm553r6svajz1k6xqaisfdkj9z8j265"
+  },
+  "org.quiltmc:hashed:1.20.2-pre2": {
+    "name": "hashed-1.20.2-pre2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.20.2-pre2/hashed-1.20.2-pre2.jar",
+    "sha256": "1yzsx97yz7a4fp623a3bc384ya5kwq7djslgp4zr4jr7xp3cmxl8"
+  },
+  "net.fabricmc:intermediary:1.20.2-pre2": {
+    "name": "intermediary-1.20.2-pre2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2-pre2/intermediary-1.20.2-pre2.jar",
+    "sha256": "1srnga2jmy9b3znf39s59s68lll3jx1zziwrg84f679pm7lqcmjz"
   }
 }
