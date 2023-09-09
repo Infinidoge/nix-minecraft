@@ -1983,5 +1983,15 @@
     "name": "intermediary-1.20.2-pre2.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2-pre2/intermediary-1.20.2-pre2.jar",
     "sha256": "1srnga2jmy9b3znf39s59s68lll3jx1zziwrg84f679pm7lqcmjz"
+  },
+  "org.quiltmc:quilt-loader:0.21.0-beta.2": {
+    "name": "quilt-loader-0.21.0-beta.2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.21.0-beta.2/quilt-loader-0.21.0-beta.2.jar",
+    "sha256": "0380larf4pk59ka9bcifp4x0k68dkw0hzmn5m9b18glpv25lvmbf"
+  },
+  "org.quiltmc:quilt-loader:0.21.0-beta.1": {
+    "name": "quilt-loader-0.21.0-beta.1.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.21.0-beta.1/quilt-loader-0.21.0-beta.1.jar",
+    "sha256": "19p4lwa1ybgv09n5kprm7yvzfsfqd0sn91dcv3gsjj53kca98l32"
   }
 }
