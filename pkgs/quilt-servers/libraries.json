@@ -2008,5 +2008,15 @@
     "name": "intermediary-1.20.2-pre3.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2-pre3/intermediary-1.20.2-pre3.jar",
     "sha256": "0nv5g1ilrwnd7m5g3149w4nkm93c5pdv4ii7qwcip9n7brmvqnp7"
+  },
+  "org.quiltmc:hashed:1.20.2-pre4": {
+    "name": "hashed-1.20.2-pre4.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.20.2-pre4/hashed-1.20.2-pre4.jar",
+    "sha256": "0y970rvv957k6593168mg6hspnlkqk3lkg20d8kd3p3mp4p5crm6"
+  },
+  "net.fabricmc:intermediary:1.20.2-pre4": {
+    "name": "intermediary-1.20.2-pre4.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2-pre4/intermediary-1.20.2-pre4.jar",
+    "sha256": "0h7lbibmzjcvac4f8yis8fd0ib1zixilkinp5s44vp6wx817a5bv"
   }
 }
