@@ -2083,5 +2083,10 @@
     "name": "intermediary-1.20.2-rc2.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2-rc2/intermediary-1.20.2-rc2.jar",
     "sha256": "0ah8nwp9rg2vb69g46jzbb1bgb2h2a6llaryrg44m278pl89mnjy"
+  },
+  "net.fabricmc:intermediary:1.20.2": {
+    "name": "intermediary-1.20.2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2/intermediary-1.20.2.jar",
+    "sha256": "0rvy9p408f77lnl72n8ahinfp43r7x3fx62qakihfg3ad8i94wpb"
   }
 }

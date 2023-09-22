@@ -2043,5 +2043,15 @@
     "name": "quilt-loader-0.21.0-beta.4.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.21.0-beta.4/quilt-loader-0.21.0-beta.4.jar",
     "sha256": "1icvkhhbcpaagl2i5kh0jrpy4w5nlqf000pzcifvvh335mnchph8"
+  },
+  "org.quiltmc:hashed:1.20.2": {
+    "name": "hashed-1.20.2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.20.2/hashed-1.20.2.jar",
+    "sha256": "1qwq3ac0g6an6xgnpw130mrn98jlg58zjqwbph0kf552jly2abjx"
+  },
+  "net.fabricmc:intermediary:1.20.2": {
+    "name": "intermediary-1.20.2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.2/intermediary-1.20.2.jar",
+    "sha256": "0rvy9p408f77lnl72n8ahinfp43r7x3fx62qakihfg3ad8i94wpb"
   }
 }
