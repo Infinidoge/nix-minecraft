@@ -16083,6 +16083,10 @@
     "204": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.20.2/builds/204/downloads/paper-1.20.2-204.jar",
       "sha256": "616d1fdb170c7c5eff10cec531df56ddf6670d82a773d7f46d588a3cf5344575"
+    },
+    "205": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.20.2/builds/205/downloads/paper-1.20.2-205.jar",
+      "sha256": "eb4d56455adf457a3d0edfa7a0379c9d4a988fc072cbca2cb349423a04948c74"
     }
   }
 }
