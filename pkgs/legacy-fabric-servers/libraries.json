@@ -668,5 +668,35 @@
     "name": "fabric-loader-0.14.22.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.22/fabric-loader-0.14.22.jar",
     "sha256": "111rxfxdcx27i6pyl71gw946gm04v2f90d49zsw6z4x4iyf3bi8i"
+  },
+  "org.ow2.asm:asm:9.6": {
+    "name": "asm-9.6.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.6/asm-9.6.jar",
+    "sha256": "18834cy0i1zqffb336p16li5ag4w3lylx7v67f2llgfv4hjaqvrw"
+  },
+  "org.ow2.asm:asm-analysis:9.6": {
+    "name": "asm-analysis-9.6.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.6/asm-analysis-9.6.jar",
+    "sha256": "1fyvivkgmabvrgnp2rks6cp687dk31hsqn951v30gp3yqgbk4a6r"
+  },
+  "org.ow2.asm:asm-commons:9.6": {
+    "name": "asm-commons-9.6.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.6/asm-commons-9.6.jar",
+    "sha256": "04f5axvch7vqqlbsmrrcmwrvxdjzfvdgw4vmkz3025whq3ax1vvs"
+  },
+  "org.ow2.asm:asm-tree:9.6": {
+    "name": "asm-tree-9.6.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.6/asm-tree-9.6.jar",
+    "sha256": "1vz7i0w2imb7allfcgb8kb9y4xxkadjvidd7bphpgirrnlbwygn4"
+  },
+  "org.ow2.asm:asm-util:9.6": {
+    "name": "asm-util-9.6.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.6/asm-util-9.6.jar",
+    "sha256": "1hy4zaa1k6zwvsd75s33rphhynh2cbm0q8zln9kbzaaa5x0afdf6"
+  },
+  "net.fabricmc:fabric-loader:0.14.23": {
+    "name": "fabric-loader-0.14.23.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.14.23/fabric-loader-0.14.23.jar",
+    "sha256": "0dvz3l3fff0ydmdxd8vxglm9a792hnxzzisp1sivs1c1hg0fb4pp"
   }
 }
