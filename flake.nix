@@ -42,14 +42,14 @@
 
       mkTests = pkgs:
         let
+          inherit (pkgs.stdenv) isLinux;
+          inherit (pkgs.lib) optionalAttrs mapAttrs;
           callPackage = pkgs.newScope {
             inherit (self) outputs;
             lib = pkgs.lib.extend (_: _: { our = self.lib; });
           };
         in
-          if (pkgs.stdenv.isLinux)
-          then builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests)
-          else {};
+        optionalAttrs isLinux (mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests));
     in
     {
       lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
@@ -57,12 +57,14 @@
       overlay = final: prev: mkPackages prev;
       overlays.default = self.overlay;
       nixosModules = self.lib.rakeLeaves ./modules;
-    } // flake-utils.lib.eachDefaultSystem (system: let
+    } // flake-utils.lib.eachDefaultSystem (system:
+    let
       pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
       };
-    in rec {
+    in
+    rec {
       legacyPackages = mkPackages pkgs;
 
       packages = {
