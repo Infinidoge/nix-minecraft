@@ -32,5 +32,6 @@ stdenvNoCC.mkDerivation {
     license = licenses.unfreeRedistributable;
     platforms = platforms.unix;
     maintainers = with maintainers; [ infinidoge ];
+    mainProgram = "minecraft-server";
   };
 }
