@@ -185,6 +185,21 @@ in
             in-game with the <literal>stop</literal> command will cause the server to automatically restart.
           '';
 
+          enableReload = mkOpt' types.bool false ''
+            Reload server when configuration changes (instead of restart).
+
+            This action re-links/copies the declared symlinks/files. You can
+            include additional actions (even in-game commands) by setting
+            <option>services.minecraft-servers.<name>.extraReload</option>.
+          '';
+
+          extraReload = mkOpt' types.lines "" ''
+            Extra commands to run when reloading the service. Only has an
+            effect if
+            <option>services.minecraft-servers.<name>.enableReload</option> is
+            true.
+          '';
+
           whitelist = mkOption {
             type =
               let
@@ -355,7 +370,7 @@ in
             in
             {
               name = "minecraft-server-${name}";
-              value = {
+              value = rec {
                 description = "Minecraft Server ${name}";
                 wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
                 after = [ "network.target" ];
@@ -396,6 +411,13 @@ in
                   SystemCallArchitectures = "native";
                   UMask = "0007";
                 };
+                restartIfChanged = !conf.enableReload;
+                reloadIfChanged = conf.enableReload;
+
+                reload = ''
+                  ${postStop}
+                  ${preStart}
+                '' + conf.extraReload;
 
                 preStart =
                   let
