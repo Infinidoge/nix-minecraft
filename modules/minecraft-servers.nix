@@ -189,7 +189,7 @@ in
             Reload server when configuration changes (instead of restart).
 
             This action re-links/copies the declared symlinks/files. You can
-            including additional actions (even in-game commands) by setting
+            include additional actions (even in-game commands) by setting
             <option>services.minecraft-servers.<name>.extraReload</option>.
           '';
 
