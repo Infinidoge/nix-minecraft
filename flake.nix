@@ -78,6 +78,6 @@
           nix-modrinth-prefetch;
       };
 
-      checks = mkTests pkgs;
+      checks = mkTests pkgs // packages;
     });
 }
