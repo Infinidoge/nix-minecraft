@@ -14,11 +14,13 @@
     , ...
     }@inputs:
     let
+      mkLib = pkgs: pkgs.lib.extend (_: _: { our = self.lib; });
+
       mkPackages = pkgs:
         let
           callPackage = pkgs.newScope {
             inherit inputs;
-            lib = pkgs.lib.extend (_: _: { our = self.lib; });
+            lib = mkLib pkgs;
           };
         in
         rec {
@@ -46,7 +48,7 @@
           inherit (pkgs.lib) optionalAttrs mapAttrs;
           callPackage = pkgs.newScope {
             inherit (self) outputs;
-            lib = pkgs.lib.extend (_: _: { our = self.lib; });
+            lib = mkLib pkgs;
           };
         in
         optionalAttrs isLinux (mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests));
