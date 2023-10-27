@@ -1,0 +1,794 @@
+{
+  "0.14.24": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.6",
+      "org.ow2.asm:asm-analysis:9.6",
+      "org.ow2.asm:asm-commons:9.6",
+      "org.ow2.asm:asm-tree:9.6",
+      "org.ow2.asm:asm-util:9.6",
+      "net.fabricmc:fabric-loader:0.14.24"
+    ]
+  },
+  "0.14.23": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.6",
+      "org.ow2.asm:asm-analysis:9.6",
+      "org.ow2.asm:asm-commons:9.6",
+      "org.ow2.asm:asm-tree:9.6",
+      "org.ow2.asm:asm-util:9.6",
+      "net.fabricmc:fabric-loader:0.14.23"
+    ]
+  },
+  "0.14.22": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.5",
+      "org.ow2.asm:asm-analysis:9.5",
+      "org.ow2.asm:asm-commons:9.5",
+      "org.ow2.asm:asm-tree:9.5",
+      "org.ow2.asm:asm-util:9.5",
+      "net.fabricmc:fabric-loader:0.14.22"
+    ]
+  },
+  "0.14.21": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.5",
+      "org.ow2.asm:asm-analysis:9.5",
+      "org.ow2.asm:asm-commons:9.5",
+      "org.ow2.asm:asm-tree:9.5",
+      "org.ow2.asm:asm-util:9.5",
+      "net.fabricmc:fabric-loader:0.14.21"
+    ]
+  },
+  "0.14.20": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.5",
+      "org.ow2.asm:asm-analysis:9.5",
+      "org.ow2.asm:asm-commons:9.5",
+      "org.ow2.asm:asm-tree:9.5",
+      "org.ow2.asm:asm-util:9.5",
+      "net.fabricmc:fabric-loader:0.14.20"
+    ]
+  },
+  "0.14.19": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.19"
+    ]
+  },
+  "0.14.18": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.18"
+    ]
+  },
+  "0.14.17": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.17"
+    ]
+  },
+  "0.14.16": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.16"
+    ]
+  },
+  "0.14.15": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.3+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.15"
+    ]
+  },
+  "0.14.14": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.14"
+    ]
+  },
+  "0.14.13": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.13"
+    ]
+  },
+  "0.14.12": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.4",
+      "org.ow2.asm:asm-analysis:9.4",
+      "org.ow2.asm:asm-commons:9.4",
+      "org.ow2.asm:asm-tree:9.4",
+      "org.ow2.asm:asm-util:9.4",
+      "net.fabricmc:fabric-loader:0.14.12"
+    ]
+  },
+  "0.14.11": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.11"
+    ]
+  },
+  "0.14.10": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.10"
+    ]
+  },
+  "0.14.9": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.9"
+    ]
+  },
+  "0.14.8": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.8"
+    ]
+  },
+  "0.14.7": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.7"
+    ]
+  },
+  "0.14.6": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.6"
+    ]
+  },
+  "0.14.5": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.4+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.5"
+    ]
+  },
+  "0.14.4": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.3+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.4"
+    ]
+  },
+  "0.14.3": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.3+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.3"
+    ]
+  },
+  "0.14.2": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.3+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.2"
+    ]
+  },
+  "0.14.1": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.3+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.1"
+    ]
+  },
+  "0.14.0": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.3+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.3",
+      "org.ow2.asm:asm-analysis:9.3",
+      "org.ow2.asm:asm-commons:9.3",
+      "org.ow2.asm:asm-tree:9.3",
+      "org.ow2.asm:asm-util:9.3",
+      "net.fabricmc:fabric-loader:0.14.0"
+    ]
+  },
+  "0.13.3": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.1",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.13.3"
+    ]
+  },
+  "0.13.2": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.2+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.1",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.13.2"
+    ]
+  },
+  "0.13.1": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.1+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.1",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.13.1"
+    ]
+  },
+  "0.13.0": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.11.1+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.1",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.13.0"
+    ]
+  },
+  "0.12.12": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.12"
+    ]
+  },
+  "0.12.11": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.11"
+    ]
+  },
+  "0.12.10": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.10"
+    ]
+  },
+  "0.12.9": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.9"
+    ]
+  },
+  "0.12.8": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.8"
+    ]
+  },
+  "0.12.7": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.7"
+    ]
+  },
+  "0.12.6": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.7+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.6"
+    ]
+  },
+  "0.12.5": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.6+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.5"
+    ]
+  },
+  "0.12.4": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.5+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.4"
+    ]
+  },
+  "0.12.3": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.4+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.1",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.3"
+    ]
+  },
+  "0.12.2": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.3+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.0",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.2"
+    ]
+  },
+  "0.12.1": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.2+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.0",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.1"
+    ]
+  },
+  "0.12.0": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.10.2+mixin.0.8.4",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:2.0.0",
+      "org.ow2.asm:asm:9.2",
+      "org.ow2.asm:asm-analysis:9.2",
+      "org.ow2.asm:asm-commons:9.2",
+      "org.ow2.asm:asm-tree:9.2",
+      "org.ow2.asm:asm-util:9.2",
+      "net.fabricmc:fabric-loader:0.12.0"
+    ]
+  },
+  "0.11.7": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.9.4+mixin.0.8.2",
+      "net.fabricmc:tiny-remapper:0.6.0",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.1",
+      "org.ow2.asm:asm-analysis:9.1",
+      "org.ow2.asm:asm-commons:9.1",
+      "org.ow2.asm:asm-tree:9.1",
+      "org.ow2.asm:asm-util:9.1",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.11.7"
+    ]
+  },
+  "0.11.6": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.9.4+mixin.0.8.2",
+      "net.fabricmc:tiny-remapper:0.4.2",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.1",
+      "org.ow2.asm:asm-analysis:9.1",
+      "org.ow2.asm:asm-commons:9.1",
+      "org.ow2.asm:asm-tree:9.1",
+      "org.ow2.asm:asm-util:9.1",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.11.6"
+    ]
+  },
+  "0.11.5": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.9.4+mixin.0.8.2",
+      "net.fabricmc:tiny-remapper:0.4.1",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.1",
+      "org.ow2.asm:asm-analysis:9.1",
+      "org.ow2.asm:asm-commons:9.1",
+      "org.ow2.asm:asm-tree:9.1",
+      "org.ow2.asm:asm-util:9.1",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.11.5"
+    ]
+  },
+  "0.11.3": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.9.2+mixin.0.8.2",
+      "net.fabricmc:tiny-remapper:0.3.0.70",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.1",
+      "org.ow2.asm:asm-analysis:9.1",
+      "org.ow2.asm:asm-commons:9.1",
+      "org.ow2.asm:asm-tree:9.1",
+      "org.ow2.asm:asm-util:9.1",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.11.3"
+    ]
+  },
+  "0.11.2": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.9.2+mixin.0.8.2",
+      "net.fabricmc:tiny-remapper:0.3.0.70",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.1",
+      "org.ow2.asm:asm-analysis:9.1",
+      "org.ow2.asm:asm-commons:9.1",
+      "org.ow2.asm:asm-tree:9.1",
+      "org.ow2.asm:asm-util:9.1",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.11.2"
+    ]
+  },
+  "0.11.1": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.8.2+build.24",
+      "net.fabricmc:tiny-remapper:0.3.0.70",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.0",
+      "org.ow2.asm:asm-analysis:9.0",
+      "org.ow2.asm:asm-commons:9.0",
+      "org.ow2.asm:asm-tree:9.0",
+      "org.ow2.asm:asm-util:9.0",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.11.1"
+    ]
+  },
+  "0.11.0": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.8.2+build.24",
+      "net.fabricmc:tiny-remapper:0.3.0.70",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.0",
+      "org.ow2.asm:asm-analysis:9.0",
+      "org.ow2.asm:asm-commons:9.0",
+      "org.ow2.asm:asm-tree:9.0",
+      "org.ow2.asm:asm-util:9.0",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.11.0"
+    ]
+  },
+  "0.10.8": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.8.2+build.24",
+      "net.fabricmc:tiny-remapper:0.3.0.70",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.0",
+      "org.ow2.asm:asm-analysis:9.0",
+      "org.ow2.asm:asm-commons:9.0",
+      "org.ow2.asm:asm-tree:9.0",
+      "org.ow2.asm:asm-util:9.0",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.10.8"
+    ]
+  },
+  "0.10.7": {
+    "mainClass": "net.fabricmc.loader.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.2.2.14",
+      "net.fabricmc:sponge-mixin:0.8.2+build.24",
+      "net.fabricmc:tiny-remapper:0.3.0.70",
+      "net.fabricmc:access-widener:1.0.0",
+      "net.fabricmc:fabric-loader-sat4j:2.3.5.4",
+      "com.google.jimfs:jimfs:1.2-fabric",
+      "org.ow2.asm:asm:9.0",
+      "org.ow2.asm:asm-analysis:9.0",
+      "org.ow2.asm:asm-commons:9.0",
+      "org.ow2.asm:asm-tree:9.0",
+      "org.ow2.asm:asm-util:9.0",
+      "com.google.guava:guava:21.0",
+      "net.fabricmc:fabric-loader:0.10.7"
+    ]
+  }
+}

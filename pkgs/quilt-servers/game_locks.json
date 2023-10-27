@@ -1,0 +1,578 @@
+{
+  "23w43a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w43a",
+      "org.quiltmc:hashed:23w43a"
+    ]
+  },
+  "23w42a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w42a",
+      "org.quiltmc:hashed:23w42a"
+    ]
+  },
+  "23w41a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w41a",
+      "org.quiltmc:hashed:23w41a"
+    ]
+  },
+  "23w40a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w40a",
+      "org.quiltmc:hashed:23w40a"
+    ]
+  },
+  "1.20.2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.2",
+      "org.quiltmc:hashed:1.20.2"
+    ]
+  },
+  "1.20.2-rc2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.2-rc2",
+      "org.quiltmc:hashed:1.20.2-rc2"
+    ]
+  },
+  "1.20.2-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.2-rc1",
+      "org.quiltmc:hashed:1.20.2-rc1"
+    ]
+  },
+  "1.20.2-pre4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.2-pre4",
+      "org.quiltmc:hashed:1.20.2-pre4"
+    ]
+  },
+  "1.20.2-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.2-pre3",
+      "org.quiltmc:hashed:1.20.2-pre3"
+    ]
+  },
+  "1.20.2-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.2-pre2",
+      "org.quiltmc:hashed:1.20.2-pre2"
+    ]
+  },
+  "1.20.2-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.2-pre1",
+      "org.quiltmc:hashed:1.20.2-pre1"
+    ]
+  },
+  "23w35a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w35a",
+      "org.quiltmc:hashed:23w35a"
+    ]
+  },
+  "23w33a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w33a",
+      "org.quiltmc:hashed:23w33a"
+    ]
+  },
+  "23w32a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w32a",
+      "org.quiltmc:hashed:23w32a"
+    ]
+  },
+  "23w31a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w31a",
+      "org.quiltmc:hashed:23w31a"
+    ]
+  },
+  "1.20.1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.1",
+      "org.quiltmc:hashed:1.20.1"
+    ]
+  },
+  "1.20.1-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.1-rc1",
+      "org.quiltmc:hashed:1.20.1-rc1"
+    ]
+  },
+  "1.20": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20",
+      "org.quiltmc:hashed:1.20"
+    ]
+  },
+  "1.20-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-rc1",
+      "org.quiltmc:hashed:1.20-rc1"
+    ]
+  },
+  "1.20-pre7": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-pre7",
+      "org.quiltmc:hashed:1.20-pre7"
+    ]
+  },
+  "1.20-pre6": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-pre6",
+      "org.quiltmc:hashed:1.20-pre6"
+    ]
+  },
+  "1.20-pre5": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-pre5",
+      "org.quiltmc:hashed:1.20-pre5"
+    ]
+  },
+  "1.20-pre4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-pre4",
+      "org.quiltmc:hashed:1.20-pre4"
+    ]
+  },
+  "1.20-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-pre3",
+      "org.quiltmc:hashed:1.20-pre3"
+    ]
+  },
+  "1.20-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-pre2",
+      "org.quiltmc:hashed:1.20-pre2"
+    ]
+  },
+  "1.20-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20-pre1",
+      "org.quiltmc:hashed:1.20-pre1"
+    ]
+  },
+  "23w18a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w18a",
+      "org.quiltmc:hashed:23w18a"
+    ]
+  },
+  "23w17a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w17a",
+      "org.quiltmc:hashed:23w17a"
+    ]
+  },
+  "23w16a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w16a",
+      "org.quiltmc:hashed:23w16a"
+    ]
+  },
+  "23w14a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w14a",
+      "org.quiltmc:hashed:23w14a"
+    ]
+  },
+  "23w13a_or_b": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w13a_or_b",
+      "org.quiltmc:hashed:23w13a_or_b"
+    ]
+  },
+  "23w13a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w13a",
+      "org.quiltmc:hashed:23w13a"
+    ]
+  },
+  "23w12a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w12a",
+      "org.quiltmc:hashed:23w12a"
+    ]
+  },
+  "1.19.4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4",
+      "org.quiltmc:hashed:1.19.4"
+    ]
+  },
+  "1.19.4-rc3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4-rc3",
+      "org.quiltmc:hashed:1.19.4-rc3"
+    ]
+  },
+  "1.19.4-rc2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4-rc2",
+      "org.quiltmc:hashed:1.19.4-rc2"
+    ]
+  },
+  "1.19.4-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4-rc1",
+      "org.quiltmc:hashed:1.19.4-rc1"
+    ]
+  },
+  "1.19.4-pre4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4-pre4",
+      "org.quiltmc:hashed:1.19.4-pre4"
+    ]
+  },
+  "1.19.4-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4-pre3",
+      "org.quiltmc:hashed:1.19.4-pre3"
+    ]
+  },
+  "1.19.4-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4-pre2",
+      "org.quiltmc:hashed:1.19.4-pre2"
+    ]
+  },
+  "1.19.4-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.4-pre1",
+      "org.quiltmc:hashed:1.19.4-pre1"
+    ]
+  },
+  "23w07a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w07a",
+      "org.quiltmc:hashed:23w07a"
+    ]
+  },
+  "23w06a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w06a",
+      "org.quiltmc:hashed:23w06a"
+    ]
+  },
+  "23w05a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w05a",
+      "org.quiltmc:hashed:23w05a"
+    ]
+  },
+  "23w04a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w04a",
+      "org.quiltmc:hashed:23w04a"
+    ]
+  },
+  "23w03a": {
+    "libraries": [
+      "net.fabricmc:intermediary:23w03a",
+      "org.quiltmc:hashed:23w03a"
+    ]
+  },
+  "1.19.3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.3",
+      "org.quiltmc:hashed:1.19.3"
+    ]
+  },
+  "1.19.3-rc3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.3-rc3",
+      "org.quiltmc:hashed:1.19.3-rc3"
+    ]
+  },
+  "1.19.3-rc2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.3-rc2",
+      "org.quiltmc:hashed:1.19.3-rc2"
+    ]
+  },
+  "1.19.3-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.3-rc1",
+      "org.quiltmc:hashed:1.19.3-rc1"
+    ]
+  },
+  "1.19.3-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.3-pre3",
+      "org.quiltmc:hashed:1.19.3-pre3"
+    ]
+  },
+  "1.19.3-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.3-pre2",
+      "org.quiltmc:hashed:1.19.3-pre2"
+    ]
+  },
+  "1.19.3-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.3-pre1",
+      "org.quiltmc:hashed:1.19.3-pre1"
+    ]
+  },
+  "22w46a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w46a",
+      "org.quiltmc:hashed:22w46a"
+    ]
+  },
+  "22w45a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w45a",
+      "org.quiltmc:hashed:22w45a"
+    ]
+  },
+  "22w44a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w44a",
+      "org.quiltmc:hashed:22w44a"
+    ]
+  },
+  "22w43a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w43a",
+      "org.quiltmc:hashed:22w43a"
+    ]
+  },
+  "22w42a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w42a",
+      "org.quiltmc:hashed:22w42a"
+    ]
+  },
+  "1.19.2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.2",
+      "org.quiltmc:hashed:1.19.2"
+    ]
+  },
+  "1.19.2-rc2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.2-rc2",
+      "org.quiltmc:hashed:1.19.2-rc2"
+    ]
+  },
+  "1.19.2-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.2-rc1",
+      "org.quiltmc:hashed:1.19.2-rc1"
+    ]
+  },
+  "1.19.1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1",
+      "org.quiltmc:hashed:1.19.1"
+    ]
+  },
+  "1.19.1-rc3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-rc3",
+      "org.quiltmc:hashed:1.19.1-rc3"
+    ]
+  },
+  "1.19.1-rc2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-rc2",
+      "org.quiltmc:hashed:1.19.1-rc2"
+    ]
+  },
+  "1.19.1-pre6": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-pre6",
+      "org.quiltmc:hashed:1.19.1-pre6"
+    ]
+  },
+  "1.19.1-pre5": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-pre5",
+      "org.quiltmc:hashed:1.19.1-pre5"
+    ]
+  },
+  "1.19.1-pre4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-pre4",
+      "org.quiltmc:hashed:1.19.1-pre4"
+    ]
+  },
+  "1.19.1-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-pre3",
+      "org.quiltmc:hashed:1.19.1-pre3"
+    ]
+  },
+  "1.19.1-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-pre2",
+      "org.quiltmc:hashed:1.19.1-pre2"
+    ]
+  },
+  "1.19.1-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-rc1",
+      "org.quiltmc:hashed:1.19.1-rc1"
+    ]
+  },
+  "1.19.1-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19.1-pre1",
+      "org.quiltmc:hashed:1.19.1-pre1"
+    ]
+  },
+  "22w24a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w24a",
+      "org.quiltmc:hashed:22w24a"
+    ]
+  },
+  "1.19": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19",
+      "org.quiltmc:hashed:1.19"
+    ]
+  },
+  "1.19-rc2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19-rc2",
+      "org.quiltmc:hashed:1.19-rc2"
+    ]
+  },
+  "1.19-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19-rc1",
+      "org.quiltmc:hashed:1.19-rc1"
+    ]
+  },
+  "1.19-pre5": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19-pre5",
+      "org.quiltmc:hashed:1.19-pre5"
+    ]
+  },
+  "1.19-pre4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19-pre4",
+      "org.quiltmc:hashed:1.19-pre4"
+    ]
+  },
+  "1.19-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19-pre3",
+      "org.quiltmc:hashed:1.19-pre3"
+    ]
+  },
+  "1.19-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19-pre2",
+      "org.quiltmc:hashed:1.19-pre2"
+    ]
+  },
+  "1.19-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.19-pre1",
+      "org.quiltmc:hashed:1.19-pre1"
+    ]
+  },
+  "22w19a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w19a",
+      "org.quiltmc:hashed:22w19a"
+    ]
+  },
+  "22w18a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w18a",
+      "org.quiltmc:hashed:22w18a"
+    ]
+  },
+  "22w17a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w17a",
+      "org.quiltmc:hashed:22w17a"
+    ]
+  },
+  "22w16b": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w16b",
+      "org.quiltmc:hashed:22w16b"
+    ]
+  },
+  "22w16a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w16a",
+      "org.quiltmc:hashed:22w16a"
+    ]
+  },
+  "22w15a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w15a",
+      "org.quiltmc:hashed:22w15a"
+    ]
+  },
+  "22w14a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w14a",
+      "org.quiltmc:hashed:22w14a"
+    ]
+  },
+  "22w13oneblockatatime": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w13oneblockatatime",
+      "org.quiltmc:hashed:22w13oneblockatatime"
+    ]
+  },
+  "22w13a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w13a",
+      "org.quiltmc:hashed:22w13a"
+    ]
+  },
+  "22w12a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w12a",
+      "org.quiltmc:hashed:22w12a"
+    ]
+  },
+  "22w11a": {
+    "libraries": [
+      "net.fabricmc:intermediary:22w11a",
+      "org.quiltmc:hashed:22w11a"
+    ]
+  },
+  "1.18.2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.18.2",
+      "org.quiltmc:hashed:1.18.2"
+    ]
+  },
+  "1.18.2-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.18.2-rc1",
+      "org.quiltmc:hashed:1.18.2-rc1"
+    ]
+  },
+  "1.18.2-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.18.2-pre3",
+      "org.quiltmc:hashed:1.18.2-pre3"
+    ]
+  },
+  "1.18.2-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.18.2-pre2",
+      "org.quiltmc:hashed:1.18.2-pre2"
+    ]
+  },
+  "1.18.2-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.18.2-pre1",
+      "org.quiltmc:hashed:1.18.2-pre1"
+    ]
+  }
+}
