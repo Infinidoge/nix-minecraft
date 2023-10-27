@@ -18,12 +18,14 @@
 
       mkPackages = pkgs:
         let
-          callPackage = pkgs.newScope {
-            inherit inputs;
-            lib = mkLib pkgs;
-          };
+          # Include build support functions in callPackage,
+          # and include callPackage in itself so it passes to children
+          callPackage = pkgs.newScope ({ lib = mkLib pkgs; inherit callPackage; } // buildSupport);
+          buildSupport = builtins.mapAttrs (n: v: callPackage v) (self.lib.rakeLeaves ./pkgs/build-support);
         in
         rec {
+          inherit buildSupport;
+
           vanillaServers = callPackage ./pkgs/vanilla-servers { };
           fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
           quiltServers = callPackage ./pkgs/quilt-servers { inherit vanillaServers; };
