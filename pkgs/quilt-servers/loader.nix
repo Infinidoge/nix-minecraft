@@ -1,39 +1,16 @@
 { lib
-, fetchurl
-, stdenvNoCC
-, unzip
-, zip
-, jre_headless
-, lock
+, mkTextileLoader
+, loaderVersion
+, gameVersion
 }:
 let
-  lib_lock = lib.importJSON ./libraries.json;
-  libraries = lib.forEach lock.libraries (l: fetchurl lib_lock.${l});
+  loader_lock = (lib.importJSON ./loader_locks.json).${loaderVersion};
+  game_lock = (lib.importJSON ./game_locks.json).${gameVersion};
 in
-stdenvNoCC.mkDerivation {
-  name = "quilt-server-launch.jar";
-  nativeBuildInputs = [ unzip zip jre_headless ];
-
-  libraries = libraries;
-
-  buildPhase = ''
-    for i in $libraries; do
-      unzip -o $i
-    done
-
-    cat > META-INF/MANIFEST.MF << EOF
-    Manifest-Version: 1.0
-    Main-Class: org.quiltmc.loader.impl.launch.server.QuiltServerLauncher
-    Name: org/objectweb/asm/
-    Implementation-Version: 9.2
-    EOF
-  '';
-
-  installPhase = ''
-    jar cmvf META-INF/MANIFEST.MF "server.jar" .
-    zip -d server.jar 'META-INF/*.SF' 'META-INF/*.RSA' 'META-INF/*.DSA'
-    cp server.jar "$out"
-  '';
-
-  phases = [ "buildPhase" "installPhase" ];
+mkTextileLoader {
+  loaderName = "quilt";
+  inherit loaderVersion gameVersion;
+  serverLaunch = "org.quiltmc.loader.impl.launch.server.QuiltServerLauncher";
+  inherit (loader_lock) mainClass;
+  libraries = loader_lock.libraries ++ game_lock.libraries;
 }
