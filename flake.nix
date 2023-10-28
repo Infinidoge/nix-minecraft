@@ -83,5 +83,7 @@
       };
 
       checks = mkTests (pkgs.extend self.outputs.overlays.default) // packages;
+
+      formatter = pkgs.nixpkgs-fmt;
     });
 }
