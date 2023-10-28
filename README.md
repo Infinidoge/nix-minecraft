@@ -78,16 +78,16 @@ vanillaServers.vanilla-22w13oneblockatatime
 
 [Source](./pkgs/fabric-servers)
 
-An attrset of all of the Fabric server versions, in the form of `fabric-mcversion` or `fabric-mcversion-fabricversion`, following the same format as described above for version numbers. If the `fabricversion` isn't specified, it uses the latest version.
+An attrset of all of the Fabric server versions, in the form of `fabric-mcversion`, following the same format as described above for version numbers. The `mcversion` must be `>=1.14`. The Fabric version is the latest released version.
 
-The `mcversion` must be `>=1.14`, and if specified, the `fabricversion` must be `>=0.10.7`. The former is a limitation of Fabric, while the latter is the constraint I put on my packaging lockfile.
+To change the Fabric version, you can override the derivation and set `loaderVersion`: `fabric-mcversion.override { loaderVersion = "fabricversion"; }`.  The `loaderVersion` must be `>=0.10.7`.
 
 For convenience, `fabricServers.fabric` is equivalent to the latest major Minecraft and Fabric versions.
 
 ```
 fabricServers.fabric-1_18_2
 fabricServers.fabric-22w16b
-fabricServers.fabric-1_18_2-0_13_3 # Specific fabric loader version
+fabricServers.fabric-1_18_2.override { loaderVersion = "0.14.20"; } # Specific fabric loader version
 ```
 
 ### `quiltServers.*`
@@ -140,7 +140,7 @@ in
 {
   services.minecraft-servers.servers.cool-modpack = {
     enable = true;
-    package = pkgs.fabricServers.fabric-1_18_2-0_14_9;
+    package = pkgs.fabricServers.fabric-1_18_2.override { loaderVersion = "0.14.9"; };
     symlinks = {
       "mods" = "${modpack}/mods";
     };
@@ -162,12 +162,12 @@ let
   };
   mcVersion = modpack.manifest.versions.minecraft;
   fabricVersion = modpack.manifest.versions.fabric;
-  serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}-${fabricVersion}";
+  serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
 in
 {
   services.minecraft-servers.servers.cool-modpack = {
     enable = true;
-    package = pkgs.fabricServers.${serverVersion};
+    package = pkgs.fabricServers.${serverVersion}.override { loaderVersion = fabricVersion; };
     symlinks = {
       "mods" = "${modpack}/mods";
     };
