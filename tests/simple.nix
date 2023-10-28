@@ -2,7 +2,7 @@
 
 nixosTest {
   name = "simple";
-  nodes.server = { config, pkgs, lib, ...}: {
+  nodes.server = { config, pkgs, lib, ... }: {
     imports = [ outputs.nixosModules.minecraft-servers ];
 
     services.minecraft-servers = {
