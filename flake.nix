@@ -49,6 +49,7 @@
           inherit (pkgs.stdenv) isLinux;
           inherit (pkgs.lib) optionalAttrs mapAttrs;
           callPackage = pkgs.newScope {
+            inherit self;
             inherit (self) outputs;
             lib = mkLib pkgs;
           };
