@@ -21,10 +21,21 @@ let
 
   packagesRaw = lib.genAttrs gameVersions mkServer;
   packages = lib.mapAttrs' (version: drv: lib.nameValuePair "quilt-${escapeVersion version}" drv) packagesRaw;
+
+  mkDeprecatedPackages = (loaderVersion: lib.mapAttrs'
+    (name: drv: {
+      name = "${name}-${escapeVersion loaderVersion}";
+      value = lib.warn
+        "`${name}-${escapeVersion loaderVersion}` is deprecated! Use `${name}.override { loaderVersion = \"${loaderVersion}\"; }` instead."
+        drv;
+    })
+    packages);
+
+  deprecatedPackages = lib.attrsets.mergeAttrsList (builtins.map mkDeprecatedPackages (lib.attrNames loader_locks));
 in
 lib.recurseIntoAttrs (
   packages
-    // {
+  // {
     quilt = builtins.getAttr "quilt-${escapeVersion vanillaServers.vanilla.version}" packages;
-  }
+  } // deprecatedPackages
 )
