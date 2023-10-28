@@ -12,18 +12,18 @@ let
 
   packages =
     mapAttrsToList
-    (version: builds:
-      sortBy "version" versionOlder (mapAttrsToList
-        (buildNumber: value:
-          callPackage ./derivation.nix {
-            inherit (value) url sha256 channel;
-            version = "${version}-build.${buildNumber}";
-          })
-        builds))
-    versions;
+      (version: builds:
+        sortBy "version" versionOlder (mapAttrsToList
+          (buildNumber: value:
+            callPackage ./derivation.nix {
+              inherit (value) url sha256 channel;
+              version = "${version}-build.${buildNumber}";
+            })
+          builds))
+      versions;
   stablePackages = map (filter (x: x.meta.branch != "experimental")) packages;
 in
-  recurseIntoAttrs (listToAttrs (
-    (map (x: nameValuePair (escapeVersion x.name) x) (flatten packages))
-    ++ [(nameValuePair "velocity" (last (last stablePackages)))]
-  ))
+recurseIntoAttrs (listToAttrs (
+  (map (x: nameValuePair (escapeVersion x.name) x) (flatten packages))
+  ++ [ (nameValuePair "velocity" (last (last stablePackages))) ]
+))
