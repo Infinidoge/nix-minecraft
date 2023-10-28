@@ -3,10 +3,6 @@
 nixosTest {
   name = "files-symlinks";
   nodes.server = { config, pkgs, lib, ...}: {
-    nixpkgs = {
-      overlays = [ outputs.overlays.default ];
-      config.allowUnfree = true;
-    };
     imports = [ outputs.nixosModules.minecraft-servers ];
 
     services.minecraft-servers = {

@@ -82,6 +82,6 @@
           nix-modrinth-prefetch;
       };
 
-      checks = mkTests pkgs // packages;
+      checks = mkTests (pkgs.extend self.outputs.overlays.default) // packages;
     });
 }
