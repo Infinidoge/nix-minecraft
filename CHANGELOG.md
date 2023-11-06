@@ -6,7 +6,7 @@ Documentation of major changes, newest first.
 
 For Fabric, Quilt, and Legacy Fabric servers, the old way of specifying the loader version is now deprecated.
 Instead of using `minecraftServers.fabric-1_19_2-0_14_20` to use loader version `0.14.20`,
-Use `inecraftServers.fabric-1_19_2.override { loaderVersion = "0.14.20"; }`
+Use `minecraftServers.fabric-1_19_2.override { loaderVersion = "0.14.20"; }`
 
 ## 2023-05-13: Removal of attrsets from `packages`.
 
