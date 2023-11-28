@@ -790,5 +790,20 @@
       "com.google.guava:guava:21.0",
       "net.fabricmc:fabric-loader:0.10.7"
     ]
+  },
+  "0.14.25": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.12.5+mixin.0.8.5",
+      "net.fabricmc:tiny-remapper:0.8.2",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.ow2.asm:asm:9.6",
+      "org.ow2.asm:asm-analysis:9.6",
+      "org.ow2.asm:asm-commons:9.6",
+      "org.ow2.asm:asm-tree:9.6",
+      "org.ow2.asm:asm-util:9.6",
+      "net.fabricmc:fabric-loader:0.14.25"
+    ]
   }
 }
