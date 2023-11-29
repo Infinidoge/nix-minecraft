@@ -1593,5 +1593,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.20.3-pre3"
     ]
+  },
+  "1.20.3-pre4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.3-pre4"
+    ]
   }
 }
