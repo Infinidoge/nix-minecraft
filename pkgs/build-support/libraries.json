@@ -4148,5 +4148,10 @@
     "name": "intermediary-1.20.3-pre4.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.20.3-pre4/intermediary-1.20.3-pre4.jar",
     "sha256": "1n3hgrfv9p9chk2lqmzljf40g55xbc1nzgfddfsv368gbbcwk2bc"
+  },
+  "org.quiltmc:hashed:1.20.3-pre4": {
+    "name": "hashed-1.20.3-pre4.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.20.3-pre4/hashed-1.20.3-pre4.jar",
+    "sha256": "0z7yv251hhmfhy0ihxvg1gkj4m0ddiis7spkg96ydmmpxy6820c9"
   }
 }
