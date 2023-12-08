@@ -1613,5 +1613,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.20.4-rc1"
     ]
+  },
+  "1.20.4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.4"
+    ]
   }
 }
