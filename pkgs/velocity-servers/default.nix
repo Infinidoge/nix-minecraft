@@ -21,7 +21,7 @@ let
             })
           builds))
       versions;
-  stablePackages = map (filter (x: x.meta.branch != "experimental")) packages;
+  stablePackages = filter (x: x != [ ]) (map (filter (x: x.meta.branch != "experimental")) packages);
 in
 recurseIntoAttrs (listToAttrs (
   (map (x: nameValuePair (escapeVersion x.name) x) (flatten packages))
