@@ -4213,5 +4213,10 @@
     "name": "quilt-loader-0.22.1-beta.4.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.22.1-beta.4/quilt-loader-0.22.1-beta.4.jar",
     "sha256": "14z2zdnbkqswi6pwc8fz6l7zayppq456gz13vzzcqcjb4fvm5878"
+  },
+  "net.fabricmc:fabric-loader:0.15.2": {
+    "name": "fabric-loader-0.15.2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.15.2/fabric-loader-0.15.2.jar",
+    "sha256": "1rrxbvdgylpsc7l88kbx6jak3i5cvmg7dkza96dkmbay4vys21b7"
   }
 }
