@@ -392,6 +392,9 @@ in
                   EnvironmentFile = mkIf (cfg.environmentFile != null)
                     (toString cfg.environmentFile);
 
+                  StartLimitIntervalSec = 120;
+                  StartLimitBurst = 5;
+
                   # Hardening
                   CapabilityBoundingSet = [ "" ];
                   DeviceAllow = [ "" ];
