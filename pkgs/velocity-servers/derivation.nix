@@ -31,5 +31,6 @@ stdenvNoCC.mkDerivation {
     platforms = platforms.unix;
     maintainers = with maintainers; [ misterio77 ];
     branch = channel;
+    mainProgram = "velocity";
   };
 }
