@@ -208,12 +208,13 @@ in
                   description = "Minecraft UUID";
                 };
               in
-              types.attrsOf minecraftUUID;
-            default = { };
+              types.nullOr (types.attrsOf minecraftUUID);
+            default = null;
             description = ''
               Whitelisted players, only has an effect when
               enabled via <option>services.minecraft-servers.<name>.serverProperties</option>
-              by setting <literal>white-list</literal> to <literal>true</literal.
+              by setting <literal>white-list</literal> to <literal>true</literal>. Leave
+              <literal>null</iteral> to use a mutable whitelist.
             '';
             example = literalExpression ''
               {
@@ -224,7 +225,7 @@ in
           };
 
           serverProperties = mkOption {
-            type = with types; attrsOf (oneOf [ bool int str ]);
+            type = with types; nullOr (attrsOf (oneOf [ bool int str ]));
             default = { };
             example = literalExpression ''
               {
@@ -346,10 +347,14 @@ in
                 "eula.txt".value = { eula = true; };
                 "eula.txt".format = pkgs.formats.keyValue { };
               } // conf.symlinks);
-              files = normalizeFiles ({
-                "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
-                "server.properties".value = conf.serverProperties;
-              } // conf.files);
+              files = normalizeFiles (
+                (if conf.whitelist != null then 
+                  { "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist; }
+                else {}) //
+                (if conf.serverProperties != null then 
+                  { "server.properties".value = conf.serverProperties; }
+                else {})
+                // conf.files);
 
               startScript = pkgs.writeScript "minecraft-start-${name}" ''
                 #!${pkgs.runtimeShell}
