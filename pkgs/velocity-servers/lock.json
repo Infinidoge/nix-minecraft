@@ -1128,6 +1128,26 @@
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/331/downloads/velocity-3.3.0-SNAPSHOT-331.jar",
       "sha256": "ed901d92ad0a2ea05c130be08a2e0c38453e3c0c03b831780ffe9fea6cf8c2b2",
       "channel": "default"
+    },
+    "332": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/332/downloads/velocity-3.3.0-SNAPSHOT-332.jar",
+      "sha256": "70b54dc54f03d7c669c90d48aa07e60bf4f230c6e1d125ed01a8e6faebb47b08",
+      "channel": "default"
+    },
+    "333": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/333/downloads/velocity-3.3.0-SNAPSHOT-333.jar",
+      "sha256": "fec32c1e0f75bf6e91de7036787685f6bdb485d5bef979edef5845e7d95c482d",
+      "channel": "default"
+    },
+    "334": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/334/downloads/velocity-3.3.0-SNAPSHOT-334.jar",
+      "sha256": "7bf24b64399309c9ae46ede735cb83d5509b81e605251534958026ae04c9a65b",
+      "channel": "default"
+    },
+    "335": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/335/downloads/velocity-3.3.0-SNAPSHOT-335.jar",
+      "sha256": "f874811e182441242682b597c7c6c5616f416f621b079b168d24e6b67653b8a7",
+      "channel": "default"
     }
   }
 }
