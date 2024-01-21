@@ -242,7 +242,8 @@ in
             description = ''
               Minecraft server properties for the server.properties file of this server. See
               <link xlink:href="https://minecraft.gamepedia.com/Server.properties#Java_Edition_3"/>
-              for documentation on these values.
+              for documentation on these values. Leave <literal>null</iteral> to use a mutable
+              properties file.
             '';
           };
 
