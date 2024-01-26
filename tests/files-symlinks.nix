@@ -41,9 +41,18 @@ nixosTest {
   testScript = { nodes, ... }: ''
     name = "paper"
     grep_logs = lambda expr: f"grep '{expr}' /srv/minecraft/{name}/logs/latest.log"
+    server_cmd = lambda cmd: f"echo '{cmd}' > /run/minecraft-server/{name}.stdin"
 
     server.wait_for_unit(f"minecraft-server-{name}.service")
     server.wait_for_open_port(25565)
     server.wait_until_succeeds(grep_logs("Done ([0-9.]\+s)! For help, type \"help\""), timeout=30)
+
+    # Trigger unknown-command message, check it works
+    server.succeed(server_cmd("foobar"))
+    server.wait_until_succeeds(grep_logs("Unknown command, dummy!"), timeout=3)
+
+    # Check that de-opping works (ops.json is mutable as expected)
+    server.succeed(server_cmd("deop Misterio7x"))
+    server.wait_until_succeeds(grep_logs("Made Misterio7x no longer a server operator"), timeout=3)
   '';
 }
