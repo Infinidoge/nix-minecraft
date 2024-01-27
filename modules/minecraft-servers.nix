@@ -379,6 +379,9 @@ in
 
                 enable = conf.enable;
 
+                startLimitIntervalSec = 120;
+                startLimitBurst = 5;
+
                 serviceConfig = {
                   ExecStart = "${startScript}";
                   ExecStop = "${stopScript} $MAINPID";
@@ -391,9 +394,6 @@ in
                   RuntimeDirectoryPreserve = "yes";
                   EnvironmentFile = mkIf (cfg.environmentFile != null)
                     (toString cfg.environmentFile);
-
-                  StartLimitIntervalSec = 120;
-                  StartLimitBurst = 5;
 
                   # Hardening
                   CapabilityBoundingSet = [ "" ];
