@@ -332,7 +332,7 @@ in
 
         systemd.tmpfiles.rules = mapAttrsToList
           (name: _:
-            "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} - - -"
+            "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} ${cfg.group} - -"
           )
           servers;
 
