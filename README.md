@@ -273,7 +273,7 @@ This family of options govern individual servers, which will be created on boot.
 
 #### `servers.<name>.enable`
 
-Whether to enable this server. If set to <literal>false</literal>, does NOT delete any data in the data directory, just does not generate the service file.
+Whether to enable this server. If set to false, does NOT delete any data in the data directory, just does not generate the service file.
 
 #### `servers.<name>.autoStart`
 
@@ -306,7 +306,7 @@ Whitelisted players, only has an effect when enabled via `<name>.serverPropertie
 ```
 
 #### `servers.<name>.serverProperties`
-Minecraft server properties for the server.properties file of this server. See [The Documentation](https://minecraft.gamepedia.com/Server.properties#Java_Edition_3) on these values. Example:
+Minecraft server properties for the server.properties file of this server. See [The Documentation](https://minecraft.wiki/w/Server.properties) on these values. Example:
 ```
 {
   server-port = 43000;
