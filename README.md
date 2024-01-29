@@ -330,7 +330,7 @@ JVM Options for this server, usually used to set ram amount. Example:
 
 #### `servers.<name>.symlinks`
 
-This option is special in that it allows for declarative management of arbitrary things inside of the server's folder.
+This option is special in that it allows for declarative management of arbitrary things inside of the server's folder. If the file is modified the existing one will have a .bak suffix added to it, if it is modified again the previous backup will be overwritten.
 
 How it works is that it takes an attrset of derivations, and symlinks each derivation into place with the name of the attribute in the attrset.
 
@@ -369,4 +369,4 @@ This example takes an attrset of the IDs and hashes for Modrinth mods, fetches e
 ```
 
 #### `servers.<name>.files`
-Things to copy into this server's data directory. Similar to symlinks, but these are actual files. Useful for configuration files that don't behave well when read-only
+Things to copy into this server's data directory. Similar to symlinks, but these are actual files. Useful for configuration files that don't behave well when read-only.
