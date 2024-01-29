@@ -3,6 +3,7 @@
 ## About
 
 `nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem.
+b
 As of currently, it packages:
 
 - All versions of Vanilla
@@ -244,7 +245,7 @@ Whether you agree to [Mojang's EULA](https://account.mojang.com/documents/minecr
 
 #### `openFirewall`
 
-Whether to open ports in the firewall for each server. Sets the default for `servers.<name>.openFirewall`
+Whether to open ports in the firewall for each server. Sets the default for `servers.<name>.openFirewall`. This will only work if the ports are specified in `servers.<name>.serverProperties` otherwise it will simply use the default ports. Remember to change the ports if you running multiple servers. 
 
 #### `dataDir`
 
