@@ -1183,6 +1183,16 @@
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/343/downloads/velocity-3.3.0-SNAPSHOT-343.jar",
       "sha256": "5596883b64d5703e969f2edcd9d29b71884c5585dc6d8e41798533e5fe9c37de",
       "channel": "default"
+    },
+    "344": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/344/downloads/velocity-3.3.0-SNAPSHOT-344.jar",
+      "sha256": "4a79cf6207e508ba0b40216650ae481603a7abcfc8bdd7466cbab7c98f6f07f8",
+      "channel": "default"
+    },
+    "345": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/345/downloads/velocity-3.3.0-SNAPSHOT-345.jar",
+      "sha256": "6738d42f80c6a43e871193a56217924b87299fd8235916295fbf76ca6df4dfbb",
+      "channel": "default"
     }
   }
 }
