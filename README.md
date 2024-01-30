@@ -3,7 +3,6 @@
 ## About
 
 `nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem.
-b
 As of currently, it packages:
 
 - All versions of Vanilla
