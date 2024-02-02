@@ -1648,5 +1648,10 @@
     "libraries": [
       "net.fabricmc:intermediary:24w05a"
     ]
+  },
+  "24w05b": {
+    "libraries": [
+      "net.fabricmc:intermediary:24w05b"
+    ]
   }
 }
