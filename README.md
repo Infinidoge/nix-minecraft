@@ -343,7 +343,7 @@ Minecraft server properties for the server.properties file of this server. See [
 The Minecraft server package to use. Example:
 `pkgs.minecraftServers.vanilla-1_18_2`
 
-#### `servers.<name>.package`
+#### `servers.<name>.jvmOpts`
 
 JVM Options for this server, usually used to set ram amount. Example:
 `-Xms6144M -Xmx8192M`
