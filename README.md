@@ -236,36 +236,44 @@ Module for hosting multiple servers at once. All of the following are under this
 
 #### `enable`
 
-If enabled, the servers in `services.minecraft-servers.servers` will be created and started as applicable. The data for the servers will be loaded from and saved to `dataDir`
+If enabled, the servers in `services.minecraft-servers.servers` will be created and started as applicable. 
+The data for the servers will be loaded from and saved to `dataDir`, and any sockets will be put in `runDir`.
 
 #### `eula`
 
-Whether you agree to [Mojang's EULA](https://account.mojang.com/documents/minecraft_eula) This option must be set to true to run Minecraft server.
+Whether you agree to [Mojang's EULA](https://account.mojang.com/documents/minecraft_eula). 
+This option must be set to true to run any Minecraft servers.
 
 #### `openFirewall`
 
-Whether to open ports in the firewall for each server. Sets the default for `servers.<name>.openFirewall`. This will only work if the ports are specified in `servers.<name>.serverProperties` otherwise it will simply use the default ports. Remember to change the ports if you running multiple servers. 
+Whether to open ports in the firewall for each server. Sets the default for `servers.<name>.openFirewall`. 
+This will only work if the ports are specified in `servers.<name>.serverProperties`, otherwise it will use the default ports.
+Remember to change the ports if you running multiple servers.
+The module asserts that servers with `openFirewall` set do not have conflicting ports to try to catch this.
 
 #### `dataDir`
 
-Directory to store the Minecraft servers. Each server will be under a subdirectory named after the server name in this directory, such as /srv/minecraft/servername
+Directory to store the Minecraft servers. Defaults to `/srv/minecraft`.
+
+Each server will be under a subdirectory named after the server name, such as `/srv/minecraft/servername`.
 
 #### `runDir`
 
-Directory to place the runtime tmux sockets into.
+Directory to place the runtime tmux sockets into. Defaults to `/run/minecraft`.
 Each server's console will be a tmux socket file in the form of servername.sock. To connect to the console, run `tmux -S /run/minecraft/servername.sock attach`, press `Ctrl + b` then `d` to detach.
 
 #### `user`
 
-Name of the user to create and run servers under. It is recommended to leave this as the default, as it is the same user as services.minecraft-server.
+Name of the user to create and run servers under. It is recommended to leave this as the default, as it is the same user as `services.minecraft-server`.
 
 #### `group`
 
-Name of the group to create and run servers under. In order to modify the server files or attach to the tmux socket, your user must be a part of this group. It is recommended to leave this as the default, as it is the same group as services.minecraft-server
+Name of the group to create and run servers under. In order to modify the server files or attach to the tmux socket, your user must be a part of this group. It is recommended to leave this as the default, as it is the same group as `services.minecraft-server`.
 
 #### `environmentFile`
 
-File consisting of lines in the form varname=value to define environment variables for the minecraft servers. Secrets (database passwords, secret keys, etc.) can be provided to server files without adding them to the Nix store by defining them in the environment file and referring to them in option `servers.<name>.files` with the syntax @varname@.
+File consisting of lines in the form `varname=value` to define environment variables for the minecraft servers. 
+Secrets (database passwords, secret keys, etc.) can be substituted into server files without adding them to the Nix store by defining them in the environment file and adding them `servers.<name>.files` with the syntax `@varname@`.
 
 ### `servers.<name>`
 
@@ -273,11 +281,12 @@ This family of options govern individual servers, which will be created on boot.
 
 #### `servers.<name>.enable`
 
-Whether to enable this server. If set to false, does NOT delete any data in the data directory, just does not generate the service file.
+Whether to enable this server. If set to false, does **NOT** delete any data in the data directory, just does not generate the service file.
 
 #### `servers.<name>.autoStart`
 
-Whether to start this server on boot. If set to false, can still be started with systemctl start minecraft-server-servername. Requires the server to be enabled.
+Whether to start this server on boot. If set to false, can still be started with `systemctl start minecraft-server-servername`. 
+Requires the server to be enabled.
 
 #### `servers.<name>.openFirewall`
 
@@ -285,11 +294,17 @@ Whether to open ports in the firewall for this server.
 
 #### `servers.<name>.restart`
 
-Value of systemd's Restart= service configuration option. Due to the servers being started in tmux sockets, values other than "no" and "always" may not work properly. As a consequence of the "always" option, stopping the server in-game with the /stop command will cause the server to automatically restart
+Value of systemd's `Restart=` service configuration option. 
+Due to the servers being started in tmux sockets, values other than "no" and "always" may not work properly. 
+As a consequence of the "always" option, stopping the server in-game with the /stop command will cause the server to automatically restart
+
+To prevent infinite crash loops, there is a start limit of 5 times within 2 minutes.
 
 #### `servers.<name>.enableReload`
 
-Reload server when configuration changes (instead of restart). This action re-links/copies the declared symlinks/files. You can include additional actions (even in-game commands) by setting `<name>`.extraReload.
+Reload server when configuration changes instead of restarting. 
+This re-links/copies the declared symlinks/files. 
+You can include additional actions (even in-game commands) by setting `<name>`.extraReload.
 
 #### `servers.<name>.extraReload`
 
@@ -297,7 +312,9 @@ Extra commands to run when reloading the service. Only has an effect if `<name>.
 
 #### `servers.<name>.whitelist`
 
-Whitelisted players, only has an effect when enabled via `<name>.serverProperties` by setting white-list to true. Example: 
+Whitelisted players, only has an effect when `<name>.serverProperties.white-list = true;`. 
+When empty/unspecified, the whitelist file is not managed declaratively, allowing for use of the whitelist commands.
+Example: 
 ```
 {
   username1 = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
@@ -306,6 +323,7 @@ Whitelisted players, only has an effect when enabled via `<name>.serverPropertie
 ```
 
 #### `servers.<name>.serverProperties`
+
 Minecraft server properties for the server.properties file of this server. See [The Documentation](https://minecraft.wiki/w/Server.properties) on these values. Example:
 ```
 {
@@ -321,16 +339,19 @@ Minecraft server properties for the server.properties file of this server. See [
 ```
 
 #### `servers.<name>.package`
+
 The Minecraft server package to use. Example:
 `pkgs.minecraftServers.vanilla-1_18_2`
 
 #### `servers.<name>.package`
+
 JVM Options for this server, usually used to set ram amount. Example:
 `-Xms6144M -Xmx8192M`
 
 #### `servers.<name>.symlinks`
 
-This option is special in that it allows for declarative management of arbitrary things inside of the server's folder. If the file is modified the existing one will have a .bak suffix added to it, if it is modified again the previous backup will be overwritten.
+This option is special in that it allows for declarative management of arbitrary things inside of the server's folder. 
+If the file already exists, existing one will have a `.bak` suffix added to it. If it is replaced again the previous backup will be overwritten.
 
 How it works is that it takes an attrset of derivations, and symlinks each derivation into place with the name of the attribute in the attrset.
 
