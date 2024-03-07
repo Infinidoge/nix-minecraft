@@ -706,5 +706,11 @@
       "net.fabricmc:intermediary:24w09a",
       "org.quiltmc:hashed:24w09a"
     ]
+  },
+  "24w10a": {
+    "libraries": [
+      "net.fabricmc:intermediary:24w10a",
+      "org.quiltmc:hashed:24w10a"
+    ]
   }
 }
