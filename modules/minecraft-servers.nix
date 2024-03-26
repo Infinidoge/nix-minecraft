@@ -277,7 +277,7 @@ in
       in
       {
         users = {
-          users.minecraft = {
+          users.minecraft = mkIf (cfg.user == "minecraft") {
             description = "Minecraft server service user";
             home = cfg.dataDir;
             createHome = true;
@@ -285,7 +285,7 @@ in
             isSystemUser = true;
             group = "minecraft";
           };
-          groups.minecraft = { };
+          groups.minecraft = mkIf (cfg.group == "minecraft") { };
         };
 
         assertions = [
@@ -387,7 +387,8 @@ in
                   ExecStop = "${stopScript} $MAINPID";
                   Restart = conf.restart;
                   WorkingDirectory = "${cfg.dataDir}/${name}";
-                  User = "minecraft";
+                  User = cfg.user;
+                  Group = cfg.group;
                   Type = "forking";
                   GuessMainPID = true;
                   RuntimeDirectory = "minecraft";
