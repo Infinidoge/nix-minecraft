@@ -363,11 +363,19 @@ in
               stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
                 #!${pkgs.runtimeShell}
 
-                if ! [ -d "/proc/$1" ]; then
+                function server_running {
+                  ${tmux} -S ${tmuxSock} has-session
+                }
+
+                if ! server_running ; then
                   exit 0
                 fi
 
                 ${tmux} -S ${tmuxSock} send-keys stop Enter
+
+                while server_running ; do
+                  sleep 0.25
+                done
               '';
             in
             {
@@ -384,7 +392,7 @@ in
 
                 serviceConfig = {
                   ExecStart = "${startScript}";
-                  ExecStop = "${stopScript} $MAINPID";
+                  ExecStop = "${stopScript}";
                   Restart = conf.restart;
                   WorkingDirectory = "${cfg.dataDir}/${name}";
                   User = cfg.user;
