@@ -4483,5 +4483,15 @@
     "name": "hashed-24w12a.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/24w12a/hashed-24w12a.jar",
     "sha256": "1ixc5gyn801zwwg827g7wwmbn9rk78v33zh9anq2inr5g5i231r9"
+  },
+  "net.fabricmc:intermediary:24w13a": {
+    "name": "intermediary-24w13a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/24w13a/intermediary-24w13a.jar",
+    "sha256": "1323a41bfq154mrsb8a95lw5dalnwykpshrpw0gs4915vj1xxbx7"
+  },
+  "org.quiltmc:hashed:24w13a": {
+    "name": "hashed-24w13a.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/24w13a/hashed-24w13a.jar",
+    "sha256": "168ivc2iz177fr6f2v2lqwzbn2ay1gdxr11wq7cpnhrrgmyj0wzw"
   }
 }
