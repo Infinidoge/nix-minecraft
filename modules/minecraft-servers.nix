@@ -255,7 +255,7 @@ in
 
           jvmOpts = mkOpt' (types.separatedString " ") "-Xmx2G -Xms1G" "JVM options for this server.";
 
-          path = with types; mkOpt' (listOf (either path str)) [] ''
+          path = with types; mkOpt' (listOf (either path str)) [ ] ''
             Packages added to the Minecraft server's <literal>PATH</literal> environment variable.
             Works as <option>systemd.services.<name>.path</option>.
           '';
@@ -280,236 +280,235 @@ in
     };
   };
 
-  config = mkIf cfg.enable
-    (
-      let
-        servers = filterAttrs (_: cfg: cfg.enable) cfg.servers;
-      in
-      {
-        users = {
-          users.minecraft = mkIf (cfg.user == "minecraft") {
-            description = "Minecraft server service user";
-            home = cfg.dataDir;
-            createHome = true;
-            homeMode = "770";
-            isSystemUser = true;
-            group = "minecraft";
-          };
-          groups.minecraft = mkIf (cfg.group == "minecraft") { };
+  config = mkIf cfg.enable (
+    let
+      servers = filterAttrs (_: cfg: cfg.enable) cfg.servers;
+    in
+    {
+      users = {
+        users.minecraft = mkIf (cfg.user == "minecraft") {
+          description = "Minecraft server service user";
+          home = cfg.dataDir;
+          createHome = true;
+          homeMode = "770";
+          isSystemUser = true;
+          group = "minecraft";
+        };
+        groups.minecraft = mkIf (cfg.group == "minecraft") { };
+      };
+
+      assertions = [
+        {
+          assertion = cfg.eula;
+          message = "You must agree to Mojangs EULA to run minecraft-servers."
+            + " Read https://account.mojang.com/documents/minecraft_eula and"
+            + " set `services.minecraft-servers.eula` to `true` if you agree.";
+        }
+        {
+          assertion = config.services.minecraft-server.enable -> cfg.dataDir != config.services.minecraft-server.dataDir;
+          message = "`services.minecraft-servers.dataDir` and `services.minecraft-server.dataDir` conflict."
+            + " Set one to use a different data directory.";
+        }
+        {
+          assertion =
+            let
+              serverPorts = mapAttrsToList
+                (name: conf: conf.serverProperties.server-port or 25565)
+                (filterAttrs (_: cfg: cfg.openFirewall) servers);
+
+              counts = map (port: count (x: x == port) serverPorts) (unique serverPorts);
+            in
+            lib.all (x: x == 1) counts;
+          message = "Multiple servers are set to use the same port. Change one to use a different port.";
+        }
+      ];
+
+      networking.firewall =
+        let
+          toOpen = filterAttrs (_: cfg: cfg.openFirewall) servers;
+          # Minecraft and RCON
+          getTCPPorts = n: c:
+            [ c.serverProperties.server-port or 25565 ] ++
+            (optional (c.serverProperties.enable-rcon or false) (c.serverProperties."rcon.port" or 25575));
+          # Query
+          getUDPPorts = n: c:
+            optional (c.serverProperties.enable-query or false) (c.serverProperties."query.port" or 25565);
+        in
+        {
+          allowedUDPPorts = flatten (mapAttrsToList getUDPPorts toOpen);
+          allowedTCPPorts = flatten (mapAttrsToList getTCPPorts toOpen);
         };
 
-        assertions = [
-          {
-            assertion = cfg.eula;
-            message = "You must agree to Mojangs EULA to run minecraft-servers."
-              + " Read https://account.mojang.com/documents/minecraft_eula and"
-              + " set `services.minecraft-servers.eula` to `true` if you agree.";
-          }
-          {
-            assertion = config.services.minecraft-server.enable -> cfg.dataDir != config.services.minecraft-server.dataDir;
-            message = "`services.minecraft-servers.dataDir` and `services.minecraft-server.dataDir` conflict."
-              + " Set one to use a different data directory.";
-          }
-          {
-            assertion =
-              let
-                serverPorts = mapAttrsToList
-                  (name: conf: conf.serverProperties.server-port or 25565)
-                  (filterAttrs (_: cfg: cfg.openFirewall) servers);
+      systemd.tmpfiles.rules = mapAttrsToList
+        (name: _:
+          "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} ${cfg.group} - -"
+        )
+        servers;
 
-                counts = map (port: count (x: x == port) serverPorts) (unique serverPorts);
-              in
-              lib.all (x: x == 1) counts;
-            message = "Multiple servers are set to use the same port. Change one to use a different port.";
-          }
-        ];
-
-        networking.firewall =
+      systemd.services = mapAttrs'
+        (name: conf:
           let
-            toOpen = filterAttrs (_: cfg: cfg.openFirewall) servers;
-            # Minecraft and RCON
-            getTCPPorts = n: c:
-              [ c.serverProperties.server-port or 25565 ] ++
-              (optional (c.serverProperties.enable-rcon or false) (c.serverProperties."rcon.port" or 25575));
-            # Query
-            getUDPPorts = n: c:
-              optional (c.serverProperties.enable-query or false) (c.serverProperties."query.port" or 25565);
+            tmux = "${getBin pkgs.tmux}/bin/tmux";
+            tmuxSock = "${cfg.runDir}/${name}.sock";
+
+            symlinks = normalizeFiles ({
+              "eula.txt".value = { eula = true; };
+              "eula.txt".format = pkgs.formats.keyValue { };
+            } // conf.symlinks);
+            files = normalizeFiles ({
+              "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
+              "server.properties".value = conf.serverProperties;
+            } // conf.files);
+
+            startScript = pkgs.writeScript "minecraft-start-${name}" ''
+              #!${pkgs.runtimeShell}
+              ${tmux} -S ${tmuxSock} new -d ${getExe conf.package} ${conf.jvmOpts}
+
+              # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
+              # See https://github.com/Infinidoge/nix-minecraft/issues/5
+              ${tmux} -S ${tmuxSock} server-access -aw nobody
+            '';
+
+            stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
+              #!${pkgs.runtimeShell}
+
+              function server_running {
+                ${tmux} -S ${tmuxSock} has-session
+              }
+
+              if ! server_running ; then
+                exit 0
+              fi
+
+              ${tmux} -S ${tmuxSock} send-keys stop Enter
+
+              while server_running ; do
+                sleep 0.25
+              done
+            '';
           in
           {
-            allowedUDPPorts = flatten (mapAttrsToList getUDPPorts toOpen);
-            allowedTCPPorts = flatten (mapAttrsToList getTCPPorts toOpen);
-          };
+            name = "minecraft-server-${name}";
+            value = rec {
+              description = "Minecraft Server ${name}";
+              wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
+              after = [ "network.target" ];
 
-        systemd.tmpfiles.rules = mapAttrsToList
-          (name: _:
-            "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} ${cfg.group} - -"
-          )
-          servers;
+              enable = conf.enable;
 
-        systemd.services = mapAttrs'
-          (name: conf:
-            let
-              tmux = "${getBin pkgs.tmux}/bin/tmux";
-              tmuxSock = "${cfg.runDir}/${name}.sock";
+              startLimitIntervalSec = 120;
+              startLimitBurst = 5;
 
-              symlinks = normalizeFiles ({
-                "eula.txt".value = { eula = true; };
-                "eula.txt".format = pkgs.formats.keyValue { };
-              } // conf.symlinks);
-              files = normalizeFiles ({
-                "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
-                "server.properties".value = conf.serverProperties;
-              } // conf.files);
+              serviceConfig = {
+                ExecStart = "${startScript}";
+                ExecStop = "${stopScript}";
+                Restart = conf.restart;
+                WorkingDirectory = "${cfg.dataDir}/${name}";
+                User = cfg.user;
+                Group = cfg.group;
+                Type = "forking";
+                GuessMainPID = true;
+                RuntimeDirectory = "minecraft";
+                RuntimeDirectoryPreserve = "yes";
+                EnvironmentFile = mkIf (cfg.environmentFile != null)
+                  (toString cfg.environmentFile);
 
-              startScript = pkgs.writeScript "minecraft-start-${name}" ''
-                #!${pkgs.runtimeShell}
-                ${tmux} -S ${tmuxSock} new -d ${getExe conf.package} ${conf.jvmOpts}
+                # Hardening
+                CapabilityBoundingSet = [ "" ];
+                DeviceAllow = [ "" ];
+                LockPersonality = true;
+                PrivateDevices = true;
+                PrivateTmp = true;
+                PrivateUsers = true;
+                ProtectClock = true;
+                ProtectControlGroups = true;
+                ProtectHome = true;
+                ProtectHostname = true;
+                ProtectKernelLogs = true;
+                ProtectKernelModules = true;
+                ProtectKernelTunables = true;
+                ProtectProc = "invisible";
+                RestrictNamespaces = true;
+                RestrictRealtime = true;
+                RestrictSUIDSGID = true;
+                SystemCallArchitectures = "native";
+                UMask = "0007";
+              };
+              restartIfChanged = !conf.enableReload;
+              reloadIfChanged = conf.enableReload;
 
-                # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
-                # See https://github.com/Infinidoge/nix-minecraft/issues/5
-                ${tmux} -S ${tmuxSock} server-access -aw nobody
-              '';
+              inherit (conf) path environment;
 
-              stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
-                #!${pkgs.runtimeShell}
+              reload = ''
+                ${postStop}
+                ${preStart}
+              '' + conf.extraReload;
 
-                function server_running {
-                  ${tmux} -S ${tmuxSock} has-session
-                }
+              preStart =
+                let
+                  mkSymlinks = pkgs.writeShellScript "minecraft-server-${name}-symlinks"
+                    (concatStringsSep "\n"
+                      (mapAttrsToList
+                        (n: v: ''
+                          if [[ -L "${n}" ]]; then
+                            unlink "${n}"
+                          elif [[ -e "${n}" ]]; then
+                            echo "${n} already exists, moving"
+                            mv "${n}" "${n}.bak"
+                          fi
+                          mkdir -p "$(dirname "${n}")"
+                          ln -sf "${v}" "${n}"
+                        '')
+                        symlinks));
 
-                if ! server_running ; then
-                  exit 0
-                fi
-
-                ${tmux} -S ${tmuxSock} send-keys stop Enter
-
-                while server_running ; do
-                  sleep 0.25
-                done
-              '';
-            in
-            {
-              name = "minecraft-server-${name}";
-              value = rec {
-                description = "Minecraft Server ${name}";
-                wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
-                after = [ "network.target" ];
-
-                enable = conf.enable;
-
-                startLimitIntervalSec = 120;
-                startLimitBurst = 5;
-
-                serviceConfig = {
-                  ExecStart = "${startScript}";
-                  ExecStop = "${stopScript}";
-                  Restart = conf.restart;
-                  WorkingDirectory = "${cfg.dataDir}/${name}";
-                  User = cfg.user;
-                  Group = cfg.group;
-                  Type = "forking";
-                  GuessMainPID = true;
-                  RuntimeDirectory = "minecraft";
-                  RuntimeDirectoryPreserve = "yes";
-                  EnvironmentFile = mkIf (cfg.environmentFile != null)
-                    (toString cfg.environmentFile);
-
-                  # Hardening
-                  CapabilityBoundingSet = [ "" ];
-                  DeviceAllow = [ "" ];
-                  LockPersonality = true;
-                  PrivateDevices = true;
-                  PrivateTmp = true;
-                  PrivateUsers = true;
-                  ProtectClock = true;
-                  ProtectControlGroups = true;
-                  ProtectHome = true;
-                  ProtectHostname = true;
-                  ProtectKernelLogs = true;
-                  ProtectKernelModules = true;
-                  ProtectKernelTunables = true;
-                  ProtectProc = "invisible";
-                  RestrictNamespaces = true;
-                  RestrictRealtime = true;
-                  RestrictSUIDSGID = true;
-                  SystemCallArchitectures = "native";
-                  UMask = "0007";
-                };
-                restartIfChanged = !conf.enableReload;
-                reloadIfChanged = conf.enableReload;
-
-                inherit (conf) path environment;
-
-                reload = ''
-                  ${postStop}
-                  ${preStart}
-                '' + conf.extraReload;
-
-                preStart =
-                  let
-                    mkSymlinks = pkgs.writeShellScript "minecraft-server-${name}-symlinks"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList
-                          (n: v: ''
-                            if [[ -L "${n}" ]]; then
-                              unlink "${n}"
-                            elif [[ -e "${n}" ]]; then
-                              echo "${n} already exists, moving"
-                              mv "${n}" "${n}.bak"
-                            fi
-                            mkdir -p "$(dirname "${n}")"
-                            ln -sf "${v}" "${n}"
-                          '')
-                          symlinks));
-
-                    mkFiles = pkgs.writeShellScript "minecraft-server-${name}-files"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList
-                          (n: v: ''
-                            if [[ -L "${n}" ]]; then
-                              unlink "${n}"
-                            elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
-                              rm "${n}"
-                            elif [[ -e "${n}" ]]; then
-                              echo "${n} already exists, moving"
-                              mv "${n}" "${n}.bak"
-                            fi
-                            mkdir -p $(dirname "${n}")
-                            ${pkgs.gawk}/bin/awk '{
-                              for(varname in ENVIRON)
-                                gsub("@"varname"@", ENVIRON[varname])
-                              print
-                            }' "${v}" > "${n}"
-                          '')
-                          files));
-                  in
-                  ''
-                    ${mkSymlinks}
-                    ${mkFiles}
-                  '';
-
-                postStart = ''
-                  ${pkgs.coreutils}/bin/chmod 660 ${tmuxSock}
+                  mkFiles = pkgs.writeShellScript "minecraft-server-${name}-files"
+                    (concatStringsSep "\n"
+                      (mapAttrsToList
+                        (n: v: ''
+                          if [[ -L "${n}" ]]; then
+                            unlink "${n}"
+                          elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
+                            rm "${n}"
+                          elif [[ -e "${n}" ]]; then
+                            echo "${n} already exists, moving"
+                            mv "${n}" "${n}.bak"
+                          fi
+                          mkdir -p $(dirname "${n}")
+                          ${pkgs.gawk}/bin/awk '{
+                            for(varname in ENVIRON)
+                              gsub("@"varname"@", ENVIRON[varname])
+                            print
+                          }' "${v}" > "${n}"
+                        '')
+                        files));
+                in
+                ''
+                  ${mkSymlinks}
+                  ${mkFiles}
                 '';
 
-                postStop =
-                  let
-                    rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks)
-                      );
-                    rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
-                      (concatStringsSep "\n"
-                        (mapAttrsToList (n: v: "rm -f \"${n}\"") files)
-                      );
-                  in
-                  ''
-                    ${rmSymlinks}
-                    ${rmFiles}
-                  '';
-              };
-            })
-          servers;
-      }
-    );
+              postStart = ''
+                ${pkgs.coreutils}/bin/chmod 660 ${tmuxSock}
+              '';
+
+              postStop =
+                let
+                  rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
+                    (concatStringsSep "\n"
+                      (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks)
+                    );
+                  rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
+                    (concatStringsSep "\n"
+                      (mapAttrsToList (n: v: "rm -f \"${n}\"") files)
+                    );
+                in
+                ''
+                  ${rmSymlinks}
+                  ${rmFiles}
+                '';
+            };
+          })
+        servers;
+    }
+  );
 }
