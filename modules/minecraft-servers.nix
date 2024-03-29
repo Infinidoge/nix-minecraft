@@ -255,6 +255,16 @@ in
 
           jvmOpts = mkOpt' (types.separatedString " ") "-Xmx2G -Xms1G" "JVM options for this server.";
 
+          path = with types; mkOpt' (listOf (either path str)) [] ''
+            Packages added to the Minecraft server's <literal>PATH</literal> environment variable.
+            Works as <option>systemd.services.<name>.path</option>.
+          '';
+
+          environment = with types; mkOpt' (attrsOf (oneOf [ null str path package ])) { } ''
+            Environment variables added to the Minecraft server's processes.
+            Works as <option>systemd.services.<name>.environment</option>.
+          '';
+
           symlinks = with types; mkOpt' (attrsOf (either path configType)) { } ''
             Things to symlink into this server's data directory, in the form of
             a nix package/derivation. Can be used to declaratively manage
@@ -427,6 +437,8 @@ in
                 };
                 restartIfChanged = !conf.enableReload;
                 reloadIfChanged = conf.enableReload;
+
+                inherit (conf) path environment;
 
                 reload = ''
                   ${postStop}
