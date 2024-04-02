@@ -4503,5 +4503,30 @@
     "name": "quilt-loader-0.25.0-beta.1.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.25.0-beta.1/quilt-loader-0.25.0-beta.1.jar",
     "sha256": "1q9z3aqz7vpfdr7jz7ixh1ki0i0v3yir997awln7f51557613v97"
+  },
+  "net.fabricmc:fabric-loader:0.15.9": {
+    "name": "fabric-loader-0.15.9.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.15.9/fabric-loader-0.15.9.jar",
+    "sha256": "04z5glcw6pdfp5gvm623s3mkgm4xz4d746bfabygpw4hpm2xfph8"
+  },
+  "net.fabricmc:fabric-loader:0.15.8": {
+    "name": "fabric-loader-0.15.8.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.15.8/fabric-loader-0.15.8.jar",
+    "sha256": "04rgihkp44mqzmsa7w5hcixgl5065d3q5b97ixk13ds4xw15ckkg"
+  },
+  "net.fabricmc:intermediary:24w14potato": {
+    "name": "intermediary-24w14potato.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/24w14potato/intermediary-24w14potato.jar",
+    "sha256": "1yd4k8d01c94ky62c76bipsmj2iz1hh7zck50gi2nzs1vf8iqw66"
+  },
+  "net.fabricmc:intermediary:24w14potato_original": {
+    "name": "intermediary-24w14potato_original.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/24w14potato_original/intermediary-24w14potato_original.jar",
+    "sha256": "1n3imqlfbf8r4d1lvfyfcn9m4sl8w5kkdbj0z1b7kq4d9kp17wgd"
+  },
+  "org.quiltmc:hashed:24w14potato": {
+    "name": "hashed-24w14potato.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/24w14potato/hashed-24w14potato.jar",
+    "sha256": "0l05vn46wgp2rkiwgn1hpbwjkvki3nxbgr5974iyjbs4j2m7zhyw"
   }
 }

@@ -1688,5 +1688,15 @@
     "libraries": [
       "net.fabricmc:intermediary:24w13a"
     ]
+  },
+  "24w14potato": {
+    "libraries": [
+      "net.fabricmc:intermediary:24w14potato"
+    ]
+  },
+  "24w14potato_original": {
+    "libraries": [
+      "net.fabricmc:intermediary:24w14potato_original"
+    ]
   }
 }
