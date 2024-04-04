@@ -1698,5 +1698,10 @@
     "libraries": [
       "net.fabricmc:intermediary:24w14potato_original"
     ]
+  },
+  "24w14a": {
+    "libraries": [
+      "net.fabricmc:intermediary:24w14a"
+    ]
   }
 }
