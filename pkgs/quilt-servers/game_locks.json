@@ -778,5 +778,11 @@
       "net.fabricmc:intermediary:1.20.5-rc2",
       "org.quiltmc:hashed:1.20.5-rc2"
     ]
+  },
+  "1.20.5-rc3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.20.5-rc3",
+      "org.quiltmc:hashed:1.20.5-rc3"
+    ]
   }
 }
