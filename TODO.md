@@ -29,3 +29,4 @@
 ## Misc
 
 - [ ] Fetch Quilt server launcher main class from API
+- [ ] Check requested Java version to ensure jre_headless is new enough
