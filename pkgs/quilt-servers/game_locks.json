@@ -808,5 +808,17 @@
       "net.fabricmc:intermediary:24w18a",
       "org.quiltmc:hashed:24w18a"
     ]
+  },
+  "24w19b": {
+    "libraries": [
+      "net.fabricmc:intermediary:24w19b",
+      "org.quiltmc:hashed:24w19b"
+    ]
+  },
+  "24w19a": {
+    "libraries": [
+      "net.fabricmc:intermediary:24w19a",
+      "org.quiltmc:hashed:24w19a"
+    ]
   }
 }
