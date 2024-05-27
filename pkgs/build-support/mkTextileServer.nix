@@ -11,8 +11,7 @@
 }:
 # Taken from https://github.com/FabricMC/fabric-installer/issues/50#issuecomment-1013444858
 (writeShellScriptBin "minecraft-server" ''
-  echo "serverJar=${minecraft-server}/lib/minecraft/server.jar" >> ${loader.loaderName}-server-launcher.properties
-  exec ${lib.getExe jre_headless} ${extraJavaArgs} $@ -jar ${loader} nogui ${extraMinecraftArgs}''
+  exec ${lib.getExe jre_headless} -D${loader.propertyPrefix}.gameJarPath=${minecraft-server}/lib/minecraft/server.jar ${extraJavaArgs} $@ -jar ${loader} nogui ${extraMinecraftArgs}''
 ) // rec {
   pname = "minecraft-server";
   version = "${minecraft-server.version}-${loader.loaderName}-${loader.loaderVersion}";

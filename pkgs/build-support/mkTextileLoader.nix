@@ -57,5 +57,10 @@ stdenvNoCC.mkDerivation {
 
   passthru = {
     inherit loaderName loaderVersion gameVersion;
+    propertyPrefix = {
+      "fabric" = "fabric";
+      "legacy-fabric" = "fabric";
+      "quilt" = "loader";
+    }.${loaderName};
   };
 }
