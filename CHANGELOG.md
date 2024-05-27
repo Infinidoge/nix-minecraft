@@ -2,6 +2,11 @@
 
 Documentation of major changes, newest first.
 
+## 2024-05-27: Removal of loader version packages
+
+As per the previous deprecation notice, the old `loader-mcversion-loaderversion` packages have been removed.
+Please use the new override method: `loader-mcversion.override { loaderVersion = "loaderversion"; }`.
+
 ## 2023-10-27: Deprecation of loader version packages
 
 For Fabric, Quilt, and Legacy Fabric servers, the old way of specifying the loader version is now deprecated.
