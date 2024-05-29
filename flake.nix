@@ -62,6 +62,10 @@
       overlay = final: prev: mkPackages prev;
       overlays.default = self.overlay;
       nixosModules = self.lib.rakeLeaves ./modules;
+
+      hydraJobs = {
+        inherit (self) checks packages;
+      };
     } // flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = import nixpkgs {
