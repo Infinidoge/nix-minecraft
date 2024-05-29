@@ -7,7 +7,7 @@ let
   game_locks = lib.importJSON ./game_locks.json;
   loader_locks = lib.importJSON ./loader_locks.json;
 
-  inherit (lib.our) escapeVersion latestVersion removeVanilla;
+  inherit (lib.our) escapeVersion latestVersion;
 
   latestLoaderVersion = latestVersion loader_locks;
 
@@ -25,7 +25,7 @@ let
 in
 lib.recurseIntoAttrs (
   packages
-  // {
+    // {
     fabric = builtins.getAttr "fabric-${escapeVersion vanillaServers.vanilla.version}" packages;
   }
 )
