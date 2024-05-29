@@ -2,11 +2,11 @@
   lib,
   fetchurl,
   stdenvNoCC,
-  unzip,
-  zip,
+  writeText,
   jre_headless,
   loaderName,
   loaderVersion,
+  launchPrefix ? loaderName,
   gameVersion,
   serverLaunch,
   mainClass ? "",
@@ -15,60 +15,40 @@
 }:
 
 let
-  inherit (builtins)
-    head
-    filter
-    map
-    match
-    ;
-
   lib_lock = lib.importJSON ./libraries.json;
-  fetchedLibraries = lib.forEach libraries (l: fetchurl lib_lock.${l});
-  asmVersion = head (
-    head (filter (v: v != null) (map (match "org\\.ow2\\.asm:asm:([\.0-9]+)") libraries))
+  fetchedLibraries = lib.forEach libraries (l: "${fetchurl lib_lock.${l}}");
+
+  classPath = lib.concatStringsSep " " fetchedLibraries;
+  manifest = writeText "manifest.mf" (
+    lib.our.wrapJarManifest ''
+      Manifest-Version: 1.0
+      Main-Class: ${serverLaunch}
+      Class-Path: ${classPath}
+    ''
   );
 in
 stdenvNoCC.mkDerivation {
-  pname = "${loaderName}-server-launch.jar";
-  version = "${loaderName}-${loaderVersion}-${gameVersion}";
-  nativeBuildInputs = [
-    unzip
-    zip
-    jre_headless
-  ];
+  pname = "${loaderName}-server-launch";
+  version = "${loaderVersion}-${gameVersion}";
 
-  libraries = fetchedLibraries;
+  nativeBuildInputs = [ jre_headless ];
 
   buildPhase = ''
-    for i in $libraries; do
-      unzip -o $i
-    done
-
-    cat > META-INF/MANIFEST.MF << EOF
-    Manifest-Version: 1.0
-    Main-Class: ${serverLaunch}
-    Name: org/objectweb/asm/
-    Implementation-Version: ${asmVersion}
-    EOF
-
-    ${
-      if mainClass == "" then
-        ""
-      else
-        ''
-          cat > ${loaderName}-server-launch.properties << EOF
-          launch.mainClass=${mainClass}
-          EOF
-        ''
-    }
+    ${lib.optionalString (mainClass != "") ''
+      echo launch.mainClass=${mainClass} > ${launchPrefix}-server-launch.properties
+    ''}
 
     ${extraBuildPhase}
   '';
 
   installPhase = ''
-    rm -f META-INF/*.{SF,RSA,DSA}
-    jar cmvf META-INF/MANIFEST.MF "server.jar" .
-    cp server.jar "$out"
+    rm env-vars
+
+    jar cmvf ${manifest} $out/lib/minecraft/launch.jar .
+
+    # Ensure Nix knows we depend on files listed in our class path.
+    mkdir $out/nix-support
+    echo ${classPath} > $out/nix-support/class-path
   '';
 
   phases = [
@@ -77,7 +57,13 @@ stdenvNoCC.mkDerivation {
   ];
 
   passthru = {
-    inherit loaderName loaderVersion gameVersion;
+    inherit
+      loaderName
+      loaderVersion
+      gameVersion
+      launchPrefix
+      ;
+
     propertyPrefix =
       {
         "fabric" = "fabric";

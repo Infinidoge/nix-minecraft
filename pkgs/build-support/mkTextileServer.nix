@@ -15,8 +15,7 @@
   extraJavaArgs ? "",
   extraMinecraftArgs ? "",
 }:
-# Taken from https://github.com/FabricMC/fabric-installer/issues/50#issuecomment-1013444858
-(writeShellScriptBin "minecraft-server" ''exec ${lib.getExe jre_headless} -D${loader.propertyPrefix}.gameJarPath=${minecraft-server}/lib/minecraft/server.jar ${extraJavaArgs} $@ -jar ${loader} nogui ${extraMinecraftArgs}'')
+(writeShellScriptBin "minecraft-server" ''exec ${lib.getExe jre_headless} -D${loader.propertyPrefix}.gameJarPath=${minecraft-server}/lib/minecraft/server.jar ${extraJavaArgs} $@ -jar ${loader}/lib/minecraft/launch.jar nogui ${extraMinecraftArgs}'')
 // rec {
   pname = "minecraft-server";
   version = "${minecraft-server.version}-${loader.loaderName}-${loader.loaderVersion}";
