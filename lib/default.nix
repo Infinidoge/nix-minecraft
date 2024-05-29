@@ -76,4 +76,26 @@ rec {
       files = filterAttrs seive (readDir dirPath);
     in
     filterAttrs (n: v: v != { }) (mapAttrs' collect files);
+
+  wrapJarManifest = manifestText:
+    let
+      chunkCharacters' = characters: chunks:
+        if characters != [ ] # 71 characters plus space prefix = 72 line length
+        then chunkCharacters' (drop 71 characters) (chunks ++ [ (take 71 characters) ])
+        else chunks;
+
+      chunkCharacters = characters: # First line gets 72 due to not having space prefix
+        chunkCharacters' (drop 72 characters) [ (take 72 characters) ];
+
+      wrapLine = chain
+        stringToCharacters
+        chunkCharacters
+        (map concatStrings)
+        (concatStringsSep "\n ");
+    in
+    chain
+      (splitString "\n")
+      (map wrapLine)
+      concatLines
+      manifestText;
 })
