@@ -1,18 +1,55 @@
 { lib }:
 lib.makeExtensible (self:
-with lib;
-with builtins;
-rec {
-  latestVersion = versions:
+let
+  inherit (lib)
+    attrNames
+    concatLines
+    concatStrings
+    concatStringsSep
+    drop
+    filter
+    filterAttrs
+    hasSuffix
+    id
+    isList
     last
-      (sort versionOlder
-        (filter
-          (v: isList (match "([[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+)?)" v))
-          (attrNames versions)));
+    mapAttrs'
+    removePrefix
+    removeSuffix
+    sort
+    splitString
+    stringToCharacters
+    take
+    versionOlder
+    ;
+  inherit (builtins)
+    match
+    pathExists
+    readDir
+    replaceStrings
+    typeOf
+    ;
+in
+rec {
+  chain = {
+    func = id;
+    __functor = self: input:
+      if (typeOf input) == "lambda"
+      then self // { func = e: input (self.func e); }
+      else self.func input;
+  };
 
-  escapeVersion = builtins.replaceStrings [ "." " " ] [ "_" "_" ];
+  isNormalVersion = v: isList (match "([[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+)?)" v);
 
-  removeVanilla = n: escapeVersion (lib.removePrefix "vanilla-" n);
+  latestVersion = versions: chain
+    (filter isNormalVersion)
+    (sort versionOlder)
+    last
+    (attrNames versions);
+
+  escapeVersion = replaceStrings [ "." " " ] [ "_" "_" ];
+
+  removeVanilla = n: escapeVersion (removePrefix "vanilla-" n);
 
   # Stolen from digga: https://github.com/divnix/digga/blob/587013b2500031b71959496764b6fdd1b2096f9a/src/importers.nix#L61-L114
   rakeLeaves =
@@ -20,23 +57,23 @@ rec {
     let
       seive = file: type:
         # Only rake `.nix` files or directories
-        (type == "regular" && lib.hasSuffix ".nix" file) || (type == "directory")
+        (type == "regular" && hasSuffix ".nix" file) || (type == "directory")
       ;
 
       collect = file: type: {
-        name = lib.removeSuffix ".nix" file;
+        name = removeSuffix ".nix" file;
         value =
           let
             path = dirPath + "/${file}";
           in
           if (type == "regular")
-            || (type == "directory" && builtins.pathExists (path + "/default.nix"))
+            || (type == "directory" && pathExists (path + "/default.nix"))
           then path
           # recurse on directories that don't contain a `default.nix`
           else rakeLeaves path;
       };
 
-      files = lib.filterAttrs seive (builtins.readDir dirPath);
+      files = filterAttrs seive (readDir dirPath);
     in
-    lib.filterAttrs (n: v: v != { }) (lib.mapAttrs' collect files);
+    filterAttrs (n: v: v != { }) (mapAttrs' collect files);
 })
