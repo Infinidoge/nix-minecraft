@@ -115,7 +115,7 @@ def prefetch_libraries(logger, version_libraries, libraries):
         if not name in libraries or any(not v for k, v in libraries[name].items()):
             logger.info(f"Fetching {name}")
             ldir, lname, lversion = name.split(":")
-            lfilename = f"{lname}-{lversion}.jar"
+            lfilename = f"{lname}-{lversion}.zip"
             lurl = "/".join(
                 (
                     url.rstrip("/"),

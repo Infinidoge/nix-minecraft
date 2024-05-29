@@ -1,7 +1,8 @@
 { lib
 , fetchurl
 , stdenvNoCC
-, writeText
+, unzip
+, zip
 , jre_headless
 , loaderName
 , loaderVersion
@@ -14,36 +15,41 @@
 
 let
   lib_lock = lib.importJSON ./libraries.json;
-  fetchedLibraries = lib.forEach libraries (l: "${fetchurl lib_lock.${l}}");
-
-  version = "${loaderName}-${loaderVersion}-${gameVersion}";
-
-  manifest = writeText "${version}-manifest.mf" (lib.our.wrapJarManifest ''
-    Manifest-Version: 1.0
-    Main-Class: ${serverLaunch}
-    Class-Path: ${lib.concatStringsSep " " fetchedLibraries}
-  '');
-
-  launchProperties = writeText "${loaderName}-server-launch.properties" ''
-    launch.mainClass=${mainClass}
-  '';
+  fetchedLibraries = lib.forEach libraries (l: fetchurl lib_lock.${l});
 in
 stdenvNoCC.mkDerivation {
   pname = "${loaderName}-server-launch.jar";
-  inherit version;
-  name = "${version}-server-launch.jar";
+  version = "${loaderName}-${loaderVersion}-${gameVersion}";
+  nativeBuildInputs = [ unzip zip jre_headless ];
 
-  nativeBuildInputs = [ jre_headless ];
+  libraries = fetchedLibraries;
 
   buildPhase = ''
-    ${lib.optionalString (mainClass != "") "cp ${launchProperties} ."}
+    for i in $libraries; do
+      unzip -o $i
+    done
+
+    cat > META-INF/MANIFEST.MF << EOF
+    Manifest-Version: 1.0
+    Main-Class: ${serverLaunch}
+    Name: org/objectweb/asm/
+    Implementation-Version: 9.2
+    EOF
+
+    ${
+      if mainClass == "" then "" else ''
+        cat > ${loaderName}-server-launch.properties << EOF
+        launch.mainClass=${mainClass}
+        EOF
+      ''
+    }
 
     ${extraBuildPhase}
   '';
 
   installPhase = ''
-    rm env-vars
-    jar cmvf ${manifest} "server.jar" .
+    jar cmvf META-INF/MANIFEST.MF "server.jar" .
+    zip -d server.jar 'META-INF/*.SF' 'META-INF/*.RSA' 'META-INF/*.DSA'
     cp server.jar "$out"
   '';
 
