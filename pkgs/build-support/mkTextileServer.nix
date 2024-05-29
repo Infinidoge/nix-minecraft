@@ -16,4 +16,8 @@
   pname = "minecraft-server";
   version = "${minecraft-server.version}-${loader.loaderName}-${loader.loaderVersion}";
   name = "${pname}-${version}";
+
+  passthru = {
+    inherit loader;
+  };
 }
