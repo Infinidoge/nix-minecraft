@@ -838,5 +838,11 @@
       "net.fabricmc:intermediary:24w21a",
       "org.quiltmc:hashed:24w21a"
     ]
+  },
+  "1.21-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21-pre1",
+      "org.quiltmc:hashed:1.21-pre1"
+    ]
   }
 }

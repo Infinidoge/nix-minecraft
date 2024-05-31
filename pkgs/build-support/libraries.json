@@ -4768,5 +4768,10 @@
     "name": "intermediary-1.21-pre1.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21-pre1/intermediary-1.21-pre1.jar",
     "sha256": "1agm1bwf32zhi05dfimy0mi07vwrahysg3ncdghpx6d2rwdg1axy"
+  },
+  "org.quiltmc:hashed:1.21-pre1": {
+    "name": "hashed-1.21-pre1.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21-pre1/hashed-1.21-pre1.jar",
+    "sha256": "0j1w85nm9lm9snspi7f1rg4b195r5ny7jfs3z2958zg7irhbvicg"
   }
 }
