@@ -335,6 +335,36 @@ in
             true.
           '';
 
+          extraStartPre = mkOpt' types.lines "" ''
+            Extra commands to run before starting the service.
+          '';
+
+          extraStartPost = mkOpt' types.lines "" ''
+            Extra commands to run after starting the service.
+          '';
+
+          extraStopPre = mkOpt' types.lines "" ''
+            Extra commands to run before stopping the service.
+          '';
+
+          extraStopPost = mkOpt' types.lines "" ''
+            Extra commands to run after stopping the service.
+          '';
+
+          stopCommand = mkOption {
+            type = types.nullOr types.str;
+            description = ''
+              Console command to run when cleanly stopping the server (ExecStop).
+              Defaults to <literal>stop</literal>, which works for most servers.
+              For proxies (bungeecord, velocity), you should set
+              <literal>end</literal>.
+
+              If set to <literal>null</literal>, the server will be stopped by
+              systemd without issuing any command.
+            '';
+            default = "stop";
+          };
+
           whitelist = mkOption {
             type =
               let
@@ -537,10 +567,105 @@ in
             } // conf.files);
 
             msConfig = managementSystemConfig name conf;
+
+            ExecStartPre =
+              let
+                mkSymlinks = concatStringsSep "\n"
+                  (mapAttrsToList
+                    (n: v: ''
+                      if [[ -L "${n}" ]]; then
+                        unlink "${n}"
+                      elif [[ -e "${n}" ]]; then
+                        echo "${n} already exists, moving"
+                        mv "${n}" "${n}.bak"
+                      fi
+                      mkdir -p "$(dirname "${n}")"
+                      ln -sf "${v}" "${n}"
+                    '')
+                    symlinks);
+
+                mkFiles = concatStringsSep "\n"
+                  (mapAttrsToList
+                    (n: v: ''
+                      if [[ -L "${n}" ]]; then
+                        unlink "${n}"
+                      elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
+                        rm "${n}"
+                      elif [[ -e "${n}" ]]; then
+                        echo "${n} already exists, moving"
+                        mv "${n}" "${n}.bak"
+                      fi
+                      mkdir -p "$(dirname "${n}")"
+                      ${pkgs.gawk}/bin/awk '{
+                        for(varname in ENVIRON)
+                          gsub("@"varname"@", ENVIRON[varname])
+                        print
+                      }' "${v}" > "${n}"
+                    '')
+                    files);
+              in
+              getExe (pkgs.writeShellApplication {
+                name = "minecraft-server-${name}-start-pre";
+                text = ''
+                  ${mkSymlinks}
+                  ${mkFiles}
+                  ${conf.extraStartPre}
+                '';
+              });
+
+            ExecStart = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-start";
+              text = ''
+                ${msConfig.hooks.start}
+              '';
+            });
+
+            ExecStartPost = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-start-post";
+              text = ''
+                ${msConfig.hooks.postStart}
+                ${conf.extraStartPost}
+              '';
+            });
+
+            execStopScript = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-stop";
+              text = ''
+                # systemd has no ExecStopPre hook, so we just run it here.
+                ${conf.extraStopPre}
+
+                ${msConfig.hooks.stop}
+              '';
+            });
+
+            ExecStopPost =
+              let
+                rmSymlinks = concatStringsSep "\n"
+                  (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks);
+                rmFiles = concatStringsSep "\n"
+                  (mapAttrsToList (n: v: "rm -f \"${n}\"") files);
+              in
+              getExe (pkgs.writeShellApplication {
+                name = "minecraft-server-${name}-stop-post";
+                text = ''
+                  ${rmSymlinks}
+                  ${rmFiles}
+                  ${conf.extraStopPost}
+                '';
+              });
+
+            ExecReload = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-reload";
+              text = ''
+                ${ExecStopPost}
+                ${ExecStartPre}
+                ${conf.extraReload}
+              '';
+            });
           in
           {
             name = "minecraft-server-${name}";
-            value = rec {
+            value = {
               description = "Minecraft Server ${name}";
               wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
               requires = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
@@ -552,7 +677,9 @@ in
               startLimitBurst = 5;
 
               serviceConfig = {
-                ExecStop = "${pkgs.writeShellScript "minecraft-stop-${name}" msConfig.hooks.stop} $MAINPID";
+                inherit ExecStartPre ExecStart ExecStartPost ExecStopPost ExecReload;
+                ExecStop = "${execStopScript} $MAINPID";
+
                 Restart = conf.restart;
                 WorkingDirectory = "${cfg.dataDir}/${name}";
                 User = cfg.user;
@@ -563,7 +690,6 @@ in
                 # Default directory for management sockets
                 RuntimeDirectory = "minecraft";
                 RuntimeDirectoryPreserve = "yes";
-
 
                 # Hardening
                 CapabilityBoundingSet = [ "" ];
@@ -587,83 +713,11 @@ in
                 SystemCallArchitectures = "native";
                 UMask = "0007";
               } // msConfig.serviceConfig;
+
               restartIfChanged = !conf.enableReload;
               reloadIfChanged = conf.enableReload;
 
               inherit (conf) path environment;
-
-              script = ''
-                ${msConfig.hooks.start}
-              '';
-
-              reload = ''
-                ${postStop}
-                ${preStart}
-                ${conf.extraReload}
-              '';
-
-              preStart =
-                let
-                  mkSymlinks = pkgs.writeShellScript "minecraft-server-${name}-symlinks"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList
-                        (n: v: ''
-                          if [[ -L "${n}" ]]; then
-                            unlink "${n}"
-                          elif [[ -e "${n}" ]]; then
-                            echo "${n} already exists, moving"
-                            mv "${n}" "${n}.bak"
-                          fi
-                          mkdir -p "$(dirname "${n}")"
-                          ln -sf "${v}" "${n}"
-                        '')
-                        symlinks));
-
-                  mkFiles = pkgs.writeShellScript "minecraft-server-${name}-files"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList
-                        (n: v: ''
-                          if [[ -L "${n}" ]]; then
-                            unlink "${n}"
-                          elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
-                            rm "${n}"
-                          elif [[ -e "${n}" ]]; then
-                            echo "${n} already exists, moving"
-                            mv "${n}" "${n}.bak"
-                          fi
-                          mkdir -p $(dirname "${n}")
-                          ${pkgs.gawk}/bin/awk '{
-                            for(varname in ENVIRON)
-                              gsub("@"varname"@", ENVIRON[varname])
-                            print
-                          }' "${v}" > "${n}"
-                        '')
-                        files));
-                in
-                ''
-                  ${mkSymlinks}
-                  ${mkFiles}
-                '';
-
-              postStart = ''
-                ${msConfig.hooks.postStart}
-              '';
-
-              postStop =
-                let
-                  rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks)
-                    );
-                  rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList (n: v: "rm -f \"${n}\"") files)
-                    );
-                in
-                ''
-                  ${rmSymlinks}
-                  ${rmFiles}
-                '';
             };
           })
         servers;
