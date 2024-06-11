@@ -176,7 +176,7 @@ let
 
               # Wait for the PID of the minecraft server to disappear before
               # returning, so systemd doesn't attempt to SIGKILL it.
-              tries=3
+              tries=15
               while kill -0 "$1" 2> /dev/null; do
                 if [[ $tries -gt 0 ]]; then
                   sleep 1s
