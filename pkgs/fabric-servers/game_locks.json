@@ -1803,5 +1803,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.21-pre4"
     ]
+  },
+  "1.21-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21-rc1"
+    ]
   }
 }
