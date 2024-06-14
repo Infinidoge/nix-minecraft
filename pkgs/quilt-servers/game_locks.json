@@ -868,5 +868,11 @@
       "net.fabricmc:intermediary:1.21-rc1",
       "org.quiltmc:hashed:1.21-rc1"
     ]
+  },
+  "1.21": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21",
+      "org.quiltmc:hashed:1.21"
+    ]
   }
 }
