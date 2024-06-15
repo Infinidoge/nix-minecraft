@@ -208,12 +208,14 @@ in
                   description = "Minecraft UUID";
                 };
               in
-              types.attrsOf minecraftUUID;
-            default = { };
+              types.nullOr (types.attrsOf minecraftUUID);
+            default = null;
             description = ''
               Whitelisted players, only has an effect when
               enabled via <option>services.minecraft-servers.<name>.serverProperties</option>
               by setting <literal>white-list</literal> to <literal>true</literal.
+
+              if set to <literal>null</literal>, the whitelist will not be handled declaratively.
             '';
             example = literalExpression ''
               {
@@ -355,10 +357,13 @@ in
               "eula.txt".value = { eula = true; };
               "eula.txt".format = pkgs.formats.keyValue { };
             } // conf.symlinks);
+            whitelistDeclarative = conf.whitelist != null;
+            whitelistValue = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
             files = normalizeFiles ({
-              "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
               "server.properties".value = conf.serverProperties;
-            } // conf.files);
+            } // (optionalAttrs whitelistDeclarative {
+              "whitelist.json".value = whitelistValue;
+            }) // conf.files);
 
             startScript = pkgs.writeScript "minecraft-start-${name}" ''
               #!${pkgs.runtimeShell}
