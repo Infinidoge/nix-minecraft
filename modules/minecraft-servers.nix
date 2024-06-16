@@ -214,6 +214,9 @@ in
               Whitelisted players, only has an effect when
               enabled via <option>services.minecraft-servers.<name>.serverProperties</option>
               by setting <literal>white-list</literal> to <literal>true</literal.
+
+              To use a non-declarative whitelist, enable the whitelist and don't fill in this value.
+              As long as it is empty, no whitelist file is generated.
             '';
             example = literalExpression ''
               {
@@ -242,6 +245,9 @@ in
               Minecraft server properties for the server.properties file of this server. See
               <link xlink:href="https://minecraft.gamepedia.com/Server.properties#Java_Edition_3"/>
               for documentation on these values.
+
+              To use a non-declarative server.properties, don't fill in this value.
+              As long as it is empty, no server.properties file is generated.
             '';
           };
 
