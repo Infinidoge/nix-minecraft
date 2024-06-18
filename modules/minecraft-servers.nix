@@ -152,9 +152,7 @@ let
 
             ${tmux} -S ${sock} send-keys ${escapeShellArg server.stopCommand} Enter
 
-            while server_running ; do
-              sleep 0.25
-            done
+            while server_running; do sleep 1s; done
           '';
         };
       } else if ms.systemd-socket.enable then
@@ -174,18 +172,7 @@ let
             ${optionalString (server.stopCommand != null) ''
               echo ${escapeShellArg server.stopCommand} > ${escapeShellArg (ms.systemd-socket.stdinSocket.path name)}
 
-              # Wait for the PID of the minecraft server to disappear before
-              # returning, so systemd doesn't attempt to SIGKILL it.
-              tries=15
-              while kill -0 "$1" 2> /dev/null; do
-                if [[ $tries -gt 0 ]]; then
-                  sleep 1s
-                else
-                  echo >&2 "Timed out waiting for server to stop."
-                  exit 1
-                fi
-                ((tries--))
-              done
+              while kill -0 "$1" 2> /dev/null; do sleep 1s; done
             ''}
           '';
         };
@@ -679,6 +666,10 @@ in
               serviceConfig = {
                 inherit ExecStartPre ExecStart ExecStartPost ExecStopPost ExecReload;
                 ExecStop = "${execStopScript} $MAINPID";
+
+                # the Minecraft server (as of 1.20.6) has a 60s timeout for saving each world.
+                # let's let it handle potential lock-ups by itself before resorting to killing it.
+                TimeoutStopSec = "1min 15s";
 
                 Restart = conf.restart;
                 WorkingDirectory = "${cfg.dataDir}/${name}";
