@@ -17807,6 +17807,42 @@
     "6": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/6/downloads/paper-1.21-6.jar",
       "sha256": "05f7667350ea80e5b3ab5170113bc6e6269f9a32a7b3efb44205b1a5c0028677"
+    },
+    "7": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/7/downloads/paper-1.21-7.jar",
+      "sha256": "b7901057dca0019fa369da0a1234c4836761c470dddb3582be208db37e330c7e"
+    },
+    "8": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/8/downloads/paper-1.21-8.jar",
+      "sha256": "4b6eb7c93d1650307d398e10772b3e32dda769e352593173912c60b9c9109d77"
+    },
+    "9": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/9/downloads/paper-1.21-9.jar",
+      "sha256": "75080b9cff3a83464864119aef247ee23df24edf4d2024eae06283c8aeb0f20f"
+    },
+    "10": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/10/downloads/paper-1.21-10.jar",
+      "sha256": "155685a611dabfd65cca3a1253631d9ca772249a9e78fb54c01e169751cfbd6b"
+    },
+    "11": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/11/downloads/paper-1.21-11.jar",
+      "sha256": "9e38625dec3a43732d400ca93e8b02a0437a3dddd8373b6f1649d9a4ede2c7ea"
+    },
+    "12": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/12/downloads/paper-1.21-12.jar",
+      "sha256": "16d476ec9636c27295f2961687a30b3f9d06acb34066408689b40f7bb606ba19"
+    },
+    "13": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/13/downloads/paper-1.21-13.jar",
+      "sha256": "8c8d01c48150d5ff7b5c478479b76f7350aa12cb7e48dc3e9ecd8de63ac34524"
+    },
+    "14": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/14/downloads/paper-1.21-14.jar",
+      "sha256": "ac3c76e0f1260e3c01fb42dae2edc6bfc50535c4b561835cb0b2d81ba038f565"
+    },
+    "15": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/15/downloads/paper-1.21-15.jar",
+      "sha256": "2da432600959d8640acd3dc694e2abd51521bb45d0a482eea8f7031dd733a9c5"
     }
   }
 }
