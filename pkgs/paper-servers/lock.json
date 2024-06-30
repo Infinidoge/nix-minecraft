@@ -17935,6 +17935,10 @@
     "38": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/38/downloads/paper-1.21-38.jar",
       "sha256": "afa03210d877e0a707124dbd595b3f36018fa945b5ddb2084802500b776ab849"
+    },
+    "39": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21/builds/39/downloads/paper-1.21-39.jar",
+      "sha256": "86e6e7e2ed4fec101ceb265ee6417402516099531e8ef398186f54b3dd460d2e"
     }
   }
 }
