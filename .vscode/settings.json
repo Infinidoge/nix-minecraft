@@ -1,0 +1,12 @@
+{
+	"[nix]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"nix.serverSettings": {
+		"nil": {
+			"formatting": { "command": ["nixpkgs-fmt"] }
+		}
+	},
+	"nix.formatterPath": "nixpkgs-fmt"
+}

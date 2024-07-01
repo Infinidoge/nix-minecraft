@@ -2,6 +2,11 @@
 
 Documentation of major changes, newest first.
 
+## 2024-06-07: Addition of systemd-sockets & deprecation of `runDir`
+
+With the addition systemd-socket server management, the `runDir` option has been deprecated.
+Plase configure servers' tmux socket paths via `managementSystem.tmux.socketPath` instead.
+
 ## 2024-05-27: Removal of loader version packages
 
 As per the previous deprecation notice, the old `loader-mcversion-loaderversion` packages have been removed.
@@ -13,7 +18,7 @@ For Fabric, Quilt, and Legacy Fabric servers, the old way of specifying the load
 Instead of using `minecraftServers.fabric-1_19_2-0_14_20` to use loader version `0.14.20`,
 Use `minecraftServers.fabric-1_19_2.override { loaderVersion = "0.14.20"; }`
 
-## 2023-05-13: Removal of attrsets from `packages`.
+## 2023-05-13: Removal of attrsets from `packages`
 
 As per the previous deprecation notice, all of the attrsets in `packages` have been removed, and are instead available under `legacyPackages`.
 

@@ -55,13 +55,15 @@
           };
         in
         optionalAttrs isLinux (mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests));
+
+      nixosModules = self.lib.rakeLeaves ./modules;
     in
     {
       lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
 
       overlay = final: prev: mkPackages prev;
       overlays.default = self.overlay;
-      nixosModules = self.lib.rakeLeaves ./modules;
+      inherit nixosModules;
 
       hydraJobs = {
         checks = { inherit (self.checks) x86_64-linux; };
@@ -72,6 +74,11 @@
       pkgs = import nixpkgs {
         inherit system;
         config = { allowUnfree = true; };
+      };
+      docs = pkgs.nixosOptionsDoc {
+        inherit (pkgs.lib.evalModules {
+          modules = [{ _module.check = false; } nixosModules.minecraft-servers];
+        }) options;
       };
     in
     rec {
@@ -86,6 +93,9 @@
           velocity-server
           minecraft-server
           nix-modrinth-prefetch;
+
+        docsAsciiDoc = docs.optionsAsciiDoc;
+        docsCommonMark = docs.optionsCommonMark;
       };
 
       checks = mkTests (pkgs.extend self.outputs.overlays.default) // packages;
