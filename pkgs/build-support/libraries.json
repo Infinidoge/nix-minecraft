@@ -4838,5 +4838,15 @@
     "name": "quilt-loader-0.26.1-beta.1.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.26.1-beta.1/quilt-loader-0.26.1-beta.1.jar",
     "sha256": "0bjck15i4d8g7lifksx2mhad7yjax4j8j7jz5rhy431zyjygizbv"
+  },
+  "net.fabricmc:sponge-mixin:0.15.0+mixin.0.8.7": {
+    "name": "sponge-mixin-0.15.0+mixin.0.8.7.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.15.0+mixin.0.8.7/sponge-mixin-0.15.0+mixin.0.8.7.jar",
+    "sha256": "00k7hmrfvm12qwdsyg3656s271dmpcqy97vljc67wsrsbf5zwpr6"
+  },
+  "net.fabricmc:fabric-loader:0.16.0": {
+    "name": "fabric-loader-0.16.0.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.0/fabric-loader-0.16.0.jar",
+    "sha256": "1b3wrjmnyjj8wh45di59dl8n3qzsp5qqm2r0v1zggkxmwfj1y7l6"
   }
 }
