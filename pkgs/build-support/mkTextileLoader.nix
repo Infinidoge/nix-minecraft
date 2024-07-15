@@ -33,7 +33,7 @@ stdenvNoCC.mkDerivation {
     Manifest-Version: 1.0
     Main-Class: ${serverLaunch}
     Name: org/objectweb/asm/
-    Implementation-Version: 9.3
+    Implementation-Version: 9.4
     EOF
 
     ${
