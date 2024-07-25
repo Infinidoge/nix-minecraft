@@ -14,11 +14,11 @@
 }:
 
 let
+  inherit (builtins) head filter map match;
+  
   lib_lock = lib.importJSON ./libraries.json;
   fetchedLibraries = lib.forEach libraries (l: fetchurl lib_lock.${l});
-  asmVersion = builtins.head (builtins.head (
-    builtins.filter (v: v!=null) (builtins.map (builtins.match "org\\.ow2\\.asm:asm:([\.0-9]+)") libraries)
-  ));
+  asmVersion = head (head (filter (v: v!=null) (map (match "org\\.ow2\\.asm:asm:([\.0-9]+)") libraries)));
 in
 stdenvNoCC.mkDerivation {
   pname = "${loaderName}-server-launch.jar";
