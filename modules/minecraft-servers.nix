@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, options, pkgs, ... }:
 with lib;
 let
   cfg = config.services.minecraft-servers;
@@ -72,6 +72,112 @@ let
     };
   };
 
+  managementSystem = types.submodule {
+    options = {
+      tmux = {
+        enable = mkEnableOption "management via a TMUX socket";
+        socketPath = mkOption {
+          type = with types; functionTo path;
+          description = ''
+            Function from a server name to the path at which the server's tmux socket is placed.
+            To connect to the console, run `tmux -S <path to socket> attach`,
+            press `Ctrl + b` then `d` to detach.
+
+            Note that while currently the default respects <option>services.minecraft-servers.runDir</option>,
+            that option is deprecated and will be removed.
+            The default will then change to `name: "/run/minecraft/''${name}.sock`.
+          '';
+          default = name: "${cfg.runDir}/${name}.sock";
+          defaultText = literalExpression ''name: "''${cfg.runDir}/''${name}.sock"'';
+        };
+      };
+      systemd-socket = {
+        enable = mkEnableOpt "management through the systemd journal & a command socket";
+        stdinSocket = {
+          path = mkOption {
+            type = with types; functionTo path;
+            description = ''
+              Function from a server name to the path at which the server's stdin socket is placed.
+              You can send the server commands by writing to this socket,
+              for example with shell redirection: `echo 'list' > <path to socket>`.
+
+              Note that while currently the default respects <option>services.minecraft-servers.runDir</option>,
+              that option is deprecated and will be removed.
+              The default will then change to `name: "/run/minecraft/''${name}.stdin`.
+            '';
+            default = name: "${cfg.runDir}/${name}.stdin";
+            defaultText = literalExpression ''name: "''${cfg.runDir}/''${name}.stdin"'';
+          };
+          mode = mkOption {
+            type = types.strMatching "[0-7]{4}";
+            description = "Access mode of the socket file in octal notation";
+            default = "0660";
+          };
+        };
+      };
+    };
+  };
+
+  managementSystemConfig = name: server:
+    let
+      ms = server.managementSystem;
+      tmux = "${getBin pkgs.tmux}/bin/tmux";
+    in
+    assert assertMsg (!(ms.tmux.enable && ms.systemd-socket.enable)) "Only one server management system can be enabled at a time.";
+    if ms.tmux.enable then
+      let sock = ms.tmux.socketPath name; in {
+        serviceConfig = {
+          Type = "forking";
+          GuessMainPID = true;
+        };
+        hooks = {
+          start = ''
+            ${tmux} -S ${sock} new -d ${getExe server.package} ${server.jvmOpts}
+
+            # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
+            # See https://github.com/Infinidoge/nix-minecraft/issues/5
+            ${tmux} -S ${sock} server-access -aw nobody
+          '';
+          postStart = ''
+            ${pkgs.coreutils}/bin/chmod 660 ${sock}
+          '';
+          stop = ''
+            function server_running {
+              ${tmux} -S ${sock} has-session
+            }
+
+            if ! server_running ; then
+              exit 0
+            fi
+
+            ${tmux} -S ${sock} send-keys ${escapeShellArg server.stopCommand} Enter
+
+            while server_running; do sleep 1s done
+          '';
+        };
+      } else if ms.systemd-socket.enable then
+      {
+        serviceConfig = {
+          Type = "simple";
+          StandardInput = "socket";
+          StandardOutput = "journal";
+          StandardError = "journal";
+        };
+        hooks = {
+          start = ''
+            ${getExe server.package} ${server.jvmOpts}
+          '';
+          postStart = "";
+          stop = ''
+            ${optionalString (server.stopCommand != null) ''
+              echo ${escapeShellArg server.stopCommand} > ${escapeShellArg (ms.systemd-socket.stdinSocket.path name)}
+
+              while kill -0 "$1" 2> /dev/null; do sleep 1s; done
+            ''}
+          '';
+        };
+      } else builtins.throw "At least one server management system must be enabled.";
+
   mkEnableOpt = description: mkBoolOpt' false description;
 in
 {
@@ -102,10 +208,12 @@ in
     '';
 
     runDir = mkOpt' types.path "/run/minecraft" ''
-      Directory to place the runtime tmux sockets into.
+      Deprecated: Directory to place the runtime tmux sockets into.
       Each server's console will be a tmux socket file in the form of <literal>servername.sock</literal>.
       To connect to the console, run `tmux -S /run/minecraft/servername.sock attach`,
       press `Ctrl + b` then `d` to detach.
+
+      Plase use <option>services.minecraft-servers.managementSystem.tmux.socketPath</option>` instead.
     '';
 
     user = mkOption {
@@ -125,8 +233,8 @@ in
       default = "minecraft";
       description = ''
         Name of the group to create and run servers under.
-        In order to modify the server files or attach to the tmux socket,
-        your user must be a part of this group.
+        In order to modify the server files your user must be a part of this
+        group. If you are using the tmux management system (the default), you also need to be a part of this group to attach to the tmux socket.
         It is recommended to leave this as the default, as it is
         the same group as <option>services.minecraft-server</option>.
       '';
@@ -143,6 +251,20 @@ in
       syntax @varname@.
     '';
 
+    managementSystem = mkOption {
+      type = managementSystem;
+      description = ''
+        The default management system for all servers.
+      '';
+      default = { tmux.enable = true; };
+      example = ''
+        {
+          tmux.enable = false;
+          systemd-socket.enable = true;
+        }
+      '';
+    };
+
     servers = mkOption {
       default = { };
       description = ''
@@ -153,7 +275,7 @@ in
         See <option>services.minecraft-servers.servers.<name>.restart</option>.
         :::
       '';
-      type = types.attrsOf (types.submodule {
+      type = types.attrsOf (types.submodule ({ name, ... }: {
         options = {
           enable = mkEnableOpt ''
             Whether to enable this server.
@@ -179,7 +301,7 @@ in
 
           restart = mkOpt' types.str "always" ''
             Value of systemd's <literal>Restart=</literal> service configuration option.
-            Due to the servers being started in tmux sockets, values other than
+            If you are using the tmux management system (the default), values other than
             <literal>"no"</literal> and <literal>"always"</literal> may not work properly.
             As a consequence of the <literal>"always"</literal> option, stopping the server
             in-game with the <literal>stop</literal> command will cause the server to automatically restart.
@@ -199,6 +321,36 @@ in
             <option>services.minecraft-servers.<name>.enableReload</option> is
             true.
           '';
+
+          extraStartPre = mkOpt' types.lines "" ''
+            Extra commands to run before starting the service.
+          '';
+
+          extraStartPost = mkOpt' types.lines "" ''
+            Extra commands to run after starting the service.
+          '';
+
+          extraStopPre = mkOpt' types.lines "" ''
+            Extra commands to run before stopping the service.
+          '';
+
+          extraStopPost = mkOpt' types.lines "" ''
+            Extra commands to run after stopping the service.
+          '';
+
+          stopCommand = mkOption {
+            type = types.nullOr types.str;
+            description = ''
+              Console command to run when cleanly stopping the server (ExecStop).
+              Defaults to <literal>stop</literal>, which works for most servers.
+              For proxies (bungeecord, velocity), you should set
+              <literal>end</literal>.
+
+              If set to <literal>null</literal>, the server will be stopped by
+              systemd without issuing any command.
+            '';
+            default = "stop";
+          };
 
           whitelist = mkOption {
             type =
@@ -266,7 +418,7 @@ in
             Works as <option>systemd.services.<name>.path</option>.
           '';
 
-          environment = with types; mkOpt' (attrsOf (oneOf [ null str path package ])) { } ''
+          environment = with types; mkOpt' (attrsOf (nullOr (oneOf [ str path package ]))) { } ''
             Environment variables added to the Minecraft server's processes.
             Works as <option>systemd.services.<name>.environment</option>.
           '';
@@ -281,8 +433,19 @@ in
             symlinks, but these are actual files. Useful for configuration
             files that don't behave well when read-only.
           '';
+
+          managementSystem = mkOption {
+            type = types.submodule (managementSystem.getSubModules ++ [
+              { config = mkDefault cfg.managementSystem; }
+            ]);
+            description = ''
+              Configuration for the system used to manage this server. Overrides the global configuration on an option-by-option basis.
+            '';
+            default = { };
+            example = options.services.minecraft-servers.managementSystem.example;
+          };
         };
-      });
+      }));
     };
   };
 
@@ -329,6 +492,15 @@ in
         }
       ];
 
+      warnings = lib.optional (cfg.runDir != options.services.minecraft-servers.runDir.default) ''
+        `runDir` has been deprecated.
+
+        Please use `services.minecraft-servers.managementSystem.tmux.socketPath` instead.
+        For example, `name: "${cfg.runDir}/''${name}.sock"`.
+
+        See the changelog file for more information.
+      '';
+
       networking.firewall =
         let
           toOpen = filterAttrs (_: cfg: cfg.openFirewall) servers;
@@ -351,12 +523,27 @@ in
         )
         servers;
 
+      systemd.sockets = pipe servers [
+        (filterAttrs (name: server: server.managementSystem.systemd-socket.enable))
+        (mapAttrs' (name: server: {
+          name = "minecraft-server-${name}";
+          value = {
+            bindsTo = [ "minecraft-server-${name}.service" ];
+            socketConfig = let socketConf = server.managementSystem.systemd-socket.stdinSocket; in {
+              ListenFIFO = socketConf.path name;
+              SocketMode = socketConf.mode;
+              SocketUser = cfg.user;
+              SocketGroup = cfg.group;
+              RemoveOnStop = true;
+              FlushPending = true;
+            };
+          };
+        }))
+      ];
+
       systemd.services = mapAttrs'
         (name: conf:
           let
-            tmux = "${getBin pkgs.tmux}/bin/tmux";
-            tmuxSock = "${cfg.runDir}/${name}.sock";
-
             symlinks = normalizeFiles ({
               "eula.txt".value = { eula = true; };
               "eula.txt".format = pkgs.formats.keyValue { };
@@ -366,39 +553,110 @@ in
               "server.properties".value = conf.serverProperties;
             } // conf.files);
 
-            startScript = pkgs.writeScript "minecraft-start-${name}" ''
-              #!${pkgs.runtimeShell}
-              ${tmux} -S ${tmuxSock} new -d ${getExe conf.package} ${conf.jvmOpts}
+            msConfig = managementSystemConfig name conf;
 
-              # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
-              # See https://github.com/Infinidoge/nix-minecraft/issues/5
-              ${tmux} -S ${tmuxSock} server-access -aw nobody
-            '';
+            ExecStartPre =
+              let
+                mkSymlinks = concatStringsSep "\n"
+                  (mapAttrsToList
+                    (n: v: ''
+                      if [[ -L "${n}" ]]; then
+                        unlink "${n}"
+                      elif [[ -e "${n}" ]]; then
+                        echo "${n} already exists, moving"
+                        mv "${n}" "${n}.bak"
+                      fi
+                      mkdir -p "$(dirname "${n}")"
+                      ln -sf "${v}" "${n}"
+                    '')
+                    symlinks);
 
-            stopScript = pkgs.writeScript "minecraft-stop-${name}" ''
-              #!${pkgs.runtimeShell}
+                mkFiles = concatStringsSep "\n"
+                  (mapAttrsToList
+                    (n: v: ''
+                      if [[ -L "${n}" ]]; then
+                        unlink "${n}"
+                      elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
+                        rm "${n}"
+                      elif [[ -e "${n}" ]]; then
+                        echo "${n} already exists, moving"
+                        mv "${n}" "${n}.bak"
+                      fi
+                      mkdir -p "$(dirname "${n}")"
+                      ${pkgs.gawk}/bin/awk '{
+                        for(varname in ENVIRON)
+                          gsub("@"varname"@", ENVIRON[varname])
+                        print
+                      }' "${v}" > "${n}"
+                    '')
+                    files);
+              in
+              getExe (pkgs.writeShellApplication {
+                name = "minecraft-server-${name}-start-pre";
+                text = ''
+                  ${mkSymlinks}
+                  ${mkFiles}
+                  ${conf.extraStartPre}
+                '';
+              });
 
-              function server_running {
-                ${tmux} -S ${tmuxSock} has-session
-              }
+            ExecStart = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-start";
+              text = ''
+                ${msConfig.hooks.start}
+              '';
+            });
 
-              if ! server_running ; then
-                exit 0
-              fi
+            ExecStartPost = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-start-post";
+              text = ''
+                ${msConfig.hooks.postStart}
+                ${conf.extraStartPost}
+              '';
+            });
 
-              ${tmux} -S ${tmuxSock} send-keys stop Enter
+            execStopScript = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-stop";
+              text = ''
+                # systemd has no ExecStopPre hook, so we just run it here.
+                ${conf.extraStopPre}
 
-              while server_running ; do
-                sleep 0.25
-              done
-            '';
+                ${msConfig.hooks.stop}
+              '';
+            });
+
+            ExecStopPost =
+              let
+                rmSymlinks = concatStringsSep "\n"
+                  (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks);
+                rmFiles = concatStringsSep "\n"
+                  (mapAttrsToList (n: v: "rm -f \"${n}\"") files);
+              in
+              getExe (pkgs.writeShellApplication {
+                name = "minecraft-server-${name}-stop-post";
+                text = ''
+                  ${rmSymlinks}
+                  ${rmFiles}
+                  ${conf.extraStopPost}
+                '';
+              });
+
+            ExecReload = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-reload";
+              text = ''
+                ${ExecStopPost}
+                ${ExecStartPre}
+                ${conf.extraReload}
+              '';
+            });
           in
           {
             name = "minecraft-server-${name}";
-            value = rec {
+            value = {
               description = "Minecraft Server ${name}";
               wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
-              after = [ "network.target" ];
+              requires = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
+              after = [ "network.target" ] ++ optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
 
               enable = conf.enable;
 
@@ -406,18 +664,23 @@ in
               startLimitBurst = 5;
 
               serviceConfig = {
-                ExecStart = "${startScript}";
-                ExecStop = "${stopScript}";
+                inherit ExecStartPre ExecStart ExecStartPost ExecStopPost ExecReload;
+                ExecStop = "${execStopScript} $MAINPID";
+
+                # the Minecraft server (as of 1.20.6) has a 60s timeout for saving each world.
+                # let's let it handle potential lock-ups by itself before resorting to killing it.
+                TimeoutStopSec = "1min 15s";
+
                 Restart = conf.restart;
                 WorkingDirectory = "${cfg.dataDir}/${name}";
                 User = cfg.user;
                 Group = cfg.group;
-                Type = "forking";
-                GuessMainPID = true;
-                RuntimeDirectory = "minecraft";
-                RuntimeDirectoryPreserve = "yes";
                 EnvironmentFile = mkIf (cfg.environmentFile != null)
                   (toString cfg.environmentFile);
+
+                # Default directory for management sockets
+                RuntimeDirectory = "minecraft";
+                RuntimeDirectoryPreserve = "yes";
 
                 # Hardening
                 CapabilityBoundingSet = [ "" ];
@@ -434,84 +697,18 @@ in
                 ProtectKernelModules = true;
                 ProtectKernelTunables = true;
                 ProtectProc = "invisible";
+                RestrictAddressFamilies = [ "AF_UNIX" "AF_INET" "AF_INET6" ];
                 RestrictNamespaces = true;
                 RestrictRealtime = true;
                 RestrictSUIDSGID = true;
                 SystemCallArchitectures = "native";
                 UMask = "0007";
-              };
+              } // msConfig.serviceConfig;
+
               restartIfChanged = !conf.enableReload;
               reloadIfChanged = conf.enableReload;
 
               inherit (conf) path environment;
-
-              reload = ''
-                ${postStop}
-                ${preStart}
-              '' + conf.extraReload;
-
-              preStart =
-                let
-                  mkSymlinks = pkgs.writeShellScript "minecraft-server-${name}-symlinks"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList
-                        (n: v: ''
-                          if [[ -L "${n}" ]]; then
-                            unlink "${n}"
-                          elif [[ -e "${n}" ]]; then
-                            echo "${n} already exists, moving"
-                            mv "${n}" "${n}.bak"
-                          fi
-                          mkdir -p "$(dirname "${n}")"
-                          ln -sf "${v}" "${n}"
-                        '')
-                        symlinks));
-
-                  mkFiles = pkgs.writeShellScript "minecraft-server-${name}-files"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList
-                        (n: v: ''
-                          if [[ -L "${n}" ]]; then
-                            unlink "${n}"
-                          elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
-                            rm "${n}"
-                          elif [[ -e "${n}" ]]; then
-                            echo "${n} already exists, moving"
-                            mv "${n}" "${n}.bak"
-                          fi
-                          mkdir -p $(dirname "${n}")
-                          ${pkgs.gawk}/bin/awk '{
-                            for(varname in ENVIRON)
-                              gsub("@"varname"@", ENVIRON[varname])
-                            print
-                          }' "${v}" > "${n}"
-                        '')
-                        files));
-                in
-                ''
-                  ${mkSymlinks}
-                  ${mkFiles}
-                '';
-
-              postStart = ''
-                ${pkgs.coreutils}/bin/chmod 660 ${tmuxSock}
-              '';
-
-              postStop =
-                let
-                  rmSymlinks = pkgs.writeShellScript "minecraft-server-${name}-rm-symlinks"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks)
-                    );
-                  rmFiles = pkgs.writeShellScript "minecraft-server-${name}-rm-files"
-                    (concatStringsSep "\n"
-                      (mapAttrsToList (n: v: "rm -f \"${n}\"") files)
-                    );
-                in
-                ''
-                  ${rmSymlinks}
-                  ${rmFiles}
-                '';
             };
           })
         servers;

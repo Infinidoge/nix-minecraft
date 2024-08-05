@@ -10,6 +10,7 @@ nixosTest {
       eula = true;
       servers.paper = {
         enable = true;
+        managementSystem = { tmux.enable = false; systemd-socket.enable = true; };
         jvmOpts = "-Xmx512M"; # Avoid OOM
         package = pkgs.paperServers.paper-1_19_4;
         serverProperties = {
@@ -41,9 +42,14 @@ nixosTest {
   testScript = { nodes, ... }: ''
     name = "paper"
     grep_logs = lambda expr: f"grep '{expr}' /srv/minecraft/{name}/logs/latest.log"
+    server_cmd = lambda cmd: f"echo '{cmd}' > /run/minecraft/paper.stdin"
 
     server.wait_for_unit(f"minecraft-server-{name}.service")
     server.wait_for_open_port(25565)
     server.wait_until_succeeds(grep_logs("Done ([0-9.]\+s)! For help, type \"help\""), timeout=30)
+
+    # Check that de-opping works (ops.json is mutable as expected)
+    server.succeed(server_cmd("deop Misterio7x"))
+    server.wait_until_succeeds(grep_logs("Made Misterio7x no longer a server operator"), timeout=3)
   '';
 }
