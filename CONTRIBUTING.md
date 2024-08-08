@@ -64,6 +64,13 @@ This is linted by a PR check.
 Please run `nix flake check` before submitting a PR.
 This will run some basic package tests, as well as check formatting.
 
+## PR Ettique/Policies
+
+### Including Upstream Changes
+
+Please rebase on top of master to include upstream changes, instead of merging in upstream changes.
+This helps keep the commit history of your PR clean.
+
 ## Meta files
 
 ### Changelog
