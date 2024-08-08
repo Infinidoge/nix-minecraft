@@ -40,7 +40,7 @@ For tests, the scopes are:
 Otherwise:
 
 - `flake` (Applies to either `flake.nix` or the flake as a whole)
-- `meta` (Changes to documentation about the repository itself. Notably, the readme, todo, and contributing file. Changelog changes should be included in the commit that introduces the relevant change)
+- `meta` (Changes to documentation about the repository itself, or repository configuration files like `.gitignore`. Notably, the readme, todo, and contributing file. Changelog changes should be included in the commit that introduces the relevant change)
 - `bump` (Bumps the version of something)
 
 ### Message
