@@ -14,8 +14,11 @@
 }:
 
 let
+  inherit (builtins) head filter map match;
+
   lib_lock = lib.importJSON ./libraries.json;
   fetchedLibraries = lib.forEach libraries (l: fetchurl lib_lock.${l});
+  asmVersion = head (head (filter (v: v != null) (map (match "org\\.ow2\\.asm:asm:([\.0-9]+)") libraries)));
 in
 stdenvNoCC.mkDerivation {
   pname = "${loaderName}-server-launch.jar";
@@ -33,7 +36,7 @@ stdenvNoCC.mkDerivation {
     Manifest-Version: 1.0
     Main-Class: ${serverLaunch}
     Name: org/objectweb/asm/
-    Implementation-Version: 9.2
+    Implementation-Version: ${asmVersion}
     EOF
 
     ${
