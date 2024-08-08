@@ -2,10 +2,10 @@
 
 ## About
 
-`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem.
+`nix-minecraft` is an attempt to better package and support Minecraft as part of the Nix ecosystem, focusing on the server-side.
 As of currently, it packages:
 
-- All versions of Vanilla
+- All versions of Vanilla servers
 - All supported versions of the following mod/plugin loaders/servers:
   - Fabric
   - Legacy Fabric
