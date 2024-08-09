@@ -1533,6 +1533,11 @@
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/413/downloads/velocity-3.3.0-SNAPSHOT-413.jar",
       "sha256": "8c4a6ef056cd546f162f369f4431957f05cdf1b9d7c26620f469c17a46895ca9",
       "channel": "default"
+    },
+    "414": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.3.0-SNAPSHOT/builds/414/downloads/velocity-3.3.0-SNAPSHOT-414.jar",
+      "sha256": "018d2e700dc9802008151201736866abe1a51eb1984e7354f0dc30e8fb4ab1b3",
+      "channel": "default"
     }
   }
 }
