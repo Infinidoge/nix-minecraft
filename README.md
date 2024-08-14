@@ -17,6 +17,8 @@ As of currently, it packages:
   - `nix-modrinth-prefetch`
   - `fetchPackwizModpack`
 
+Check out this video by vimjoyer that provides a brief overview of how to use the flake: https://youtu.be/Fph7SMldxpI
+
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md).
