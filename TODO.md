@@ -20,6 +20,7 @@
 
 - Turn into a full-fledged derivation instead of using `writeShellScriptBin`
 - Merge with [mkTextileLoader](./pkgs/build-support/mkTextileLoader.nix)?
+- Use jar ClassPath instead of unpacking libraries.
 
 ### DRY Update Scripts
 
@@ -30,3 +31,6 @@
 
 - [ ] Fetch Quilt server launcher main class from API
 - [ ] Check requested Java version to ensure jre_headless is new enough
+- [ ] Add a packwiz pack function that uses local files instead of a pack URL
+- [ ] Create a new `fetchModrinthMod` using a fixed-output derivation
+- [ ] Create a new `fetchCurseForgeMod` using a fixed-output derivation
