@@ -4893,5 +4893,35 @@
     "name": "hashed-1.21.1.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.1/hashed-1.21.1.jar",
     "sha256": "1jr4jgnmkl8785rx08gyn27vsiwkd4mcwksxr8q8v6idp2kg7dpg"
+  },
+  "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7": {
+    "name": "sponge-mixin-0.15.2+mixin.0.8.7.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar",
+    "sha256": "1i8mbnrxsl1fj5nhs9l6i449kxwcfh1nh9vlvhwanbjamviwyi8x"
+  },
+  "net.fabricmc:fabric-loader:0.16.2": {
+    "name": "fabric-loader-0.16.2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.2/fabric-loader-0.16.2.jar",
+    "sha256": "14vmv0f3p0ays9lfi6jy2vwg0z0rckh2y3yjkygknfzalmcy6kg2"
+  },
+  "net.fabricmc:sponge-mixin:0.15.1+mixin.0.8.7": {
+    "name": "sponge-mixin-0.15.1+mixin.0.8.7.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.15.1+mixin.0.8.7/sponge-mixin-0.15.1+mixin.0.8.7.jar",
+    "sha256": "1i3wa1qkbk244zx97hdsdikcg96lcjkvxnnkdmrdv0y1vr7bjqlz"
+  },
+  "net.fabricmc:fabric-loader:0.16.1": {
+    "name": "fabric-loader-0.16.1.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.1/fabric-loader-0.16.1.jar",
+    "sha256": "1r1myh2llv1y3m487ickylk0s48h21vsgffk245481896p9ggb7i"
+  },
+  "net.fabricmc:intermediary:24w33a": {
+    "name": "intermediary-24w33a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/24w33a/intermediary-24w33a.jar",
+    "sha256": "086czflsgd13i257wbishn3nyyj8lzpi4f5qw00q4ang1wpd8x67"
+  },
+  "org.quiltmc:hashed:24w33a": {
+    "name": "hashed-24w33a.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/24w33a/hashed-24w33a.jar",
+    "sha256": "1lif4c8z5sqxiw6lkj0x27cx3llwphh42bcn4hbyy60mka9hs5iv"
   }
 }
