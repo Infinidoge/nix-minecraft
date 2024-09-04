@@ -4968,5 +4968,15 @@
     "name": "hashed-24w35a.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/24w35a/hashed-24w35a.jar",
     "sha256": "0fmkd6448w76ri534aiximf931rlfb7cagr5zsmp5w4hywm0ifym"
+  },
+  "net.fabricmc:sponge-mixin:0.15.3+mixin.0.8.7": {
+    "name": "sponge-mixin-0.15.3+mixin.0.8.7.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.15.3+mixin.0.8.7/sponge-mixin-0.15.3+mixin.0.8.7.jar",
+    "sha256": "1zanpsvslha2rrn214y2jnn6clgvxcbzdvmhvnklbr05i7lkaxqa"
+  },
+  "net.fabricmc:fabric-loader:0.16.4": {
+    "name": "fabric-loader-0.16.4.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.4/fabric-loader-0.16.4.jar",
+    "sha256": "0x6ql9wb9lm7pfsxawpdnc8qqm6zdjblw333548chy8qr0n2wfgx"
   }
 }
