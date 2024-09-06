@@ -4978,5 +4978,10 @@
     "name": "fabric-loader-0.16.4.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.4/fabric-loader-0.16.4.jar",
     "sha256": "0x6ql9wb9lm7pfsxawpdnc8qqm6zdjblw333548chy8qr0n2wfgx"
+  },
+  "net.fabricmc:intermediary:24w36a": {
+    "name": "intermediary-24w36a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/24w36a/intermediary-24w36a.jar",
+    "sha256": "0qx4wrwacnsryspawcf17yyb5k0zgyrlqnhz7yvrmmsf01hwijgz"
   }
 }
