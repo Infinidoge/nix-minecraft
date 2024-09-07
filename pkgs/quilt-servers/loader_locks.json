@@ -3982,5 +3982,22 @@
       "org.quiltmc:quilt-config:1.3.1",
       "org.quiltmc:quilt-loader:0.26.4-beta.4"
     ]
+  },
+  "0.26.4-beta.6": {
+    "mainClass": "org.quiltmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "net.fabricmc:tiny-mappings-parser:0.3.0+build.17",
+      "net.fabricmc:sponge-mixin:0.15.3+mixin.0.8.7",
+      "net.fabricmc:tiny-remapper:0.10.4",
+      "net.fabricmc:access-widener:2.1.0",
+      "org.quiltmc:quilt-json5:1.0.4+final",
+      "org.ow2.asm:asm:9.6",
+      "org.ow2.asm:asm-analysis:9.6",
+      "org.ow2.asm:asm-commons:9.6",
+      "org.ow2.asm:asm-tree:9.6",
+      "org.ow2.asm:asm-util:9.6",
+      "org.quiltmc:quilt-config:1.3.1",
+      "org.quiltmc:quilt-loader:0.26.4-beta.6"
+    ]
   }
 }
