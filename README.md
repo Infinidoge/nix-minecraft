@@ -208,9 +208,8 @@ All of these packages are also available under `packages`, not just `legacyPacka
 - `velocity-server`: Same as `velocityServers.velocity`
 - `minecraft-server`: Same as `vanilla-server`
 
-Server versions not found above can be manually via an override.
-This override changes the path the launch script uses to your provided jar file, and does not modify the vanilla jar.
-In this example, uberbukkit.jar exists next to this configuration:
+Server versions not found above can be setup manually via an override.
+For example, this override changes the path the launch script uses to your provided jar file, and does not modify the vanilla jar:
 
 ```nix
 let
