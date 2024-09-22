@@ -378,6 +378,52 @@ in
             '';
           };
 
+          operators = mkOption {
+            type =
+              let
+                minecraftUUID = types.strMatching
+                  "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" // {
+                  description = "Minecraft UUID";
+                };
+              in
+              types.attrsOf (types.coercedTo minecraftUUID (v: { uuid = v; }) (types.submodule {
+                options = {
+                  uuid = mkOption {
+                    type = minecraftUUID;
+                    description = "The operator's UUID";
+                    example = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+                  };
+                  level = mkOption {
+                    type = types.ints.between 0 4;
+                    description = "The operator's permission level";
+                    default = 4;
+                  };
+                  bypassesPlayerLimit = mkOption {
+                    type = types.bool;
+                    description = "If true, the operator can join the server even if the player limit has been reached";
+                    default = false;
+                  };
+                };
+              }));
+            default = { };
+            description = ''
+              Server operators. See <link xlink:href="https://minecraft.wiki/w/Ops.json_format"/>.
+
+              To use a non-declarative operator list, don't fill in this value.
+              As long as it is empty, no operators file is generated.
+            '';
+            example = literalExpression ''
+              {
+                username1 = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+                username2 = { 
+                  uuid = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy";
+                  level = 3;
+                  bypassesPlayerLimit = true;
+                };
+              }
+            '';
+          };
+
           serverProperties = mkOption {
             type = with types; attrsOf (oneOf [ bool int str ]);
             default = { };
@@ -550,6 +596,7 @@ in
             } // conf.symlinks);
             files = normalizeFiles ({
               "whitelist.json".value = mapAttrsToList (n: v: { name = n; uuid = v; }) conf.whitelist;
+              "ops.json".value = mapAttrsToList (n: v: { name = n; uuid = v.uuid; level = v.level; bypassesPlayerLimit = v.bypassesPlayerLimit; }) conf.operators;
               "server.properties".value = conf.serverProperties;
             } // conf.files);
 
