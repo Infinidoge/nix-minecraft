@@ -42,6 +42,13 @@ let
     then formatExtensions.${head extension} or error
     else error;
 
+  txtList =
+    { }:
+    {
+      type = with lib.types; listOf str;
+      generate = name: value: pkgs.writeText name (lib.concatStringsSep "\n" value);
+    };
+
   formatExtensions = with pkgs.formats; {
     "yml" = yaml { };
     "yaml" = yaml { };
@@ -50,6 +57,7 @@ let
     "properties" = keyValue { };
     "toml" = toml { };
     "ini" = ini { };
+    "txt" = txtList { };
   };
 
   configType = types.submodule {
