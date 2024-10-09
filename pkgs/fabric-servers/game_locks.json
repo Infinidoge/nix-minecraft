@@ -1863,5 +1863,10 @@
     "libraries": [
       "net.fabricmc:intermediary:24w40a"
     ]
+  },
+  "1.21.2-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.2-pre1"
+    ]
   }
 }
