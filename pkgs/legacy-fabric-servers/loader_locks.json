@@ -664,5 +664,17 @@
       "net.fabricmc:sponge-mixin:0.15.3+mixin.0.8.7",
       "net.fabricmc:fabric-loader:0.16.5"
     ]
+  },
+  "0.16.6": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "org.ow2.asm:asm:9.7.1",
+      "org.ow2.asm:asm-analysis:9.7.1",
+      "org.ow2.asm:asm-commons:9.7.1",
+      "org.ow2.asm:asm-tree:9.7.1",
+      "org.ow2.asm:asm-util:9.7.1",
+      "net.fabricmc:sponge-mixin:0.15.3+mixin.0.8.7",
+      "net.fabricmc:fabric-loader:0.16.6"
+    ]
   }
 }

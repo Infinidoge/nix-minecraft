@@ -5058,5 +5058,35 @@
     "name": "hashed-1.21.2-pre1.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.2-pre1/hashed-1.21.2-pre1.jar",
     "sha256": "08r0c3lbhhvycl2dyh0c2584d9w9aazzfdzz67ljrl2ll9hq8j7n"
+  },
+  "org.ow2.asm:asm:9.7.1": {
+    "name": "asm-9.7.1.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar",
+    "sha256": "109jf45p87689kmyvirrj6xl180pp4wcmv7s0pg0jvgbqlxd9bcc"
+  },
+  "org.ow2.asm:asm-analysis:9.7.1": {
+    "name": "asm-analysis-9.7.1.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.7.1/asm-analysis-9.7.1.jar",
+    "sha256": "1why0hpcq71xp8p1arvs4v1p5q945hy348nzdsvip8sbi1qr7cl5"
+  },
+  "org.ow2.asm:asm-commons:9.7.1": {
+    "name": "asm-commons-9.7.1.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.7.1/asm-commons-9.7.1.jar",
+    "sha256": "1866vv6lj45xkd2kmb5mqa95aqwwfga3ycflf7hrpbcjs9a9nmws"
+  },
+  "org.ow2.asm:asm-tree:9.7.1": {
+    "name": "asm-tree-9.7.1.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.7.1/asm-tree-9.7.1.jar",
+    "sha256": "07xlsg1932cp81xgsvaf20fp5kjrgg3p0ifmhq788szbb4gqhacr"
+  },
+  "org.ow2.asm:asm-util:9.7.1": {
+    "name": "asm-util-9.7.1.zip",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.7.1/asm-util-9.7.1.jar",
+    "sha256": "1ij3rg1vxpg4dxk4cza9gh2rd6xjfs94y75dy7smc1f9nmqvx1gq"
+  },
+  "net.fabricmc:fabric-loader:0.16.6": {
+    "name": "fabric-loader-0.16.6.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.6/fabric-loader-0.16.6.jar",
+    "sha256": "1bh1076vj3vwd6530r961466l85pqh1ncayrxfvbc9jix5lwd9kr"
   }
 }
