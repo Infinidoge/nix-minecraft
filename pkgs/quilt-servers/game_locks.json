@@ -958,5 +958,11 @@
       "net.fabricmc:intermediary:1.21.2-pre4",
       "org.quiltmc:hashed:1.21.2-pre4"
     ]
+  },
+  "1.21.2-pre5": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.2-pre5",
+      "org.quiltmc:hashed:1.21.2-pre5"
+    ]
   }
 }
