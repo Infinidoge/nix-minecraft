@@ -1898,5 +1898,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.21.2-rc2"
     ]
+  },
+  "1.21.2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.2"
+    ]
   }
 }
