@@ -1903,5 +1903,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.21.2"
     ]
+  },
+  "1.21.3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.3"
+    ]
   }
 }
