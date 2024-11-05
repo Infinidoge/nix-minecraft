@@ -5198,5 +5198,10 @@
     "name": "intermediary-24w44a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/24w44a/intermediary-24w44a.jar",
     "sha256": "0d5knq5zyhwh12rxwniclrbmhdv0nvq55flzlljajs0c8h34vx97"
+  },
+  "org.quiltmc:hashed:24w44a": {
+    "name": "hashed-24w44a.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/24w44a/hashed-24w44a.jar",
+    "sha256": "04a5sgc7l062blcw7jsrbkpdlmi7bni6yhjaxkky6240bixvaknx"
   }
 }
