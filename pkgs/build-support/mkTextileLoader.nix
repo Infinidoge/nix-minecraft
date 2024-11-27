@@ -51,8 +51,8 @@ stdenvNoCC.mkDerivation {
   '';
 
   installPhase = ''
+    rm -f META-INF/*.{SF,RSA,DSA}
     jar cmvf META-INF/MANIFEST.MF "server.jar" .
-    zip -d server.jar 'META-INF/*.SF' 'META-INF/*.RSA' 'META-INF/*.DSA'
     cp server.jar "$out"
   '';
 
