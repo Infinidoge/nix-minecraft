@@ -1933,5 +1933,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.21.4-pre2"
     ]
+  },
+  "1.21.4-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.4-pre3"
+    ]
   }
 }
