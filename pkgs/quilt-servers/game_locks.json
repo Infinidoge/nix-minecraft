@@ -1030,5 +1030,11 @@
       "net.fabricmc:intermediary:1.21.4-rc1",
       "org.quiltmc:hashed:1.21.4-rc1"
     ]
+  },
+  "1.21.4-rc2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.4-rc2",
+      "org.quiltmc:hashed:1.21.4-rc2"
+    ]
   }
 }
