@@ -1953,5 +1953,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.21.4-rc2"
     ]
+  },
+  "1.21.4": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.4"
+    ]
   }
 }
