@@ -5303,5 +5303,20 @@
     "name": "hashed-1.21.4.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.4/hashed-1.21.4.jar",
     "sha256": "1dq56s6gvg6za9bi9lzlbr6yymvg9vgwdv18wn1dqfqjyqn7hsk1"
+  },
+  "org.quiltmc:quilt-loader:0.28.0-beta.2": {
+    "name": "quilt-loader-0.28.0-beta.2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.28.0-beta.2/quilt-loader-0.28.0-beta.2.jar",
+    "sha256": "0mvrwm4ddb0l20wsxq4w4a6g52anhdyg7nr4bjps4wy09bldrfcz"
+  },
+  "org.quiltmc:quilt-loader:0.28.0-beta.1": {
+    "name": "quilt-loader-0.28.0-beta.1.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.28.0-beta.1/quilt-loader-0.28.0-beta.1.jar",
+    "sha256": "05v08fnxp5bmw0p8qzx1kqmmb9sq88l4l2h2s8693snykifkidwf"
+  },
+  "org.quiltmc:quilt-loader:0.27.1": {
+    "name": "quilt-loader-0.27.1.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.27.1/quilt-loader-0.27.1.jar",
+    "sha256": "0fx0ij8mnx1cbp441qsy2s491d9pwlkrx6qqvi8c08h5xqhpbcmx"
   }
 }
