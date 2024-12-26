@@ -475,9 +475,15 @@ in
             arbitrary files in the server's data directory.
           '';
           files = with types; mkOpt' (attrsOf (either path configType)) { } ''
-            Things to copy into this server's data directory. Similar to
-            symlinks, but these are actual files. Useful for configuration
-            files that don't behave well when read-only.
+            Things to copy into this server's data directory. Similar to symlinks,
+            but these are actual, writable, files. Useful for configuration files
+            that don't behave well when read-only. Directories are copied recursively and
+            dereferenced. They will be deleted after the server stops, so any modification
+            is discarded.
+
+            These files may include placeholders to substitute with values from
+            <option>services.minecraft-servers.environmentFile</option>
+            (i.e. @variable_name@).
           '';
 
           managementSystem = mkOption {
