@@ -602,45 +602,62 @@ in
 
             msConfig = managementSystemConfig name conf;
 
+            markManaged = file: ''echo "${file}" >> .nix-minecraft-managed'';
+            cleanAllManaged = ''
+              if [ -e .nix-minecraft-managed ]; then
+                readarray -t to_delete < .nix-minecraft-managed
+                rm -rf "''${to_delete[@]}"
+                rm .nix-minecraft-managed
+              fi
+            '';
+
+
             ExecStartPre =
               let
+                backup = file: ''
+                  if [[ -e "${file}" ]]; then
+                    echo "${file} already exists, moving"
+                    mv "${file}" "${file}.bak"
+                  fi
+                '';
                 mkSymlinks = concatStringsSep "\n"
                   (mapAttrsToList
                     (n: v: ''
-                      if [[ -L "${n}" ]]; then
-                        unlink "${n}"
-                      elif [[ -e "${n}" ]]; then
-                        echo "${n} already exists, moving"
-                        mv "${n}" "${n}.bak"
-                      fi
+                      ${backup n}
                       mkdir -p "$(dirname "${n}")"
+
                       ln -sf "${v}" "${n}"
+
+                      ${markManaged n}
                     '')
                     symlinks);
 
                 mkFiles = concatStringsSep "\n"
                   (mapAttrsToList
                     (n: v: ''
-                      if [[ -L "${n}" ]]; then
-                        unlink "${n}"
-                      elif ${pkgs.diffutils}/bin/cmp -s "${n}" "${v}"; then
-                        rm "${n}"
-                      elif [[ -e "${n}" ]]; then
-                        echo "${n} already exists, moving"
-                        mv "${n}" "${n}.bak"
-                      fi
+                      ${backup n}
                       mkdir -p "$(dirname "${n}")"
-                      ${pkgs.gawk}/bin/awk '{
-                        for(varname in ENVIRON)
-                          gsub("@"varname"@", ENVIRON[varname])
-                        print
-                      }' "${v}" > "${n}"
+
+                      # If it's not a binary, substitute env vars. Else, copy it normally
+                      if ${pkgs.file}/bin/file --mime-encoding "${v}" | grep -v '\bbinary$' -q; then
+                        ${pkgs.gawk}/bin/awk '{
+                          for(varname in ENVIRON)
+                            gsub("@"varname"@", ENVIRON[varname])
+                          print
+                        }' "${v}" > "${n}"
+                      else
+                        cp -r --dereference "${v}" -T "${n}"
+                        chmod +w -R "${n}"
+                      fi
+
+                      ${markManaged n}
                     '')
                     files);
               in
               getExe (pkgs.writeShellApplication {
                 name = "minecraft-server-${name}-start-pre";
                 text = ''
+                  ${cleanAllManaged}
                   ${mkSymlinks}
                   ${mkFiles}
                   ${conf.extraStartPre}
@@ -672,21 +689,13 @@ in
               '';
             });
 
-            ExecStopPost =
-              let
-                rmSymlinks = concatStringsSep "\n"
-                  (mapAttrsToList (n: v: "unlink \"${n}\"") symlinks);
-                rmFiles = concatStringsSep "\n"
-                  (mapAttrsToList (n: v: "rm -f \"${n}\"") files);
-              in
-              getExe (pkgs.writeShellApplication {
-                name = "minecraft-server-${name}-stop-post";
-                text = ''
-                  ${rmSymlinks}
-                  ${rmFiles}
-                  ${conf.extraStopPost}
-                '';
-              });
+            ExecStopPost = getExe (pkgs.writeShellApplication {
+              name = "minecraft-server-${name}-stop-post";
+              text = ''
+                ${cleanAllManaged}
+                ${conf.extraStopPost}
+              '';
+            });
 
             ExecReload = getExe (pkgs.writeShellApplication {
               name = "minecraft-server-${name}-reload";
