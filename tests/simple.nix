@@ -37,5 +37,6 @@ testers.nixosTest {
       server.wait_for_unit(f"minecraft-server-{name}.service")
       server.wait_for_open_port(25565)
       server.wait_until_succeeds(grep_logs("Done ([0-9.]\+s)! For help, type \"help\""), timeout=30)
+      server.succeed(f"test -e /srv/minecraft/{name}/allowed_symlinks.txt")
     '';
 }
