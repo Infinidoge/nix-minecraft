@@ -146,13 +146,56 @@ in
     symlinks = {
       "mods" = "${modpack}/mods";
     };
+    files = {
+      "config" = "${modpack}/config";
+      "config/mod1.yml" = "${modpack}/config/mod1.yml";
+      "config/mod2.conf" = "${modpack}/config/mod2.conf";
+      # You can add files not on the modpack, of course
+      "config/server-specific.conf".value = {
+        example = "foo-bar";
+      };
+    };
   };
 }
 ```
 
-This will symlink the modpack's final `mods` directory into the server's `mods` directory. You can also do this for `config`, or any files in the modpack you're interested in, in a granular way.
+This will symlink the modpack's final `mods` directory into the server's `mods` directory, and copy the specified config files into `config`. You can also do this for any files in the modpack you're interested in, in a granular way.
 
 **Note**: Be sure to use a stable URL (e.g. a git tag/commit) to the manifest, as it changing will cause the derivation to generate a different hash, breaking the build until you change it.
+
+Adding config files one by-one is boring. Trying to include an additional mod will also fail, as `mods` is read-only and symlinked as is. To solve these issues, this flake provides a `collectFilesAt` function, that recursively collects every file on the given directory (e.g. `config`), and returns an attribute set in the format `symlinks`/`files` expects. For example:
+
+```nix
+{ inputs, ... }:
+let
+  inherit (inputs.nix-minecraft.lib) collectFilesAt;
+  modpack = pkgs.fetchPackwizModpack {
+    url = "https://github.com/Misterio77/Modpack/raw/0.2.9/pack.toml";
+    packHash = "sha256-L5RiSktqtSQBDecVfGj1iDaXV+E90zrNEcf4jtsg+wk=";
+  };
+in
+{
+  services.minecraft-servers.servers.cool-modpack = {
+    enable = true;
+    package = pkgs.fabricServers.fabric-1_18_2-0_14_9;
+    symlinks = collectFilesAt modpack "mods" // {
+      "mods/FabricProxy-lite.jar" = pkgs.fetchurl rec {
+        pname = "FabricProxy-Lite";
+        version = "1.1.6";
+        url = "https://cdn.modrinth.com/data/8dI2tmqs/versions/v${version}/${pname}-${version}.jar";
+        hash = "sha256-U+nXvILXlYdx0vgomVDkKxj0dGCtw60qW22EK4FhAJk=";
+      };
+    };
+    files = collectFilesAt modpack "config" // {
+      "config/server-specific.conf".value = {
+        example = "foo-bar";
+      };
+    };
+  };
+}
+```
+
+**Note**: Calling `collectFilesAt` on a derivation (e.g. the modpack) will cause [IFD](https://nixos.wiki/wiki/Import_From_Derivation).
 
 The built modpack also exports a `manifest` attribute, that allows you to get any information from its `pack.toml` file, such as the MC or Modloader version. You can, this way, always sync the server's version with the one the modpack recommends:
 
@@ -178,24 +221,6 @@ in
 ```
 
 **Note**: Using `manifest`, by default, will cause [IFD](https://nixos.wiki/wiki/Import_From_Derivation). If you want to avoid IFD while still having access to `manifest`, simply pass a `manifestHash` to the `fetchPackwizModpack` function, it will then fetch the manifest through `builtins.fetchurl`.
-
-Additionally, you can override/add files (e.g. server-specific mods) on the pack through `addFiles`. For example:
-
-```nix
-let
-  modpack = (pkgs.fetchPackwizModpack {
-    url = "https://github.com/Misterio77/Modpack/raw/0.2.9/pack.toml";
-    packHash = "sha256-L5RiSktqtSQBDecVfGj1iDaXV+E90zrNEcf4jtsg+wk=";
-  }).addFiles {
-    "mods/FabricProxy-lite.jar" = pkgs.fetchurl rec {
-      pname = "FabricProxy-Lite";
-      version = "1.1.6";
-      url = "https://cdn.modrinth.com/data/8dI2tmqs/versions/v${version}/${pname}-${version}.jar";
-      hash = "sha256-U+nXvILXlYdx0vgomVDkKxj0dGCtw60qW22EK4FhAJk=";
-    };
-  };
-in
-```
 
 ### Others
 

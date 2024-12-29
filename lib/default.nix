@@ -21,6 +21,7 @@ let
     stringToCharacters
     take
     versionOlder
+    nameValuePair
     ;
   inherit (builtins)
     match
@@ -76,4 +77,18 @@ rec {
       files = filterAttrs seive (readDir dirPath);
     in
     filterAttrs (n: v: v != { }) (mapAttrs' collect files);
+
+  # Same as collectFiles, but only gathers files from a specific subdirectory
+  # (e.g. "config")
+  collectFilesAt = path: subdir: mapAttrs' (n: nameValuePair ("${subdir}/${n}")) (collectFiles "${path}/${subdir}");
+
+  # Get all files from a path (e.g. a modpack derivation) and return them in the
+  # format expected by the files/symlinks module options.
+  collectFiles = let
+    mapListToAttrs = fn: fv: list:
+      lib.listToAttrs (map (x: nameValuePair (fn x) (fv x)) list);
+  in path:
+    mapListToAttrs
+    (x: builtins.unsafeDiscardStringContext (lib.removePrefix "${path}/" x))
+    (lib.id) (lib.filesystem.listFilesRecursive "${path}");
 })
