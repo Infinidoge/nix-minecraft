@@ -51,5 +51,10 @@ nixosTest {
     # Check that de-opping works (ops.json is mutable as expected)
     server.succeed(server_cmd("deop Misterio7x"))
     server.wait_until_succeeds(grep_logs("Made Misterio7x no longer a server operator"), timeout=3)
+
+    # Check that cleanup works
+    server.wait_until_succeeds(f"systemctl stop minecraft-server-{name}.service")
+    server.fail(f"test -e /srv/minecraft/{name}/cache/mojang_1.19.4.jar")
+    server.fail(f"test -e /srv/minecraft/{name}/ops.json")
   '';
 }
