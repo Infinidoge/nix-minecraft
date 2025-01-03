@@ -19421,6 +19421,10 @@
     "71": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/71/downloads/paper-1.21.4-71.jar",
       "sha256": "7325fa1f2bd2cf629107fa4f75ff0a3e69ab48b127dae99605ad9db7f26954c3"
+    },
+    "72": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/72/downloads/paper-1.21.4-72.jar",
+      "sha256": "acda314d910ede9cd3ad76b910a211d62fad20d5f9d1716176d937466859a8a6"
     }
   }
 }
