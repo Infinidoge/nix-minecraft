@@ -100,6 +100,6 @@
 
       checks = mkTests (pkgs.extend self.outputs.overlays.default) // packages;
 
-      formatter = pkgs.nixpkgs-fmt;
+      formatter = pkgs.nixfmt-rfc-style;
     });
 }
