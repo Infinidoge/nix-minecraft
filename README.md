@@ -52,7 +52,9 @@ In your system configuration:
 }
 ```
 
-From there, you can setup the service or use the packages, as described below.
+## Examples
+
+See [examples directory](./examples/).
 
 ## Roadmap
 
