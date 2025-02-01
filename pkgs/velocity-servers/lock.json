@@ -1785,6 +1785,21 @@
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/465/downloads/velocity-3.4.0-SNAPSHOT-465.jar",
       "sha256": "d7b3801a4214b1c96109192a2e49c9978e1dab4ca3d3e591f7c139703a8a059c",
       "channel": "default"
+    },
+    "466": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/466/downloads/velocity-3.4.0-SNAPSHOT-466.jar",
+      "sha256": "86bfa1bbd9f5bada91d6e6fd367ec6d632ed355f5e5551a47ed1410b857ecd4c",
+      "channel": "default"
+    },
+    "467": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/467/downloads/velocity-3.4.0-SNAPSHOT-467.jar",
+      "sha256": "55e027965e4773b8a339babe7986f70e77c217243e85415f3aad682d8451be9e",
+      "channel": "default"
+    },
+    "469": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/469/downloads/velocity-3.4.0-SNAPSHOT-469.jar",
+      "sha256": "d314353e91ea88f16a8c30c0187269233e092634ae4a8f7698c7f3953724cd0a",
+      "channel": "default"
     }
   }
 }
