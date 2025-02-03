@@ -54,7 +54,7 @@ In your system configuration:
 
 ## Examples
 
-See [examples directory](./examples/).
+See the [examples directory](./examples/).
 
 ## Roadmap
 

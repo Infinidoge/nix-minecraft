@@ -11,7 +11,7 @@
        jvmOpts = "-Xmx4G -Xms2G";
 
        # Specify the custom minecraft server package
-       package = pkgs.fabricServers.fabric-1_21_1.override { loaderVersion = "0.16.10"; }; # Specific fabric loader version
+       package = pkgs.minecraftServers.vanilla-server;
 
      };
   };
