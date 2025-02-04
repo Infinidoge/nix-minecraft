@@ -8,16 +8,15 @@
 
    outputs = inputs@{ self, nixpkgs, nix-minecraft, ... }: {
       nixosConfigurations."edi" = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-               ./configuration.nix
-               ./minecraft.nix
-               nix-minecraft.nixosModules.minecraft-servers
-               {
-                  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
-               }
-            ];
-         };
+         system = "x86_64-linux";
+         modules = [
+            ./configuration.nix
+            ./minecraft.nix
+            nix-minecraft.nixosModules.minecraft-servers
+            {
+               nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+            }
+         ];
       };
    };
 }
