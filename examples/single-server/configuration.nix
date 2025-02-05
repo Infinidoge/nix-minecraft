@@ -6,7 +6,7 @@
     enable = true;
     eula = true;
     openFirewall = true;
-    servers.fabric = {
+    servers.vanilla = {
        enable = true;
        jvmOpts = "-Xmx4G -Xms2G";
 
