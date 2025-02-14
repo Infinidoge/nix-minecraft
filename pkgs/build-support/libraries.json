@@ -5403,5 +5403,10 @@
     "name": "hashed-25w04a.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w04a/hashed-25w04a.jar",
     "sha256": "0awyhbfxyrlbbspm31qfa2ds0qj4jlwh112bsgmni5m3fabmdmwy"
+  },
+  "net.fabricmc:intermediary:25w07a": {
+    "name": "intermediary-25w07a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w07a/intermediary-25w07a.jar",
+    "sha256": "0g0zqwjk2cvrqb174vmk972cjpx86wnr3q7vn4i6yr58bas6l17h"
   }
 }
