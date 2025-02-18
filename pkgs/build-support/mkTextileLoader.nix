@@ -2,8 +2,7 @@
   lib,
   fetchurl,
   stdenvNoCC,
-  unzip,
-  zip,
+  writeText,
   jre_headless,
   loaderName,
   loaderVersion,
@@ -15,59 +14,39 @@
 }:
 
 let
-  inherit (builtins)
-    head
-    filter
-    map
-    match
-    ;
-
   lib_lock = lib.importJSON ./libraries.json;
-  fetchedLibraries = lib.forEach libraries (l: fetchurl lib_lock.${l});
-  asmVersion = head (
-    head (filter (v: v != null) (map (match "org\\.ow2\\.asm:asm:([\.0-9]+)") libraries))
+  fetchedLibraries = lib.forEach libraries (l: "${fetchurl lib_lock.${l}}");
+
+  version = "${loaderName}-${loaderVersion}-${gameVersion}";
+
+  manifest = writeText "${version}-manifest.mf" (
+    lib.our.wrapJarManifest ''
+      Manifest-Version: 1.0
+      Main-Class: ${serverLaunch}
+      Class-Path: ${lib.concatStringsSep " " fetchedLibraries}
+    ''
   );
+
+  launchProperties = writeText "${loaderName}-server-launch.properties" ''
+    launch.mainClass=${mainClass}
+  '';
 in
 stdenvNoCC.mkDerivation {
   pname = "${loaderName}-server-launch.jar";
-  version = "${loaderName}-${loaderVersion}-${gameVersion}";
-  nativeBuildInputs = [
-    unzip
-    zip
-    jre_headless
-  ];
+  inherit version;
+  name = "${version}-server-launch.jar";
 
-  libraries = fetchedLibraries;
+  nativeBuildInputs = [ jre_headless ];
 
   buildPhase = ''
-    for i in $libraries; do
-      unzip -o $i
-    done
-
-    cat > META-INF/MANIFEST.MF << EOF
-    Manifest-Version: 1.0
-    Main-Class: ${serverLaunch}
-    Name: org/objectweb/asm/
-    Implementation-Version: ${asmVersion}
-    EOF
-
-    ${
-      if mainClass == "" then
-        ""
-      else
-        ''
-          cat > ${loaderName}-server-launch.properties << EOF
-          launch.mainClass=${mainClass}
-          EOF
-        ''
-    }
+    ${lib.optionalString (mainClass != "") "cp ${launchProperties} ."}
 
     ${extraBuildPhase}
   '';
 
   installPhase = ''
-    rm -f META-INF/*.{SF,RSA,DSA}
-    jar cmvf META-INF/MANIFEST.MF "server.jar" .
+    rm env-vars
+    jar cmvf ${manifest} "server.jar" .
     cp server.jar "$out"
   '';
 
