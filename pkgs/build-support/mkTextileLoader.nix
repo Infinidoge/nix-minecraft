@@ -26,10 +26,6 @@ let
       Class-Path: ${lib.concatStringsSep " " fetchedLibraries}
     ''
   );
-
-  launchProperties = writeText "${loaderName}-server-launch.properties" ''
-    launch.mainClass=${mainClass}
-  '';
 in
 stdenvNoCC.mkDerivation {
   pname = "${loaderName}-server-launch.jar";
@@ -39,7 +35,9 @@ stdenvNoCC.mkDerivation {
   nativeBuildInputs = [ jre_headless ];
 
   buildPhase = ''
-    ${lib.optionalString (mainClass != "") "cp ${launchProperties} ."}
+    ${lib.optionalString (mainClass != "") ''
+      echo launch.mainClass=${mainClass} > ${loaderName}-server-launch.properties
+    ''}
 
     ${extraBuildPhase}
   '';
