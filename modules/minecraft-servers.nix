@@ -654,7 +654,7 @@ in
           name: server: {
             name = "minecraft-server-${name}";
             value = {
-              bindsTo = [ "minecraft-server-${name}.service" ];
+              requires = [ "minecraft-server-${name}.service" ];
               partOf = [ "minecraft-server-${name}.service" ];
               socketConfig =
                 let
@@ -822,7 +822,7 @@ in
           value = {
             description = "Minecraft Server ${name}";
             wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
-            bindsTo = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
+            requires = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
             partOf = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
             after = [
               "network.target"
