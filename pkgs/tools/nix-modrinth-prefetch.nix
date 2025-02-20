@@ -1,4 +1,10 @@
-{ runtimeShell, writeShellScriptBin, curl, jq, gnused }:
+{
+  runtimeShell,
+  writeShellScriptBin,
+  curl,
+  jq,
+  gnused,
+}:
 writeShellScriptBin "nix-modrinth-prefetch" ''
   input=$(${curl}/bin/curl --no-progress-meter https://api.modrinth.com/v2/version/$1)
 

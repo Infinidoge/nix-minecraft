@@ -1,7 +1,8 @@
-{ callPackage
-, lib
-, jre8_headless
-, jre_headless
+{
+  callPackage,
+  lib,
+  jre8_headless,
+  jre_headless,
 }:
 let
   versions = lib.importJSON ./versions.json;
@@ -13,18 +14,17 @@ let
   # TODO: Assert that jre_headless >= java version
   getJavaVersion = v: if v == 8 then jre8_headless else jre_headless;
 
-  packages = lib.mapAttrs'
-    (version: value: {
-      name = "vanilla-${lib.our.escapeVersion version}";
-      value = callPackage ./derivation.nix {
-        inherit (value) version url sha1;
-        jre_headless = getJavaVersion value.javaVersion;
-      };
-    })
-    versions;
+  packages = lib.mapAttrs' (version: value: {
+    name = "vanilla-${lib.our.escapeVersion version}";
+    value = callPackage ./derivation.nix {
+      inherit (value) version url sha1;
+      jre_headless = getJavaVersion value.javaVersion;
+    };
+  }) versions;
 in
 lib.recurseIntoAttrs (
-  packages // {
+  packages
+  // {
     vanilla = builtins.getAttr "vanilla-${lib.our.escapeVersion (lib.our.latestVersion versions)}" packages;
   }
 )

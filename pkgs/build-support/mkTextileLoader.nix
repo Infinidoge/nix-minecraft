@@ -1,29 +1,41 @@
-{ lib
-, fetchurl
-, stdenvNoCC
-, unzip
-, zip
-, jre_headless
-, loaderName
-, loaderVersion
-, gameVersion
-, serverLaunch
-, mainClass ? ""
-, libraries
-, extraBuildPhase ? ""
+{
+  lib,
+  fetchurl,
+  stdenvNoCC,
+  unzip,
+  zip,
+  jre_headless,
+  loaderName,
+  loaderVersion,
+  gameVersion,
+  serverLaunch,
+  mainClass ? "",
+  libraries,
+  extraBuildPhase ? "",
 }:
 
 let
-  inherit (builtins) head filter map match;
+  inherit (builtins)
+    head
+    filter
+    map
+    match
+    ;
 
   lib_lock = lib.importJSON ./libraries.json;
   fetchedLibraries = lib.forEach libraries (l: fetchurl lib_lock.${l});
-  asmVersion = head (head (filter (v: v != null) (map (match "org\\.ow2\\.asm:asm:([\.0-9]+)") libraries)));
+  asmVersion = head (
+    head (filter (v: v != null) (map (match "org\\.ow2\\.asm:asm:([\.0-9]+)") libraries))
+  );
 in
 stdenvNoCC.mkDerivation {
   pname = "${loaderName}-server-launch.jar";
   version = "${loaderName}-${loaderVersion}-${gameVersion}";
-  nativeBuildInputs = [ unzip zip jre_headless ];
+  nativeBuildInputs = [
+    unzip
+    zip
+    jre_headless
+  ];
 
   libraries = fetchedLibraries;
 
@@ -40,11 +52,14 @@ stdenvNoCC.mkDerivation {
     EOF
 
     ${
-      if mainClass == "" then "" else ''
-        cat > ${loaderName}-server-launch.properties << EOF
-        launch.mainClass=${mainClass}
-        EOF
-      ''
+      if mainClass == "" then
+        ""
+      else
+        ''
+          cat > ${loaderName}-server-launch.properties << EOF
+          launch.mainClass=${mainClass}
+          EOF
+        ''
     }
 
     ${extraBuildPhase}
@@ -56,14 +71,19 @@ stdenvNoCC.mkDerivation {
     cp server.jar "$out"
   '';
 
-  phases = [ "buildPhase" "installPhase" ];
+  phases = [
+    "buildPhase"
+    "installPhase"
+  ];
 
   passthru = {
     inherit loaderName loaderVersion gameVersion;
-    propertyPrefix = {
-      "fabric" = "fabric";
-      "legacy-fabric" = "fabric";
-      "quilt" = "loader";
-    }.${loaderName};
+    propertyPrefix =
+      {
+        "fabric" = "fabric";
+        "legacy-fabric" = "fabric";
+        "quilt" = "loader";
+      }
+      .${loaderName};
   };
 }

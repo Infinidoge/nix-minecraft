@@ -1,4 +1,14 @@
-{ lib, stdenvNoCC, fetchurl, nixosTests, jre_headless, version, url, sha256, channel ? "default" }:
+{
+  lib,
+  stdenvNoCC,
+  fetchurl,
+  nixosTests,
+  jre_headless,
+  version,
+  url,
+  sha256,
+  channel ? "default",
+}:
 stdenvNoCC.mkDerivation {
   pname = "velocity";
   inherit version;

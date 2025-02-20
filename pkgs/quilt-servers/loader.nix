@@ -1,7 +1,8 @@
-{ lib
-, mkTextileLoader
-, loaderVersion
-, gameVersion
+{
+  lib,
+  mkTextileLoader,
+  loaderVersion,
+  gameVersion,
 }:
 let
   loader_lock = (lib.importJSON ./loader_locks.json).${loaderVersion};
