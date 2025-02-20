@@ -822,7 +822,8 @@ in
           value = {
             description = "Minecraft Server ${name}";
             wantedBy = mkIf conf.autoStart [ "multi-user.target" ];
-            requires = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
+            bindsTo = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
+            partOf = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
             after = [
               "network.target"
             ] ++ optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
