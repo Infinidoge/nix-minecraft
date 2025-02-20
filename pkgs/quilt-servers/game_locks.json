@@ -1084,5 +1084,11 @@
       "net.fabricmc:intermediary:25w07a",
       "org.quiltmc:hashed:25w07a"
     ]
+  },
+  "25w08a": {
+    "libraries": [
+      "net.fabricmc:intermediary:25w08a",
+      "org.quiltmc:hashed:25w08a"
+    ]
   }
 }
