@@ -655,6 +655,7 @@ in
             name = "minecraft-server-${name}";
             value = {
               bindsTo = [ "minecraft-server-${name}.service" ];
+              partOf = [ "minecraft-server-${name}.service" ];
               socketConfig =
                 let
                   socketConf = server.managementSystem.systemd-socket.stdinSocket;
