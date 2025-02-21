@@ -6,6 +6,7 @@
   jre_headless,
   loaderName,
   loaderVersion,
+  launchPrefix ? loaderName,
   gameVersion,
   serverLaunch,
   mainClass ? "",
@@ -34,7 +35,7 @@ stdenvNoCC.mkDerivation {
 
   buildPhase = ''
     ${lib.optionalString (mainClass != "") ''
-      echo launch.mainClass=${mainClass} > ${loaderName}-server-launch.properties
+      echo launch.mainClass=${mainClass} > ${launchPrefix}-server-launch.properties
     ''}
 
     ${extraBuildPhase}
