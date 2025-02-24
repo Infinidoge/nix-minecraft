@@ -56,7 +56,7 @@ There are no particular rules for the body. If something deserves an explanation
 
 ## Formatting
 
-All files should be formatted with `nixpkgs-fmt`.
+All files should be formatted with `nixfmt-rfc-style`.
 This is linted by a PR check.
 
 ## Checks
