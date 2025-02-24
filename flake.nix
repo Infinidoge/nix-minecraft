@@ -42,14 +42,21 @@
           quiltServers = callPackage ./pkgs/quilt-servers { inherit vanillaServers; };
           legacyFabricServers = callPackage ./pkgs/legacy-fabric-servers { inherit vanillaServers; };
           paperServers = callPackage ./pkgs/paper-servers { inherit vanillaServers; };
+          purpurServers = callPackage ./pkgs/purpur-servers { inherit vanillaServers; };
           velocityServers = callPackage ./pkgs/velocity-servers { };
           minecraftServers =
-            vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers;
+            vanillaServers
+            // fabricServers
+            // quiltServers
+            // legacyFabricServers
+            // paperServers
+            // purpurServers;
 
           vanilla-server = vanillaServers.vanilla;
           fabric-server = fabricServers.fabric;
           quilt-server = quiltServers.quilt;
           paper-server = paperServers.paper;
+          purpur-server = purpurServers.purpur;
           velocity-server = velocityServers.velocity;
           minecraft-server = vanilla-server;
         }
@@ -112,6 +119,7 @@
             fabric-server
             quilt-server
             paper-server
+            purpur-server
             velocity-server
             minecraft-server
             nix-modrinth-prefetch
