@@ -5453,5 +5453,15 @@
     "name": "intermediary-25w10a.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w10a/intermediary-25w10a.jar",
     "sha256": "1dsp9nnkvk84rfvbrv498r2kp851w2xlrblahfvcs58ppzc3hfml"
+  },
+  "org.quiltmc:quilt-loader:0.28.1-beta.1": {
+    "name": "quilt-loader-0.28.1-beta.1.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.28.1-beta.1/quilt-loader-0.28.1-beta.1.jar",
+    "sha256": "051m96n7i6i2na4gyg7clf0wvq36fyr2z85fz8qd1k9yn5lchyaq"
+  },
+  "org.quiltmc:hashed:25w10a": {
+    "name": "hashed-25w10a.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w10a/hashed-25w10a.jar",
+    "sha256": "1d5yg7gcifggvzr6qlal764dyzzz587rlm558sil7p302p0x6kfw"
   }
 }
