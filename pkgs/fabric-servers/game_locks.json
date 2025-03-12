@@ -2008,5 +2008,10 @@
     "libraries": [
       "net.fabricmc:intermediary:25w10a"
     ]
+  },
+  "1.21.5-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.5-pre1"
+    ]
   }
 }
