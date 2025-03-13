@@ -5468,5 +5468,20 @@
     "name": "intermediary-1.21.5-pre1.zip",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.5-pre1/intermediary-1.21.5-pre1.jar",
     "sha256": "153wi5p71044jh8zg13jykjxgjck86051d78zl2x6jqfac6sx978"
+  },
+  "net.fabricmc:intermediary:1.21.5-pre2": {
+    "name": "intermediary-1.21.5-pre2.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.5-pre2/intermediary-1.21.5-pre2.jar",
+    "sha256": "0371i87klf6fjz6kv3hhbhnvj4j4v7axp7qr019mhmqdvra28mzj"
+  },
+  "org.quiltmc:hashed:1.21.5-pre2": {
+    "name": "hashed-1.21.5-pre2.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.5-pre2/hashed-1.21.5-pre2.jar",
+    "sha256": "1aibzpk1r17j0q6anjd51vx9mhxrhdqbp0lw0hy93sa5gah1xycv"
+  },
+  "org.quiltmc:hashed:1.21.5-pre1": {
+    "name": "hashed-1.21.5-pre1.zip",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.5-pre1/hashed-1.21.5-pre1.jar",
+    "sha256": "179gkblxmn3cch3yjq62ll1xi4g6qkac4kzmq6gq6i6f2rnpsbmw"
   }
 }

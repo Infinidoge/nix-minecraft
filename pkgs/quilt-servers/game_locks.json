@@ -1108,5 +1108,17 @@
       "net.fabricmc:intermediary:25w10a",
       "org.quiltmc:hashed:25w10a"
     ]
+  },
+  "1.21.5-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.5-pre2",
+      "org.quiltmc:hashed:1.21.5-pre2"
+    ]
+  },
+  "1.21.5-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.5-pre1",
+      "org.quiltmc:hashed:1.21.5-pre1"
+    ]
   }
 }
