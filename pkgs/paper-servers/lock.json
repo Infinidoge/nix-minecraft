@@ -19977,6 +19977,14 @@
     "212": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/212/downloads/paper-1.21.4-212.jar",
       "sha256": "8795be2df8280dd50ff15c233d8ed5ac882baee30b07dcfaf52354289229ee79"
+    },
+    "213": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/213/downloads/paper-1.21.4-213.jar",
+      "sha256": "514ba0b9dcdd0d8852e73177ab2ce9a90b7eb4471e74c2b88e1bbe742ab63642"
+    },
+    "214": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/214/downloads/paper-1.21.4-214.jar",
+      "sha256": "ab030d68900f3b8ff07a84783d28f5b3d8a6c7a24beef0fcb770011ddf045a40"
     }
   }
 }
