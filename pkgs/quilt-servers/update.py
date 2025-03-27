@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i python3.10 -p python310Packages.requests python310Packages.jq
+#!nix-shell -i python3 -p python3Packages.requests python3Packages.jq
 
 import json
 import subprocess
