@@ -2038,5 +2038,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.21.5-rc2"
     ]
+  },
+  "25w14craftmine": {
+    "libraries": [
+      "net.fabricmc:intermediary:25w14craftmine"
+    ]
   }
 }

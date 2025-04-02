@@ -1885,6 +1885,11 @@
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/486/downloads/velocity-3.4.0-SNAPSHOT-486.jar",
       "sha256": "8838e7587d7248f61129b883f95f150207d2e8fcd716f66e3d81b48058cee06d",
       "channel": "default"
+    },
+    "487": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/487/downloads/velocity-3.4.0-SNAPSHOT-487.jar",
+      "sha256": "11cffed675ef353371b574eed6e89ceeb45ff280c759bca9e3cfa69ac3856c40",
+      "channel": "default"
     }
   }
 }
