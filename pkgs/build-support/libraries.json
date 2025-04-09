@@ -5568,5 +5568,15 @@
     "name": "hashed-25w14craftmine.zip",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w14craftmine/hashed-25w14craftmine.jar",
     "sha256": "0gsrclfr197prg6kd9zrpljnp109b8c45kb6q3kslpwzmkl0z87z"
+  },
+  "net.fabricmc:fabric-loader:0.16.13": {
+    "name": "fabric-loader-0.16.13.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.16.13/fabric-loader-0.16.13.jar",
+    "sha256": "0rkf15045may8s0g0j705y5x1bzicz05y818ayvp58581qz16183"
+  },
+  "net.fabricmc:intermediary:25w15a": {
+    "name": "intermediary-25w15a.zip",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w15a/intermediary-25w15a.jar",
+    "sha256": "0ja4nvclnyi9spzfcfpdv2hj4mrba9bginr37659vb1krx7dhw7g"
   }
 }
