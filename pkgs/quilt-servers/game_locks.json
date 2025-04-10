@@ -1150,5 +1150,11 @@
       "net.fabricmc:intermediary:25w14craftmine",
       "org.quiltmc:hashed:25w14craftmine"
     ]
+  },
+  "25w15a": {
+    "libraries": [
+      "net.fabricmc:intermediary:25w15a",
+      "org.quiltmc:hashed:25w15a"
+    ]
   }
 }
