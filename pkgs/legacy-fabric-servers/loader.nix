@@ -10,6 +10,7 @@ let
 in
 mkTextileLoader {
   loaderName = "legacy-fabric";
+  launchPrefix = "fabric";
   inherit loaderVersion gameVersion;
   serverLaunch = "net.fabricmc.loader.impl.launch.server.FabricServerLauncher";
   inherit (loader_lock) mainClass;
