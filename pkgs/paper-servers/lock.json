@@ -20029,6 +20029,10 @@
     "224": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/224/downloads/paper-1.21.4-224.jar",
       "sha256": "0cde51996951794a2b345f796aed0506e5ae0deb25ab08431967f63644e28717"
+    },
+    "225": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/225/downloads/paper-1.21.4-225.jar",
+      "sha256": "120c3c160768e9f7c968bda3f3e5c36a2a172ae30d3a3935148c45667d758590"
     }
   }
 }
