@@ -5,8 +5,8 @@
 	},
 	"nix.serverSettings": {
 		"nil": {
-			"formatting": { "command": ["nixpkgs-fmt"] }
+			"formatting": { "command": ["nixfmt"] }
 		}
 	},
-	"nix.formatterPath": "nixpkgs-fmt"
+	"nix.formatterPath": "nixfmt"
 }
