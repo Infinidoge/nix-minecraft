@@ -505,7 +505,9 @@ in
                 example = "pkgs.minecraftServers.vanilla-1_18_2";
               };
 
-              jvmOpts = mkOpt' (types.separatedString " ") "-Xmx2G -Xms1G" "JVM options for this server.";
+              jvmOpts = mkOpt' (
+                with types; coercedTo (listOf str) (lib.concatStringsSep " ") (separatedString " ")
+              ) "-Xmx2G -Xms1G" "JVM options for this server.";
 
               path =
                 with types;
