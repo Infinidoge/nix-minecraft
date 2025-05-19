@@ -725,15 +725,15 @@
               originalMcRconEnabled = conf.serverProperties.enable-rcon or false;
               originalMcRconPort = conf.serverProperties."rcon.port" or 25575;
 
-              # --- REVISED LOGIC FOR INTERNAL PORTS FOR server.properties ---
               # True if user explicitly sets lazymc's public port OR lazymc's internal server port
               userHasCustomizedLazymcPorts = conf.lazymc.enable && (
-                (conf.lazymc.config.public ? address) || (conf.lazymc.config.server ? address)
+                ( (conf.lazymc.config ? public) && (conf.lazymc.config.public ? address) ) ||
+                ( (conf.lazymc.config ? server) && (conf.lazymc.config.server ? address) )
               );
               # True if user explicitly sets lazymc's RCON port (for lazymc to connect to MC RCON)
-              userHasCustomizedLazymcRconPort = conf.lazymc.enable && (conf.lazymc.config.rcon ? port);
-
-
+              userHasCustomizedLazymcRconPort = conf.lazymc.enable && (
+                (conf.lazymc.config ? rcon) && (conf.lazymc.config.rcon ? port)
+              );
               # This is the port the actual Minecraft server JAR will be configured to listen on
               # via the server.properties we generate.
               internalMcPortForServerProperties =
@@ -747,11 +747,6 @@
                   originalMcRconPort - 1 # Lazymc + RCON enabled, user did NOT customize lazymc RCON port, so we offset
                 else
                   originalMcRconPort;   # Lazymc disabled, or RCON disabled, or user IS customizing lazymc RCON port
-              # --- END REVISED LOGIC ---
-
-
-    #          internalMcPort = if conf.lazymc.enable then originalMcPort - 1 else originalMcPort;
-    #          internalMcRconPort = if conf.lazymc.enable then originalMcRconPort - 1 else originalMcRconPort;
 
               finalServerPropertiesForMc = conf.serverProperties // lib.optionalAttrs conf.lazymc.enable {
                 "server-port" = internalMcPortForServerProperties;
@@ -791,18 +786,17 @@
                   # Public port for users to connect to lazymc
                   effectivePublicAddress = conf.lazymc.config.public.address or "0.0.0.0:${toString originalMcPort}";
 
-                  # The address lazymc will use for the Minecraft server it manages
-                  effectiveLazymcInternalServerAddress =
-                    if conf.lazymc.config.server ? address then # User explicitly sets lazymc's internal server target
-                      conf.lazymc.config.server.address
-                    else # Lazymc targets the port we configured for the Minecraft server
-                      "127.0.0.1:${toString internalMcPortForServerProperties}";
+                effectiveLazymcInternalServerAddress =
+                  if (conf.lazymc.config ? server) && (conf.lazymc.config.server ? address) then # Check for server, then server.address
+                    conf.lazymc.config.server.address
+                  else # Lazymc targets the port we configured for the Minecraft server
+                    "127.0.0.1:${toString internalMcPortForServerProperties}";
 
-                  effectiveLazymcInternalRconPort =
-                    if conf.lazymc.config.rcon ? port then # User explicitly sets lazymc's internal RCON target
-                      conf.lazymc.config.rcon.port
-                    else # Lazymc targets the RCON port we configured for the Minecraft server
-                      internalMcRconPortForServerProperties;
+                effectiveLazymcInternalRconPort =
+                  if (conf.lazymc.config ? rcon) && (conf.lazymc.config.rcon ? port) then # Check for rcon, then rcon.port
+                    conf.lazymc.config.rcon.port
+                  else # Lazymc targets the RCON port we configured for the Minecraft server
+                    internalMcRconPortForServerProperties;
 
                   defaultLazymcConfig = {
                     public = {
@@ -810,7 +804,7 @@
                     };
                     server = {
                       address = effectiveLazymcInternalServerAddress;
-                      directory = "."; # Lazymc runs in the server's dataDir
+                      directory = "${cfg.dataDir}/${name}"; # Lazymc runs in the server's dataDir
                       command = "${getExe conf.package} ${conf.jvmOpts}";
                     };
                     rcon = lib.optionalAttrs originalMcRconEnabled {
