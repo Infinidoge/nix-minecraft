@@ -489,3 +489,55 @@ files."white-list.txt" = {
 ```
 
 generates a legacy `white-list.txt` that is needed for older minecraft versions (< 1.7.6)
+
+#### `servers.<name>.lazymc`
+
+`nix-minecraft` supports integrating [lazymc](https://github.com/timvisee/lazymc) to automatically put your Minecraft server to sleep when idle and wake it up when players connect. `lazymc` is available in Nixpkgs as `pkgs.lazymc`.
+
+To enable lazymc for a specific server instance, set `services.minecraft-servers.servers.<name>.lazymc.enable = true;`.
+
+You can further customize lazymc's behavior using the `services.minecraft-servers.servers.<name>.lazymc.config` option. This attribute set directly mirrors the structure of lazymc's `lazymc.toml` configuration file. The module will automatically configure essential settings like the server start command, server directory, and internal ports for lazymc to manage the Minecraft server.
+
+For example:
+
+```nix
+# In your NixOS configuration (e.g., /etc/nixos/configuration.nix or a flake output)
+{ pkgs, ... }: {
+  services.minecraft-servers.servers.myFabricServer = {
+    enable = true;
+    eula = true; # You must agree to the EULA
+    package = pkgs.fabricServers.fabric-1_20_4; # Or any other server package
+    jvmOpts = "-Xmx4G -Xms2G";
+    serverProperties = {
+      "server-port" = 25565; # This will be the base for lazymc's public port by default
+      "enable-rcon" = true;
+      "rcon.port" = 25575;   # This will be the base for the internal RCON port for Minecraft
+      # other server.properties...
+    };
+
+    lazymc = {
+      enable = true;
+      config = {
+        # public.address defaults to 0.0.0.0:<serverProperties."server-port">
+        # If you need a specific IP or a different public port, set it here:
+        # public.address = "192.168.1.100:25565"; 
+
+        # server.address (internal MC port) is auto-configured (e.g., 127.0.0.1:25566)
+        # server.command is auto-configured
+        # server.directory is auto-configured as "." (lazymc runs in the server's data directory)
+
+        # rcon.enabled is auto-configured based on serverProperties.enable-rcon
+        # rcon.port (internal MC RCON port for lazymc to use) is auto-configured (e.g., 25576)
+
+        # Example overrides for other lazymc settings:
+        server.forge = false; # Set to true if this is a Forge server
+        time.sleep_after = 1800; # Sleep after 30 minutes of inactivity
+        motd = {
+          sleeping = "💤 Server is sleeping, connect to wake it up!";
+          starting = "⚙️ Server is starting, please wait...";
+        };
+        join.methods = ["hold", "kick"]; # How to handle players joining a sleeping server
+      };
+    };
+  };
+}
