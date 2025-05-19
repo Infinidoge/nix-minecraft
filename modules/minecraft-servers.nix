@@ -679,7 +679,7 @@ in
             optional (c.serverProperties.enable-query or false) (
               if c.lazymc.enable then
                 # If lazymc is on, MC server runs on an internal port. Query port in server.properties should reflect this.
-                ( (c.serverProperties."server-port" or 25565) + 1 ) # Assuming query port is same as internal game port, or needs separate internal config
+                ( (c.serverProperties."server-port" or 25565) - 1 ) # Assuming query port is same as internal game port, or needs separate internal config
               else
                 (c.serverProperties."query.port" or 25565) # Direct MC server query port
             );
@@ -725,8 +725,8 @@ in
           originalMcRconEnabled = conf.serverProperties.enable-rcon or false;
           originalMcRconPort = conf.serverProperties."rcon.port" or 25575;
 
-          internalMcPort = if conf.lazymc.enable then originalMcPort + 1 else originalMcPort;
-          internalMcRconPort = if conf.lazymc.enable then originalMcRconPort + 1 else originalMcRconPort;
+          internalMcPort = if conf.lazymc.enable then originalMcPort - 1 else originalMcPort;
+          internalMcRconPort = if conf.lazymc.enable then originalMcRconPort - 1 else originalMcRconPort;
 
           finalServerPropertiesForMc = conf.serverProperties // lib.optionalAttrs conf.lazymc.enable {
             "server-port" = internalMcPort;
@@ -770,15 +770,15 @@ in
                 };
                 server = {
                   address = "127.0.0.1:${toString internalMcPort}";
-                  directory = ".";
+                  directory = "${cfg.dataDir}/${name}"; # "${cfg.dataDir}/${name}";
                   command = "${getExe conf.package} ${conf.jvmOpts}";
                 };
                 rcon = lib.optionalAttrs originalMcRconEnabled {
                   enabled = true;
                   port = internalMcRconPort;
                 };
-                advanced = { # Ensure lazymc can manage server.properties for internal ports
-                  rewrite_server_properties = true;
+                advanced = {
+                  rewrite_server_properties = false;
                 };
                 config = {
                   version = pkgs.lazymc.version;
@@ -786,7 +786,7 @@ in
               };
               finalLazymcNixConfig = lib.recursiveUpdate defaultLazymcConfig conf.lazymc.config;
             in
-            pkgs.formats.toml { }.generate "lazymc-config-${name}.toml" finalLazymcNixConfig;
+            pkgs.writers.writeTOML "lazymc-config-${name}.toml" finalLazymcNixConfig;
 
 
           msConfig = managementSystemConfig name conf; # For non-lazymc case
@@ -877,7 +877,7 @@ in
             # ExecStop sends SIGTERM to lazymc, which handles stopping Minecraft
           } else msConfig.serviceConfig;
 
-          execStartPostScript = lib.optionalString (!conf.lazymc.enable) (getExe (
+          ExecStartPost = lib.optionalString (!conf.lazymc.enable) (getExe (
             pkgs.writeShellApplication {
               name = "minecraft-server-${name}-start-post";
               text = ''
@@ -903,7 +903,7 @@ in
             "${script} $MAINPID"
           );
 
-          execStopPostScript = getExe (
+          ExecStopPost = getExe (
             pkgs.writeShellApplication {
               name = "minecraft-server-${name}-stop-post";
               text = ''
@@ -913,11 +913,11 @@ in
             }
           );
 
-          execReloadScript = getExe (
+          ExecReload = getExe (
             pkgs.writeShellApplication {
               name = "minecraft-server-${name}-reload";
               text = ''
-                ${execStopPostScript} # This contains cleanAllManaged
+                ${ExecStopPost} # This contains cleanAllManaged
                 ${ExecStartPre} # This regenerates files including lazymc.toml
                 ${conf.extraReload}
               '';
@@ -944,9 +944,9 @@ in
               inherit
                 ExecStartPre
                 ExecStart
-                execStartPostScript
-                execStopPostScript
-                execReloadScript
+                ExecStartPost
+                ExecStopPost
+                ExecReload
                 ;
               ExecStop = execStopScript;
               
