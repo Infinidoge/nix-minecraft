@@ -730,10 +730,6 @@
                 ( (conf.lazymc.config ? public) && (conf.lazymc.config.public ? address) ) ||
                 ( (conf.lazymc.config ? server) && (conf.lazymc.config.server ? address) )
               );
-              # True if user explicitly sets lazymc's RCON port (for lazymc to connect to MC RCON)
-              userHasCustomizedLazymcRconPort = conf.lazymc.enable && (
-                (conf.lazymc.config ? rcon) && (conf.lazymc.config.rcon ? port)
-              );
               # This is the port the actual Minecraft server JAR will be configured to listen on
               # via the server.properties we generate.
               internalMcPortForServerProperties =
@@ -742,17 +738,16 @@
                 else
                   originalMcPort;    # Lazymc disabled, OR user IS customizing lazymc ports
 
-              internalMcRconPortForServerProperties =
-                if conf.lazymc.enable && originalMcRconEnabled && !userHasCustomizedLazymcRconPort then
-                  originalMcRconPort - 1 # Lazymc + RCON enabled, user did NOT customize lazymc RCON port, so we offset
-                else
-                  originalMcRconPort;   # Lazymc disabled, or RCON disabled, or user IS customizing lazymc RCON port
+              internalMcRconPortForServerProperties = 
+                if (conf.lazymc.config ? rcon) && (conf.lazymc.config.rcon ? port) then # Check for rcon, then rcon.port
+                      conf.lazymc.config.rcon.port
+                else # Lazymc targets the RCON port we configured for the Minecraft server
+                  25575;
 
               finalServerPropertiesForMc = conf.serverProperties // lib.optionalAttrs conf.lazymc.enable {
                 "server-port" = internalMcPortForServerProperties;
               } // lib.optionalAttrs (conf.lazymc.enable && originalMcRconEnabled) {
                 "rcon.port" = internalMcRconPortForServerProperties;
-                "enable-rcon" = true;
               };
 
               symlinks = normalizeFiles (
@@ -792,12 +787,6 @@
                   else # Lazymc targets the port we configured for the Minecraft server
                     "127.0.0.1:${toString internalMcPortForServerProperties}";
 
-                effectiveLazymcInternalRconPort =
-                  if (conf.lazymc.config ? rcon) && (conf.lazymc.config.rcon ? port) then # Check for rcon, then rcon.port
-                    conf.lazymc.config.rcon.port
-                  else # Lazymc targets the RCON port we configured for the Minecraft server
-                    internalMcRconPortForServerProperties;
-
                   defaultLazymcConfig = {
                     public = {
                       address = effectivePublicAddress;
@@ -809,13 +798,13 @@
                     };
                     rcon = lib.optionalAttrs originalMcRconEnabled {
                       enabled = true; # If MC had RCON, lazymc should be configured to use it
-                      port = effectiveLazymcInternalRconPort;
+                      port = internalMcRconPortForServerProperties;
                     };
                     advanced = {
                       # Let lazymc manage server.properties.
                       # It will ensure the actual Minecraft server runs on the port specified
                       # in this lazymc.toml's `server.address`.
-                      rewrite_server_properties = true;
+                      # rewrite_server_properties = true; # I wonder if I should disable this be default, but then users would need to enable it to activate rcon
                     };
                     config = {
                       version = pkgs.lazymc.version;
