@@ -492,52 +492,65 @@ generates a legacy `white-list.txt` that is needed for older minecraft versions 
 
 #### `servers.<name>.lazymc`
 
-`nix-minecraft` supports integrating [lazymc](https://github.com/timvisee/lazymc) to automatically put your Minecraft server to sleep when idle and wake it up when players connect. `lazymc` is available in Nixpkgs as `pkgs.lazymc`.
+Integrates [lazymc](https://github.com/timvisee/lazymc) to manage the server's lifecycle, putting it to sleep when idle and waking it upon player connection.
 
-To enable lazymc for a specific server instance, set `services.minecraft-servers.servers.<name>.lazymc.enable = true;`.
+*   **`enable`**: `boolean`, default `false`
+    Whether to enable lazymc for this server instance. When enabled, lazymc will take over starting and stopping the Minecraft server process.
 
-You can further customize lazymc's behavior using the `services.minecraft-servers.servers.<name>.lazymc.config` option. This attribute set directly mirrors the structure of lazymc's `lazymc.toml` configuration file. The module will automatically configure essential settings like the server start command, server directory, and internal ports for lazymc to manage the Minecraft server.
+*   **`config`**: `attribute set`, default `{}`
+    Allows overriding settings in the `lazymc.toml` configuration file that this module generates for lazymc. The structure of this attribute set directly mirrors the TOML structure of lazymc's configuration.
 
-For example:
+    **Automatic Configuration & Port Handling:**
 
-```nix
-# In your NixOS configuration (e.g., /etc/nixos/configuration.nix or a flake output)
-{ pkgs, ... }: {
-  services.minecraft-servers.servers.myFabricServer = {
-    enable = true;
-    eula = true; # You must agree to the EULA
-    package = pkgs.fabricServers.fabric-1_20_4; # Or any other server package
-    jvmOpts = "-Xmx4G -Xms2G";
-    serverProperties = {
-      "server-port" = 25565; # This will be the base for lazymc's public port by default
-      "enable-rcon" = true;
-      "rcon.port" = 25575;   # This will be the base for the internal RCON port for Minecraft
-      # other server.properties...
-    };
+    To provide a seamless "one-toggle" solution, when `lazymc.enable = true` and you *do not* explicitly set `lazymc.config.public.address` or `lazymc.config.server.address`:
+    *   The actual Minecraft server (as configured in `server.properties` by this module) will have its `server-port` set to the value from `services.minecraft-servers.servers.<name>.serverProperties."server-port"` (or its default `25565`) **minus 1**. For example, if `server-port` was `25565`, the Minecraft server will run on port `25564`.
+    *   Lazymc will then be configured with:
+        *   `public.address`: Defaults to `0.0.0.0:<original-server-port>` (e.g., `0.0.0.0:25565`). This is the port players connect to.
+        *   `server.address`: Defaults to `127.0.0.1:<original-server-port - 1>` (e.g., `127.0.0.1:25564`). This is the internal port lazymc uses to proxy to the actual Minecraft server.
+    * **Ensure the `<original-server-port - 1>` port is available and not used by another service.**
 
-    lazymc = {
-      enable = true;
-      config = {
-        # public.address defaults to 0.0.0.0:<serverProperties."server-port">
-        # If you need a specific IP or a different public port, set it here:
-        # public.address = "192.168.1.100:25565"; 
+    If you **do** set either `lazymc.config.public.address` or `lazymc.config.server.address`:
+    *   The automatic `-1` offset for the Minecraft server's `server-port` (in `server.properties`) is **not applied**. The Minecraft server will be configured to use the `server-port` directly from `services.minecraft-servers.servers.<name>.serverProperties."server-port"`.
+    *   Lazymc's `public.address` will be what you set, or default to `0.0.0.0:<original-server-port>`.
+    *   Lazymc's `server.address` will be what you set, or default to `127.0.0.1:<original-server-port>`.
 
-        # server.address (internal MC port) is auto-configured (e.g., 127.0.0.1:25566)
-        # server.command is auto-configured
-        # server.directory is auto-configured as "." (lazymc runs in the server's data directory)
+    **Other Auto-configured `lazymc.toml` settings:**
+    *   `server.command`: Automatically set to use the server `package` and `jvmOpts` defined for this nix-minecraft server instance.
+    *   `server.directory`: Automatically set.
+    *   `rcon.enabled`: Automatically enabled in `lazymc.toml` if `enable-rcon = true;` is set in `serverProperties`.
+    *   `rcon.port`: In `lazymc.toml`, this will be set to the port the Minecraft server's RCON is actually listening on or `25575` by default
+    *   `config.version`: Automatically set to the version of the `pkgs.lazymc` package.
 
-        # rcon.enabled is auto-configured based on serverProperties.enable-rcon
-        # rcon.port (internal MC RCON port for lazymc to use) is auto-configured (e.g., 25576)
+    **Important Considerations:**
+    *   **Firewall:** When `lazymc.enable = true`, the `openFirewall` option for this server instance will open the port specified in `lazymc.config.public.address` (or its default), not the internal Minecraft server port.
+    *   **`max-tick-time`:** Setting `max-tick-time=-1` in `server.properties` might help if you're experiencing issues.
 
-        # Example overrides for other lazymc settings:
-        server.forge = false; # Set to true if this is a Forge server
-        time.sleep_after = 1800; # Sleep after 30 minutes of inactivity
-        motd = {
-          sleeping = "💤 Server is sleeping, connect to wake it up!";
-          starting = "⚙️ Server is starting, please wait...";
+    **Example:**
+    ```nix
+    # In your NixOS configuration
+    { pkgs, ... }: {
+      services.minecraft-servers.servers.myPaperServer = {
+        enable = true;
+        eula = true;
+        package = pkgs.paperServers.paper-1_20_4;
+        jvmOpts = "-Xmx4G -Xms2G";
+        serverProperties = {
+          "server-port" = 25565;
+          "enable-rcon" = true;
+          "rcon.port" = 25575;
+          "max-tick-time" = -1; # Recommended with lazymc
         };
-        join.methods = ["hold", "kick"]; # How to handle players joining a sleeping server
+
+        lazymc = {
+          enable = true;
+          config = {
+            # see lazymc config here: https://github.com/timvisee/lazymc/blob/master/res/lazymc.toml
+
+            # Other lazymc options:
+            time.sleep_after = 900; # Sleep after 15 minutes
+            motd.sleeping = "💤 Server is napping! Connect to wake it.";
+          };
+        };
       };
-    };
-  };
-}
+    }
+    ```
