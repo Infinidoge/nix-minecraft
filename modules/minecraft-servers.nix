@@ -653,6 +653,64 @@
                 lib.all (x: x == 1) counts;
               message = "Multiple servers are set to use the same public port. Change one to use a different port.";
             }
+            {
+              assertion =
+                let
+                  portsPerServer = lib.mapAttrsToList (serverName: serverConf:
+                    let
+                      originalMcGamePort = serverConf.serverProperties."server-port" or 25565;
+                      parsePort = addrStr: lib.toInt (builtins.elemAt (lib.splitString ":" addrStr) 1);
+
+                      # Port the MC server JAR will ultimately listen on
+                      mcServerFinalListeningPort =
+                        if serverConf.lazymc.enable &&
+                          # Safely check for server.address in lazymc.config
+                          ( (serverConf.lazymc.config ? server) && (serverConf.lazymc.config.server ? address) ) &&
+                          # Safely check for advanced.rewrite_server_properties
+                          ( (serverConf.lazymc.config ? advanced) && (serverConf.lazymc.config.advanced ? rewrite_server_properties) && serverConf.lazymc.config.advanced.rewrite_server_properties ||
+                            # OR if advanced or rewrite_server_properties is not set, assume lazymc's default of true
+                            !((serverConf.lazymc.config ? advanced) && (serverConf.lazymc.config.advanced ? rewrite_server_properties))
+                          )
+                        then
+                          # If lazymc is enabled, user set server.address, and lazymc will rewrite server.properties
+                          parsePort serverConf.lazymc.config.server.address
+                        else if serverConf.lazymc.enable && !(
+                          # Condition for default offset: lazymc enabled AND user didn't customize relevant game ports
+                          ( ((serverConf.lazymc.config ? public) && (serverConf.lazymc.config.public ? address)) ||
+                            ((serverConf.lazymc.config ? server) && (serverConf.lazymc.config.server ? address)) )
+                        ) then
+                          # Lazymc enabled, user didn't customize lazymc game ports, so we apply default offset
+                          originalMcGamePort - 1
+                        else
+                          # No lazymc, or lazymc enabled but user customized game ports (so no offset by us),
+                          # or lazymc won't rewrite server.properties.
+                          originalMcGamePort;
+
+                      # Lazymc's public port, if enabled
+                      lazymcPublicPortList =
+                        if serverConf.lazymc.enable then
+                          let
+                            # Safely access public.address
+                            lazymcPublicAddrConfig =
+                              if (serverConf.lazymc.config ? public) && (serverConf.lazymc.config.public ? address) then
+                                serverConf.lazymc.config.public.address
+                              else
+                                "0.0.0.0:${toString originalMcGamePort}";
+                          in
+                          [ (parsePort lazymcPublicAddrConfig) ]
+                        else
+                          [];
+                    in
+                    [ mcServerFinalListeningPort ] ++ lazymcPublicPortList
+                  ) servers;
+
+                  allAttemptedListeningPorts = lib.unique (lib.flatten portsPerServer);
+                  hasNoDuplicates = lib.length (lib.flatten portsPerServer) == lib.length allAttemptedListeningPorts;
+
+                in
+                hasNoDuplicates;
+              message = "Multiple Minecraft server instances or their lazymc frontends are configured to use the same game port, note that when lazymc is enabeled with no further configuration, the port immidiatley before server-port is also occupied.";
+            }
           ];
 
           warnings = lib.optional (cfg.runDir != options.services.minecraft-servers.runDir.default) ''
