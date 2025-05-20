@@ -492,7 +492,7 @@ generates a legacy `white-list.txt` that is needed for older minecraft versions 
 
 #### `servers.<name>.lazymc`
 
-Integrates [lazymc](https://github.com/timvisee/lazymc) to manage the server's lifecycle, putting it to sleep when idle and waking it upon player connection.
+Integrates [lazymc](https://github.com/timvisee/lazymc) to manage the server's lifecycle, putting it to sleep when idle and waking it upon player connection. Because server startup is now handeled by lazymc, there is no tmux anymore, you'll need `rcon` or to disable `lazymc` to make a player`op`.
 
 *   **`enable`**: `boolean`, default `false`
     Whether to enable lazymc for this server instance. When enabled, lazymc will take over starting and stopping the Minecraft server process.
