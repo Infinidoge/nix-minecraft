@@ -744,6 +744,7 @@ in
           getTCPPorts =
             n: c:
             if c.lazymc.enable then
+            # lazymc enabled, using public lazymc port
               let
                 parsePort = addrStr: builtins.elemAt (lib.splitString ":" addrStr) 1;
                 defaultPublicPort = toString (c.serverProperties."server-port" or 25565);
@@ -756,14 +757,7 @@ in
 
           getUDPPorts =
             n: c:
-            # Lazymc does not proxy query protocol, so query port is always direct to MC server
-            optional (c.serverProperties.enable-query or false) (
-              if c.lazymc.enable then
-                # If lazymc is on, MC server runs on an internal port. Query port in server.properties should reflect this.
-                ((c.serverProperties."server-port" or 25565) - 1) # Assuming query port is same as internal game port, or needs separate internal config
-              else
-                (c.serverProperties."query.port" or 25565) # Direct MC server query port
-            );
+            optional (c.serverProperties.enable-query or false) (c.serverProperties."query.port" or 25565);
         in
         {
           allowedUDPPorts = flatten (mapAttrsToList getUDPPorts toOpen);
@@ -804,10 +798,6 @@ in
       systemd.services = mapAttrs' (
         name: conf:
         let
-          originalMcPort = conf.serverProperties."server-port" or 25565;
-          originalMcRconEnabled = conf.serverProperties.enable-rcon or false;
-          originalMcRconPort = conf.serverProperties."rcon.port" or 25575;
-
           # True if user explicitly sets lazymc's public port OR lazymc's internal server port
           userHasCustomizedLazymcPorts =
             conf.lazymc.enable
@@ -815,28 +805,27 @@ in
               ((conf.lazymc.config ? public) && (conf.lazymc.config.public ? address))
               || ((conf.lazymc.config ? server) && (conf.lazymc.config.server ? address))
             );
+
+          originalMcPort = conf.serverProperties."server-port" or 25565;
           # This is the port the actual Minecraft server JAR will be configured to listen on
-          # via the server.properties we generate.
           internalMcPortForServerProperties =
             if conf.lazymc.enable && !userHasCustomizedLazymcPorts then
-              originalMcPort - 1 # Lazymc enabled, user did NOT customize relevant ports, so we offset
+              originalMcPort - 1 # Lazymc enabled, user did NOT customize relevant ports
             else
               originalMcPort; # Lazymc disabled, OR user IS customizing lazymc ports
-
-          internalMcRconPortForServerProperties =
+          originalMcRconEnabled = conf.serverProperties.enable-rcon or false;
+          originalMcRconPort = conf.serverProperties."rcon.port" or 25575;
+          internalMcRconPortForLazymcConfig =
             if (conf.lazymc.config ? rcon) && (conf.lazymc.config.rcon ? port) then # Check for rcon, then rcon.port
               conf.lazymc.config.rcon.port
             # Lazymc targets the RCON port we configured for the Minecraft server
             else
-              25575;
+              originalMcRconPort;
 
           finalServerPropertiesForMc =
             conf.serverProperties
             // lib.optionalAttrs conf.lazymc.enable {
               "server-port" = internalMcPortForServerProperties;
-            }
-            // lib.optionalAttrs (conf.lazymc.enable && originalMcRconEnabled) {
-              "rcon.port" = internalMcRconPortForServerProperties;
             };
 
           symlinks = normalizeFiles (
