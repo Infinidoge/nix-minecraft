@@ -497,6 +497,10 @@ Integrates [lazymc](https://github.com/timvisee/lazymc) to manage the server's l
 *   **`enable`**: `boolean`, default `false`
     Whether to enable lazymc for this server instance. When enabled, lazymc will take over starting and stopping the Minecraft server process.
 
+*   **`package`**: `package`, default `pkgs.lazymc`
+    The specific `lazymc` package to use for this server instance. Allows overriding the default `lazymc` from `pkgs`.
+    You might have to change lazymc version according to your minecraft server version, for example lazymc v0.2.10 supports Minecraft Java Edition 1.7.2+, while for Minecraft Java Edition 1.20.3+ you'll need lazymc v0.2.11
+
 *   **`config`**: `attribute set`, default `{}`
     Allows overriding settings in the `lazymc.toml` configuration file that this module generates for lazymc. The structure of this attribute set directly mirrors the TOML structure of lazymc's configuration.
 
@@ -519,10 +523,9 @@ Integrates [lazymc](https://github.com/timvisee/lazymc) to manage the server's l
     *   `server.directory`: Automatically set.
     *   `rcon.enabled`: Automatically enabled in `lazymc.toml` if `enable-rcon = true;` is set in `serverProperties`.
     *   `rcon.port`: In `lazymc.toml`, this will be set to the port the Minecraft server's RCON is actually listening on or `25575` by default
-    *   `config.version`: Automatically set to the version of the `pkgs.lazymc` package.
 
     **Important Considerations:**
-    *   **Firewall:** When `lazymc.enable = true`, the `openFirewall` option for this server instance will open the port specified in `lazymc.config.public.address` (or its default), not the internal Minecraft server port.
+    *   **Firewall:** When `lazymc.enable = true`, the  `openFirewall` option for this server instance will open the port specified in `lazymc.config.public.address` (or its default), not the internal Minecraft server port.
     *   **`max-tick-time`:** Setting `max-tick-time=-1` in `server.properties` might help if you're experiencing issues.
 
     **Example:**
@@ -532,7 +535,7 @@ Integrates [lazymc](https://github.com/timvisee/lazymc) to manage the server's l
       services.minecraft-servers.servers.myPaperServer = {
         enable = true;
         eula = true;
-        package = pkgs.paperServers.paper-1_20_4;
+        package = pkgs.paperServers.paper-1_18_2;
         jvmOpts = "-Xmx4G -Xms2G";
         serverProperties = {
           "server-port" = 25565;
@@ -543,6 +546,13 @@ Integrates [lazymc](https://github.com/timvisee/lazymc) to manage the server's l
 
         lazymc = {
           enable = true;
+          package = let
+          # you can use https://lazamar.co.uk/nix-versions/
+            pkgs-with-lazymc_0_2_10 = import (builtins.fetchTarball {
+                url = "https://github.com/NixOS/nixpkgs/archive/336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3.tar.gz";
+                sha256 = "sha256:0v8vnmgw7cifsp5irib1wkc0bpxzqcarlv8mdybk6dck5m7p10lr";
+            }) { inherit (pkgs) system; };
+          in pkgs-with-lazymc_0_2_10.lazymc;
           config = {
             # see lazymc config here: https://github.com/timvisee/lazymc/blob/master/res/lazymc.toml
 

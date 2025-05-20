@@ -570,6 +570,12 @@
                   # <<< NEW LAZYMC OPTIONS >>>
                   lazymc = {
                     enable = mkEnableOpt "Enable lazymc to manage this server.";
+                    package = mkOption { # <<< NEW OPTION
+                      type = types.package;
+                      default = pkgs.lazymc;
+                      defaultText = literalExpression "pkgs.lazymc";
+                      description = "The lazymc package to use.";
+                    };
                     config = mkOption {
                       type = types.attrs; # Freeform attrs, corresponds to lazymc.toml structure
                       default = {};
@@ -806,9 +812,6 @@
                       # in this lazymc.toml's `server.address`.
                       # rewrite_server_properties = true; # I wonder if I should disable this be default, but then users would need to enable it to activate rcon
                     };
-                    config = {
-                      version = pkgs.lazymc.version;
-                    };
                   };
                   finalLazymcNixConfig = lib.recursiveUpdate defaultLazymcConfig conf.lazymc.config;
                 in
@@ -885,7 +888,7 @@
                 );
 
               finalExecStartCmd = if conf.lazymc.enable then
-                "${pkgs.lazymc}/bin/lazymc start --config lazymc.toml"
+                "${conf.lazymc.package}/bin/lazymc start --config lazymc.toml"
               else
                 msConfig.hooks.start;
 
