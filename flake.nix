@@ -68,14 +68,25 @@
         in
         optionalAttrs isLinux (mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests));
 
-      nixosModules = self.lib.rakeLeaves ./modules/nixos;
+      mkModules =
+        let
+          inherit (nixpkgs.lib) pipe mapAttrs;
+        in
+        path:
+        pipe path [
+          self.lib.rakeLeaves
+          (mapAttrs (_: module: import module self))
+        ];
+
+      commonModules = mkModules ./modules/common;
+      nixosModules = mkModules ./modules/nixos;
     in
     {
       lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
 
       overlay = final: prev: mkPackages prev;
       overlays.default = self.overlay;
-      inherit nixosModules;
+      inherit commonModules nixosModules;
 
       hydraJobs = {
         checks = { inherit (self.checks) x86_64-linux; };
