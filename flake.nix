@@ -31,7 +31,7 @@
         in
         optionalAttrs isLinux (mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests));
 
-      nixosModules = self.lib.rakeLeaves ./modules;
+      nixosModules = self.lib.rakeLeaves ./modules/nixos;
     in
     {
       lib = import ./lib { lib = nixpkgs.lib; };
