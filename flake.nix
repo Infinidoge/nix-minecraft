@@ -31,14 +31,17 @@
         in
         optionalAttrs isLinux (mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests));
 
-      nixosModules = self.lib.rakeLeaves ./modules/nixos;
+      mkModules = path: (nixpkgs.lib.mapAttrs (_: module: import module self) (self.lib.rakeLeaves path));
+
+      commonModules = mkModules ./modules/common;
+      nixosModules = mkModules ./modules/nixos;
     in
     {
       lib = import ./lib { lib = nixpkgs.lib; };
 
       overlay = import ./overlay.nix;
       overlays.default = self.overlay;
-      inherit nixosModules;
+      inherit commonModules nixosModules;
 
       hydraJobs = {
         checks = { inherit (self.checks) x86_64-linux; };
