@@ -37,7 +37,8 @@ nixosTest {
     };
 
   testScript =
-    { nodes, ... }:
+    { ... }:
+    # python
     ''
       name = "vanilla"
       grep_logs = lambda expr: f"grep '{expr}' /srv/minecraft/{name}/logs/latest.log"
@@ -53,5 +54,10 @@ nixosTest {
       # Trigger unknown-command message, check it works
       server.succeed(server_cmd("foobar"))
       server.wait_until_succeeds(grep_logs("Unknown or incomplete command"), timeout=3)
+
+      # Test default stopCommand/ensure graceful shutdown
+      server.stop_job(f"minecraft-server-{name}.service")
+      machine.wait_for_closed_port(25565)
+      server.wait_until_succeeds(grep_logs("Stopping server"), timeout=30)
     '';
 }
