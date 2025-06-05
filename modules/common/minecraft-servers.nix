@@ -71,7 +71,12 @@ let
         tmux = {
           enable = mkEnableOption "management via a TMUX socket";
           socketPath = mkOption {
-            type = with types; functionTo str;
+            type =
+              with types;
+              functionTo (oneOf [
+                path
+                str
+              ]);
             description = ''
               Function from a server name to the path at which the server's tmux socket is placed.
               To connect to the console, run `tmux -S <path to socket> attach`,
@@ -87,7 +92,6 @@ let
           _config = mkReadOnlyOption (
             name: server:
             let
-              sock = ms.tmux.socketPath name;
               tmux = "${pkgs.tmux}/bin/tmux";
             in
             {
@@ -95,27 +99,31 @@ let
                 Type = "forking";
                 GuessMainPID = true;
               };
+              environment = {
+                # let systemd expand % placeholders
+                STDIN_SOCKET_PATH = ms.tmux.socketPath name;
+              };
               hooks = {
                 start = ''
-                  ${tmux} -S ${sock} new -d ${getExe server.package} ${server.jvmOpts}
+                  ${tmux} -S "$STDIN_SOCKET_PATH" new -d ${getExe server.package} ${server.jvmOpts}
 
-                    # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
-                    # See https://github.com/Infinidoge/nix-minecraft/issues/5
-                  ${tmux} -S ${sock} server-access -aw nobody
+                  # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
+                  # See https://github.com/Infinidoge/nix-minecraft/issues/5
+                  ${tmux} -S "$STDIN_SOCKET_PATH" server-access -aw nobody
                 '';
                 postStart = ''
-                  ${pkgs.coreutils}/bin/chmod 660 ${sock}
+                  ${pkgs.coreutils}/bin/chmod 660 "$STDIN_SOCKET_PATH"
                 '';
                 stop = ''
                   function server_running {
-                    ${tmux} -S ${sock} has-session
+                    ${tmux} -S "$STDIN_SOCKET_PATH" has-session
                   }
 
                   if ! server_running ; then
                     exit 0
                   fi
 
-                  ${tmux} -S ${sock} send-keys C-u ${escapeShellArg server.stopCommand} Enter
+                  ${tmux} -S "$STDIN_SOCKET_PATH" send-keys C-u ${escapeShellArg server.stopCommand} Enter
 
                   while server_running; do sleep 1s; done
                 '';
@@ -128,7 +136,12 @@ let
           enable = mkEnableOpt "management through the systemd journal & a command socket";
           stdinSocket = {
             path = mkOption {
-              type = with types; functionTo path;
+              type =
+                with types;
+                functionTo (oneOf [
+                  path
+                  str
+                ]);
               description = ''
                 Function from a server name to the path at which the server's stdin socket is placed.
                 You can send the server commands by writing to this socket,
@@ -155,6 +168,10 @@ let
                 StandardOutput = "journal";
                 StandardError = "journal";
               };
+              environment = {
+                # let systemd expand % placeholders
+                STDIN_SOCKET_PATH = ms.systemd-socket.stdinSocket.path name;
+              };
               hooks = {
                 start = ''
                   ${getExe server.package} ${server.jvmOpts}
@@ -162,7 +179,7 @@ let
                 postStart = "";
                 stop = ''
                   ${optionalString (server.stopCommand != null) ''
-                    echo ${escapeShellArg server.stopCommand} > ${escapeShellArg (ms.systemd-socket.stdinSocket.path name)}
+                    echo ${escapeShellArg server.stopCommand} > "$STDIN_SOCKET_PATH"
 
                     while kill -0 "$1" 2> /dev/null; do sleep 1s; done
                   ''}
