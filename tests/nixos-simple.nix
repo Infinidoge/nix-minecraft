@@ -1,7 +1,7 @@
 { testers, outputs }:
 
 testers.nixosTest {
-  name = "simple";
+  name = "nixos-simple";
   nodes.server =
     {
       config,
