@@ -1,7 +1,7 @@
 { nixosTest, outputs }:
 
 nixosTest {
-  name = "simple-systemd-socket";
+  name = "nixos-simple-systemd-socket";
   nodes.server =
     {
       config,
