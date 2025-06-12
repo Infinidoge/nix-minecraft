@@ -2000,6 +2000,11 @@
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/509/downloads/velocity-3.4.0-SNAPSHOT-509.jar",
       "sha256": "6795fe168853ff69ad3b7d641c8d0eb41e3984d1a1d67588b8f1afa447a2bd4e",
       "channel": "default"
+    },
+    "510": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/3.4.0-SNAPSHOT/builds/510/downloads/velocity-3.4.0-SNAPSHOT-510.jar",
+      "sha256": "3334db3eb2184e38df561d57350cb9a519eb3eedca62133663d0747833e2993d",
+      "channel": "default"
     }
   }
 }
