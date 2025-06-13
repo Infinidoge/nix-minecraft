@@ -1216,5 +1216,11 @@
       "net.fabricmc:intermediary:1.21.6-pre4",
       "org.quiltmc:hashed:1.21.6-pre4"
     ]
+  },
+  "1.21.6-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.6-rc1",
+      "org.quiltmc:hashed:1.21.6-rc1"
+    ]
   }
 }
