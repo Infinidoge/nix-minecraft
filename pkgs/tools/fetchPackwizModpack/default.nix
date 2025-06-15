@@ -7,14 +7,16 @@
   moreutils,
   curl,
   cacert,
+  updog,
 }:
 
 let
   fetchPackwizModpack =
     {
-      pname ? "packwiz-pack",
-      version ? "",
-      url,
+      # Provide a path to the packwiz modpack source directory,
+      # or a URL to a pack.toml file.
+      src ? null,
+      url ? null,
       packHash ? "",
       # Either 'server' or 'both' (to get client mods as well)
       side ? "server",
@@ -27,6 +29,19 @@ let
       manifestHash ? null,
       ...
     }@args:
+    let
+      srcNull = src == null;
+      urlNull = url == null;
+      toml = builtins.fromTOML (builtins.readFile (src + "/pack.toml"));
+      pname = args.pname or (if !srcNull then toml.name else "packwiz-pack");
+      version = args.version or (if !srcNull then toml.version else "");
+      drv = fetchPackwizModpack args;
+      bootstrapUrl = if !urlNull then url else "http://127.0.0.1:9090/pack.toml";
+    in
+
+    assert lib.assertMsg (
+      srcNull != urlNull # equivalent of (src != null) xor (url != null)
+    ) "Either 'src' or 'url' must be provided to fetchPackwizModpack";
 
     stdenvNoCC.mkDerivation (
       finalAttrs:
@@ -49,6 +64,8 @@ let
 
         dontUnpack = true;
 
+        nativeBuildInputs = lib.optionals (!srcNull) [ updog ];
+
         buildInputs = [
           jre_headless
           jq
@@ -57,15 +74,39 @@ let
           cacert
         ];
 
-        buildPhase = ''
-          curl -L "${url}" > pack.toml
-          java -jar "$packwizInstallerBootstrap" \
-            --bootstrap-main-jar "$packwizInstaller" \
-            --bootstrap-no-update \
-            --no-gui \
-            --side "${side}" \
-            "${url}"
-        '';
+        buildPhase = lib.concatLines [
+          ''
+            set -euo pipefail
+            runHook preBuild
+          ''
+          (
+            if !srcNull then
+              ''
+                cd $src
+                updog &
+                UPDOG_PID=$!
+                cd -
+
+                until curl 127.0.0.1:9090/pack.toml > /dev/null; do
+                  sleep 1
+                  echo "Waiting for server to start..."
+                done
+              ''
+            else
+              ""
+          )
+          ''
+            curl -L "${bootstrapUrl}" > pack.toml
+            java -jar "$packwizInstallerBootstrap" \
+              --bootstrap-main-jar "$packwizInstaller" \
+              --bootstrap-no-update \
+              --no-gui \
+              --side "${side}" \
+              "${bootstrapUrl}"
+
+            runHook postBuild
+          ''
+        ];
 
         installPhase = ''
           runHook preInstall
@@ -80,52 +121,48 @@ let
           runHook postInstall
         '';
 
-        passthru =
-          let
-            drv = fetchPackwizModpack args;
-          in
-          {
-            # Pack manifest as a nix expression
-            # If manifestHash is not null, then we can do this without IFD.
-            # Otherwise, fallback to IFD.
-            manifest = lib.importTOML (
-              if manifestHash != null then
-                builtins.fetchurl {
-                  inherit url;
-                  sha256 = manifestHash;
-                }
-              else
-                "${drv}/pack.toml"
-            );
+        passthru = {
+          # Pack manifest as a nix expression
+          # If manifestHash is not null, then we can do this without IFD.
+          # Otherwise, fallback to IFD.
+          manifest = lib.importTOML (
+            if manifestHash != null then
+              builtins.fetchurl {
+                inherit url;
+                sha256 = manifestHash;
+              }
+            else
+              "${drv}/pack.toml"
+          );
 
-            # Adds an attribute set of files to the derivation.
-            # Useful to add server-specific mods not part of the pack.
-            addFiles =
-              files:
-              stdenvNoCC.mkDerivation {
-                inherit (drv) pname version;
-                src = null;
-                dontUnpack = true;
-                dontConfig = true;
-                dontBuild = true;
-                dontFixup = true;
+          # Adds an attribute set of files to the derivation.
+          # Useful to add server-specific mods not part of the pack.
+          addFiles =
+            files:
+            stdenvNoCC.mkDerivation {
+              inherit (drv) pname version;
+              src = null;
+              dontUnpack = true;
+              dontConfig = true;
+              dontBuild = true;
+              dontFixup = true;
 
-                installPhase =
-                  ''
-                    cp -as "${drv}" $out
-                    chmod u+w -R $out
-                  ''
-                  + lib.concatLines (
-                    lib.mapAttrsToList (name: file: ''
-                      mkdir -p "$out/$(dirname "${name}")"
-                      cp -as "${file}" "$out/${name}"
-                    '') files
-                  );
+              installPhase =
+                ''
+                  cp -as "${drv}" $out
+                  chmod u+w -R $out
+                ''
+                + lib.concatLines (
+                  lib.mapAttrsToList (name: file: ''
+                    mkdir -p "$out/$(dirname "${name}")"
+                    cp -as "${file}" "$out/${name}"
+                  '') files
+                );
 
-                passthru = { inherit (drv) manifest; };
-                meta = drv.meta or { };
-              };
-          };
+              passthru = { inherit (drv) manifest; };
+              meta = drv.meta or { };
+            };
+        };
 
         dontFixup = true;
 
