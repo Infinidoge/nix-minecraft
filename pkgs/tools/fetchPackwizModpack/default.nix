@@ -7,7 +7,6 @@
   moreutils,
   curl,
   cacert,
-  updog,
 }:
 
 let
@@ -20,7 +19,6 @@ let
       packHash ? "",
       # Either 'server' or 'both' (to get client mods as well)
       side ? "server",
-
       # The derivation passes through a 'manifest' expression, that includes
       # useful metadata (such as MC version).
       # By default, if you access it, IFD will be used. If you want to use
@@ -36,7 +34,7 @@ let
       pname = args.pname or (if !srcNull then toml.name else "packwiz-pack");
       version = args.version or (if !srcNull then toml.version else "");
       drv = fetchPackwizModpack args;
-      bootstrapUrl = if !urlNull then url else "http://127.0.0.1:9090/pack.toml";
+      bootstrapUrl = if !urlNull then url else "file://${src}/pack.toml";
     in
 
     assert lib.assertMsg (
@@ -64,8 +62,6 @@ let
 
         dontUnpack = true;
 
-        nativeBuildInputs = lib.optionals (!srcNull) [ updog ];
-
         buildInputs = [
           jre_headless
           jq
@@ -74,39 +70,20 @@ let
           cacert
         ];
 
-        buildPhase = lib.concatLines [
-          ''
-            set -euo pipefail
-            runHook preBuild
-          ''
-          (
-            if !srcNull then
-              ''
-                cd $src
-                updog &
-                UPDOG_PID=$!
-                cd -
+        buildPhase = ''
+          set -euo pipefail
+          runHook preBuild
 
-                until curl 127.0.0.1:9090/pack.toml > /dev/null; do
-                  sleep 1
-                  echo "Waiting for server to start..."
-                done
-              ''
-            else
-              ""
-          )
-          ''
-            curl -L "${bootstrapUrl}" > pack.toml
-            java -jar "$packwizInstallerBootstrap" \
-              --bootstrap-main-jar "$packwizInstaller" \
-              --bootstrap-no-update \
-              --no-gui \
-              --side "${side}" \
-              "${bootstrapUrl}"
+          curl -L "${bootstrapUrl}" > pack.toml
+          java -jar "$packwizInstallerBootstrap" \
+            --bootstrap-main-jar "$packwizInstaller" \
+            --bootstrap-no-update \
+            --no-gui \
+            --side "${side}" \
+            "${bootstrapUrl}"
 
-            runHook postBuild
-          ''
-        ];
+          runHook postBuild
+        '';
 
         installPhase = ''
           runHook preInstall
