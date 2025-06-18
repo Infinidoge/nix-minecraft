@@ -2103,5 +2103,10 @@
     "libraries": [
       "net.fabricmc:intermediary:1.21.6-rc1"
     ]
+  },
+  "1.21.6": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.6"
+    ]
   }
 }
