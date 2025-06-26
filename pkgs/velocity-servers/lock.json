@@ -1,4 +1,18 @@
 {
+  "1.0.10": {
+    "245": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/1.0.10/builds/245/downloads/velocity-1.0.10-245.jar",
+      "sha256": "16e786af6b6c9c34e77f6229c8fd573b7b97a8394beb3575bfdfa0b34826cae3",
+      "channel": "default"
+    }
+  },
+  "1.1.9": {
+    "447": {
+      "url": "https://api.papermc.io/v2/projects/velocity/versions/1.1.9/builds/447/downloads/velocity-1.1.9-447.jar",
+      "sha256": "d6ba2c934eb956b3aea5381135fb6c5763bb3a50a85022671fac6f5bfed63843",
+      "channel": "default"
+    }
+  },
   "3.1.0": {
     "95": {
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.1.0/builds/95/downloads/velocity-3.1.0-95.jar",
@@ -544,20 +558,6 @@
     "207": {
       "url": "https://api.papermc.io/v2/projects/velocity/versions/3.1.2-SNAPSHOT/builds/207/downloads/velocity-3.1.2-SNAPSHOT-207.jar",
       "sha256": "823393405413413dae1f7c83c89851dbe7439e719cc31793a15b9aad951a4315",
-      "channel": "default"
-    }
-  },
-  "1.0.10": {
-    "245": {
-      "url": "https://api.papermc.io/v2/projects/velocity/versions/1.0.10/builds/245/downloads/velocity-1.0.10-245.jar",
-      "sha256": "16e786af6b6c9c34e77f6229c8fd573b7b97a8394beb3575bfdfa0b34826cae3",
-      "channel": "default"
-    }
-  },
-  "1.1.9": {
-    "447": {
-      "url": "https://api.papermc.io/v2/projects/velocity/versions/1.1.9/builds/447/downloads/velocity-1.1.9-447.jar",
-      "sha256": "d6ba2c934eb956b3aea5381135fb6c5763bb3a50a85022671fac6f5bfed63843",
       "channel": "default"
     }
   },
