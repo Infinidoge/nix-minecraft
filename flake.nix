@@ -43,14 +43,21 @@
           legacyFabricServers = callPackage ./pkgs/legacy-fabric-servers { inherit vanillaServers; };
           paperServers = callPackage ./pkgs/paper-servers { inherit vanillaServers; };
           velocityServers = callPackage ./pkgs/velocity-servers { };
+          neoforgeServers = callPackage ./pkgs/neoforge-servers { inherit vanillaServers; };
           minecraftServers =
-            vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers;
+            vanillaServers
+            // fabricServers
+            // quiltServers
+            // legacyFabricServers
+            // paperServers
+            // neoforgeServers;
 
           vanilla-server = vanillaServers.vanilla;
           fabric-server = fabricServers.fabric;
           quilt-server = quiltServers.quilt;
           paper-server = paperServers.paper;
           velocity-server = velocityServers.velocity;
+          neoforge-server = neoforgeServers.neoforge;
           minecraft-server = vanilla-server;
         }
         // (builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./pkgs/tools));
