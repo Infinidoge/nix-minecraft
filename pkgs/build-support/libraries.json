@@ -5798,5 +5798,10 @@
     "name": "hashed-1.21.7.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.7/hashed-1.21.7.jar",
     "sha256": "06a6scnprzg1bh96jk2wam2avx7ww8prnkp3f3gx80v71y6g4r93"
+  },
+  "org.quiltmc:quilt-loader:0.29.1-beta.1": {
+    "name": "quilt-loader-0.29.1-beta.1.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.29.1-beta.1/quilt-loader-0.29.1-beta.1.jar",
+    "sha256": "089sgn66qp0rzf0k6ki3gdkdrcvm871ql15is7pr3mwy0bg09bvv"
   }
 }
