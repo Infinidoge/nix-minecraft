@@ -1,4 +1,9 @@
 **/.mypy_cache
 **/__pycache__
-**/result
-/tmp
+**/http_cache
+**/result*
+**/tmp
+.envrc
+
+# vm tests
+.nixos-test-history
