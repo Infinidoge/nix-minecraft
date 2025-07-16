@@ -5803,5 +5803,15 @@
     "name": "quilt-loader-0.29.1-beta.1.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.29.1-beta.1/quilt-loader-0.29.1-beta.1.jar",
     "sha256": "089sgn66qp0rzf0k6ki3gdkdrcvm871ql15is7pr3mwy0bg09bvv"
+  },
+  "net.fabricmc:intermediary:1.21.8-rc1": {
+    "name": "intermediary-1.21.8-rc1.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.8-rc1/intermediary-1.21.8-rc1.jar",
+    "sha256": "1533f8cprab2y977xvzlkswq6q8sic40dxkpcn1phmrm9yghx40w"
+  },
+  "org.quiltmc:hashed:1.21.8-rc1": {
+    "name": "hashed-1.21.8-rc1.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.8-rc1/hashed-1.21.8-rc1.jar",
+    "sha256": "1l1sg2fb1m58bmmlajzqpyycv3bprlqxgasrdnlm5jl32m4gb6gz"
   }
 }
