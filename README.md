@@ -30,7 +30,7 @@ Deprecated code is subject to removal after 1 month.
 
 ## Installation
 
-This repository is made exclusively as a Nix flake. Due to a lack of understanding of now Nix flake compat works, I have not included it, however if a PR is made to add compatibility, I may accept it.
+This repository is made exclusively as a Nix flake. `flake-compat` is included for those not in flakes, however because I personally use flakes, it is not actively tested.
 
 In your `flake.nix`:
 
