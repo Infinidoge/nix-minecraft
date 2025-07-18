@@ -18,8 +18,6 @@
       ...
     }@inputs:
     let
-      mkPackages = import ./pkgs/all-packages.nix;
-
       mkTests =
         pkgs:
         let
@@ -38,7 +36,7 @@
     {
       lib = import ./lib { lib = nixpkgs.lib; };
 
-      overlay = final: prev: mkPackages prev;
+      overlay = import ./overlay.nix;
       overlays.default = self.overlay;
       inherit nixosModules;
 
@@ -69,7 +67,7 @@
         };
       in
       rec {
-        legacyPackages = mkPackages pkgs;
+        legacyPackages = import ./pkgs/all-packages.nix pkgs;
 
         packages = {
           inherit (legacyPackages)
