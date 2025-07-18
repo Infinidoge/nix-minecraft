@@ -20,7 +20,6 @@
 
 - Turn into a full-fledged derivation instead of using `writeShellScriptBin`
 - Merge with [mkTextileLoader](./pkgs/build-support/mkTextileLoader.nix)?
-- Use jar ClassPath instead of unpacking libraries.
 
 ### DRY Update Scripts
 
