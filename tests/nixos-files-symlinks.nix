@@ -1,7 +1,7 @@
 { nixosTest, outputs }:
 
 nixosTest {
-  name = "files-symlinks";
+  name = "nixos-files-symlinks";
   nodes.server =
     {
       config,
