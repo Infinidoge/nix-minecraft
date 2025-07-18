@@ -71,7 +71,7 @@
       nixosModules = self.lib.rakeLeaves ./modules;
     in
     {
-      lib = import ./lib { lib = flake-utils.lib // nixpkgs.lib; };
+      lib = import ./lib { lib = nixpkgs.lib; };
 
       overlay = final: prev: mkPackages prev;
       overlays.default = self.overlay;
