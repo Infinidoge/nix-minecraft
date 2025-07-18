@@ -18,52 +18,17 @@
       ...
     }@inputs:
     let
-      mkLib = pkgs: pkgs.lib.extend (_: _: { our = self.lib; });
-
-      mkPackages =
-        pkgs:
-        let
-          # Include build support functions in callPackage,
-          # and include callPackage in itself so it passes to children
-          callPackage = pkgs.newScope (
-            {
-              lib = mkLib pkgs;
-              inherit callPackage;
-            }
-            // buildSupport
-          );
-          buildSupport = builtins.mapAttrs (n: v: callPackage v) (self.lib.rakeLeaves ./pkgs/build-support);
-        in
-        rec {
-          inherit buildSupport;
-
-          vanillaServers = callPackage ./pkgs/vanilla-servers { };
-          fabricServers = callPackage ./pkgs/fabric-servers { inherit vanillaServers; };
-          quiltServers = callPackage ./pkgs/quilt-servers { inherit vanillaServers; };
-          legacyFabricServers = callPackage ./pkgs/legacy-fabric-servers { inherit vanillaServers; };
-          paperServers = callPackage ./pkgs/paper-servers { inherit vanillaServers; };
-          velocityServers = callPackage ./pkgs/velocity-servers { };
-          minecraftServers =
-            vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers;
-
-          vanilla-server = vanillaServers.vanilla;
-          fabric-server = fabricServers.fabric;
-          quilt-server = quiltServers.quilt;
-          paper-server = paperServers.paper;
-          velocity-server = velocityServers.velocity;
-          minecraft-server = vanilla-server;
-        }
-        // (builtins.mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./pkgs/tools));
+      mkPackages = import ./pkgs/all-packages.nix;
 
       mkTests =
         pkgs:
         let
-          inherit (pkgs.stdenv) isLinux;
+          inherit (pkgs.stdenvNoCC) isLinux;
           inherit (pkgs.lib) optionalAttrs mapAttrs;
           callPackage = pkgs.newScope {
             inherit self;
             inherit (self) outputs;
-            lib = mkLib pkgs;
+            lib = pkgs.lib.extend (_: _: { our = self.lib; });
           };
         in
         optionalAttrs isLinux (mapAttrs (n: v: callPackage v { }) (self.lib.rakeLeaves ./tests));
