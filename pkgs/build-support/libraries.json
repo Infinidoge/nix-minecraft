@@ -5828,5 +5828,20 @@
     "name": "quilt-loader-0.29.1.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.29.1/quilt-loader-0.29.1.jar",
     "sha256": "14r38mj9jgikqb7pky90rcfaznbbj75qcwcc0498wrhlra17b73h"
+  },
+  "net.fabricmc:sponge-mixin:0.16.3+mixin.0.8.7": {
+    "name": "sponge-mixin-0.16.3+mixin.0.8.7.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.16.3+mixin.0.8.7/sponge-mixin-0.16.3+mixin.0.8.7.jar",
+    "sha256": "1734yjjxd4gsx6bq27yb436v4qlmfxmlj6x3fvmc5mkfk5rb64xx"
+  },
+  "net.fabricmc:fabric-loader:0.17.0": {
+    "name": "fabric-loader-0.17.0.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.17.0/fabric-loader-0.17.0.jar",
+    "sha256": "0lrlx2g3h2myk00085451jiky4d0i0qr7dnpahvdj0pshvi0dbbd"
+  },
+  "net.fabricmc:intermediary:25w31a": {
+    "name": "intermediary-25w31a.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w31a/intermediary-25w31a.jar",
+    "sha256": "1hdxl3d178ghb4c0ah0hd0f46bakbfs2f8gdfzrp2qpgbr1kj2w7"
   }
 }
