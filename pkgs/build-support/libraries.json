@@ -5843,5 +5843,10 @@
     "name": "intermediary-25w31a.jar",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w31a/intermediary-25w31a.jar",
     "sha256": "1hdxl3d178ghb4c0ah0hd0f46bakbfs2f8gdfzrp2qpgbr1kj2w7"
+  },
+  "org.quiltmc:hashed:25w31a": {
+    "name": "hashed-25w31a.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w31a/hashed-25w31a.jar",
+    "sha256": "1wj0ih42rwp0mzkpv1apn9nr99nlijizsrzxm1a53rpn514cra6v"
   }
 }
