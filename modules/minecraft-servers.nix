@@ -145,6 +145,11 @@ let
     let
       ms = server.managementSystem;
       tmux = "${getBin pkgs.tmux}/bin/tmux";
+      runCommand =
+        if server.lazymc.enable then
+          "${server.lazymc.package}/bin/lazymc start --config lazymc.toml"
+        else
+          "${getExe server.package} ${server.jvmOpts}";
     in
     assert assertMsg (
       !(ms.tmux.enable && ms.systemd-socket.enable)
@@ -160,7 +165,7 @@ let
         };
         hooks = {
           start = ''
-            ${tmux} -S ${sock} new -d ${getExe server.package} ${server.jvmOpts}
+            ${tmux} -S ${sock} new -d ${runCommand}
 
             # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
             # See https://github.com/Infinidoge/nix-minecraft/issues/5
@@ -178,7 +183,18 @@ let
               exit 0
             fi
 
-            ${tmux} -S ${sock} send-keys ${escapeShellArg server.stopCommand} Enter
+            ${
+              if server.lazymc.enable then
+                ''
+                  # Won't gracefully stop if server running unfortunately
+                  ${tmux} -S ${sock} send-keys C-c Enter
+                  ${tmux} -S ${sock} send-keys C-c Enter
+                ''
+              else
+                ''
+                  ${tmux} -S ${sock} send-keys ${escapeShellArg server.stopCommand} Enter
+                ''
+            }
 
             while server_running; do sleep 1s; done
           '';
@@ -194,11 +210,11 @@ let
         };
         hooks = {
           start = ''
-            ${getExe server.package} ${server.jvmOpts}
+            ${runCommand}
           '';
           postStart = "";
           stop = ''
-            ${optionalString (server.stopCommand != null) ''
+            ${optionalString (server.stopCommand != null && !server.lazymc.enable) ''
               echo ${escapeShellArg server.stopCommand} > ${escapeShellArg (ms.systemd-socket.stdinSocket.path name)}
 
               while kill -0 "$1" 2> /dev/null; do sleep 1s; done
@@ -566,6 +582,35 @@ in
                 default = { };
                 example = options.services.minecraft-servers.managementSystem.example;
               };
+              lazymc = {
+                enable = mkEnableOpt "Enable lazymc to manage this server.";
+                package = mkOption {
+                  type = types.package;
+                  default = pkgs.lazymc;
+                  defaultText = literalExpression "pkgs.lazymc";
+                  description = "The lazymc package to use.";
+                };
+                config = mkOption {
+                  type = types.attrs;
+                  default = { };
+                  description = ''
+                    Configuration for lazymc, mirroring its TOML structure.
+                    Some values like server.command and server.directory will
+                    be automatically configured by this module when generating lazymc.toml. 
+
+                    See <link xlink:href="https://github.com/timvisee/lazymc/blob/master/res/lazymc.toml"/>
+                    for documentation on these values.
+                  '';
+                  example = literalExpression ''
+                    {
+                      public.address = "0.0.0.0:25565"; # Public port for players
+                      time.sleep_after = 900; # Sleep after 15 minutes
+                      motd.sleeping = "Shhh, the server is napping!";
+                      server.forge = false; # Set to true if this is a Forge server
+                    }
+                  '';
+                };
+              };
             };
           }
         )
@@ -608,14 +653,27 @@ in
         {
           assertion =
             let
-              serverPorts = mapAttrsToList (name: conf: conf.serverProperties.server-port or 25565) (
-                filterAttrs (_: cfg: cfg.openFirewall) servers
-              );
+              serverPorts = mapAttrsToList (
+                name: conf:
+
+                # per server asserts
+                assert assertMsg
+                  (!(conf.lazymc.enable && !(conf.lazymc.config ? public && conf.lazymc.config.public ? address)))
+                  ''
+                    Server '${name}' has Lazymc enabled but no public address set. Please set for example: ${name}.lazymc.config.public.address = "0.0.0.0:25566";
+                    Lazymc's internal server.address is automatically set to ${name}.serverProperties.server-port or 25565
+                  '';
+
+                if conf.lazymc.enable then
+                  lib.toInt (lib.last (lib.splitString ":" conf.lazymc.config.public.address)) # turn 0.0.0.0:25566 to 25566
+                else
+                  conf.serverProperties.server-port or 25565
+              ) (filterAttrs (_: cfg: cfg.openFirewall) servers);
 
               counts = map (port: count (x: x == port) serverPorts) (unique serverPorts);
             in
             lib.all (x: x == 1) counts;
-          message = "Multiple servers are set to use the same port. Change one to use a different port.";
+          message = "Multiple servers are set to use the same public port (either through lazymc public.address or server.properties server-port). Change one to use a different port.";
         }
       ];
 
@@ -634,7 +692,14 @@ in
           # Minecraft and RCON
           getTCPPorts =
             n: c:
-            [ c.serverProperties.server-port or 25565 ]
+            [
+              (
+                if c.lazymc.enable then
+                  lib.toInt (lib.last (lib.splitString ":" c.lazymc.config.public.address)) # turn 0.0.0.0:25566 to 25566
+                else
+                  c.serverProperties.server-port or 25565
+              )
+            ]
             ++ (optional (c.serverProperties.enable-rcon or false) (c.serverProperties."rcon.port" or 25575));
           # Query
           getUDPPorts =
@@ -700,6 +765,13 @@ in
                 bypassesPlayerLimit = v.bypassesPlayerLimit;
               }) conf.operators;
               "server.properties".value = conf.serverProperties;
+              "lazymc.toml".value = lib.recursiveUpdate {
+                server = {
+                  command = "${getExe conf.package} ${conf.jvmOpts}";
+                  directory = ".";
+                  address = "127.0.0.1:${toString conf.serverProperties.server-port or 25565}";
+                };
+              } conf.lazymc.config;
             }
             // conf.files
           );
