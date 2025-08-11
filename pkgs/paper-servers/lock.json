@@ -1,4 +1,10 @@
 {
+  "1.7.10": {
+    "2025": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.7.10/builds/2025/downloads/paper-1.7.10-2025.jar",
+      "sha256": "33772078d92e9dbb027602da016524ef29af5b4c12eaddac1fe2465b01108185"
+    }
+  },
   "1.8.8": {
     "443": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.8.8/builds/443/downloads/paper-1.8.8-443.jar",
