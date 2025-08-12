@@ -20923,6 +20923,10 @@
     "28": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.8/builds/28/downloads/paper-1.21.8-28.jar",
       "sha256": "9f18e2527bd1c06fc843e8cfacea228ab9cff86f0eaeee87bf1afe10c3f426ed"
+    },
+    "29": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.8/builds/29/downloads/paper-1.21.8-29.jar",
+      "sha256": "937eb53ec237c95f016241e806a80baf4b85cb90c86a86d98b93fd218fe2b02f"
     }
   }
 }
