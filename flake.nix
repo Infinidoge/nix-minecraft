@@ -84,6 +84,10 @@
           docsCommonMark = docs.optionsCommonMark;
         };
 
+        devShells = {
+          neoforge-servers = pkgs.callPackage ./pkgs/neoforge-servers/shell.nix { };
+        };
+
         checks = mkTests (pkgs.extend self.outputs.overlays.default) // packages;
 
         formatter = pkgs.nixfmt-rfc-style;
