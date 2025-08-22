@@ -11,6 +11,7 @@ As of currently, it packages:
   - Legacy Fabric
   - Quilt
   - Paper
+  - Purpur
 - All supported versions of the following:
   - Velocity proxy
 - Various tools
@@ -116,6 +117,14 @@ Since Legacy Fabric does not have a defined newest version to target, it lacks a
 
 If you plan on running paper without internet, you'll have to link the vanilla jar to `cache/mojang_{version}.jar`. The relevant jar is available at the package's `vanillaJar` attribute.
 
+### `purpurServers.*`
+
+[Source](./pkgs/purpur-servers)
+
+`purpurServers` functions the same as `paperServers`.
+
+If you plan on running paper without internet, you'll have to link the vanilla jar to `cache/mojang_{version}.jar`. The relevant jar is available at the package's `vanillaJar` attribute.
+
 ### `velocityServers.*`
 
 [Source](./pkgs/velocity-servers)
@@ -126,7 +135,7 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 
 ### `minecraftServers.*`
 
-`vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
+`vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers // purpurServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
 
 ### `fetchPackwizModpack`
 
@@ -232,6 +241,7 @@ All of these packages are also available under `packages`, not just `legacyPacka
 - `fabric-server`: Same as `fabricServers.fabric`
 - `quilt-server`: Same as `quiltServers.quilt`
 - `paper-server`: Same as `paperServers.paper`
+- `purpur-server`: Same as `purpurServers.purpur`
 - `velocity-server`: Same as `velocityServers.velocity`
 - `minecraft-server`: Same as `vanilla-server`
 
