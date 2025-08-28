@@ -38,7 +38,7 @@ writeShellApplication {
       minecraftctl list                      # list available instances with their status
       minecraftctl status <instance>         # show status of the instance
       minecraftctl send <instance> <command> # send command to the tmux session
-      minecraftctl tail <instance> [-f]      # tail logs, with optional follow flag
+      minecraftctl tail <instance> [options] # tail logs with options: -f, -n NUM
       minecraftctl stop <instance>           # pause the instance
       minecraftctl start <instance>          # start the paused instance
       minecraftctl restart <instance>        # restart it
@@ -48,6 +48,7 @@ writeShellApplication {
       minecraftctl status myserver
       minecraftctl send myserver "say Hello world"
       minecraftctl tail myserver -f
+      minecraftctl tail myserver -n 100
       minecraftctl stop myserver
       minecraftctl start myserver
       minecraftctl restart myserver
@@ -139,11 +140,40 @@ writeShellApplication {
     tail_logs() {
       local instance="$1"
       local follow_flag=""
+      local lines="50"
+      shift
 
-      # Check if -f flag is provided
-      if [[ $# -gt 1 && "$2" == "-f" ]]; then
-        follow_flag="-f"
-      fi
+      # Parse tail-like options
+      while [[ $# -gt 0 ]]; do
+        case "$1" in
+          -f|--follow)
+            follow_flag="-f"
+            ;;
+          -n|--lines)
+            if [[ $# -gt 1 && "$2" =~ ^[0-9]+$ ]]; then
+              lines="$2"
+              shift
+            else
+              echo "Error: -n requires a number"
+              exit 1
+            fi
+            ;;
+          -n*)
+            # Handle -n100 format
+            lines="${1#-n}"
+            if [[ ! "$lines" =~ ^[0-9]+$ ]]; then
+              echo "Error: invalid number of lines: $lines"
+              exit 1
+            fi
+            ;;
+          *)
+            echo "Error: unknown option '$1'"
+            echo "Supported options: -f, -n NUM"
+            exit 1
+            ;;
+        esac
+        shift
+      done
 
       local service_name
       service_name=$(get_service_name "$instance")
@@ -152,7 +182,7 @@ writeShellApplication {
       if [[ "$follow_flag" == "-f" ]]; then
         journalctl -u "$service_name" -f --no-pager
       else
-        journalctl -u "$service_name" -n 50 --no-pager
+        journalctl -u "$service_name" -n "$lines" --no-pager
       fi
     }
 
@@ -219,10 +249,12 @@ writeShellApplication {
       tail)
         if [[ $# -lt 2 ]]; then
           echo "Error: instance name required"
-          echo "Usage: minecraftctl tail <instance> [-f]"
+          echo "Usage: minecraftctl tail <instance> [options]"
           exit 1
         fi
-        tail_logs "$2" "''${3:-}"
+        instance="$2"
+        shift 2
+        tail_logs "$instance" "$@"
         ;;
       stop)
         if [[ $# -lt 2 ]]; then
