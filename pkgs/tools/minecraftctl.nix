@@ -11,7 +11,7 @@
   ...
 }:
 writeShellApplication {
-  name = "nix-minecraft-cli";
+  name = "minecraftctl";
 
   runtimeInputs = [
     systemd
@@ -32,25 +32,25 @@ writeShellApplication {
 
     show_help() {
       cat << 'EOF'
-    nix-minecraft-cli - Manage Minecraft servers created by nix-minecraft
+    minecraftctl - Manage Minecraft servers created by nix-minecraft
 
     Usage:
-      nix-minecraft-cli list                      # list available instances with their status
-      nix-minecraft-cli status <instance>         # show status of the instance
-      nix-minecraft-cli send <instance> <command> # send command to the tmux session
-      nix-minecraft-cli tail <instance> [-f]      # tail logs, with optional follow flag
-      nix-minecraft-cli stop <instance>           # pause the instance
-      nix-minecraft-cli start <instance>          # start the paused instance
-      nix-minecraft-cli restart <instance>        # restart it
+      minecraftctl list                      # list available instances with their status
+      minecraftctl status <instance>         # show status of the instance
+      minecraftctl send <instance> <command> # send command to the tmux session
+      minecraftctl tail <instance> [-f]      # tail logs, with optional follow flag
+      minecraftctl stop <instance>           # pause the instance
+      minecraftctl start <instance>          # start the paused instance
+      minecraftctl restart <instance>        # restart it
 
     Examples:
-      nix-minecraft-cli list
-      nix-minecraft-cli status myserver
-      nix-minecraft-cli send myserver "say Hello world"
-      nix-minecraft-cli tail myserver -f
-      nix-minecraft-cli stop myserver
-      nix-minecraft-cli start myserver
-      nix-minecraft-cli restart myserver
+      minecraftctl list
+      minecraftctl status myserver
+      minecraftctl send myserver "say Hello world"
+      minecraftctl tail myserver -f
+      minecraftctl stop myserver
+      minecraftctl start myserver
+      minecraftctl restart myserver
     EOF
     }
 
@@ -199,7 +199,7 @@ writeShellApplication {
       status)
         if [[ $# -lt 2 ]]; then
           echo "Error: instance name required"
-          echo "Usage: nix-minecraft-cli status <instance>"
+          echo "Usage: minecraftctl status <instance>"
           exit 1
         fi
         show_status "$2"
@@ -207,7 +207,7 @@ writeShellApplication {
       send)
         if [[ $# -lt 3 ]]; then
           echo "Error: instance name and command required"
-          echo "Usage: nix-minecraft-cli send <instance> <command>"
+          echo "Usage: minecraftctl send <instance> <command>"
           exit 1
         fi
         # Join all arguments after the second as the command
@@ -219,7 +219,7 @@ writeShellApplication {
       tail)
         if [[ $# -lt 2 ]]; then
           echo "Error: instance name required"
-          echo "Usage: nix-minecraft-cli tail <instance> [-f]"
+          echo "Usage: minecraftctl tail <instance> [-f]"
           exit 1
         fi
         tail_logs "$2" "''${3:-}"
@@ -227,7 +227,7 @@ writeShellApplication {
       stop)
         if [[ $# -lt 2 ]]; then
           echo "Error: instance name required"
-          echo "Usage: nix-minecraft-cli stop <instance>"
+          echo "Usage: minecraftctl stop <instance>"
           exit 1
         fi
         stop_instance "$2"
@@ -235,7 +235,7 @@ writeShellApplication {
       start)
         if [[ $# -lt 2 ]]; then
           echo "Error: instance name required"
-          echo "Usage: nix-minecraft-cli start <instance>"
+          echo "Usage: minecraftctl start <instance>"
           exit 1
         fi
         start_instance "$2"
@@ -243,7 +243,7 @@ writeShellApplication {
       restart)
         if [[ $# -lt 2 ]]; then
           echo "Error: instance name required"
-          echo "Usage: nix-minecraft-cli restart <instance>"
+          echo "Usage: minecraftctl restart <instance>"
           exit 1
         fi
         restart_instance "$2"

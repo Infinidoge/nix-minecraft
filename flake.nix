@@ -78,7 +78,7 @@
             velocity-server
             minecraft-server
             nix-modrinth-prefetch
-            nix-minecraft-cli
+            minecraftctl
             ;
 
           docsAsciiDoc = docs.optionsAsciiDoc;
