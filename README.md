@@ -14,6 +14,7 @@ As of currently, it packages:
 - All supported versions of the following:
   - Velocity proxy
 - Various tools
+  - `minecraftctl`
   - `nix-modrinth-prefetch`
   - `fetchPackwizModpack`
 
@@ -270,6 +271,43 @@ nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- versionid
 (This helper script can also be used in a temporary shell with `nix shell github:Infinidoge/nix-minecraft#nix-modrinth-prefetch`)
 
 This `fetchurl` invocation directly fetches the mod, and can be copy-pasted to wherever necessary.
+
+#### `minecraftctl`
+
+[Source](./pkgs/tools/minecraftctl.nix)
+
+A command-line tool for managing Minecraft servers created by the nix-minecraft module. It provides a convenient interface to interact with multiple server instances through systemd services and tmux sessions.
+
+**Features:**
+- List all available server instances with their status
+- View detailed status information for specific servers
+- Send commands directly to running servers via tmux
+- View server logs with optional live following
+- Start, stop, and restart server instances
+
+**Usage:**
+```bash
+# List all server instances with their current status
+minecraftctl list
+
+# Show detailed status of a specific server
+minecraftctl status myserver
+
+# Send a command to a running server (e.g., in-game commands)
+minecraftctl send myserver "say Hello world"
+minecraftctl send myserver "whitelist add player123"
+
+# View recent logs (last 50 lines)
+minecraftctl tail myserver
+
+# Follow logs in real-time
+minecraftctl tail myserver -f
+
+# Control server lifecycle
+minecraftctl stop myserver
+minecraftctl start myserver
+minecraftctl restart myserver
+```
 
 ## Modules
 
