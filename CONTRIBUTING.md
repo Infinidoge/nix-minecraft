@@ -71,6 +71,12 @@ This will run some basic package tests, as well as check formatting.
 Please rebase on top of master to include upstream changes, instead of merging in upstream changes.
 This helps keep the commit history of your PR clean.
 
+### AI Generated Content is Strictly Prohibited
+
+This includes code, issues, PR descriptions, commit messages, everything and anything.
+Do not use AI for contributing to nix-minecraft.
+If you do so repeatedly, you may be blacklisted from contributing at all.
+
 ## Meta files
 
 ### Changelog
