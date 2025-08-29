@@ -14,13 +14,16 @@ lib.makeExtensible (
       id
       isList
       last
+      mapAttrs
       mapAttrs'
+      mkOption
       removePrefix
       removeSuffix
       sort
       splitString
       stringToCharacters
       take
+      types
       versionOlder
       nameValuePair
       ;
@@ -112,5 +115,29 @@ lib.makeExtensible (
         wrapLine = chain stringToCharacters chunkCharacters (map concatStrings) (concatStringsSep "\n ");
       in
       chain (splitString "\n") (map wrapLine) concatLines manifestText;
+
+    mkOpt' =
+      type: default: description:
+      mkOption { inherit type default description; };
+
+    mkBoolOpt' =
+      default: description:
+      mkOption {
+        inherit default description;
+        type = types.bool;
+        example = true;
+      };
+
+    mkEnableOpt = description: mkBoolOpt' false description;
+
+    mkReadOnlyOption =
+      default:
+      mkOption {
+        internal = true;
+        readOnly = true;
+        inherit default;
+      };
+
+    mkService = import ./mkService.nix;
   }
 )
