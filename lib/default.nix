@@ -1,4 +1,5 @@
 { lib }:
+
 lib.makeExtensible (
   self:
   let
@@ -112,5 +113,36 @@ lib.makeExtensible (
         wrapLine = chain stringToCharacters chunkCharacters (map concatStrings) (concatStringsSep "\n ");
       in
       chain (splitString "\n") (map wrapLine) concatLines manifestText;
+
+    # This function assumes that:
+    # - all minecraft server packages names (not to be confused with attrset keys in pkgs)
+    # are named as "minecraft-server-${mcVersion}-${loader}-${loaderName}"
+    # where loaderName is all lowercase without any extra characters
+    # and mcVersion is "${major}_${minor}_${patch}"
+    getPackageInfo =
+      package:
+      let
+        inherit (builtins) elemAt replaceStrings;
+        knownLoaders = [
+          "vanilla"
+          "fabric"
+          "quilt"
+          "forge"
+          "neoforge"
+          "paper"
+          "velocity"
+        ];
+        splitName = lib.splitString "-" package.name;
+        # minecraft-server-1.21.8-fabric-0.17.2
+        #                         ^^^^^^
+        type = elemAt splitName 3;
+        # minecraft-server-1.21.8-fabric-0.17.2
+        #                  ^^^^^^
+        version = replaceStrings [ "_" ] [ "." ] (elemAt splitName 2);
+      in
+      {
+        type = if builtins.elem type knownLoaders then type else "unknown (${package.name})";
+        minecraftVersion = if isNormalVersion version then version else "Failed to parse - ${package.name}";
+      };
   }
 )

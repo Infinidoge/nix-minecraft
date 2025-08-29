@@ -1,10 +1,16 @@
-{
+arguments@{
   config,
-  lib,
   options,
   pkgs,
   ...
 }:
+let
+  lib = arguments.lib.extend (
+    _: _: {
+      our = import ../lib { inherit (arguments) lib; };
+    }
+  );
+in
 with lib;
 let
   cfg = config.services.minecraft-servers;
@@ -30,6 +36,8 @@ let
       type = types.bool;
       example = true;
     };
+
+  mkEnableOpt = description: mkBoolOpt' false description;
 
   normalizeFiles = files: mapAttrs configToPath (filterAttrs (_: nonEmptyValue) files);
   nonEmptyValue = x: nonEmpty x && (x ? value -> nonEmpty x.value);
@@ -208,8 +216,6 @@ let
       }
     else
       builtins.throw "At least one server management system must be enabled.";
-
-  mkEnableOpt = description: mkBoolOpt' false description;
 in
 {
   options.services.minecraft-servers = {
@@ -576,6 +582,39 @@ in
   config = mkIf cfg.enable (
     let
       servers = filterAttrs (_: cfg: cfg.enable) cfg.servers;
+      serverJsonFile =
+        let
+          toServerEntry =
+            name: serverCfg:
+            let
+              info = lib.our.getPackageInfo serverCfg.package;
+              ms = serverCfg.managementSystem;
+            in
+            {
+              inherit name;
+              inherit (info) type minecraftVersion;
+              port = cfg.serverProperties.server-port or 25565;
+              dataDir = "${cfg.dataDir}/${name}";
+              serviceName = "minecraft-server-${name}";
+              managementSystem =
+                if ms.tmux.enable && ms.systemd-socket.enable then
+                  builtins.throw "Only one server management system can be enabled."
+                else if ms.tmux.enable then
+                  {
+                    type = "tmux";
+                    tmux.socketPath = ms.tmux.socketPath name;
+                  }
+                else if ms.systemd-socket.enable then
+                  {
+                    type = "systemd-socket";
+                    systemdSocket.stdinSocket.path = ms.systemd-socket.stdinSocket.path name;
+                  }
+                else
+                  builtins.throw "At least one server management system must be enabled.";
+            };
+          json = builtins.toJSON (mapAttrs toServerEntry servers);
+        in
+        pkgs.writeText "minecraftctl.json" json;
     in
     {
       users = {
@@ -588,6 +627,10 @@ in
           group = "minecraft";
         };
         groups.minecraft = mkIf (cfg.group == "minecraft") { };
+      };
+
+      environment.sessionVariables = {
+        NIX_MINECRAFT_MINECRAFTCTL_FILE = serverJsonFile;
       };
 
       assertions = [
