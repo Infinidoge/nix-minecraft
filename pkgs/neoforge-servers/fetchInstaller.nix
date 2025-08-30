@@ -1,0 +1,1 @@
+{ fetchurl }: { src }: fetchurl src
