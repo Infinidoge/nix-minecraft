@@ -1,5 +1,4 @@
 { lib }:
-
 lib.makeExtensible (
   self:
   let
@@ -114,14 +113,6 @@ lib.makeExtensible (
       in
       chain (splitString "\n") (map wrapLine) concatLines manifestText;
 
-    # This function assumes that:
-    # - all minecraft server packages `name`s (not to be confused with attrset keys in pkgs)
-    # are named as one of
-    # | "minecraft-server-${mcVersion}" # vanilla
-    # | "minecraft-server-${mcVersion}-${loader}-${loaderVersion}" # mkTextileServer (fabric, quilt)
-    # | "minecraft-server-${mcVersion}-legacy-fabric-${loaderVersion}" # legacy fabric
-    # | "${loader}-${version}" # paper, velocity
-    # where loaderName is all lowercase without any extra characters (`-` are not allowed)
     getPackageInfo =
       package:
       let
@@ -137,42 +128,72 @@ lib.makeExtensible (
               minecraftVersion = "?";
             };
       in
+      ## == our packaging ==
       # "paper-${mcVersion}-build.${buildNumber}" # paper
       if len == 3 && (at 0 == "paper") then
         {
-          type = at 0;
+          type = "paper";
           minecraftVersion = at 1;
         }
       # "velocity-${velocityVersion}-build.${buildNumber}" # velocity
       else if len == 3 && (at 0 == "velocity") then
         {
-          type = at 0;
+          type = "velocity";
           minecraftVersion = "-"; # it doesn't make sense to define minecraft version
         }
       else
-      # below here should have prefix "minecraft-server-${mcVersion}"
-      if !(len >= 3 && (lists.hasPrefix [ "minecraft" "server" ] name)) then
-        warnAndDefault
+      # should have prefix "minecraft-server-${mcVersion}"
+      if (len >= 3 && (lists.hasPrefix [ "minecraft" "server" ] name)) then
+        # "minecraft-server-${mcVersion}"
+        if len == 3 then
+          {
+            type = "vanilla";
+            minecraftVersion = at 2;
+          }
+        else
+        # "minecraft-server-${mcVersion}-${loader}-${loaderVersion}"
+        if len == 5 then
+          {
+            type = at 3;
+            minecraftVersion = at 2;
+          }
+        else
+        # "minecraft-server-${mcVersion}-legacy-fabric-${loaderVersion}" # legacy fabric
+        if len == 6 then
+          {
+            type = "legacy-fabric";
+            minecraftVersion = at 2;
+          }
+        else
+          warnAndDefault
       else
-      # "minecraft-server-${mcVersion}"
-      if len == 3 then
+      ## == from nixpkgs ==
+      # "mchprs-${mchprsVersion}" # mchprs
+      if len == 2 && at 0 == "mchprs" then
         {
-          type = "vanilla";
-          minecraftVersion = at 2;
+          type = "mchprs";
+          minecraftVersion = "?"; # it does not seem to contain minecraft version info
         }
       else
-      # "minecraft-server-${mcVersion}-${loader}-${loaderVersion}"
-      if len == 5 then
+      # "papermc-${mcVersion}-${buildNumber}"
+      if len == 3 && at 0 == "papermc" then
         {
-          type = at 3;
-          minecraftVersion = at 2;
+          type = "papermc";
+          minecraftVersion = at 1;
         }
       else
-      # "minecraft-server-${mcVersion}-legacy-fabric-${loaderVersion}" # legacy fabric
-      if len == 6 then
+      # "purpur-${mcVersion}r${buildNumber}"
+      if len == 2 && at 0 == "purpur" then
         {
-          type = "legacy-fabric";
-          minecraftVersion = at 2;
+          type = "papermc";
+          minecraftVersion = elemAt (splitString "r" (at 1)) 0;
+        }
+      else
+      # "velocity-${velocityVersion}-unstable-${y}-${m}-${d}"
+      if len == 6 && at 0 == "velocity" then
+        {
+          type = "velocity";
+          minecraftVersion = "-"; # it doesn't make sense to define minecraft version
         }
       else
         warnAndDefault;
