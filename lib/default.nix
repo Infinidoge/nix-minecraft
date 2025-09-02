@@ -115,34 +115,66 @@ lib.makeExtensible (
       chain (splitString "\n") (map wrapLine) concatLines manifestText;
 
     # This function assumes that:
-    # - all minecraft server packages names (not to be confused with attrset keys in pkgs)
-    # are named as "minecraft-server-${mcVersion}-${loader}-${loaderName}"
-    # where loaderName is all lowercase without any extra characters
-    # and mcVersion is "${major}_${minor}_${patch}"
+    # - all minecraft server packages `name`s (not to be confused with attrset keys in pkgs)
+    # are named as one of
+    # | "minecraft-server-${mcVersion}" # vanilla
+    # | "minecraft-server-${mcVersion}-${loader}-${loaderVersion}" # mkTextileServer (fabric, quilt)
+    # | "minecraft-server-${mcVersion}-legacy-fabric-${loaderVersion}" # legacy fabric
+    # | "${loader}-${version}" # paper, velocity
+    # where loaderName is all lowercase without any extra characters (`-` are not allowed)
     getPackageInfo =
       package:
       let
-        inherit (builtins) elemAt replaceStrings;
-        knownLoaders = [
-          "vanilla"
-          "fabric"
-          "quilt"
-          "forge"
-          "neoforge"
-          "paper"
-          "velocity"
-        ];
-        splitName = lib.splitString "-" package.name;
-        # minecraft-server-1.21.8-fabric-0.17.2
-        #                         ^^^^^^
-        type = elemAt splitName 3;
-        # minecraft-server-1.21.8-fabric-0.17.2
-        #                  ^^^^^^
-        version = replaceStrings [ "_" ] [ "." ] (elemAt splitName 2);
+        inherit (builtins) elemAt;
+        inherit (lib) lists;
+        name = lib.splitString "-" package.name;
+        len = builtins.length name;
+        at = idx: elemAt name idx;
+        warnAndDefault =
+          lib.warn "[nix-minecraft] Could not infer minecraft server type from \"${package.name}\""
+            {
+              type = "unknown (${package.name})";
+              minecraftVersion = "?";
+            };
       in
-      {
-        type = if builtins.elem type knownLoaders then type else "unknown (${package.name})";
-        minecraftVersion = if isNormalVersion version then version else "Failed to parse - ${package.name}";
-      };
+      # "paper-${mcVersion}-build.${buildNumber}" # paper
+      if len == 3 && (at 0 == "paper") then
+        {
+          type = at 0;
+          minecraftVersion = at 1;
+        }
+      # "velocity-${velocityVersion}-build.${buildNumber}" # velocity
+      else if len == 3 && (at 0 == "velocity") then
+        {
+          type = at 0;
+          minecraftVersion = "-"; # it doesn't make sense to define minecraft version
+        }
+      else
+      # below here should have prefix "minecraft-server-${mcVersion}"
+      if !(len >= 3 && (lists.hasPrefix [ "minecraft" "server" ] name)) then
+        warnAndDefault
+      else
+      # "minecraft-server-${mcVersion}"
+      if len == 3 then
+        {
+          type = "vanilla";
+          minecraftVersion = at 2;
+        }
+      else
+      # "minecraft-server-${mcVersion}-${loader}-${loaderVersion}"
+      if len == 5 then
+        {
+          type = at 3;
+          minecraftVersion = at 2;
+        }
+      else
+      # "minecraft-server-${mcVersion}-legacy-fabric-${loaderVersion}" # legacy fabric
+      if len == 6 then
+        {
+          type = "legacy-fabric";
+          minecraftVersion = at 2;
+        }
+      else
+        warnAndDefault;
   }
 )
