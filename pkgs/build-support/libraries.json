@@ -5913,5 +5913,35 @@
     "name": "hashed-25w35a.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w35a/hashed-25w35a.jar",
     "sha256": "1m8rl2n4qxjqnndylryjk3rcb23lji837zkyrccl42f0jiszrvnv"
+  },
+  "net.fabricmc:intermediary:25w36b": {
+    "name": "intermediary-25w36b.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w36b/intermediary-25w36b.jar",
+    "sha256": "0wqjpfawpvq355vfwd60dk7gr93d3j49hxzvmzjz2pxr9sa4hcb3"
+  },
+  "net.fabricmc:intermediary:25w36a": {
+    "name": "intermediary-25w36a.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w36a/intermediary-25w36a.jar",
+    "sha256": "013w65q9yjm14afaqzmnsx3y12n577sy443276rzbsm2k1ryc9ha"
+  },
+  "org.quiltmc:quilt-loader:0.29.2-beta.4": {
+    "name": "quilt-loader-0.29.2-beta.4.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.29.2-beta.4/quilt-loader-0.29.2-beta.4.jar",
+    "sha256": "13bli9pdnkgmw6rphqg577nrgi18r67l9misrc0799ly6mihp0nb"
+  },
+  "org.quiltmc:quilt-loader:0.29.2-beta.2": {
+    "name": "quilt-loader-0.29.2-beta.2.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.29.2-beta.2/quilt-loader-0.29.2-beta.2.jar",
+    "sha256": "0y263qlzzs1yx71vvm2kvl5kpcdnjq88yqssa3n2bx64a0q7x14a"
+  },
+  "org.quiltmc:hashed:25w36b": {
+    "name": "hashed-25w36b.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w36b/hashed-25w36b.jar",
+    "sha256": "0zypbgr9bs7005yrvgck0v69fgfxmwq6v017r9zabkw7lqiqcz6y"
+  },
+  "org.quiltmc:hashed:25w36a": {
+    "name": "hashed-25w36a.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w36a/hashed-25w36a.jar",
+    "sha256": "0lvi7yindkg3m606k2bhi66x668i8izxb5chp7j9mgd2mv0c5pik"
   }
 }
