@@ -112,5 +112,90 @@ lib.makeExtensible (
         wrapLine = chain stringToCharacters chunkCharacters (map concatStrings) (concatStringsSep "\n ");
       in
       chain (splitString "\n") (map wrapLine) concatLines manifestText;
+
+    getPackageInfo =
+      package:
+      let
+        inherit (builtins) elemAt;
+        inherit (lib) lists;
+        name = lib.splitString "-" package.name;
+        len = builtins.length name;
+        at = idx: elemAt name idx;
+        warnAndDefault =
+          lib.warn "[nix-minecraft] Could not infer minecraft server type from \"${package.name}\""
+            {
+              type = "unknown (${package.name})";
+              minecraftVersion = "?";
+            };
+      in
+      ## == our packaging ==
+      # "paper-${mcVersion}-build.${buildNumber}" # paper
+      if len == 3 && (at 0 == "paper") then
+        {
+          type = "paper";
+          minecraftVersion = at 1;
+        }
+      # "velocity-${velocityVersion}-build.${buildNumber}" # velocity
+      else if len == 3 && (at 0 == "velocity") then
+        {
+          type = "velocity";
+          minecraftVersion = "-"; # it doesn't make sense to define minecraft version
+        }
+      else
+      # should have prefix "minecraft-server-${mcVersion}"
+      if (len >= 3 && (lists.hasPrefix [ "minecraft" "server" ] name)) then
+        # "minecraft-server-${mcVersion}"
+        if len == 3 then
+          {
+            type = "vanilla";
+            minecraftVersion = at 2;
+          }
+        else
+        # "minecraft-server-${mcVersion}-${loader}-${loaderVersion}"
+        if len == 5 then
+          {
+            type = at 3;
+            minecraftVersion = at 2;
+          }
+        else
+        # "minecraft-server-${mcVersion}-legacy-fabric-${loaderVersion}" # legacy fabric
+        if len == 6 then
+          {
+            type = "legacy-fabric";
+            minecraftVersion = at 2;
+          }
+        else
+          warnAndDefault
+      else
+      ## == from nixpkgs ==
+      # "mchprs-${mchprsVersion}" # mchprs
+      if len == 2 && at 0 == "mchprs" then
+        {
+          type = "mchprs";
+          minecraftVersion = "?"; # it does not seem to contain minecraft version info
+        }
+      else
+      # "papermc-${mcVersion}-${buildNumber}"
+      if len == 3 && at 0 == "papermc" then
+        {
+          type = "papermc";
+          minecraftVersion = at 1;
+        }
+      else
+      # "purpur-${mcVersion}r${buildNumber}"
+      if len == 2 && at 0 == "purpur" then
+        {
+          type = "papermc";
+          minecraftVersion = elemAt (splitString "r" (at 1)) 0;
+        }
+      else
+      # "velocity-${velocityVersion}-unstable-${y}-${m}-${d}"
+      if len == 6 && at 0 == "velocity" then
+        {
+          type = "velocity";
+          minecraftVersion = "-"; # it doesn't make sense to define minecraft version
+        }
+      else
+        warnAndDefault;
   }
 )
