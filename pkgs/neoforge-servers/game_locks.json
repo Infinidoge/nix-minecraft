@@ -1,0 +1,58 @@
+{
+  "1.20.4": {
+    "mappings": {
+      "hash": "sha1-wcr+kW3YtY7R/gVk/I94aIUiTmI=",
+      "name": "1.20.4-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/c1cafe916dd8b58ed1fe0564fc8f786885224e62/server.txt"
+    }
+  },
+  "1.20.6": {
+    "mappings": {
+      "hash": "sha1-npYQD1c6Ru9Eyqs+cW1euXRZS7c=",
+      "name": "1.20.6-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/9e96100f573a46ef44caab3e716d5eb974594bb7/server.txt"
+    }
+  },
+  "1.21": {
+    "mappings": {
+      "hash": "sha1-Mcd5lNlvBbolqHCtpw9H8xUzBDc=",
+      "name": "1.21-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/31c77994d96f05ba25a870ada70f47f315330437/server.txt"
+    }
+  },
+  "1.21.1": {
+    "mappings": {
+      "hash": "sha1-A/iYVJK9oK/AiYRlNB6wrO819XA=",
+      "name": "1.21.1-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/03f8985492bda0afc0898465341eb0acef35f570/server.txt"
+    }
+  },
+  "1.21.3": {
+    "mappings": {
+      "hash": "sha1-xw4Q9y6mW7l+FWFD/ZfIUtyVgyU=",
+      "name": "1.21.3-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/c70e10f72ea65bb97e156143fd97c852dc958325/server.txt"
+    }
+  },
+  "1.21.4": {
+    "mappings": {
+      "hash": "sha1-Cx5gzFCc+wFyVzrla0NsKf67wYc=",
+      "name": "1.21.4-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/0b1e60cc509cfb0172573ae56b436c29febbc187/server.txt"
+    }
+  },
+  "1.21.5": {
+    "mappings": {
+      "hash": "sha1-9IEsHWbQCYqUYWsZwhgp5ZHQrzo=",
+      "name": "1.21.5-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/f4812c1d66d0098a94616b19c21829e591d0af3a/server.txt"
+    }
+  },
+  "1.21.8": {
+    "mappings": {
+      "hash": "sha1-6x4etHy3QAEvyC6sw5SFlGNoQTI=",
+      "name": "1.21.8-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/eb1e1eb47cb740012fc82eacc394859463684132/server.txt"
+    }
+  }
+}
