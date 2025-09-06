@@ -178,7 +178,7 @@ let
               exit 0
             fi
 
-            ${tmux} -S ${sock} send-keys ${escapeShellArg server.stopCommand} Enter
+            ${tmux} -S ${sock} send-keys C-u ${escapeShellArg server.stopCommand} Enter
 
             while server_running; do sleep 1s; done
           '';
