@@ -31,6 +31,12 @@ let
       example = true;
     };
 
+  minecraftUUID =
+    types.strMatching "([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})"
+    // {
+      description = "Minecraft UUID";
+    };
+
   normalizeFiles = files: mapAttrs configToPath (filterAttrs (_: nonEmptyValue) files);
   nonEmptyValue = x: nonEmpty x && (x ? value -> nonEmpty x.value);
   nonEmpty = x: x != { } && x != [ ];
@@ -389,15 +395,7 @@ in
               };
 
               whitelist = mkOption {
-                type =
-                  let
-                    minecraftUUID =
-                      types.strMatching "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-                      // {
-                        description = "Minecraft UUID";
-                      };
-                  in
-                  types.attrsOf minecraftUUID;
+                type = types.attrsOf minecraftUUID;
                 default = { };
                 description = ''
                   Whitelisted players, only has an effect when
@@ -416,37 +414,29 @@ in
               };
 
               operators = mkOption {
-                type =
-                  let
-                    minecraftUUID =
-                      types.strMatching "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-                      // {
-                        description = "Minecraft UUID";
-                      };
-                  in
-                  types.attrsOf (
-                    types.coercedTo minecraftUUID (v: { uuid = v; }) (
-                      types.submodule {
-                        options = {
-                          uuid = mkOption {
-                            type = minecraftUUID;
-                            description = "The operator's UUID";
-                            example = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-                          };
-                          level = mkOption {
-                            type = types.ints.between 0 4;
-                            description = "The operator's permission level";
-                            default = 4;
-                          };
-                          bypassesPlayerLimit = mkOption {
-                            type = types.bool;
-                            description = "If true, the operator can join the server even if the player limit has been reached";
-                            default = false;
-                          };
+                type = types.attrsOf (
+                  types.coercedTo minecraftUUID (v: { uuid = v; }) (
+                    types.submodule {
+                      options = {
+                        uuid = mkOption {
+                          type = minecraftUUID;
+                          description = "The operator's UUID";
+                          example = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
                         };
-                      }
-                    )
-                  );
+                        level = mkOption {
+                          type = types.ints.between 0 4;
+                          description = "The operator's permission level";
+                          default = 4;
+                        };
+                        bypassesPlayerLimit = mkOption {
+                          type = types.bool;
+                          description = "If true, the operator can join the server even if the player limit has been reached";
+                          default = false;
+                        };
+                      };
+                    }
+                  )
+                );
                 default = { };
                 description = ''
                   Server operators. See <link xlink:href="https://minecraft.wiki/w/Ops.json_format"/>.
