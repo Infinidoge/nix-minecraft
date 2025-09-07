@@ -368,6 +368,20 @@ Example:
 }
 ```
 
+#### `servers.<name>.operators`
+
+Server operators. See [The Documentation](https://minecraft.wiki/w/Ops.json_format). Example:
+```
+{
+  username1 = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+  username2 = {
+    uuid = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy";
+    level = 3;
+    bypassesPlayerLimit = true;
+  };
+}
+```
+
 #### `servers.<name>.serverProperties`
 
 Minecraft server properties for the server.properties file of this server. See [The Documentation](https://minecraft.wiki/w/Server.properties) on these values. Example:
