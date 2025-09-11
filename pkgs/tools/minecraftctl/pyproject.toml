@@ -1,0 +1,11 @@
+[project]
+name = "minecraftctl"
+version = "0.0.1"
+requires-python = ">=3.13"
+dependencies = ["typer", "pydantic", "httpx"]
+
+[project.scripts]
+minecraftctl = "minecraftctl.main:app"
+
+[tool.pyright]
+typeCheckingMode = "strict"
