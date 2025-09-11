@@ -4,6 +4,7 @@
   writeShellScriptBin,
   minecraft-server,
   jre_headless,
+  gameVersion ? minecraft-server.version,
   loaderVersion,
   loaderDrv,
   loader ? (
@@ -23,5 +24,10 @@
 
   passthru = {
     inherit loader;
+    nix-minecraft = {
+      type = loader.loaderName;
+      mcVersion = gameVersion;
+      inherit (loader) loaderVersion;
+    };
   };
 }
