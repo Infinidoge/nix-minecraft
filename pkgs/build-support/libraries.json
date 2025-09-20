@@ -5968,5 +5968,15 @@
     "name": "hashed-1.21.9-pre1.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.9-pre1/hashed-1.21.9-pre1.jar",
     "sha256": "13wgv09hji4pjqh6hq368h7bb9yz6mv6jg3jbgmm7kw95ssb2mbm"
+  },
+  "net.fabricmc:intermediary:1.21.9-pre2": {
+    "name": "intermediary-1.21.9-pre2.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.9-pre2/intermediary-1.21.9-pre2.jar",
+    "sha256": "1fi0ij4n10aj0w1mgairw95x1kycx0xbrgvrg3nv2i1b49aavvz7"
+  },
+  "org.quiltmc:hashed:1.21.9-pre2": {
+    "name": "hashed-1.21.9-pre2.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.9-pre2/hashed-1.21.9-pre2.jar",
+    "sha256": "14ch86pml871lmlravp6vrrkddwdainij2g10zai0j6war3b3fdp"
   }
 }
