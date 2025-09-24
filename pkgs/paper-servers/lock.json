@@ -21067,6 +21067,32 @@
     "9": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.9-pre3/builds/9/downloads/paper-1.21.9-pre3-9.jar",
       "sha256": "4dfbd3a0808842148a23019921c015606746d0d312d530db1abe096cdf874cdc"
+    },
+    "10": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.9-pre3/builds/10/downloads/paper-1.21.9-pre3-10.jar",
+      "sha256": "8774e1977c79c9ef1b658cc795d01bae09f70e9bb49371daab8d657a4c0250b4"
+    },
+    "11": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.9-pre3/builds/11/downloads/paper-1.21.9-pre3-11.jar",
+      "sha256": "62d6bb6dd8cd0e33c5d77d5e3e85c48eecc2b66d47013a6c1319b4ed02ba42c5"
+    },
+    "12": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.9-pre3/builds/12/downloads/paper-1.21.9-pre3-12.jar",
+      "sha256": "b823c6ff6a11ccbab475bf4e5786ee271fea406331e27d0581387765ccc16bc8"
+    }
+  },
+  "1.21.9-pre4": {
+    "13": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.9-pre4/builds/13/downloads/paper-1.21.9-pre4-13.jar",
+      "sha256": "474e31f51ff3fce9fe5c61da94e15152c2e69bc6a85c8dc26635667ddd2e7e96"
+    },
+    "14": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.9-pre4/builds/14/downloads/paper-1.21.9-pre4-14.jar",
+      "sha256": "5b7dd79a04176948cb5b582a0276473d31ab8341b6dc93f9440bbf85720195a3"
+    },
+    "15": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.9-pre4/builds/15/downloads/paper-1.21.9-pre4-15.jar",
+      "sha256": "bd40d5a06d2b2ba3a4c58dadb32417274c85967bff6ce3a44833e73eb98a2c03"
     }
   }
 }
