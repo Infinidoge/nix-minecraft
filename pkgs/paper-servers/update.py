@@ -50,16 +50,18 @@ def main(lock, client):
     print("Starting fetch")
 
     for version in get_game_versions(client):
-        output[version] = {}
+        version_builds = {}
         for build in get_builds(version, client):
             build_number = build["build"]
             build_sha256 = build["downloads"]["application"]["sha256"]
             build_filename = build["downloads"]["application"]["name"]
             build_url = f"{ENDPOINT}/versions/{version}/builds/{build_number}/downloads/{build_filename}"
-            output[version][build_number] = {
+            version_builds[build_number] = {
                 "url": build_url,
                 "sha256": build_sha256,
             }
+        if version_builds:
+            output[version] = version_builds
 
     json.dump(output, lock, indent=2)
     lock.write("\n")
