@@ -42,7 +42,7 @@ def get_game_versions(client):
 def get_builds(version, client):
     print(f"Fetching builds for {version}")
     data = client.get(f"{ENDPOINT}/versions/{version}/builds").json()
-    return data["builds"]
+    return data.get("builds", [])
 
 
 def main(lock, client):
