@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    systems.url = "github:nix-systems/default-linux";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -14,10 +14,11 @@
     {
       self,
       nixpkgs,
-      flake-utils,
+      systems,
       ...
-    }@inputs:
+    }:
     let
+      forEachSystem = nixpkgs.lib.genAttrs (import systems);
       mkTests =
         pkgs:
         let
@@ -45,7 +46,7 @@
         packages = { inherit (self.packages) x86_64-linux; };
       };
     }
-    // flake-utils.lib.eachDefaultSystem (
+    // forEachSystem (
       system:
       let
         pkgs = import nixpkgs {
