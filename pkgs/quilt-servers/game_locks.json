@@ -1336,5 +1336,35 @@
       "net.fabricmc:intermediary:1.21.9-pre4",
       "org.quiltmc:hashed:1.21.9-pre4"
     ]
+  },
+  "25w41a": {
+    "libraries": [
+      "net.fabricmc:intermediary:25w41a",
+      "org.quiltmc:hashed:25w41a"
+    ]
+  },
+  "1.21.10": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.10",
+      "org.quiltmc:hashed:1.21.10"
+    ]
+  },
+  "1.21.10-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.10-rc1",
+      "org.quiltmc:hashed:1.21.10-rc1"
+    ]
+  },
+  "1.21.9": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.9",
+      "org.quiltmc:hashed:1.21.9"
+    ]
+  },
+  "1.21.9-rc1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.9-rc1",
+      "org.quiltmc:hashed:1.21.9-rc1"
+    ]
   }
 }

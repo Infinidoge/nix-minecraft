@@ -5998,5 +5998,90 @@
     "name": "hashed-1.21.9-pre4.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.9-pre4/hashed-1.21.9-pre4.jar",
     "sha256": "0i7p1hbjmjc0bkdiiv080n7cf3ibixd6p0lrfmypr1893jchld9c"
+  },
+  "org.ow2.asm:asm:9.9": {
+    "name": "asm-9.9.jar",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.9/asm-9.9.jar",
+    "sha256": "1m0p4273rixb8n36vjd7ra439zpl9rzl6rzg6h9wgr8ymms9mn83"
+  },
+  "org.ow2.asm:asm-analysis:9.9": {
+    "name": "asm-analysis-9.9.jar",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.9/asm-analysis-9.9.jar",
+    "sha256": "12v79hhsfxf8l37pigqznpbs5yz8a2dsyjyabgys96yjif7d45ba"
+  },
+  "org.ow2.asm:asm-commons:9.9": {
+    "name": "asm-commons-9.9.jar",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.9/asm-commons-9.9.jar",
+    "sha256": "1y2zk77bx62nb2rj79053qmc5g1n30as3d06cq97rghb2lk6ybyv"
+  },
+  "org.ow2.asm:asm-tree:9.9": {
+    "name": "asm-tree-9.9.jar",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.9/asm-tree-9.9.jar",
+    "sha256": "1iiqgnj758yg8df5xryn3gcs9v5l55yp8ihlbsg3zin9flvqy5s2"
+  },
+  "org.ow2.asm:asm-util:9.9": {
+    "name": "asm-util-9.9.jar",
+    "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.9/asm-util-9.9.jar",
+    "sha256": "05z7xmdpb2hbmxny45vw76niwm23k6z18jfwgjmyjkijzqyf2hiq"
+  },
+  "net.fabricmc:sponge-mixin:0.16.5+mixin.0.8.7": {
+    "name": "sponge-mixin-0.16.5+mixin.0.8.7.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.16.5+mixin.0.8.7/sponge-mixin-0.16.5+mixin.0.8.7.jar",
+    "sha256": "0xm3ih3sayvc6dd1wyimjjk1np102k4f4xd1c50bm4yxdrprjrdz"
+  },
+  "net.fabricmc:fabric-loader:0.17.3": {
+    "name": "fabric-loader-0.17.3.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.17.3/fabric-loader-0.17.3.jar",
+    "sha256": "1dqx62h71cflyxsz9r1mz677rn0rxg16g9djad43sr47s7jq2g5m"
+  },
+  "net.fabricmc:intermediary:25w41a": {
+    "name": "intermediary-25w41a.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w41a/intermediary-25w41a.jar",
+    "sha256": "1axac1km9asddhqvl1026lsiaigc4xn0q5r6xcpv3rmcd84af7s3"
+  },
+  "net.fabricmc:intermediary:1.21.10": {
+    "name": "intermediary-1.21.10.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.10/intermediary-1.21.10.jar",
+    "sha256": "1lvrn4q4srbzadb6677h1bdlz3r4h03flv6yhifnvl1mm4jcs7ni"
+  },
+  "net.fabricmc:intermediary:1.21.10-rc1": {
+    "name": "intermediary-1.21.10-rc1.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.10-rc1/intermediary-1.21.10-rc1.jar",
+    "sha256": "1n3v52ix41301a95apw5vdx55328s3xbi5xs66njp6inbzl5cq3c"
+  },
+  "net.fabricmc:intermediary:1.21.9": {
+    "name": "intermediary-1.21.9.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.9/intermediary-1.21.9.jar",
+    "sha256": "0iz0wgw31n8gi08bxvfigakxjx2r7xgn1c8js440ww1cw80gfrzr"
+  },
+  "net.fabricmc:intermediary:1.21.9-rc1": {
+    "name": "intermediary-1.21.9-rc1.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.9-rc1/intermediary-1.21.9-rc1.jar",
+    "sha256": "1d90icjryr2f2ng53fav9mgrsnnfn6cl6hdih2l3pyig4mdsbqqq"
+  },
+  "org.quiltmc:hashed:25w41a": {
+    "name": "hashed-25w41a.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w41a/hashed-25w41a.jar",
+    "sha256": "07p1lvng2fgg4i7yby1dzh4lpanyi26qcnwk544rr123gz6caqr6"
+  },
+  "org.quiltmc:hashed:1.21.10": {
+    "name": "hashed-1.21.10.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.10/hashed-1.21.10.jar",
+    "sha256": "1j5sbvcf24x6g9w65jmr8h3zfgklsbm710ij02ddwxi66hibrzls"
+  },
+  "org.quiltmc:hashed:1.21.10-rc1": {
+    "name": "hashed-1.21.10-rc1.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.10-rc1/hashed-1.21.10-rc1.jar",
+    "sha256": "1h52l3wf7albdnc6d5f54z5p61gymxw7d9qdas2nkmx2zskv79zs"
+  },
+  "org.quiltmc:hashed:1.21.9": {
+    "name": "hashed-1.21.9.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.9/hashed-1.21.9.jar",
+    "sha256": "0sx0byvrl6lqcxsa8qzsrkbmq2qy38hwnzajmbvhy2fmj4w0vg84"
+  },
+  "org.quiltmc:hashed:1.21.9-rc1": {
+    "name": "hashed-1.21.9-rc1.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.9-rc1/hashed-1.21.9-rc1.jar",
+    "sha256": "0z85qp5kcndvcka877nbr55c6h9kh8h1zz22w3jm7l16n2vfsxdg"
   }
 }
