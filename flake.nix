@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    systems.url = "github:nix-systems/default-linux";
+    systems.url = "github:nix-systems/default";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
