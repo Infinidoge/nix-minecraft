@@ -9,6 +9,7 @@ jobs:
   update:
     name: Update lock files
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'Infinidoge'
     steps:
       - uses: cachix/install-nix-action@v18
         with:
