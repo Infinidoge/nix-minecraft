@@ -77,6 +77,10 @@ This includes code, issues, PR descriptions, commit messages, everything and any
 Do not use AI for contributing to nix-minecraft.
 If you do so repeatedly, you may be blacklisted from contributing at all.
 
+### Do Not Include Unrelated Lockfile Changes
+
+Unless necessary for your changes, or a direct result of your changes, do not include any edits to lockfiles in your pull request.
+
 ## Meta files
 
 ### Changelog
