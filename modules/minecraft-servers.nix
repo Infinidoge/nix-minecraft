@@ -151,6 +151,11 @@ let
     let
       ms = server.managementSystem;
       tmux = "${getBin pkgs.tmux}/bin/tmux";
+      runCommand =
+        if server.lazymc.enable then
+          "${server.lazymc.package}/bin/lazymc start --config lazymc.toml"
+        else
+          "${getExe server.package} ${server.jvmOpts}";
     in
     assert assertMsg (
       !(ms.tmux.enable && ms.systemd-socket.enable)
@@ -166,7 +171,7 @@ let
         };
         hooks = {
           start = ''
-            ${tmux} -S ${sock} new -d ${getExe server.package} ${server.jvmOpts}
+            ${tmux} -S ${sock} new -d ${runCommand}
 
             # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
             # See https://github.com/Infinidoge/nix-minecraft/issues/5
@@ -175,7 +180,7 @@ let
           postStart = ''
             ${pkgs.coreutils}/bin/chmod 660 ${sock}
           '';
-          stop = ''
+          stop = optionalString (!server.lazymc.enable) ''
             function server_running {
               ${tmux} -S ${sock} has-session
             }
@@ -199,12 +204,10 @@ let
           StandardError = "journal";
         };
         hooks = {
-          start = ''
-            ${getExe server.package} ${server.jvmOpts}
-          '';
+          start = runCommand;
           postStart = "";
           stop = ''
-            ${optionalString (server.stopCommand != null) ''
+            ${optionalString (server.stopCommand != null && !server.lazymc.enable) ''
               echo ${escapeShellArg server.stopCommand} > ${escapeShellArg (ms.systemd-socket.stdinSocket.path name)}
 
               while kill -0 "$1" 2> /dev/null; do sleep 1s; done
@@ -556,6 +559,52 @@ in
                 default = { };
                 example = options.services.minecraft-servers.managementSystem.example;
               };
+              lazymc = {
+                enable = mkEnableOpt "Puts your Minecraft server to rest when idle, and wakes it up when players connect.";
+                package = mkOption {
+                  type = types.package;
+                  default = pkgs.lazymc;
+                  defaultText = literalExpression "pkgs.lazymc";
+                  description = "The lazymc package to use.";
+                };
+                config = mkOption {
+                  type = types.submodule {
+                    freeformType = types.attrs;
+                    options = {
+                      public = mkOption {
+                        type = types.submodule {
+                          freeformType = types.attrs;
+                          options = {
+                            address = mkOption {
+                              type = types.strMatching "^[^:]+:[0-9]+$";
+                              default = "0.0.0.0:25565";
+                              description = "Public address in format 'address:port'";
+                            };
+                          };
+                        };
+                        default = { };
+                      };
+                    };
+                  };
+                  default = { };
+                  description = ''
+                    Configuration for lazymc, mirroring its TOML structure.
+                    Some values like server.command, server.directory and server.address will
+                    be automatically configured by this module when generating lazymc.toml. 
+
+                    See <link xlink:href="https://github.com/timvisee/lazymc/blob/master/res/lazymc.toml"/>
+                    for documentation on these values.
+                  '';
+                  example = literalExpression ''
+                    {
+                      public.address = "0.0.0.0:25565"; # Public port for players
+                      time.sleep_after = 900; # Sleep after 15 minutes
+                      motd.sleeping = "Shhh, the server is napping!";
+                      server.forge = false; # Set to true if this is a Forge server
+                    }
+                  '';
+                };
+              };
             };
           }
         )
@@ -566,6 +615,17 @@ in
   config = mkIf cfg.enable (
     let
       servers = filterAttrs (_: cfg: cfg.enable) cfg.servers;
+
+      getPublicPort =
+        conf:
+        if conf.lazymc.enable then
+          let
+            addr = conf.lazymc.config.public.address or "0.0.0.0:25565";
+            portStr = lib.last (lib.splitString ":" addr);
+          in
+          lib.toInt portStr
+        else
+          conf.serverProperties.server-port or 25565;
     in
     {
       users = {
@@ -598,15 +658,35 @@ in
         {
           assertion =
             let
-              serverPorts = mapAttrsToList (name: conf: conf.serverProperties.server-port or 25565) (
+              serverPorts = mapAttrsToList (name: conf: getPublicPort conf) (
                 filterAttrs (_: cfg: cfg.openFirewall) servers
               );
 
               counts = map (port: count (x: x == port) serverPorts) (unique serverPorts);
             in
             lib.all (x: x == 1) counts;
-          message = "Multiple servers are set to use the same port. Change one to use a different port.";
+          message = "Multiple servers are set to use the same public port (either through lazymc public.address or server.properties server-port). Change one to use a different port.";
         }
+        (
+          let
+            lazymcPortConflicts = filter (x: x.hasConflict) (
+              mapAttrsToList (name: conf: {
+                inherit name;
+                hasConflict =
+                  conf.lazymc.enable && getPublicPort conf == (conf.serverProperties.server-port or 25565);
+              }) servers
+            );
+            conflictingServerNames = map (x: x.name) lazymcPortConflicts;
+          in
+          {
+            assertion = lazymcPortConflicts == [ ];
+            message = ''
+              Server(s): ${concatStringsSep ", " conflictingServerNames} has the same port set for serverProperties.server-port and lazymc.config.public.address
+              Please set for example: `serverName.serverProperties.server-port = 25566;`, lazymc's internal server.address will automatically point to it
+              Lazymc's public.address is "0.0.0.0:25565" by default
+            '';
+          }
+        )
       ];
 
       warnings = lib.optional (cfg.runDir != options.services.minecraft-servers.runDir.default) ''
@@ -624,7 +704,9 @@ in
           # Minecraft and RCON
           getTCPPorts =
             n: c:
-            [ c.serverProperties.server-port or 25565 ]
+            [
+              (getPublicPort c)
+            ]
             ++ (optional (c.serverProperties.enable-rcon or false) (c.serverProperties."rcon.port" or 25575));
           # Query
           getUDPPorts =
@@ -691,6 +773,15 @@ in
               }) conf.operators;
               "server.properties".value = conf.serverProperties;
             }
+            // (optionalAttrs conf.lazymc.enable {
+              "lazymc.toml".value = lib.recursiveUpdate {
+                server = {
+                  command = "${getExe conf.package} ${conf.jvmOpts}";
+                  directory = ".";
+                  address = "127.0.0.1:${toString conf.serverProperties.server-port or 25565}";
+                };
+              } conf.lazymc.config;
+            })
             // conf.files
           );
 
