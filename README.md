@@ -503,3 +503,53 @@ files."white-list.txt" = {
 ```
 
 generates a legacy `white-list.txt` that is needed for older minecraft versions (< 1.7.6)
+
+#### `servers.<name>.lazymc`
+
+Integrates [lazymc](https://github.com/timvisee/lazymc), putting server to sleep when idle and waking it upon player connection.  
+When enabled the server's public address is controlled by lazymc, by default 25565. So a new internal `serverProperties.server-port` has to be chosen.
+
+*   **`enable`**: `boolean`, default `false`
+
+*   **`package`**: `package`, default `pkgs.lazymc`  
+    The `lazymc` package to use. You might have to change lazymc version according to your minecraft server version, for example lazymc v0.2.10 supports Minecraft Java Edition 1.7.2+, while for Minecraft Java Edition 1.20.3+ you'll need lazymc v0.2.11
+
+*   **`config`**: `attribute set`, default `{}`  
+    Allows defining and overriding settings in the `lazymc.toml`, for all options see [here](https://github.com/timvisee/lazymc/blob/master/res/lazymc.toml). The auto generated config options are:
+    *   `server.command`: Automatically set to use the server `package` and `jvmOpts`;
+    *   `server.directory`;
+    *   `server.address`: Automatically set to `127.0.0.1:<serverProperties.server-port or 25565>";`
+
+    **Firewall**
+    *   When `lazymc.enable = true`, the  `openFirewall` option for this server instance will open the port specified in `lazymc.config.public.address` (or 25565), not the internal Minecraft `serverProperties.server-port`.
+
+    **Example:**
+    ```nix
+    { pkgs, ... }: {
+      services.minecraft-servers = {
+        eula = true;
+        servers.myLazyServer = {
+          enable = true;
+          package = pkgs.paperServers.paper-1_18_2;
+          serverProperties = {
+            "server-port" = 25566;
+            "max-tick-time" = -1; # Recommended with lazymc
+          };
+
+          lazymc = {
+            enable = true;
+            package = let
+            # you can use https://lazamar.co.uk/nix-versions/
+              pkgs-with-lazymc_0_2_10 = import (builtins.fetchTarball {
+                  url = "https://github.com/NixOS/nixpkgs/archive/336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3.tar.gz";
+                  sha256 = "sha256:0v8vnmgw7cifsp5irib1wkc0bpxzqcarlv8mdybk6dck5m7p10lr";
+              }) { inherit (pkgs) system; };
+            in pkgs-with-lazymc_0_2_10.lazymc;
+            config = {
+              public.address = "0.0.0.0:25565";
+            };
+          };
+        };
+      };
+    }
+    ```
