@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    systems.url = "github:nix-systems/default";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
@@ -14,10 +14,24 @@
     {
       self,
       nixpkgs,
-      flake-utils,
+      systems,
       ...
-    }@inputs:
+    }:
     let
+      forEachSystem =
+        fn:
+        nixpkgs.lib.genAttrs (import systems) (
+          system:
+          fn (
+            import nixpkgs {
+              inherit system;
+              config = {
+                allowUnfree = true;
+              };
+            }
+          )
+        );
+
       mkTests =
         pkgs:
         let
@@ -44,33 +58,26 @@
         checks = { inherit (self.checks) x86_64-linux; };
         packages = { inherit (self.packages) x86_64-linux; };
       };
-    }
-    // flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config = {
-            allowUnfree = true;
-          };
-        };
-        docs = pkgs.nixosOptionsDoc {
-          inherit
-            (pkgs.lib.evalModules {
-              modules = [
-                { _module.check = false; }
-                nixosModules.minecraft-servers
-              ];
-            })
-            options
-            ;
-        };
-      in
-      rec {
-        legacyPackages = import ./pkgs/all-packages.nix pkgs;
 
-        packages = {
-          inherit (legacyPackages)
+      legacyPackages = forEachSystem (pkgs: import ./pkgs/all-packages.nix pkgs);
+
+      packages = forEachSystem (
+        pkgs:
+        let
+          docs = pkgs.nixosOptionsDoc {
+            inherit
+              (pkgs.lib.evalModules {
+                modules = [
+                  { _module.check = false; }
+                  nixosModules.minecraft-servers
+                ];
+              })
+              options
+              ;
+          };
+        in
+        {
+          inherit (self.legacyPackages.${pkgs.stdenv.system})
             vanilla-server
             fabric-server
             quilt-server
@@ -84,11 +91,13 @@
 
           docsAsciiDoc = docs.optionsAsciiDoc;
           docsCommonMark = docs.optionsCommonMark;
-        };
+        }
+      );
 
-        checks = mkTests (pkgs.extend self.outputs.overlays.default) // packages;
+      checks = forEachSystem (
+        pkgs: mkTests (pkgs.extend self.outputs.overlays.default) // self.packages.${pkgs.stdenv.system}
+      );
 
-        formatter = pkgs.nixfmt-tree;
-      }
-    );
+      formatter = forEachSystem (pkgs: pkgs.nixfmt-tree);
+    };
 }
