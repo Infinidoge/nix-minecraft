@@ -6133,5 +6133,10 @@
     "name": "hashed-25w45a.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w45a/hashed-25w45a.jar",
     "sha256": "0r1bwsda3y30icqg54jaa4v0j8bi4fr4kr3iiig4g234s6gjr6bw"
+  },
+  "net.fabricmc:fabric-loader:0.18.0": {
+    "name": "fabric-loader-0.18.0.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.18.0/fabric-loader-0.18.0.jar",
+    "sha256": "1fmf92fb2qdkzd17a65wmkx2bfa5297qjliflkk70aqr9845ppgc"
   }
 }
