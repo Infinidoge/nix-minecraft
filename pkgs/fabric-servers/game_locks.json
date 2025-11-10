@@ -2243,5 +2243,10 @@
     "libraries": [
       "net.fabricmc:intermediary:25w45a"
     ]
+  },
+  "25w45a_unobfuscated": {
+    "libraries": [
+      "net.fabricmc:intermediary:0.0.0"
+    ]
   }
 }
