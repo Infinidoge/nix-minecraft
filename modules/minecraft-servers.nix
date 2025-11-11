@@ -316,7 +316,7 @@ in
       '';
       type = types.attrsOf (
         types.submodule (
-          { name, ... }:
+          { name, config, ... }:
           {
             options = {
               enable = mkEnableOpt ''
@@ -487,6 +487,25 @@ in
                 '';
               };
 
+              allowedSymlinks = mkOption {
+                default = [ ];
+                type = with types; listOf str;
+                example = literalExpression ''
+                  [
+                    "/mnt/worlds"
+                  ]
+                '';
+                description = ''
+                  Minecraft 1.20+ disallows symlinks inside world directories, unless
+                  its destinations are allow-listed. /nix/store is allowed by default,
+                  but you may add more destinations through this option. See
+                  <link xlink:href="https://help.minecraft.net/hc/en-us/articles/16165590199181"/>
+                  for more information.
+
+                  Use lib.mkForce to shadow the default value (i.e. if you want to exclude /nix/store).
+                '';
+              };
+
               package = mkOption {
                 description = "The Minecraft server package to use.";
                 type = types.package;
@@ -556,6 +575,10 @@ in
                 default = { };
                 example = options.services.minecraft-servers.managementSystem.example;
               };
+            };
+
+            config = mkIf config.enable {
+              allowedSymlinks = [ "/nix/store" ];
             };
           }
         )
@@ -690,6 +713,7 @@ in
                 bypassesPlayerLimit = v.bypassesPlayerLimit;
               }) conf.operators;
               "server.properties".value = conf.serverProperties;
+              "allowed_symlinks.txt".value = conf.allowedSymlinks;
             }
             // conf.files
           );
