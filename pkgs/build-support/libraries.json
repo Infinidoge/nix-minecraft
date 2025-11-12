@@ -6143,5 +6143,15 @@
     "name": "intermediary-0.0.0.jar",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/0.0.0/intermediary-0.0.0.jar",
     "sha256": "0x6bwdz7770wa95kvah4varrzlkqd6scr4lslnbcjynby4kwa01f"
+  },
+  "net.fabricmc:intermediary:25w46a": {
+    "name": "intermediary-25w46a.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/25w46a/intermediary-25w46a.jar",
+    "sha256": "108rnz5qcjliiffz617lpbijay64lr7vgnmpp602h8jz95j83r1w"
+  },
+  "org.quiltmc:hashed:25w46a": {
+    "name": "hashed-25w46a.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/25w46a/hashed-25w46a.jar",
+    "sha256": "1q8l6f6my5ba33z4wl9012qbjczqmcsmapg9lb5l0lfq5vq3rwwv"
   }
 }

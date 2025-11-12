@@ -2248,5 +2248,15 @@
     "libraries": [
       "net.fabricmc:intermediary:0.0.0"
     ]
+  },
+  "25w46a": {
+    "libraries": [
+      "net.fabricmc:intermediary:25w46a"
+    ]
+  },
+  "25w46a_unobfuscated": {
+    "libraries": [
+      "net.fabricmc:intermediary:0.0.0"
+    ]
   }
 }
