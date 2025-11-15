@@ -11,6 +11,7 @@ As of currently, it packages:
   - Legacy Fabric
   - Quilt
   - Paper
+  - NeoForge
 - All supported versions of the following:
   - Velocity proxy
 - Various tools
@@ -116,6 +117,21 @@ Since Legacy Fabric does not have a defined newest version to target, it lacks a
 
 If you plan on running paper without internet, you'll have to link the vanilla jar to `cache/mojang_{version}.jar`. The relevant jar is available at the package's `vanillaJar` attribute.
 
+### `neoforgeServers.*`
+
+[Source](./pkgs/neoforge-servers/)
+
+An attrset of all of the NeoForge server versions, in the form of `neoforge-mcversion-neoforgeversion`, following the same format as described above for version numbers.
+The lowest supported version is `20.4.240`; see [the update script](./pkgs/neoforge-servers/update.py) for details.
+
+For convenience, `neoforgeServers.neoforge` is equivalent to the latest major Minecraft and NeoForge versions.
+`neoforgeServers.neoforge.gameversion` is equivalent to the latest NeoForge version for `gameversion`.
+
+```
+neoforgeServers.neoforge-1_21_1
+neoforgeServers.neoforge-1_21_1-21_1_193
+```
+
 ### `velocityServers.*`
 
 [Source](./pkgs/velocity-servers)
@@ -126,7 +142,7 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 
 ### `minecraftServers.*`
 
-`vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
+`vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers // neoforgeServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
 
 ### `fetchPackwizModpack`
 
@@ -232,6 +248,7 @@ All of these packages are also available under `packages`, not just `legacyPacka
 - `fabric-server`: Same as `fabricServers.fabric`
 - `quilt-server`: Same as `quiltServers.quilt`
 - `paper-server`: Same as `paperServers.paper`
+- `neoforge-server`: Same as `neoforgeServers.neoforge`
 - `velocity-server`: Same as `velocityServers.velocity`
 - `minecraft-server`: Same as `vanilla-server`
 
