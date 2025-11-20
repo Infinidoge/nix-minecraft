@@ -5472,5 +5472,12 @@
     "version": "25w46a",
     "javaVersion": 21,
     "manifestUrl": "https://piston-meta.mojang.com/v1/packages/2ed99b1ea22be740fe423edee2b50d85fddbeb98/25w46a.json"
+  },
+  "1.21.11-pre1": {
+    "url": "https://piston-data.mojang.com/v1/objects/1087f90b4d73209318d87aa8deecfaae24861004/server.jar",
+    "sha1": "1087f90b4d73209318d87aa8deecfaae24861004",
+    "version": "1.21.11-pre1",
+    "javaVersion": 21,
+    "manifestUrl": "https://piston-meta.mojang.com/v1/packages/9696c8840e4a9f6783e154bf6b67ba049ace5d3d/1.21.11-pre1.json"
   }
 }
