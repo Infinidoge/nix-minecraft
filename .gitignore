@@ -1,4 +1,12 @@
+# python
 **/.mypy_cache
 **/__pycache__
+**/.venv
+**/*.egg-info
+
+# nix
 **/result
+
+# general
 /tmp
+*.log
