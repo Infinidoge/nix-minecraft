@@ -6158,5 +6158,10 @@
     "name": "intermediary-1.21.11-pre1.jar",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.11-pre1/intermediary-1.21.11-pre1.jar",
     "sha256": "1ilciyb126knvzxy8fikq8jafg1cv9z4i504i9hjdk2a4r7fdjr1"
+  },
+  "net.fabricmc:fabric-loader:0.18.1": {
+    "name": "fabric-loader-0.18.1.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.18.1/fabric-loader-0.18.1.jar",
+    "sha256": "1ifn8dvv20hw8qi5saf0bxg1h34b65ykj6jcv3hf0g49f4h0mjwc"
   }
 }
