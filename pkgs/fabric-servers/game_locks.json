@@ -2268,5 +2268,15 @@
     "libraries": [
       "net.fabricmc:intermediary:0.0.0"
     ]
+  },
+  "1.21.11-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.11-pre2"
+    ]
+  },
+  "1.21.11-pre2_unobfuscated": {
+    "libraries": [
+      "net.fabricmc:intermediary:0.0.0"
+    ]
   }
 }
