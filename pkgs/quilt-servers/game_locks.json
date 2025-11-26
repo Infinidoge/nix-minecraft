@@ -1396,5 +1396,23 @@
       "net.fabricmc:intermediary:25w46a",
       "org.quiltmc:hashed:25w46a"
     ]
+  },
+  "1.21.11-pre3": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.11-pre3",
+      "org.quiltmc:hashed:1.21.11-pre3"
+    ]
+  },
+  "1.21.11-pre2": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.11-pre2",
+      "org.quiltmc:hashed:1.21.11-pre2"
+    ]
+  },
+  "1.21.11-pre1": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.11-pre1",
+      "org.quiltmc:hashed:1.21.11-pre1"
+    ]
   }
 }
