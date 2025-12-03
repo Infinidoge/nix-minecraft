@@ -21405,6 +21405,10 @@
     "9": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11-pre4/builds/9/downloads/paper-1.21.11-pre4-9.jar",
       "sha256": "48cb58d174cf40bb0e68e2b8dc66f0893b0f9c5b4ab071b6af0d38b3da78a270"
+    },
+    "10": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11-pre4/builds/10/downloads/paper-1.21.11-pre4-10.jar",
+      "sha256": "fd093974a7a960c8bb3029dbfefc23b6f9e1f981c6463d89cead6c22f2e1b15a"
     }
   }
 }
