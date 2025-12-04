@@ -6193,5 +6193,10 @@
     "name": "intermediary-1.21.11-pre4.jar",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.11-pre4/intermediary-1.21.11-pre4.jar",
     "sha256": "0mbvfinpgmdspqrfx312ff4h7wqg9fc8m8y0d6g2kl190vzsgypv"
+  },
+  "net.fabricmc:intermediary:1.21.11-pre5": {
+    "name": "intermediary-1.21.11-pre5.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.11-pre5/intermediary-1.21.11-pre5.jar",
+    "sha256": "1zw5zvd8wbr14qyq26qwx3y21zzgr1hshxkap72288sli6iapf3k"
   }
 }
