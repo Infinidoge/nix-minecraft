@@ -382,6 +382,22 @@ Server operators. See [The Documentation](https://minecraft.wiki/w/Ops.json_form
 }
 ```
 
+#### `servers.<name>.bannedPlayers`
+
+Banned players. See [The Documentation](https://docs.papermc.io/paper/reference/vanilla-data-files/). Example:
+```
+{
+  username1 = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+  username2 = {
+    uuid = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy";
+    created = "2025-12-01 09:00:00 -0500";
+    source = "(Unknown)";
+    expires = "forever";
+    reason = "Banned by an operator.";
+  };
+}
+```
+
 #### `servers.<name>.serverProperties`
 
 Minecraft server properties for the server.properties file of this server. See [The Documentation](https://minecraft.wiki/w/Server.properties) on these values. Example:
