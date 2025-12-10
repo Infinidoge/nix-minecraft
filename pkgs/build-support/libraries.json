@@ -6228,5 +6228,30 @@
     "name": "intermediary-1.21.11-rc3.jar",
     "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.11-rc3/intermediary-1.21.11-rc3.jar",
     "sha256": "0anhmplsz2wmdb4ah0b30y67kk8p6rcadgd41nc856kcg0df9ij6"
+  },
+  "net.fabricmc:fabric-loader:0.18.2": {
+    "name": "fabric-loader-0.18.2.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.18.2/fabric-loader-0.18.2.jar",
+    "sha256": "1k8s3z9dn7a3haa89ya6cmvgha49b65izwy9fx73jw11ffqzddrs"
+  },
+  "net.fabricmc:intermediary:1.21.11": {
+    "name": "intermediary-1.21.11.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.11/intermediary-1.21.11.jar",
+    "sha256": "1g6ak09abfjbsqyb5s6pc7qj22332a38dv30i6hj8szj3frajvc8"
+  },
+  "org.quiltmc:hashed:1.21.11": {
+    "name": "hashed-1.21.11.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.11/hashed-1.21.11.jar",
+    "sha256": "1vza16xi0kq9381fxl202zrkmy5gbk32f3hs82z4rid007b3jq6p"
+  },
+  "org.quiltmc:hashed:1.21.11-rc3": {
+    "name": "hashed-1.21.11-rc3.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.11-rc3/hashed-1.21.11-rc3.jar",
+    "sha256": "17kbkwsa0hacmi54vwilmia952z17sx8pq3ri041jgpv76nas8jx"
+  },
+  "org.quiltmc:hashed:1.21.11-rc2": {
+    "name": "hashed-1.21.11-rc2.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.11-rc2/hashed-1.21.11-rc2.jar",
+    "sha256": "1n4bsan2zq9a11r804ks62z8fib4p3g8ql3ygvl3lgrk7id98s8q"
   }
 }

@@ -2338,5 +2338,15 @@
     "libraries": [
       "net.fabricmc:intermediary:0.0.0"
     ]
+  },
+  "1.21.11": {
+    "libraries": [
+      "net.fabricmc:intermediary:1.21.11"
+    ]
+  },
+  "1.21.11_unobfuscated": {
+    "libraries": [
+      "net.fabricmc:intermediary:0.0.0"
+    ]
   }
 }
