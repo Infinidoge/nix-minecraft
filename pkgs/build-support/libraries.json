@@ -6263,5 +6263,10 @@
     "name": "quilt-loader-0.30.0-beta.0.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.0-beta.0/quilt-loader-0.30.0-beta.0.jar",
     "sha256": "1ank1phfw30asc7pvznigf2kssfbhqm5pszbhd75ckld25vnbvq9"
+  },
+  "net.fabricmc:fabric-loader:0.18.3": {
+    "name": "fabric-loader-0.18.3.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.18.3/fabric-loader-0.18.3.jar",
+    "sha256": "0v03y0zp187f9p2knjxl7nrkj8i2axfmcb40yg92r4aikvcq1jq6"
   }
 }
