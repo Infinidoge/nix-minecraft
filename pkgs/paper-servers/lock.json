@@ -21381,6 +21381,22 @@
     "117": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.10/builds/117/downloads/paper-1.21.10-117.jar",
       "sha256": "a61a0585e203688f606ca3a649760b8ba71efca01a4af7687db5e41408ee27aa"
+    },
+    "123": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.10/builds/123/downloads/paper-1.21.10-123.jar",
+      "sha256": "31fb788b33845b1c062490da48d72aa834973b87edeacf928496a726aff57236"
+    },
+    "124": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.10/builds/124/downloads/paper-1.21.10-124.jar",
+      "sha256": "89ef2cfacd363717eba8f5deef56c20f77f990197e2419520c3f2332d103f567"
+    },
+    "126": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.10/builds/126/downloads/paper-1.21.10-126.jar",
+      "sha256": "d6169e0599f10b4cb118eb9932f663a4a9b31652e997f9a9b5bd6dc16717d0c7"
+    },
+    "127": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.10/builds/127/downloads/paper-1.21.10-127.jar",
+      "sha256": "0b32aa197452047a51772af05bb9fddc264304ad780dca87425a726d68f89149"
     }
   },
   "1.21.11-pre3": {
@@ -21453,6 +21469,18 @@
     "39": {
       "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11/builds/39/downloads/paper-1.21.11-39.jar",
       "sha256": "7e8fd35b554aea8d1492c83fcf429e9c8e391464e50f82ee3e408be87b4e80df"
+    },
+    "42": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11/builds/42/downloads/paper-1.21.11-42.jar",
+      "sha256": "ed17adb446df0d4bd1a5d15dcd5125a98306b59ee2490c86e12bb9bde74175f8"
+    },
+    "43": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11/builds/43/downloads/paper-1.21.11-43.jar",
+      "sha256": "5bb9af4223c3cb6ef7a148d07148d8b72bb6b2beac3ffbe6a1e28b2d809ac662"
+    },
+    "44": {
+      "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11/builds/44/downloads/paper-1.21.11-44.jar",
+      "sha256": "3d806bb668eeb8b592ef17d3e9e8c0c3484e358c09b1f2403bf6ebc928cc6c64"
     }
   }
 }
