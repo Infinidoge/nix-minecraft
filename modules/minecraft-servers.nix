@@ -456,6 +456,65 @@ in
                 '';
               };
 
+              bannedPlayers = mkOption {
+                type = types.attrsOf (
+                  types.coercedTo minecraftUUID (v: { uuid = v; }) (
+                    types.submodule {
+                      options = {
+                        uuid = mkOption {
+                          type = minecraftUUID;
+                          description = "The banned player's UUID";
+                          example = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+                        };
+                        created = mkOption {
+                          type = lib.types.nullOr lib.types.str;
+                          description = "The date of the ban";
+                          default = null;
+                          example = "2025-12-01 09:00:00 -0500";
+                        };
+                        source = mkOption {
+                          type = lib.types.nullOr lib.types.str;
+                          description = "The source of the ban";
+                          default = null;
+                          example = "Server";
+                        };
+                        expires = mkOption {
+                          type = lib.types.nullOr lib.types.str;
+                          description = "When the ban expires, if ever";
+                          default = null;
+                          example = "forever";
+                        };
+                        reason = mkOption {
+                          type = lib.types.nullOr lib.types.str;
+                          description = "The reason for the ban, if any.";
+                          default = null;
+                          example = "Banned by an operator.";
+                        };
+                      };
+                    }
+                  )
+                );
+                default = { };
+                description = ''
+                  Banned players. See <link xlink:href="https://docs.papermc.io/paper/reference/vanilla-data-files/"/>.
+
+                  To use a non-declarative banned player list, don't fill in this value.
+                  As long as it is empty, no banned players file is generated.
+                '';
+                example = literalExpression ''
+                  {
+                    username1 = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+                    username2 = {
+                      uuid = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy";
+                      created = "2025-12-01 09:00:00 -0500";
+                      source = "(Unknown)";
+                      expires = "forever";
+                      reason = "Banned by an operator.";
+                    };
+                  }
+                '';
+              };
+
               serverProperties = mkOption {
                 type =
                   with types;
@@ -689,6 +748,22 @@ in
                 level = v.level;
                 bypassesPlayerLimit = v.bypassesPlayerLimit;
               }) conf.operators;
+              "banned-players.json".value = mapAttrsToList (n: v: {
+                name = n;
+                uuid = v.uuid;
+              }
+              // lib.optionalAttrs(v.created != null) {
+                created = v.created;
+              }
+              // lib.optionalAttrs(v.source != null) {
+                source = v.source;
+              }
+              // lib.optionalAttrs(v.expires != null) {
+                expires = v.expires;
+              }
+              // lib.optionalAttrs(v.reason != null) {
+                reason = v.reason;
+              }) conf.bannedPlayers;
               "server.properties".value = conf.serverProperties;
             }
             // conf.files
