@@ -6268,5 +6268,15 @@
     "name": "fabric-loader-0.18.3.jar",
     "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.18.3/fabric-loader-0.18.3.jar",
     "sha256": "0v03y0zp187f9p2knjxl7nrkj8i2axfmcb40yg92r4aikvcq1jq6"
+  },
+  "net.fabricmc:sponge-mixin:0.17.0+mixin.0.8.7": {
+    "name": "sponge-mixin-0.17.0+mixin.0.8.7.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.17.0+mixin.0.8.7/sponge-mixin-0.17.0+mixin.0.8.7.jar",
+    "sha256": "1aa9paqng5j26zmpzshacgwcp0c52bi0zkyb5l2rjhay336rz277"
+  },
+  "net.fabricmc:fabric-loader:0.18.4": {
+    "name": "fabric-loader-0.18.4.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.18.4/fabric-loader-0.18.4.jar",
+    "sha256": "0jng7g99y5sp2s7jsix7i6h64m10vbikghdq3mj918j93620nc7a"
   }
 }
