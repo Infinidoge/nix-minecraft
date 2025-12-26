@@ -39,7 +39,7 @@ let
         buildNumber: value:
         callPackage ./derivation.nix {
           inherit (value) url sha256;
-          version = "${mcVersion}-build.${buildNumber}";
+          inherit mcVersion buildNumber;
           jre = getRecommendedJavaVersion mcVersion;
           minecraft-server = vanillaServers."vanilla-${escapeVersion mcVersion}";
         }
