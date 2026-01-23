@@ -271,6 +271,22 @@ nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- versionid
 
 This `fetchurl` invocation directly fetches the mod, and can be copy-pasted to wherever necessary.
 
+### `minecraftctl`
+
+A CLI Tool for managing and monitoring nix-minecraft servers.
+
+| feature                                       | description                              |
+| --------------------------------------------- | -----------------------------------      |
+| list                                          | list available nix-minecraft instances   |
+| status <instance>                             | show status of the instance              |
+| tail <instance> [-fF] [--retry] [-n <length>] | tail the log of the instance             |
+| send <instance> <command>                     | send command to the instance             |
+| reload <instance>                             | send reload command to the instance      |
+| start <instance>                              | start the instance                       |
+| stop  <instance>                              | stop the instance                        |
+| restart <instance>                            | restart the instance                     |
+| uuid <player>                                 | (utility) fetches UUID of the player     |
+
 ## Modules
 
 ### `services.minecraft-servers`

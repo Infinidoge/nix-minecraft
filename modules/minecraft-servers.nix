@@ -1,7 +1,7 @@
 {
   config,
-  lib,
   options,
+  lib,
   pkgs,
   ...
 }:
@@ -31,12 +31,20 @@ let
       example = true;
     };
 
+  mkEnableOpt = description: mkBoolOpt' false description;
+
+  getOrDefault =
+    default: key: attrset:
+    let
+      value = attrset.${key} or default;
+    in
+    if value == null then default else value;
+
   minecraftUUID =
     types.strMatching "([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{32})"
     // {
       description = "Minecraft UUID";
     };
-
   normalizeFiles = files: mapAttrs configToPath (filterAttrs (_: nonEmptyValue) files);
   nonEmptyValue = x: nonEmpty x && (x ? value -> nonEmpty x.value);
   nonEmpty = x: x != { } && x != [ ];
@@ -214,8 +222,6 @@ let
       }
     else
       builtins.throw "At least one server management system must be enabled.";
-
-  mkEnableOpt = description: mkBoolOpt' false description;
 in
 {
   options.services.minecraft-servers = {
@@ -566,6 +572,45 @@ in
   config = mkIf cfg.enable (
     let
       servers = filterAttrs (_: cfg: cfg.enable) cfg.servers;
+      serversJson =
+        let
+          toServerEntry =
+            name: serverCfg:
+            let
+              warnAndDefault =
+                lib.warn "[nix-minecraft] package does not provide version info: \"${package.name}\""
+                  {
+                    type = "unknown (${serverCfg.package.name})";
+                    mcVersion = "?";
+                  };
+              info = serverCfg.package.passthru.nix-minecraft or warnAndDefault;
+              ms = serverCfg.managementSystem;
+            in
+            {
+              inherit name;
+              inherit (info) type mcVersion;
+              port = getOrDefault 25565 "server-port" serverCfg.serverProperties;
+              dataDir = "${cfg.dataDir}/${name}";
+              serviceName = "minecraft-server-${name}";
+              managementSystem =
+                if ms.tmux.enable && ms.systemd-socket.enable then
+                  builtins.throw "Only one server management system can be enabled."
+                else if ms.tmux.enable then
+                  {
+                    type = "tmux";
+                    tmux.socketPath = ms.tmux.socketPath name;
+                  }
+                else if ms.systemd-socket.enable then
+                  {
+                    type = "systemd-socket";
+                    systemdSocket.stdinSocket.path = ms.systemd-socket.stdinSocket.path name;
+                  }
+                else
+                  builtins.throw "At least one server management system must be enabled.";
+            };
+          json = builtins.toJSON (mapAttrs toServerEntry servers);
+        in
+        pkgs.writeText "nix-minecraft-servers.json" json;
     in
     {
       users = {
@@ -636,9 +681,11 @@ in
           allowedTCPPorts = flatten (mapAttrsToList getTCPPorts toOpen);
         };
 
-      systemd.tmpfiles.rules = mapAttrsToList (
-        name: _: "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} ${cfg.group} - -"
-      ) servers;
+      systemd.tmpfiles.rules =
+        (mapAttrsToList (name: _: "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} ${cfg.group} - -") servers)
+        ++ [
+          "L+ /run/minecraft/servers.json - - - - ${serversJson}"
+        ];
 
       systemd.sockets = pipe servers [
         (filterAttrs (name: server: server.managementSystem.systemd-socket.enable))
@@ -818,7 +865,8 @@ in
             partOf = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
             after = [
               "network.target"
-            ] ++ optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
+            ]
+            ++ optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
 
             enable = conf.enable;
 
@@ -874,7 +922,8 @@ in
               RestrictSUIDSGID = true;
               SystemCallArchitectures = "native";
               UMask = "0007";
-            } // msConfig.serviceConfig;
+            }
+            // msConfig.serviceConfig;
 
             restartIfChanged = !conf.enableReload;
             reloadIfChanged = conf.enableReload;

@@ -32,6 +32,11 @@ stdenvNoCC.mkDerivation {
   passthru = {
     tests = { inherit (nixosTests) minecraft-server; };
     updateScript = ./update.py;
+    nix-minecraft = {
+      type = "velocity";
+      mcVersion = null;
+      loaderVersion = version;
+    };
   };
 
   meta = with lib; {
