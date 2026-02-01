@@ -86,7 +86,7 @@
 
         checks = mkTests (pkgs.extend self.outputs.overlays.default) // packages;
 
-        formatter = pkgs.nixfmt;
+        formatter = pkgs.nixfmt-tree;
       }
     );
 }
