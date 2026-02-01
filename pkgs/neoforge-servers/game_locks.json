@@ -27,6 +27,13 @@
       "url": "https://piston-data.mojang.com/v1/objects/03f8985492bda0afc0898465341eb0acef35f570/server.txt"
     }
   },
+  "1.21.10": {
+    "mappings": {
+      "hash": "sha1-xUQHQ0Eab9dJD6GKS2xdjt822Is=",
+      "name": "1.21.10-server-mappings.txt",
+      "url": "https://piston-data.mojang.com/v1/objects/c5440743411a6fd7490fa18a4b6c5d8edf36d88b/server.txt"
+    }
+  },
   "1.21.3": {
     "mappings": {
       "hash": "sha1-xw4Q9y6mW7l+FWFD/ZfIUtyVgyU=",

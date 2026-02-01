@@ -1,0 +1,37 @@
+{
+  "_content": "Vly&jWHvQpW-v5kWMVZiGB7b^Vly*2VKy}|W;tYII503cVmC4|FgRj2H8VIlHa0e4Wny7uH)S|sWMW}6",
+  "created_at": "2026-02-01T07:23:14.979218+00:00",
+  "elapsed": 0.139554,
+  "expires": "2026-02-01T08:23:14.979190+00:00",
+  "headers": {
+    "Accept-Ranges": "bytes",
+    "Cache-Control": "public, max-age=3600",
+    "Connection": "keep-alive",
+    "Content-Disposition": "attachment; filename=\"neoforge-21.8.41-installer.jar.sha256\"; filename*=utf-8''neoforge-21.8.41-installer.jar.sha256",
+    "Content-Length": "64",
+    "Content-Security-Policy": "sandbox",
+    "Content-Type": "application/octet-stream",
+    "Date": "Sun, 01 Feb 2026 07:23:14 GMT",
+    "Last-Modified": "Thu, 4 Sep 2025 07:08:23 GMT",
+    "Server": "CDN77-Turbo",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "X-77-Cache": "MISS",
+    "X-77-NZT": "ktcSeC2sKOKqqDyb9zWPXAAUcalu7Di+q+OyBVat5IKb",
+    "X-77-NZT-Ray": "068a82339004519862ff7e6925d24d32",
+    "X-77-POP": "ashburnUSVA"
+  },
+  "reason": "OK",
+  "request": {
+    "body": "",
+    "headers": {
+      "Accept": "*/*",
+      "Accept-Encoding": "gzip, deflate",
+      "Connection": "keep-alive",
+      "User-Agent": "python-requests/2.32.5"
+    },
+    "method": "GET",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.8.41/neoforge-21.8.41-installer.jar.sha256"
+  },
+  "status_code": 200,
+  "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.8.41/neoforge-21.8.41-installer.jar.sha256"
+}
