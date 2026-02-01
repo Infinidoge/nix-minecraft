@@ -66,7 +66,7 @@ in
 lib.recurseIntoAttrs (
   builtins.listToAttrs (
     (map (x: nameValuePair (escapeVersion x.name) x) (flatten packages))
-    ++ (map (x: nameValuePair (escapeVersion (stripBuild x.name)) x) latestBuilds)
+    ++ (map (x: nameValuePair (escapeVersion x.name) x) latestBuilds)
     ++ [ (nameValuePair "purpur" (last latestBuilds)) ]
   )
 )
