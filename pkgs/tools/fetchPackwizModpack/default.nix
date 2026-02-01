@@ -124,17 +124,16 @@ let
               dontBuild = true;
               dontFixup = true;
 
-              installPhase =
-                ''
-                  cp -as "${drv}" $out
-                  chmod u+w -R $out
-                ''
-                + lib.concatLines (
-                  lib.mapAttrsToList (name: file: ''
-                    mkdir -p "$out/$(dirname "${name}")"
-                    cp -as "${file}" "$out/${name}"
-                  '') files
-                );
+              installPhase = ''
+                cp -as "${drv}" $out
+                chmod u+w -R $out
+              ''
+              + lib.concatLines (
+                lib.mapAttrsToList (name: file: ''
+                  mkdir -p "$out/$(dirname "${name}")"
+                  cp -as "${file}" "$out/${name}"
+                '') files
+              );
 
               passthru = { inherit (drv) manifest; };
               meta = drv.meta or { };

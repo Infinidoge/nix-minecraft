@@ -818,7 +818,8 @@ in
             partOf = optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
             after = [
               "network.target"
-            ] ++ optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
+            ]
+            ++ optional conf.managementSystem.systemd-socket.enable "minecraft-server-${name}.socket";
 
             enable = conf.enable;
 
@@ -874,7 +875,8 @@ in
               RestrictSUIDSGID = true;
               SystemCallArchitectures = "native";
               UMask = "0007";
-            } // msConfig.serviceConfig;
+            }
+            // msConfig.serviceConfig;
 
             restartIfChanged = !conf.enableReload;
             reloadIfChanged = conf.enableReload;
