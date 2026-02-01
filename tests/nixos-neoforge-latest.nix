@@ -1,6 +1,6 @@
-{ nixosTest, outputs }:
+{ testers, outputs }:
 
-nixosTest {
+testers.nixosTest {
   name = "nixos-neoforge-latest";
   nodes.server =
     {
