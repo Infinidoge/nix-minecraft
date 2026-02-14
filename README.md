@@ -54,6 +54,23 @@ In your system configuration:
 }
 ```
 
+### Home Manager
+
+In your home configuration:
+
+```nix
+{ inputs, ... }: # Make sure the flake inputs are in your system's config
+{
+  imports = [ inputs.nix-minecraft.homeModules.minecraft-servers ];
+}
+```
+
+**NOTE:** You probably want to enable [user lingering](https://www.freedesktop.org/software/systemd/man/latest/loginctl.html?#enable-linger%20USER%E2%80%A6)
+when using the home-manager module. Otherwise, servers won't start until your
+user logs in, and they may be stopped on logout. On NixOS, user lingering can
+be enabled by setting `users.users.<name>.linger = true`. Otherwise, you can
+use `loginctl enable-linger`.
+
 ## Examples
 
 See the [examples directory](./examples/).
@@ -302,9 +319,11 @@ This `fetchurl` invocation directly fetches the mod, and can be copy-pasted to w
 
 ### `services.minecraft-servers`
 
-[Source](./modules/minecraft-servers.nix)
+[Common](./modules/common/minecraft-servers.nix)
+[Home Manager](./modules/home/minecraft-servers.nix)
+[NixOS](./modules/nixos/minecraft-servers.nix)
 
-Module for hosting multiple servers at once. All of the following are under this module.
+Modules for hosting multiple servers at once. All of the following are under this module.
 
 
 #### `enable`
@@ -317,7 +336,7 @@ The data for the servers will be loaded from and saved to `dataDir`, and any soc
 Whether you agree to [Mojang's EULA](https://account.mojang.com/documents/minecraft_eula). 
 This option must be set to true to run any Minecraft servers.
 
-#### `openFirewall`
+#### `openFirewall` (NixOS only)
 
 Whether to open ports in the firewall for each server. Sets the default for `servers.<name>.openFirewall`. 
 This will only work if the ports are specified in `servers.<name>.serverProperties`, otherwise it will use the default ports.
@@ -335,11 +354,11 @@ Each server will be under a subdirectory named after the server name, such as `/
 Directory to place the runtime tmux sockets into. Defaults to `/run/minecraft`.
 Each server's console will be a tmux socket file in the form of servername.sock. To connect to the console, run `tmux -S /run/minecraft/servername.sock attach`, press `Ctrl + b` then `d` to detach.
 
-#### `user`
+#### `user` (NixOS only)
 
 Name of the user to create and run servers under. It is recommended to leave this as the default, as it is the same user as `services.minecraft-server`.
 
-#### `group`
+#### `group` (NixOS only)
 
 Name of the group to create and run servers under. In order to modify the server files or attach to the tmux socket, your user must be a part of this group. It is recommended to leave this as the default, as it is the same group as `services.minecraft-server`.
 
@@ -361,7 +380,7 @@ Whether to enable this server. If set to false, does **NOT** delete any data in 
 Whether to start this server on boot. If set to false, can still be started with `systemctl start minecraft-server-servername`. 
 Requires the server to be enabled.
 
-#### `servers.<name>.openFirewall`
+#### `servers.<name>.openFirewall` (NixOS only)
 
 Whether to open ports in the firewall for this server.
 
