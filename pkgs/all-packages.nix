@@ -20,6 +20,7 @@ in
 rec {
   vanillaServers = callPackage ./vanilla-servers { };
   fabricServers = callPackage ./fabric-servers { inherit vanillaServers; };
+  forgeServers = callPackage ./forge-servers { inherit vanillaServers; };
   quiltServers = callPackage ./quilt-servers { inherit vanillaServers; };
   legacyFabricServers = callPackage ./legacy-fabric-servers { inherit vanillaServers; };
   paperServers = callPackage ./paper-servers { inherit vanillaServers; };
@@ -30,6 +31,7 @@ rec {
   minecraftServers = lib.mergeAttrsList [
     vanillaServers
     fabricServers
+    forgeServers
     quiltServers
     legacyFabricServers
     paperServers
@@ -39,6 +41,7 @@ rec {
 
   vanilla-server = vanillaServers.vanilla;
   fabric-server = fabricServers.fabric;
+  forge-server = forgeServers.forge;
   quilt-server = quiltServers.quilt;
   paper-server = paperServers.paper;
   purpur-server = purpurServers.purpur;
