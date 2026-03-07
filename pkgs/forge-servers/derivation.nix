@@ -18,20 +18,28 @@ stdenvNoCC.mkDerivation rec {
 
   preferLocalBuild = true;
 
-  installPhase = ''
+  installPhase = 
+    let
+      forgeJarAlternate = "libraries/net/minecraftforge/forge/${version}";
+    in
+    ''
     mkdir -p $out/bin $out/lib/minecraft
     cp -v $src $out/lib/minecraft/installer.jar
 
     cat > $out/bin/minecraft-server << EOF
     #!/bin/sh
-    if [ -e "forge-${version}*.jar" ] || [ -e "forge-${version}.jar" ]; then
+    if [ -e "forge-${version}*.jar" ] || [ -e "forge-${version}.jar" ] || [ -e "${forgeJarAlternate}/forge-${version}-server.jar" ]; then
       echo "Running Forge..."
     else
       echo "Installing Forge..."
       ${lib.getExe jre} -jar $out/lib/minecraft/installer.jar --installServer
     fi
 
-    exec ${lib.getExe jre} \$@ -jar forge-${version}*.jar nogui
+    if [ -e "forge-${version}*.jar" ] || [ -e "forge-${version}.jar" ]; then
+      exec ${lib.getExe jre} \$@ -jar forge-${version}*.jar nogui
+    else
+      exec ${lib.getExe jre} \$@ @${forgeJarAlternate}/unix_args.txt
+    fi
     EOF
 
     chmod +x $out/bin/minecraft-server
