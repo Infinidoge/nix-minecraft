@@ -18,6 +18,7 @@ As of currently, it packages:
 - Various tools
   - `nix-modrinth-prefetch`
   - `fetchPackwizModpack`
+  - `fetchModrinthModpack`
 
 Check out this video by vimjoyer that provides a brief overview of how to use the flake: https://youtu.be/Fph7SMldxpI
 
@@ -248,6 +249,36 @@ in
 ```
 
 **Note**: Using `manifest`, by default, will cause [IFD](https://nixos.wiki/wiki/Import_From_Derivation). If you want to avoid IFD while still having access to `manifest`, simply pass a `manifestHash` to the `fetchPackwizModpack` function, it will then fetch the manifest through `builtins.fetchurl`.
+
+### `fetchModrinthModpack`
+
+[Source](./pkgs/tools/fetchModrinthModpack)
+
+This function packages a Modrinth `.mrpack` modpack from either a URL, a local `.mrpack` file, or a local source directory containing `index.json` and optional overrides.
+
+```nix
+let
+  modpack = pkgs.fetchModrinthModpack {
+    url = "https://cdn.modrinth.com/data/PROJECT_ID/versions/VERSION_ID/modpack.mrpack";
+    packHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    side = "server";
+  };
+in
+{
+  services.minecraft-servers.servers.cool-modpack = {
+    enable = true;
+    package = pkgs.fabricServers.fabric-1_21_5.override { loaderVersion = "0.16.14"; };
+    symlinks = {
+      "mods" = "${modpack}/mods";
+    };
+    files = {
+      "config" = "${modpack}/config";
+    };
+  };
+}
+```
+
+The resulting derivation contains downloaded pack files and applied overrides. Like `fetchPackwizModpack`, it also exposes a `manifest` attribute and an `addFiles` helper.
 
 ### Others
 
