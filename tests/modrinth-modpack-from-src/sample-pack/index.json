@@ -1,0 +1,27 @@
+{
+  "formatVersion": 1,
+  "game": "minecraft",
+  "versionId": "sample-pack-1.0.0",
+  "name": "sample-pack",
+  "summary": "Sample Modrinth modpack for nix-minecraft tests",
+  "files": [
+    {
+      "path": "mods/lithium-fabric-0.16.2+mc1.21.5.jar",
+      "hashes": {
+        "sha512": "09a68051504bb16069dd6af8901f2bbeadfd08ad5353d8bcc0c4784e814fb293d9197b4fb0a8393be1f2db003cd987a9e4b98391bbe18c50ae181dace20c2fa4"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/gvQqBUqZ/versions/VWYoZjBF/lithium-fabric-0.16.2%2Bmc1.21.5.jar"
+      ],
+      "fileSize": 769793,
+      "env": {
+        "client": "required",
+        "server": "required"
+      }
+    }
+  ],
+  "dependencies": {
+    "minecraft": "1.21.5",
+    "fabric-loader": "0.16.14"
+  }
+}
