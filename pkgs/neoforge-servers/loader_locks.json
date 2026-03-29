@@ -24641,6 +24641,47 @@
       }
     }
   },
+  "1.21.11": {
+    "21.11.42": {
+      "libraries": [
+        "com.electronwill.night-config:core:3.8.3",
+        "com.electronwill.night-config:toml:3.8.3",
+        "com.google.errorprone:error_prone_annotations:2.41.0",
+        "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+        "com.google.j2objc:j2objc-annotations:3.1",
+        "net.fabricmc:sponge-mixin:0.16.5+mixin.0.8.7",
+        "net.jodah:typetools:0.6.3",
+        "net.minecraftforge:srgutils:0.4.15",
+        "net.minecrell:terminalconsoleappender:1.3.0",
+        "net.neoforged.accesstransformers:at-parser:11.0.2",
+        "net.neoforged.fancymodloader:earlydisplay:10.0.36",
+        "net.neoforged.fancymodloader:loader:10.0.36",
+        "net.neoforged.installertools:installertools:4.0.6:fatjar",
+        "net.neoforged:JarJarMetadata:0.5.0",
+        "net.neoforged:JarJarSelector:0.5.0",
+        "net.neoforged:accesstransformers:11.0.2",
+        "net.neoforged:bus:8.0.5",
+        "net.neoforged:mergetool:2.0.0:api",
+        "net.neoforged:neoforge:21.11.42:universal",
+        "net.neoforged:neoform:1.21.11-20251209.172050:mappings@tsrg.lzma",
+        "org.apache.maven:maven-artifact:3.9.9",
+        "org.codehaus.plexus:plexus-utils:3.5.1",
+        "org.jline:jline-reader:3.20.0",
+        "org.jline:jline-terminal:3.20.0",
+        "org.lwjgl:lwjgl-tinyfd:3.3.3",
+        "org.lwjgl:lwjgl:3.3.3",
+        "org.ow2.asm:asm-analysis:9.8",
+        "org.ow2.asm:asm-commons:9.8",
+        "org.ow2.asm:asm-tree:9.8",
+        "org.ow2.asm:asm-util:9.8",
+        "org.ow2.asm:asm:9.8"
+      ],
+      "src": {
+        "hash": "sha256-aRekNDiQW2wAD8A9WwFI9n9rMDzlF7LboeqWLxMFDIc=",
+        "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.11.42/neoforge-21.11.42-installer.jar"
+      }
+    }
+  },
   "1.21.3": {
     "21.3.56": {
       "libraries": [
