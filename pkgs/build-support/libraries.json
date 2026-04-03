@@ -6308,5 +6308,15 @@
     "name": "quilt-loader-0.30.0-beta.4.jar",
     "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.0-beta.4/quilt-loader-0.30.0-beta.4.jar",
     "sha256": "11dwld3r0dnp1i7gpv6jav6jf8p2a97r4kdwsfhg7wbik4kxlrps"
+  },
+  "org.quiltmc:quilt-loader:0.30.0-beta.7": {
+    "name": "quilt-loader-0.30.0-beta.7.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.0-beta.7/quilt-loader-0.30.0-beta.7.jar",
+    "sha256": "0wsbmnfwr631114phdf1dmn57gjc71r1kysm0ayk9r4d7rcaprls"
+  },
+  "org.quiltmc:quilt-loader:0.30.0-beta.6": {
+    "name": "quilt-loader-0.30.0-beta.6.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.0-beta.6/quilt-loader-0.30.0-beta.6.jar",
+    "sha256": "0csvfbdf718brj56cqm467aywc5lb9474q5bjd9rsxxd7snd07zv"
   }
 }
