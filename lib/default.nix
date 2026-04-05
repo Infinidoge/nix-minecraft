@@ -40,7 +40,7 @@ lib.makeExtensible (
         if (typeOf input) == "lambda" then self // { func = e: input (self.func e); } else self.func input;
     };
 
-    isNormalVersion = v: isList (match "([[:digit:]]+\.[[:digit:]]+(\.[[:digit:]]+)?)" v);
+    isNormalVersion = v: isList (match "([[:digit:]]+\\.[[:digit:]]+(\\.[[:digit:]]+)?)" v);
 
     latestVersion =
       versions: chain (filter isNormalVersion) (sort versionOlder) last (attrNames versions);
