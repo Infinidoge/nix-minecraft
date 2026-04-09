@@ -70,7 +70,22 @@ let
             unzip -q "${srcPath}" -d pack-src
           fi
 
-          test -f pack-src/index.json
+          # Current mrpack files use modrinth.index.json but keep index.json for older mrpacks
+          index_json_path=""
+          if [ -f "pack-src/modrinth.index.json" ]; then
+            index_json_path="pack-src/modrinth.index.json"
+          elif [ -f "pack-src/index.json" ]; then
+            index_json_path="pack-src/index.json"
+          else
+            echo "Couldn't find either 'modrinth.index.json' or 'index.json'" >&2
+            exit 1
+          fi
+
+          # Make sure the extracted mrpack has permissions
+          if [ "$(stat -c '%a' "$index_json_path")" == 0 ]; then
+            find ./pack-src/ -type d -exec chmod 755 {} \;
+            find ./pack-src/ -type f -exec chmod 644 {} \;
+          fi
 
           while IFS= read -r file; do
             if [ "${side}" != "both" ]; then
@@ -102,7 +117,7 @@ let
               echo "actual:   $actual" >&2
               exit 1
             fi
-          done < <(jq -c '.files[]' pack-src/index.json)
+          done < <(jq -c '.files[]' "$index_json_path")
 
           if [ -d pack-src/overrides ]; then
             cp -r pack-src/overrides/. .
@@ -126,7 +141,7 @@ let
           fi
 
           # Keep the source manifest in output for passthru consumers.
-          cp pack-src/index.json ./index.json
+          cp "$index_json_path" ./index.json
 
           runHook postBuild
         '';
