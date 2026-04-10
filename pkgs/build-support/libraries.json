@@ -6328,5 +6328,10 @@
     "name": "fabric-loader-0.19.0.jar",
     "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.19.0/fabric-loader-0.19.0.jar",
     "sha256": "1m052djnqqw0pi99mvvkanbi2ds4pg7gpwz31njcrs6x3x3wpbwp"
+  },
+  "net.fabricmc:fabric-loader:0.19.1": {
+    "name": "fabric-loader-0.19.1.jar",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.19.1/fabric-loader-0.19.1.jar",
+    "sha256": "1ww6vgj3f59dinvb0qfj2qrcr2vn094pgavll7hv7z4af2kc71x8"
   }
 }
