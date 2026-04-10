@@ -26,6 +26,7 @@ rec {
   purpurServers = callPackage ./purpur-servers { inherit vanillaServers; };
   velocityServers = callPackage ./velocity-servers { };
   neoforgeServers = callPackage ./neoforge-servers { inherit vanillaServers; };
+  foliaServers = callPackage ./folia-servers { inherit vanillaServers; };
 
   minecraftServers = lib.mergeAttrsList [
     vanillaServers
@@ -35,6 +36,7 @@ rec {
     paperServers
     purpurServers
     neoforgeServers
+    foliaServers
   ];
 
   vanilla-server = vanillaServers.vanilla;
@@ -45,5 +47,6 @@ rec {
   velocity-server = velocityServers.velocity;
   minecraft-server = vanilla-server;
   neoforge-server = neoforgeServers.neoforge;
+  folia-server = foliaServers.folia;
 }
 // (builtins.mapAttrs (n: v: callPackage v { }) (lib.our.rakeLeaves ./tools))
