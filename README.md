@@ -13,6 +13,7 @@ As of currently, it packages:
   - Paper
   - Purpur
   - NeoForge
+  - Folia
 - All supported versions of the following:
   - Velocity proxy
 - Various tools
@@ -137,6 +138,14 @@ The lowest supported version is `20.4.240`; see [the update script](./pkgs/neofo
 For convenience, `neoforgeServers.neoforge` is equivalent to the latest major Minecraft and NeoForge versions.
 `neoforgeServers.neoforge.gameversion` is equivalent to the latest NeoForge version for `gameversion`.
 
+### `foliaServers.*`
+
+[Source](./pkgs/folia-servers)
+
+`foliaServers` functions the same as `papricServers`, but with egionized multithreading.
+
+If you plan on running folia without internet, you'll have to link the vanilla jar to `cache/mojang_{version}.jar`. The relevant jar is available at the package's `vanillaJar` attribute.
+
 ```
 neoforgeServers.neoforge-1_21_1
 neoforgeServers.neoforge-1_21_1-21_1_193
@@ -152,7 +161,7 @@ For convenience, `velocityServers.velocity` is equivalent to the latest version.
 
 ### `minecraftServers.*`
 
-`vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers // purpurServers // neoforgeServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
+`vanillaServers // fabricServers // quiltServers // legacyFabricServers // paperServers // purpurServers // neoforgeServers // foliaServers`. Will be used most often as it contains all of the different server versions across each mod loader. When using the overlay, this will replace the Nixpkgs `minecraftServers`.
 
 ### `fetchPackwizModpack`
 
@@ -292,6 +301,8 @@ All of these packages are also available under `packages`, not just `legacyPacka
 - `neoforge-server`: Same as `neoforgeServers.neoforge`
 - `velocity-server`: Same as `velocityServers.velocity`
 - `minecraft-server`: Same as `vanilla-server`
+- `folia-server`: Same as `foliaServers.folia`
+
 
 Server versions not found above can be setup manually via an override.
 For example, this override changes the path the launch script uses to your provided jar file, and does not modify the vanilla jar:
