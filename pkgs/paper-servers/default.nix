@@ -17,7 +17,9 @@ let
     versionOlder
     mapAttrsToList
     ;
-  versions = lib.importJSON ./lock.json;
+  old_versions = lib.importJSON ./old_lock.json; # 1.7.10, 1.8.8, 1.9.4
+  current_versions = lib.importJSON ./lock.json;
+  versions = old_versions // current_versions;
 
   # Remove -build... suffix
   stripBuild = v: builtins.head (builtins.match "(.*)-build.*" v);
