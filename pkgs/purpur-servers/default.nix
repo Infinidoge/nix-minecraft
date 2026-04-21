@@ -7,7 +7,10 @@
   vanillaServers,
 }:
 let
-  inherit (lib.our) escapeVersion;
+  inherit (lib.our)
+    escapeVersion
+    sortVersions
+    ;
   inherit (lib)
     nameValuePair
     flatten
@@ -15,12 +18,8 @@ let
     versionOlder
     mapAttrsToList
     ;
-  versions = lib.importJSON ./lock.json;
 
-  # Remove -build... suffix
-  stripBuild = v: builtins.head (builtins.match "(.*)-build.*" v);
-  # Sort by attribute 'attr' using 'f' function
-  sortBy = attr: f: builtins.sort (a: b: f a.${attr} b.${attr});
+  versions = lib.importJSON ./lock.json;
 
   # https://docs.papermc.io/paper/getting-started#requirements
   getRecommendedJavaVersion =
@@ -45,7 +44,7 @@ let
 
   packages = mapAttrsToList (
     mcVersion: builds:
-    sortBy "version" versionOlder (
+    sortVersions (
       mapAttrsToList (
         buildNumber: value:
         callPackage ./derivation.nix rec {
@@ -61,7 +60,7 @@ let
   ) versions;
 
   # Latest build for each MC version
-  latestBuilds = sortBy "version" versionOlder (map last packages);
+  latestBuilds = sortVersions (map last packages);
 in
 lib.recurseIntoAttrs (
   builtins.listToAttrs (

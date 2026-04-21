@@ -25,6 +25,7 @@ lib.makeExtensible (
       nameValuePair
       ;
     inherit (builtins)
+      head
       match
       pathExists
       readDir
@@ -40,6 +41,11 @@ lib.makeExtensible (
         if (typeOf input) == "lambda" then self // { func = e: input (self.func e); } else self.func input;
     };
 
+    # Sort by attribute 'attr' using 'f' function
+    sortBy = attr: f: builtins.sort (a: b: f a.${attr} b.${attr});
+
+    sortVersions = sortBy "version" versionOlder;
+
     isNormalVersion = v: isList (match "([[:digit:]]+\\.[[:digit:]]+(\\.[[:digit:]]+)?)" v);
 
     latestVersion =
@@ -48,6 +54,9 @@ lib.makeExtensible (
     escapeVersion = replaceStrings [ "." " " ] [ "_" "_" ];
 
     removeVanilla = n: escapeVersion (removePrefix "vanilla-" n);
+
+    # Remove -build... suffix
+    stripBuild = v: head (match "(.*)-build.*" v);
 
     # Stolen from digga: https://github.com/divnix/digga/blob/587013b2500031b71959496764b6fdd1b2096f9a/src/importers.nix#L61-L114
     rakeLeaves =
