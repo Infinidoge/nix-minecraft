@@ -880,5 +880,65 @@
       "net.fabricmc:sponge-mixin:0.17.0+mixin.0.8.7",
       "net.fabricmc:fabric-loader:0.18.4"
     ]
+  },
+  "0.19.2": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "org.ow2.asm:asm:9.9",
+      "org.ow2.asm:asm-analysis:9.9",
+      "org.ow2.asm:asm-commons:9.9",
+      "org.ow2.asm:asm-tree:9.9",
+      "org.ow2.asm:asm-util:9.9",
+      "net.fabricmc:sponge-mixin:0.17.2+mixin.0.8.7",
+      "net.fabricmc:fabric-loader:0.19.2"
+    ]
+  },
+  "0.19.1": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "org.ow2.asm:asm:9.9",
+      "org.ow2.asm:asm-analysis:9.9",
+      "org.ow2.asm:asm-commons:9.9",
+      "org.ow2.asm:asm-tree:9.9",
+      "org.ow2.asm:asm-util:9.9",
+      "net.fabricmc:sponge-mixin:0.17.1+mixin.0.8.7",
+      "net.fabricmc:fabric-loader:0.19.1"
+    ]
+  },
+  "0.19.0": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "org.ow2.asm:asm:9.9",
+      "org.ow2.asm:asm-analysis:9.9",
+      "org.ow2.asm:asm-commons:9.9",
+      "org.ow2.asm:asm-tree:9.9",
+      "org.ow2.asm:asm-util:9.9",
+      "net.fabricmc:sponge-mixin:0.17.1+mixin.0.8.7",
+      "net.fabricmc:fabric-loader:0.19.0"
+    ]
+  },
+  "0.18.6": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "org.ow2.asm:asm:9.9",
+      "org.ow2.asm:asm-analysis:9.9",
+      "org.ow2.asm:asm-commons:9.9",
+      "org.ow2.asm:asm-tree:9.9",
+      "org.ow2.asm:asm-util:9.9",
+      "net.fabricmc:sponge-mixin:0.17.0+mixin.0.8.7",
+      "net.fabricmc:fabric-loader:0.18.6"
+    ]
+  },
+  "0.18.5": {
+    "mainClass": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+    "libraries": [
+      "org.ow2.asm:asm:9.9",
+      "org.ow2.asm:asm-analysis:9.9",
+      "org.ow2.asm:asm-commons:9.9",
+      "org.ow2.asm:asm-tree:9.9",
+      "org.ow2.asm:asm-util:9.9",
+      "net.fabricmc:sponge-mixin:0.17.0+mixin.0.8.7",
+      "net.fabricmc:fabric-loader:0.18.5"
+    ]
   }
 }
