@@ -31,6 +31,7 @@ stdenvNoCC.mkDerivation {
   dontUnpack = true;
 
   passthru = {
+    java = jre_headless;
     tests = { inherit (nixosTests) minecraft-server; };
     updateScript = ./update.py;
   };
