@@ -1,9 +1,7 @@
 {
   callPackage,
   lib,
-  jdk11,
-  jdk17,
-  jdk,
+  java_versions,
   vanillaServers,
 }:
 let
@@ -15,23 +13,10 @@ let
     nameValuePair
     flatten
     last
-    versionOlder
     mapAttrsToList
     ;
 
   versions = lib.importJSON ./lock.json;
-
-  # https://docs.papermc.io/paper/getting-started#requirements
-  getRecommendedJavaVersion =
-    v:
-    # oldest version is 1.14.1
-    # Version older than 1.1 1.1 = false
-    if versionOlder v "1.17" then
-      jdk11
-    else if versionOlder v "1.18.2" then # paper says 1.18.1+ but 1.18.1 max is 17
-      jdk17
-    else
-      jdk;
 
   getLog4j =
     v:
@@ -51,7 +36,7 @@ let
           inherit (value) sha256;
           version = "${mcVersion}";
           url = "https://api.purpurmc.org/v2/purpur/${mcVersion}/${buildNumber}/download";
-          jre = getRecommendedJavaVersion mcVersion;
+          jre = java_versions.getPaperRecommended mcVersion;
           log4j = getLog4j mcVersion;
           minecraft-server = vanillaServers."vanilla-${escapeVersion mcVersion}";
         }
