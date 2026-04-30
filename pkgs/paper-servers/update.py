@@ -6,7 +6,7 @@ import requests
 from pathlib import Path
 from requests.adapters import HTTPAdapter, Retry
 
-ENDPOINT = "https://api.papermc.io/v2/projects/paper"
+ENDPOINT = "https://fill.papermc.io/v3/projects/paper"
 
 TIMEOUT = 5
 RETRIES = 5
@@ -36,13 +36,13 @@ def make_client():
 def get_game_versions(client):
     print("Fetching game versions")
     data = client.get(ENDPOINT).json()
-    return data["versions"]
+    return [version for versions in reversed(data["versions"].values()) for version in reversed(versions)]
 
 
 def get_builds(version, client):
     print(f"Fetching builds for {version}")
     data = client.get(f"{ENDPOINT}/versions/{version}/builds").json()
-    return data.get("builds", [])
+    return reversed(data)
 
 
 def main(lock, client):
@@ -52,10 +52,9 @@ def main(lock, client):
     for version in get_game_versions(client):
         version_builds = {}
         for build in get_builds(version, client):
-            build_number = build["build"]
-            build_sha256 = build["downloads"]["application"]["sha256"]
-            build_filename = build["downloads"]["application"]["name"]
-            build_url = f"{ENDPOINT}/versions/{version}/builds/{build_number}/downloads/{build_filename}"
+            build_number = build["id"]
+            build_sha256 = build["downloads"]["server:default"]["checksums"]["sha256"]
+            build_url = build["downloads"]["server:default"]["url"]
             version_builds[build_number] = {
                 "url": build_url,
                 "sha256": build_sha256,
