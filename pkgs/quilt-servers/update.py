@@ -2,43 +2,71 @@
 #!nix-shell -i python3 -p python3Packages.requests python3Packages.jq
 
 import json
-import subprocess
-import requests
-import jq
 import logging
-import sys
 import re
+import subprocess
 from pathlib import Path
+
+import jq
+import requests
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 
+# TODO: split into a library
 def versiontuple(v):
-    return tuple(map(int, (v.partition("-")[0].split("."))))
+    if isinstance(v, str):
+        version = v.partition("-")[0].split(".")
+    elif isinstance(v, tuple):
+        version = v
+
+    return tuple(map(int, version))
+
+
+SNAPSHOT_REGEX = re.compile("([0-9]{2})w([0-9]{1,2}).+")
+
+
+def parse_snapshot(version):
+    match = SNAPSHOT_REGEX.fullmatch(version)
+
+    if match:
+        return versiontuple(match.groups())
+    else:
+        return None
 
 
 ENDPOINT = "https://meta.quiltmc.org/v3/versions"
 MAVEN = "https://maven.quiltmc.org/repository/release/"
 
+
+MINIMUM_LOADER_VERSION = (0, 17, 0)  # loader version
+MINIMUM_GAME_VERSION = (1, 18, 2)
+MINIMUM_SNAPSHOT_VERSION = (22, 11)
+
+VERSION_MAPPINGS = [
+    "intermediary",
+    "hashed",
+]
+
+
 # These filters specify which Quilt loader and Minecraft game versions to package.
-
 # Only package Quilt versions greater than 0.17.0 (using QuiltServerLauncher main class)
-LOADER_VERSION_FILTER = lambda version: (
-    version["separator"] == "." and versiontuple(version["version"]) >= (0, 17, 0)
-)
 
-SNAPSHOT_REGEX = re.compile("([0-9]{2})w([0-9]{1,2}).+")
+
+def LOADER_VERSION_FILTER(version):
+    return (
+        version["separator"] == "."
+        and versiontuple(version["version"]) >= MINIMUM_LOADER_VERSION
+    )
 
 
 # Package all game versions supported by Quilt
 def GAME_VERSION_FILTER(version):
-    snapshotmatch = re.fullmatch(SNAPSHOT_REGEX, version["version"])
-
-    if snapshotmatch == None:
-        return versiontuple(version["version"]) >= (1, 18, 2)
+    if snapshot := parse_snapshot(version["version"]):
+        return snapshot >= MINIMUM_SNAPSHOT_VERSION
     else:
-        return tuple(map(int, snapshotmatch.groups())) >= (22, 11)
+        return versiontuple(version["version"]) >= MINIMUM_GAME_VERSION
 
 
 # Uncomment to package only major releases:
@@ -96,13 +124,15 @@ def fetch_game_version(game_version):
     """
     Return game-version-specific libraries for a given game version
     """
-    get_ = lambda item: get(item, game_version)[0]["maven"]
-    return {
-        "libraries": [
-            {"name": get_("intermediary"), "url": MAVEN},
-            {"name": get_("hashed"), "url": MAVEN},
-        ]
-    }
+
+    libraries = []
+
+    for library in VERSION_MAPPINGS:
+        fetched = get(library, game_version)
+        if isinstance(fetched, list):  # TODO: compare against game_version
+            libraries.append({"name": fetched[0]["maven"], "url": MAVEN})
+
+    return {"libraries": libraries}
 
 
 def prefetch_libraries(logger, version_libraries, libraries):
@@ -112,7 +142,7 @@ def prefetch_libraries(logger, version_libraries, libraries):
     for library in version_libraries:
         name, url = library["name"], library["url"]
 
-        if not name in libraries or any(not v for k, v in libraries[name].items()):
+        if name not in libraries or any(not v for v in libraries[name].values()):
             logger.info(f"Fetching {name}")
             ldir, lname, lversion = name.split(":")
             lfilename = f"{lname}-{lversion}.jar"

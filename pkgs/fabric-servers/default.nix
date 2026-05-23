@@ -22,6 +22,7 @@ let
     });
 
   gameVersions = lib.attrNames game_locks;
+  latestGameVersion = latestVersion game_locks;
 
   packagesRaw = lib.genAttrs gameVersions mkServer;
   packages = lib.mapAttrs' (
@@ -31,6 +32,6 @@ in
 lib.recurseIntoAttrs (
   packages
   // {
-    fabric = builtins.getAttr "fabric-${escapeVersion vanillaServers.vanilla.version}" packages;
+    fabric = builtins.getAttr "fabric-${escapeVersion latestGameVersion}" packages;
   }
 )

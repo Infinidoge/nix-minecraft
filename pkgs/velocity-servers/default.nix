@@ -3,25 +3,28 @@
   lib,
 }:
 let
-  inherit (builtins) listToAttrs sort filter;
+  inherit (lib.our)
+    escapeVersion
+    sortVersions
+    ;
+  inherit (builtins)
+    listToAttrs
+    filter
+    ;
   inherit (lib)
     nameValuePair
     last
     recurseIntoAttrs
     flatten
     mapAttrsToList
-    versionOlder
     importJSON
     ;
-  inherit (lib.our) escapeVersion;
-  versions = importJSON ./lock.json;
 
-  # Sort by attribute 'attr' using 'f' function
-  sortBy = attr: f: sort (a: b: f a.${attr} b.${attr});
+  versions = importJSON ./lock.json;
 
   packages = mapAttrsToList (
     version: builds:
-    sortBy "version" versionOlder (
+    sortVersions (
       mapAttrsToList (
         buildNumber: value:
         callPackage ./derivation.nix {

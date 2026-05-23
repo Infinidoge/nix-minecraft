@@ -11,6 +11,7 @@ let
   callPackage = pkgs.newScope (
     {
       inherit lib callPackage;
+      java_versions = callPackage ./java-versions.nix { };
     }
     // buildSupport
   );
