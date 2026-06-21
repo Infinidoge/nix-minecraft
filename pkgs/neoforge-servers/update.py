@@ -39,7 +39,9 @@ class FetchUrl(TypedDict):
 
 
 class GameVersionLock(TypedDict):
-    mappings: FetchUrl
+    # Absent for Minecraft 26.x+, where NeoForge no longer remaps at install
+    # time and Mojang no longer publishes server mappings.
+    mappings: NotRequired[FetchUrl]
 
 
 class LoaderLock(TypedDict):
@@ -89,11 +91,18 @@ def fetch_game_versions(client: requests_cache.CachedSession) -> Dict[str, str]:
     return {v["id"]: v["url"] for v in data["versions"]}
 
 
-def fetch_mappings_hash(client: requests_cache.CachedSession, url: str):
+def fetch_mappings_hash(
+    client: requests_cache.CachedSession, url: str
+) -> GameVersionLock:
     print(f"Fetching manifest: {url}")
     response = client.get(url)
     response.raise_for_status()
     data = response.json()
+    # Mojang stopped publishing obfuscation mappings in the 26.x cycle. NeoForge
+    # 26.x installers no longer remap the server at install time (no
+    # DOWNLOAD_MOJMAPS processor), so there are simply no mappings to lock.
+    if "server_mappings" not in data["downloads"]:
+        return GameVersionLock()
     server_mappings = data["downloads"]["server_mappings"]
     return GameVersionLock(
         mappings=FetchUrl(
@@ -146,8 +155,23 @@ def fetch_library_hashes(src: FetchUrl) -> Dict[str, FetchUrl]:
     return {str(lib["name"]): library_src(lib) for lib in libraries}
 
 
+def minecraft_version(version: Version) -> str:
+    # NeoForge encodes the target Minecraft version in its own version number.
+    # Historically that was <mc_minor>.<mc_patch>.<build> for Minecraft
+    # "1.<minor>.<patch>" (e.g. 21.4.150 -> 1.21.4). Since Minecraft dropped the
+    # leading "1." in the 26 cycle, NeoForge versions gained a component and are
+    # now <major>.<minor>.<patch>.<build> for Minecraft "<major>.<minor>.<patch>"
+    # (e.g. 26.1.2.76 -> 26.1.2). A trailing ".0" patch is omitted to match
+    # Mojang's ids (1.21.0 -> "1.21", 26.1.0 -> "26.1").
+    r = version.release
+    if len(r) >= 4:
+        return f"{r[0]}.{r[1]}.{r[2]}".removesuffix(".0")
+    return f"1.{r[0]}.{r[1]}".removesuffix(".0")
+
+
 def fetch_loader_versions(
     client: requests_cache.CachedSession,
+    game_manifest: Dict[str, str],
 ) -> Dict[str, List[str]]:  # game version -> build versions
     print("Fetching installer versions")
     response = client.get(NEOFORGE_API, expire_after=requests_cache.DO_NOT_CACHE)
@@ -168,10 +192,12 @@ def fetch_loader_versions(
             print(f"Skipping unsupported version: {version}")
             continue
 
-        # first two digits == 1.x game version
-        versions[f"1.{version.major}.{version.minor}".removesuffix(".0")].append(
-            str(version)
-        )
+        gv = minecraft_version(version)
+        if gv not in game_manifest:
+            print(f"Skipping {version}: game version {gv} not in Mojang manifest")
+            continue
+
+        versions[gv].append(str(version))
     return versions
 
 
@@ -185,12 +211,15 @@ def main(
     print("Starting fetch")
 
     game_manifest = fetch_game_versions(client)
-    loader_manifest = fetch_loader_versions(client)
+    loader_manifest = fetch_loader_versions(client, game_manifest)
 
     to_fetch = []
 
     for game_version, build_versions in loader_manifest.items():
         if game_version not in game_versions:
+            if game_version not in game_manifest:
+                print(f"Skipping {game_version}: not present in Mojang manifest")
+                continue
             game_versions[game_version] = fetch_mappings_hash(
                 client, game_manifest[game_version]
             )

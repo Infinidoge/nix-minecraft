@@ -58,17 +58,26 @@ let
     let
       name = "neoforge-${build.version}-offline-installer";
 
+      # Minecraft 26.x dropped server mappings, and NeoForge 26.x installers no
+      # longer remap at install time, so there are no mappings to embed and the
+      # plain installer already works offline.
+      hasMappings = gameVersion ? mappings;
+
       # Add server mappings to the jar so we can perform an offline install.
       # https://github.com/neoforged/LegacyInstaller/blob/e95a1687b24d6c1e4ba87c98ddcd42b83eeba555/src/main/java/net/minecraftforge/installer/actions/FatInstallerAction.java#L79
       # TODO: Can we just add mappings to the classpath rather than directly to the jar?
-      fatJar = runCommand "${name}" { nativeBuildInputs = [ zip ]; } ''
-        install -m 644 -D "${installer-unwrapped}" "$out"
+      fatJar =
+        if !hasMappings then
+          installer-unwrapped
+        else
+          runCommand "${name}" { nativeBuildInputs = [ zip ]; } ''
+            install -m 644 -D "${installer-unwrapped}" "$out"
 
-        server_mappings="maven/minecraft/${minecraft-server.version}/server_mappings.txt"
-        install -m 644 -D ${fetchurl gameVersion.mappings} "$server_mappings"
+            server_mappings="maven/minecraft/${minecraft-server.version}/server_mappings.txt"
+            install -m 644 -D ${fetchurl gameVersion.mappings} "$server_mappings"
 
-        zip "$out" "$server_mappings"
-      '';
+            zip "$out" "$server_mappings"
+          '';
 
       wrapper = writeShellApplication {
         inherit name;
