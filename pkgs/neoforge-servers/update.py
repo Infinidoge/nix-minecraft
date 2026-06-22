@@ -10,7 +10,7 @@ import subprocess
 import zipfile
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Dict, List, NotRequired, TypedDict
+from typing import Any, NotRequired, TypedDict
 
 import requests
 import requests_cache
@@ -39,16 +39,16 @@ class FetchUrl(TypedDict):
 
 
 class GameVersionLock(TypedDict):
-    mappings: FetchUrl
+    mappings: NotRequired[FetchUrl]
 
 
 class LoaderLock(TypedDict):
     src: FetchUrl
-    libraries: List[str]
+    libraries: list[str]
 
 
 # game version -> build version -> version details
-LoaderLocks = Dict[str, Dict[str, LoaderLock]]
+LoaderLocks = dict[str, dict[str, LoaderLock]]
 
 
 class TimeoutHTTPAdapter(HTTPAdapter):
@@ -81,7 +81,23 @@ def sri_hash(alg: str, hex: str):
     return f"{alg}-{base64.b64encode(bytes.fromhex(hex)).decode('utf-8')}"
 
 
-def fetch_game_versions(client: requests_cache.CachedSession) -> Dict[str, str]:
+def minecraft_version(version: Version) -> str:
+    # NeoForge includes the Minecraft version number in its version number
+    # Previously, this excluded the "1.", which had to be readded
+    # Mojang has since dropped the "1." itself, while Neoforge added another component
+    # Rewrite into a string appropriately
+
+    r = version.release
+    if len(r) >= 4:
+        v = f"{r[0]}.{r[1]}.{r[2]}"
+    else:
+        v = f"1.{r[0]}.{r[1]}"
+
+    # Remove trailing ".0" (Included by NeoForge, not included by Mojang)
+    return v.removesuffix(".0")
+
+
+def fetch_game_versions(client: requests_cache.CachedSession) -> dict[str, str]:
     print("Fetching game versions")
     response = client.get(MINECRAFT_MANIFEST, expire_after=requests_cache.DO_NOT_CACHE)
     response.raise_for_status()
@@ -89,11 +105,18 @@ def fetch_game_versions(client: requests_cache.CachedSession) -> Dict[str, str]:
     return {v["id"]: v["url"] for v in data["versions"]}
 
 
-def fetch_mappings_hash(client: requests_cache.CachedSession, url: str):
+def fetch_mappings_hash(
+    client: requests_cache.CachedSession, url: str
+) -> GameVersionLock:
     print(f"Fetching manifest: {url}")
     response = client.get(url)
     response.raise_for_status()
     data = response.json()
+
+    # Mappings are no longer required as of 26.x
+    if "server_mappings" not in data["downloads"]:
+        return GameVersionLock()
+
     server_mappings = data["downloads"]["server_mappings"]
     return GameVersionLock(
         mappings=FetchUrl(
@@ -115,7 +138,7 @@ def fetch_installer_hash(client: requests.Session, version: str):
     )
 
 
-def fetch_library_hashes(src: FetchUrl) -> Dict[str, FetchUrl]:
+def fetch_library_hashes(src: FetchUrl) -> dict[str, FetchUrl]:
     # the installer jar is used by the build derivation, so we might as well
     # use nix to fetch/cache it ahead of time
     proc = subprocess.run(
@@ -127,7 +150,7 @@ def fetch_library_hashes(src: FetchUrl) -> Dict[str, FetchUrl]:
     )
     store_path = proc.stdout.splitlines()[1]
 
-    def library_src(library: Dict[str, Any]):
+    def library_src(library: dict[str, Any]):
         artifact = library["downloads"]["artifact"]
         return FetchUrl(
             url=artifact["url"],
@@ -148,7 +171,8 @@ def fetch_library_hashes(src: FetchUrl) -> Dict[str, FetchUrl]:
 
 def fetch_loader_versions(
     client: requests_cache.CachedSession,
-) -> Dict[str, List[str]]:  # game version -> build versions
+    game_manifest: dict[str, str],
+) -> dict[str, list[str]]:  # game version -> build versions
     print("Fetching installer versions")
     response = client.get(NEOFORGE_API, expire_after=requests_cache.DO_NOT_CACHE)
     response.raise_for_status()
@@ -168,24 +192,27 @@ def fetch_loader_versions(
             print(f"Skipping unsupported version: {version}")
             continue
 
-        # first two digits == 1.x game version
-        versions[f"1.{version.major}.{version.minor}".removesuffix(".0")].append(
-            str(version)
-        )
+        game_version = minecraft_version(version)
+
+        if game_version in game_manifest:
+            versions[game_version].append(str(version))
+        else:
+            print(f"Skipping {version}: game version {game_version} not in manifest")
+
     return versions
 
 
 def main(
     loader_versions: LoaderLocks,
-    game_versions: Dict[str, GameVersionLock],
-    library_versions: Dict[str, FetchUrl],
+    game_versions: dict[str, GameVersionLock],
+    library_versions: dict[str, FetchUrl],
     version_regex,
     client,
 ):
     print("Starting fetch")
 
     game_manifest = fetch_game_versions(client)
-    loader_manifest = fetch_loader_versions(client)
+    loader_manifest = fetch_loader_versions(client, game_manifest)
 
     to_fetch = []
 
