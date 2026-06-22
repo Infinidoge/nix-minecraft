@@ -2419,6 +2419,31 @@
       "url": "https://fill-data.papermc.io/v1/objects/d0f14d7993ca7b7f93a51f5d1dfeaf3f2149c8585611c4beaa7162b3b371d720/velocity-3.5.0-SNAPSHOT-600.jar",
       "sha256": "d0f14d7993ca7b7f93a51f5d1dfeaf3f2149c8585611c4beaa7162b3b371d720",
       "channel": "STABLE"
+    },
+    "601": {
+      "url": "https://fill-data.papermc.io/v1/objects/0407642d1ed2883100eb823c2805523f191fa637db1f42ac0ec7ef29cbe455a9/velocity-3.5.0-SNAPSHOT-601.jar",
+      "sha256": "0407642d1ed2883100eb823c2805523f191fa637db1f42ac0ec7ef29cbe455a9",
+      "channel": "STABLE"
+    },
+    "602": {
+      "url": "https://fill-data.papermc.io/v1/objects/91bcd04e711ebddfc62a7d56ba6b3d9d56e587dedffdb4bb3f32961a7bb97730/velocity-3.5.0-SNAPSHOT-602.jar",
+      "sha256": "91bcd04e711ebddfc62a7d56ba6b3d9d56e587dedffdb4bb3f32961a7bb97730",
+      "channel": "STABLE"
+    },
+    "603": {
+      "url": "https://fill-data.papermc.io/v1/objects/ad0c287268b0c2426243abb75414cd5ed84766762db0aa81171e446a07ee8a00/velocity-3.5.0-SNAPSHOT-603.jar",
+      "sha256": "ad0c287268b0c2426243abb75414cd5ed84766762db0aa81171e446a07ee8a00",
+      "channel": "STABLE"
+    },
+    "604": {
+      "url": "https://fill-data.papermc.io/v1/objects/d9c57ade10f9cc2516473888aebc272e17793a13c486bb1ab5f511b11a2b7b04/velocity-3.5.0-SNAPSHOT-604.jar",
+      "sha256": "d9c57ade10f9cc2516473888aebc272e17793a13c486bb1ab5f511b11a2b7b04",
+      "channel": "STABLE"
+    },
+    "605": {
+      "url": "https://fill-data.papermc.io/v1/objects/0ec616020166465dacca3b790d3db2b246f8f7c13b3aaacaae60c825744a66e0/velocity-3.5.0-SNAPSHOT-605.jar",
+      "sha256": "0ec616020166465dacca3b790d3db2b246f8f7c13b3aaacaae60c825744a66e0",
+      "channel": "STABLE"
     }
   }
 }
