@@ -70,6 +70,8 @@ let
         zip "$out" "$server_mappings"
       '';
 
+      finalJar = if gameVersion ? mappings then fatJar else installer-unwrapped;
+
       wrapper = writeShellApplication {
         inherit name;
         runtimeInputs = [ jre_headless ];
@@ -80,7 +82,7 @@ let
         text = ''
           mkdir -p "$1/libraries"
           cp -r --no-preserve=all ${repository}/* "$1/libraries"
-          java -jar ${fatJar} --offline --installServer "$1"
+          java -jar ${finalJar} --offline --installServer "$1"
         '';
       };
     in
