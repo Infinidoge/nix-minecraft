@@ -26,15 +26,20 @@ let
     sortVersions (
       mapAttrsToList (
         buildVersion: build:
+        let
+          vanilla-server = vanillaServers."vanilla-${escapeVersion gameVersion}";
+        in
         callPackage ./derivation.nix {
           inherit libraryLocks;
+
           build = build // {
             version = buildVersion;
           };
           gameVersion = gameLocks.${gameVersion} // {
             version = gameVersion;
           };
-          minecraft-server = vanillaServers."vanilla-${escapeVersion gameVersion}";
+          minecraft-server = vanilla-server;
+          jre_headless = vanilla-server.java;
         }
       ) builds
     )
