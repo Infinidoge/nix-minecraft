@@ -7,6 +7,7 @@
 let
   inherit (lib.our)
     escapeVersion
+    stripBuild
     sortVersions
     ;
   inherit (lib)
@@ -34,7 +35,7 @@ let
         buildNumber: value:
         callPackage ./derivation.nix rec {
           inherit (value) sha256;
-          version = "${mcVersion}";
+          version = "${mcVersion}-build.${buildNumber}";
           url = "https://api.purpurmc.org/v2/purpur/${mcVersion}/${buildNumber}/download";
           jre = java_versions.getPaperRecommended mcVersion;
           log4j = getLog4j mcVersion;
@@ -50,7 +51,7 @@ in
 lib.recurseIntoAttrs (
   builtins.listToAttrs (
     (map (x: nameValuePair (escapeVersion x.name) x) (flatten packages))
-    ++ (map (x: nameValuePair (escapeVersion x.name) x) latestBuilds)
+    ++ (map (x: nameValuePair (escapeVersion (stripBuild x.name)) x) latestBuilds)
     ++ [ (nameValuePair "purpur" (last latestBuilds)) ]
   )
 )
