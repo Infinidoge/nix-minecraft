@@ -1719,6 +1719,10 @@
     "hash": "sha1-tm0UhuSzjDa0tT/aMZQKMMQlneA=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.242/neoforge-21.1.242-universal.jar"
   },
+  "net.neoforged:neoforge:21.1.243:universal": {
+    "hash": "sha1-zjhJRvtVQf3fGC4GbOHAFCPQuG0=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.243/neoforge-21.1.243-universal.jar"
+  },
   "net.neoforged:neoforge:21.1.24:universal": {
     "hash": "sha1-DT7KM3+coy4m6ph4W7xt0KOzEDg=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.24/neoforge-21.1.24-universal.jar"
@@ -2971,6 +2975,10 @@
     "hash": "sha1-9n9f+qX1Ewz2+5sTPaAMffO1MqU=",
     "url": "https://maven.neoforged.net/releases/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar"
   },
+  "org.ow2.asm:asm-analysis:9.10.1": {
+    "hash": "sha1-jUnxTVH2Mssdh8iNHOr1DbDYrxs=",
+    "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar"
+  },
   "org.ow2.asm:asm-analysis:9.3": {
     "hash": "sha1-SwcfIRs3w44On1mYVQGXyFk/atg=",
     "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar"
@@ -3002,6 +3010,10 @@
   "org.ow2.asm:asm-analysis:9.9.1": {
     "hash": "sha1-GrjZMW73pnJACHkZpwgkbDftFmA=",
     "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-analysis/9.9.1/asm-analysis-9.9.1.jar"
+  },
+  "org.ow2.asm:asm-commons:9.10.1": {
+    "hash": "sha1-QinkxV/Y4Bwj+f6YhAdcxiiqzFA=",
+    "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar"
   },
   "org.ow2.asm:asm-commons:9.3": {
     "hash": "sha1-HypDLRIS9cNSrmB9e2HcriDCCvU=",
@@ -3035,6 +3047,10 @@
     "hash": "sha1-qzXeTFNxhKCTOQafGjs6rPIokUk=",
     "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-commons/9.9.1/asm-commons-9.9.1.jar"
   },
+  "org.ow2.asm:asm-tree:9.10.1": {
+    "hash": "sha1-4kQzKhdWTB0VckSTmahC3jWIG+I=",
+    "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar"
+  },
   "org.ow2.asm:asm-tree:9.3": {
     "hash": "sha1-eNLs1hMYtaWM0E+yN2NsDoa3fZc=",
     "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar"
@@ -3067,6 +3083,10 @@
     "hash": "sha1-trGzNmKWFjtLH1QHMarQorqkhNg=",
     "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-tree/9.9.1/asm-tree-9.9.1.jar"
   },
+  "org.ow2.asm:asm-util:9.10.1": {
+    "hash": "sha1-e7nUUOjUy/n54ECWxEu/5/uoCxU=",
+    "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar"
+  },
   "org.ow2.asm:asm-util:9.5@jar": {
     "hash": "sha1-ZLWh/IwbFe0u/WoGPpdryNPcX/4=",
     "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-util/9.5/asm-util-9.5.jar"
@@ -3090,6 +3110,10 @@
   "org.ow2.asm:asm-util:9.9.1": {
     "hash": "sha1-5R9bCuCwwZYGh66XCio0NNOdirs=",
     "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-util/9.9.1/asm-util-9.9.1.jar"
+  },
+  "org.ow2.asm:asm:9.10.1": {
+    "hash": "sha1-raIUHAzFLuj1xIzV+kzg55TyIjY=",
+    "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar"
   },
   "org.ow2.asm:asm:9.3": {
     "hash": "sha1-jmMA71HB2AGn7WLQfNIhrKOpBkA=",
