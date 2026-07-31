@@ -2550,6 +2550,11 @@
       "url": "https://fill-data.papermc.io/v1/objects/8290bd8bb46135ad3b916ceb780bc117fe0c8a603e79016c37a1e74315714f94/velocity-4.1.0-SNAPSHOT-11.jar",
       "sha256": "8290bd8bb46135ad3b916ceb780bc117fe0c8a603e79016c37a1e74315714f94",
       "channel": "STABLE"
+    },
+    "12": {
+      "url": "https://fill-data.papermc.io/v1/objects/619031b094211f2732b7f223593a6c2c7b9152b1d28f5110e086b41a02d65d68/velocity-4.1.0-SNAPSHOT-12.jar",
+      "sha256": "619031b094211f2732b7f223593a6c2c7b9152b1d28f5110e086b41a02d65d68",
+      "channel": "STABLE"
     }
   }
 }
