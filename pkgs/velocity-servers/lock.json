@@ -2565,6 +2565,16 @@
       "url": "https://fill-data.papermc.io/v1/objects/d94545b4fc9a7a7b7eae3e29999b1882f9ca3b5b30873b173d84199d3b84039b/velocity-4.1.0-SNAPSHOT-14.jar",
       "sha256": "d94545b4fc9a7a7b7eae3e29999b1882f9ca3b5b30873b173d84199d3b84039b",
       "channel": "STABLE"
+    },
+    "15": {
+      "url": "https://fill-data.papermc.io/v1/objects/52edcac52a8f5a07dc9f0a76a2d12961c2dcdb681df5f6de441418ea71b4c5fa/velocity-4.1.0-SNAPSHOT-15.jar",
+      "sha256": "52edcac52a8f5a07dc9f0a76a2d12961c2dcdb681df5f6de441418ea71b4c5fa",
+      "channel": "STABLE"
+    },
+    "16": {
+      "url": "https://fill-data.papermc.io/v1/objects/aebade8be3b15d7c3c61514a50ce857cbf78ee87bd32e8d16d2352c6ca3e472f/velocity-4.1.0-SNAPSHOT-16.jar",
+      "sha256": "aebade8be3b15d7c3c61514a50ce857cbf78ee87bd32e8d16d2352c6ca3e472f",
+      "channel": "STABLE"
     }
   }
 }
