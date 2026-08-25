@@ -2525,6 +2525,13 @@
       "channel": "STABLE"
     }
   },
+  "4.1.0": {
+    "22": {
+      "url": "https://fill-data.papermc.io/v1/objects/bff15036c6a43f0db66600ee405407aa71e95fbf05d692e35e8ab364c7c9083d/velocity-4.1.0-22.jar",
+      "sha256": "bff15036c6a43f0db66600ee405407aa71e95fbf05d692e35e8ab364c7c9083d",
+      "channel": "STABLE"
+    }
+  },
   "4.1.0-SNAPSHOT": {
     "7": {
       "url": "https://fill-data.papermc.io/v1/objects/0fb692511ee117611c6caae87fe8f2b041e7f56332e0dd4ec5081bba1eedddf0/velocity-4.1.0-SNAPSHOT-7.jar",
