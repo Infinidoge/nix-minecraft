@@ -2598,5 +2598,19 @@
       "sha256": "f840e8dbf9e3220f1ae400aa67c462ef4213d64fd03209dae284e2e991147c93",
       "channel": "STABLE"
     }
+  },
+  "4.1.1": {
+    "24": {
+      "url": "https://fill-data.papermc.io/v1/objects/846411d2d0560fed0f23496ffb89681be528d2c0650ecdcf21724d2d7bd9c1ee/velocity-4.1.1-24.jar",
+      "sha256": "846411d2d0560fed0f23496ffb89681be528d2c0650ecdcf21724d2d7bd9c1ee",
+      "channel": "STABLE"
+    }
+  },
+  "4.1.1-SNAPSHOT": {
+    "23": {
+      "url": "https://fill-data.papermc.io/v1/objects/4e7206b3933b25050aba299ba0eea850f6f53b0f4726281f94b8629babe9150b/velocity-4.1.1-SNAPSHOT-23.jar",
+      "sha256": "4e7206b3933b25050aba299ba0eea850f6f53b0f4726281f94b8629babe9150b",
+      "channel": "STABLE"
+    }
   }
 }
