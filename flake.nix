@@ -80,6 +80,7 @@
           inherit (self.legacyPackages.${pkgs.stdenv.system})
             vanilla-server
             fabric-server
+            forge-server
             quilt-server
             paper-server
             purpur-server
