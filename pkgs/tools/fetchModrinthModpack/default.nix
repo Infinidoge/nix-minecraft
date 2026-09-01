@@ -90,7 +90,7 @@ let
           while IFS= read -r file; do
             if [ "${side}" != "both" ]; then
               envState=$(echo "$file" | jq -r --arg side "${side}" '.env[$side] // "required"')
-              if [ "$envState" = "unsupported" ]; then
+              if [ "$envState" = "unsupported" ] || [ "$envState" = "unknown" ]; then
                 continue
               fi
             fi
