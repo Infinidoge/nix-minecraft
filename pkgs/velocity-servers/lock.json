@@ -2612,5 +2612,22 @@
       "sha256": "4e7206b3933b25050aba299ba0eea850f6f53b0f4726281f94b8629babe9150b",
       "channel": "STABLE"
     }
+  },
+  "4.1.2-SNAPSHOT": {
+    "25": {
+      "url": "https://fill-data.papermc.io/v1/objects/0dfd951e6f346e2f3fdf19d82875e3cd14fd4172d31f3a128349463eb51f58d2/velocity-4.1.2-SNAPSHOT-25.jar",
+      "sha256": "0dfd951e6f346e2f3fdf19d82875e3cd14fd4172d31f3a128349463eb51f58d2",
+      "channel": "STABLE"
+    },
+    "26": {
+      "url": "https://fill-data.papermc.io/v1/objects/478a1cf57dddb4a3f38d2411abad1b40ff0b6959cee60eb9044d18c7f3d619ef/velocity-4.1.2-SNAPSHOT-26.jar",
+      "sha256": "478a1cf57dddb4a3f38d2411abad1b40ff0b6959cee60eb9044d18c7f3d619ef",
+      "channel": "STABLE"
+    },
+    "27": {
+      "url": "https://fill-data.papermc.io/v1/objects/759d34f1e6c66adc741852c4b574b5e76ed9dfa84f8c27a5a24ffdd7b10d6fd0/velocity-4.1.2-SNAPSHOT-27.jar",
+      "sha256": "759d34f1e6c66adc741852c4b574b5e76ed9dfa84f8c27a5a24ffdd7b10d6fd0",
+      "channel": "STABLE"
+    }
   }
 }
