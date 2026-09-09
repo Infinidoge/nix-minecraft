@@ -83,6 +83,7 @@
             quilt-server
             paper-server
             purpur-server
+            folia-server
             velocity-server
             minecraft-server
             nix-modrinth-prefetch

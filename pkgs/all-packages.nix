@@ -25,6 +25,7 @@ rec {
   legacyFabricServers = callPackage ./legacy-fabric-servers { inherit vanillaServers; };
   paperServers = callPackage ./paper-servers { inherit vanillaServers; };
   purpurServers = callPackage ./purpur-servers { inherit vanillaServers; };
+  foliaServers = callPackage ./folia-servers { inherit vanillaServers; };
   velocityServers = callPackage ./velocity-servers { };
   neoforgeServers = callPackage ./neoforge-servers { inherit vanillaServers; };
 
@@ -35,6 +36,7 @@ rec {
     legacyFabricServers
     paperServers
     purpurServers
+    foliaServers
     neoforgeServers
   ];
 
@@ -43,6 +45,7 @@ rec {
   quilt-server = quiltServers.quilt;
   paper-server = paperServers.paper;
   purpur-server = purpurServers.purpur;
+  folia-server = paperServers.folia;
   velocity-server = velocityServers.velocity;
   minecraft-server = vanilla-server;
   neoforge-server = neoforgeServers.neoforge;
