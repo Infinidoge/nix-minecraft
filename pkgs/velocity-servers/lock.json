@@ -2633,6 +2633,18 @@
       "url": "https://fill-data.papermc.io/v1/objects/5d3f48df4b160077aaf159b154fef9fde0a198119b99285c26ce2df1a0357bd8/velocity-4.1.2-SNAPSHOT-28.jar",
       "sha256": "5d3f48df4b160077aaf159b154fef9fde0a198119b99285c26ce2df1a0357bd8",
       "channel": "STABLE"
+    },
+    "29": {
+      "url": "https://fill-data.papermc.io/v1/objects/01a960340f0dc5d5af99e848513e395c5d406519359b0a5e2c66f539bae03dcc/velocity-4.1.2-SNAPSHOT-29.jar",
+      "sha256": "01a960340f0dc5d5af99e848513e395c5d406519359b0a5e2c66f539bae03dcc",
+      "channel": "STABLE"
+    }
+  },
+  "4.2.0": {
+    "30": {
+      "url": "https://fill-data.papermc.io/v1/objects/35a5596a5468a035d8a32c8de5ebb0dc6b8d8f0cc3ff5169d514aca762af8aa8/velocity-4.2.0-30.jar",
+      "sha256": "35a5596a5468a035d8a32c8de5ebb0dc6b8d8f0cc3ff5169d514aca762af8aa8",
+      "channel": "STABLE"
     }
   }
 }
