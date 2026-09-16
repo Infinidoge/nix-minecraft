@@ -10,7 +10,7 @@ import time
 import progressbar
 
 
-ENDPOINT = "https://api.purpurmc.org/v2/purpur"
+ENDPOINT = "https://purpura.catpaws.ru/v2/purpur"
 
 def load_lock(path):
     print("Loading lock file")
