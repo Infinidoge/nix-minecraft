@@ -22751,6 +22751,10 @@
     "123": {
       "url": "https://fill-data.papermc.io/v1/objects/7b7b3b43c009103e1971a0576c26f655a7dd9b56a0a2a4438e352c03a7fecd08/paper-26.2-123.jar",
       "sha256": "7b7b3b43c009103e1971a0576c26f655a7dd9b56a0a2a4438e352c03a7fecd08"
+    },
+    "124": {
+      "url": "https://fill-data.papermc.io/v1/objects/274bbcb9807ad79a479617ce695a7c0686e652a8d1cabfd0e288d92a3ea29593/paper-26.2-124.jar",
+      "sha256": "274bbcb9807ad79a479617ce695a7c0686e652a8d1cabfd0e288d92a3ea29593"
     }
   },
   "26.2-rc-2": {
@@ -22785,6 +22789,26 @@
     "9": {
       "url": "https://fill-data.papermc.io/v1/objects/52d1ef0ed78597f5d4bcf1067788cfd009a15f97dc9633fcef2ef10cadae38e1/paper-26.2-rc-2-9.jar",
       "sha256": "52d1ef0ed78597f5d4bcf1067788cfd009a15f97dc9633fcef2ef10cadae38e1"
+    }
+  },
+  "26.3": {
+    "3": {
+      "url": "https://fill-data.papermc.io/v1/objects/23d44ecd3c076255adb525673041b60c48d51dc97fff5861fa803ee6aefc967d/paper-26.3-3.jar",
+      "sha256": "23d44ecd3c076255adb525673041b60c48d51dc97fff5861fa803ee6aefc967d"
+    },
+    "4": {
+      "url": "https://fill-data.papermc.io/v1/objects/a81263b866a4595be3f6c419eb3c0cb13d0c2fc9d6b5fff336dfd7c84612621c/paper-26.3-4.jar",
+      "sha256": "a81263b866a4595be3f6c419eb3c0cb13d0c2fc9d6b5fff336dfd7c84612621c"
+    },
+    "5": {
+      "url": "https://fill-data.papermc.io/v1/objects/7f98951a70ed7b3f28906b1c534e599f70d0dbbab1ef58bb2272f7d348bc0e51/paper-26.3-5.jar",
+      "sha256": "7f98951a70ed7b3f28906b1c534e599f70d0dbbab1ef58bb2272f7d348bc0e51"
+    }
+  },
+  "26.3-rc-3": {
+    "1": {
+      "url": "https://fill-data.papermc.io/v1/objects/098602998d2676ad8ec36e53b0da3ccb9f5e9b901ddfac9ee5b6fe50a330f6f3/paper-26.3-rc-3-1.jar",
+      "sha256": "098602998d2676ad8ec36e53b0da3ccb9f5e9b901ddfac9ee5b6fe50a330f6f3"
     }
   }
 }
