@@ -340,8 +340,8 @@ Module for hosting multiple servers at once. All of the following are under this
 
 #### `enable`
 
-If enabled, the servers in `services.minecraft-servers.servers` will be created and started as applicable. 
-The data for the servers will be loaded from and saved to `dataDir`, and any sockets will be put in `runDir`.
+If enabled, the servers in `services.minecraft-servers.servers` will be created and started as applicable.
+The data for the servers will be loaded from and saved to `servers.<name>.dataDir`, and any sockets will be put in `runDir`.
 
 #### `eula`
 
@@ -355,11 +355,13 @@ This will only work if the ports are specified in `servers.<name>.serverProperti
 Remember to change the ports if you running multiple servers.
 The module asserts that servers with `openFirewall` set do not have conflicting ports to try to catch this.
 
-#### `dataDir`
+#### `defaultDataDir`
 
-Directory to store the Minecraft servers. Defaults to `/srv/minecraft`.
+Defaults to `/srv/minecraft`.
 
-Each server will be under a subdirectory named after the server name, such as `/srv/minecraft/servername`.
+Sets the default value for `servers.<name>.dataDir`.
+
+Each server will be under a subdirectory named after the server name in this directory, such as `/srv/minecraft/servername`.
 
 #### `runDir`
 
@@ -386,6 +388,12 @@ This family of options govern individual servers, which will be created on boot.
 #### `servers.<name>.enable`
 
 Whether to enable this server. If set to false, does **NOT** delete any data in the data directory, just does not generate the service file.
+
+#### `servers.<name>.dataDir`
+
+Defaults to the value in `defaultDataDir`.
+
+This server will be under a subdirectory named after the server name in this directory, such as `/srv/minecraft/servername`.
 
 #### `servers.<name>.autoStart`
 
