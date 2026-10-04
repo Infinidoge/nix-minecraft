@@ -515,6 +515,10 @@
     "hash": "sha1-yyr88VZyGA7KHEmxybEgiVHvMi4=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/4.0.44/earlydisplay-4.0.44.jar"
   },
+  "net.neoforged.fancymodloader:earlydisplay:4.0.45": {
+    "hash": "sha1-3HqLE3AFTdDi1wwdtN30CSeTwRU=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/4.0.45/earlydisplay-4.0.45.jar"
+  },
   "net.neoforged.fancymodloader:earlydisplay:5.0.6": {
     "hash": "sha1-6ovyMpomttvYVGaOvUot86lVknk=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/5.0.6/earlydisplay-5.0.6.jar"
@@ -634,6 +638,10 @@
   "net.neoforged.fancymodloader:loader:4.0.44": {
     "hash": "sha1-Y0M2CLaDAqRC49uoeIDlT0LqBYM=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/4.0.44/loader-4.0.44.jar"
+  },
+  "net.neoforged.fancymodloader:loader:4.0.45": {
+    "hash": "sha1-SglowuxiNNWOCp7Zesr8CMyPM7U=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/4.0.45/loader-4.0.45.jar"
   },
   "net.neoforged.fancymodloader:loader:5.0.6": {
     "hash": "sha1-Mu5r085BDWr8aMjmZUqWYnLu5YI=",
@@ -1818,6 +1826,10 @@
   "net.neoforged:neoforge:21.1.252:universal": {
     "hash": "sha1-RuAuF9VYuta2elophfazqvWHC/A=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.252/neoforge-21.1.252-universal.jar"
+  },
+  "net.neoforged:neoforge:21.1.253:universal": {
+    "hash": "sha1-N/GWzVLoWju11I9A+LfRPCmgDss=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.253/neoforge-21.1.253-universal.jar"
   },
   "net.neoforged:neoforge:21.1.25:universal": {
     "hash": "sha1-zpouh1HRAVcU5ZeQa3A1Kdv+hbY=",
