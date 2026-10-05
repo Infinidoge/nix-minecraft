@@ -339,6 +339,10 @@
     "hash": "sha1-KvLwIdjgKgIg3CenpytGZtZtRMo=",
     "url": "https://maven.neoforged.net/releases/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar"
   },
+  "net.fabricmc:sponge-mixin:0.16.4+mixin.0.8.7": {
+    "hash": "sha1-JtAfBWerRunKDS7YnQ7MEarb1DM=",
+    "url": "https://maven.neoforged.net/releases/net/fabricmc/sponge-mixin/0.16.4+mixin.0.8.7/sponge-mixin-0.16.4+mixin.0.8.7.jar"
+  },
   "net.fabricmc:sponge-mixin:0.16.5+mixin.0.8.7": {
     "hash": "sha1-gPw6n1kmc86of0zXAvh5kcbJ/k0=",
     "url": "https://maven.neoforged.net/releases/net/fabricmc/sponge-mixin/0.16.5+mixin.0.8.7/sponge-mixin-0.16.5+mixin.0.8.7.jar"
@@ -1830,6 +1834,14 @@
   "net.neoforged:neoforge:21.1.253:universal": {
     "hash": "sha1-N/GWzVLoWju11I9A+LfRPCmgDss=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.253/neoforge-21.1.253-universal.jar"
+  },
+  "net.neoforged:neoforge:21.1.254:universal": {
+    "hash": "sha1-Kto8E8DRiBnlUu4lqWqR6FdHIag=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.254/neoforge-21.1.254-universal.jar"
+  },
+  "net.neoforged:neoforge:21.1.255:universal": {
+    "hash": "sha1-u7PplNsiARI2Qn6O4d7ooI9kFF0=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.255/neoforge-21.1.255-universal.jar"
   },
   "net.neoforged:neoforge:21.1.25:universal": {
     "hash": "sha1-zpouh1HRAVcU5ZeQa3A1Kdv+hbY=",
