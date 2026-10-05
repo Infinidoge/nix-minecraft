@@ -238,6 +238,11 @@ in
       Sets the default for <option>services.minecraft-servers.servers.<name>.openFirewall</option>.
     '';
 
+    openRcon = mkBoolOpt' true ''
+      Whether to open the RCON ports for each server.
+      Sets the default for <option>services.minecraft-servers.servers.<name>.openRcon</option>.
+    '';
+
     dataDir = mkOpt' types.path "/srv/minecraft" ''
       Directory to store the Minecraft servers.
       Each server will be under a subdirectory named after
@@ -338,6 +343,19 @@ in
                 defaultText = "The value of <literal>services.minecraft-servers.openFirewall</literal>";
                 description = ''
                   Whether to open ports in the firewall for this server.
+                '';
+              };
+
+              openRcon = mkOption {
+                type = types.bool;
+                default = cfg.openRcon;
+                defaultText = "The value of <literal>services.minecraft-servers.openRcon</literal>";
+                description = ''
+                  Whether to open the RCON port for this server.
+
+                  This has no effect if either:
+                  - <option>services.minecraft-servers.<name>.openFirewall</option> is set false.
+                  - <option>services.minecraft-servers.<name>.serverProperties.enable-rcon</option> is not set true.
                 '';
               };
 
@@ -707,7 +725,10 @@ in
           getTCPPorts =
             n: c:
             [ c.serverProperties.server-port or 25565 ]
-            ++ (optional (c.serverProperties.enable-rcon or false) (c.serverProperties."rcon.port" or 25575));
+            ++ optional (
+              (c.serverProperties.enable-rcon or false)
+              && (c.openRcon or false)
+            ) (c.serverProperties."rcon.port" or 25575);
           # Query
           getUDPPorts =
             n: c:
