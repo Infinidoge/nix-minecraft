@@ -218,12 +218,19 @@ let
   mkEnableOpt = description: mkBoolOpt' false description;
 in
 {
+  imports = [
+    (lib.mkRenamedOptionModule
+      [ "services" "minecraft-servers" "dataDir" ]
+      [ "services" "minecraft-servers" "defaultDataDir" ]
+    )
+  ];
+
   options.services.minecraft-servers = {
     enable = mkEnableOpt ''
       If enabled, the servers in <option>services.minecraft-servers.servers</option>
       will be created and started as applicable.
       The data for the servers will be loaded from and
-      saved to <option>services.minecraft-servers.dataDir</option>
+      saved to <option>services.minecraft-servers.servers.<server>.dataDir</option>
     '';
 
     eula = mkEnableOpt ''
@@ -238,8 +245,8 @@ in
       Sets the default for <option>services.minecraft-servers.servers.<name>.openFirewall</option>.
     '';
 
-    dataDir = mkOpt' types.path "/srv/minecraft" ''
-      Directory to store the Minecraft servers.
+    defaultDataDir = mkOpt' types.path "/srv/minecraft" ''
+      Default directory to store the Minecraft servers.
       Each server will be under a subdirectory named after
       the server name in this directory, such as <literal>/srv/minecraft/servername</literal>.
     '';
@@ -324,6 +331,13 @@ in
                 If set to <literal>false</literal>, does NOT delete any data in the data directory,
                 just does not generate the service file.
               '';
+
+              dataDir =
+                mkOpt' types.path cfg.defaultDataDir
+                  "Directory to store this minecraft server under. Defaults to the value set in <literal>defaultDataDir</literal>
+                  This server will be under a subdirectory named after the server name in this directory, such as <literal>/srv/minecraft/servername</literal>.
+
+                ";
 
               autoStart = mkBoolOpt' true ''
                 Whether to start this server on boot.
@@ -653,7 +667,7 @@ in
       users = {
         users.minecraft = mkIf (cfg.user == "minecraft") {
           description = "Minecraft server service user";
-          home = cfg.dataDir;
+          home = cfg.defaultDataDir;
           createHome = true;
           homeMode = "770";
           isSystemUser = true;
@@ -672,9 +686,13 @@ in
         }
         {
           assertion =
-            config.services.minecraft-server.enable -> cfg.dataDir != config.services.minecraft-server.dataDir;
+            let
+              dataDirs = mapAttrsToList (name: conf: conf.dataDir) servers;
+            in
+            config.services.minecraft-server.enable
+            -> lib.all (dir: dir != config.services.minecraft-server.dataDir) dataDirs;
           message =
-            "`services.minecraft-servers.dataDir` and `services.minecraft-server.dataDir` conflict."
+            "`services.minecraft-servers.dataDir` and  `services.minecraft-server.<serverName>.dataDir` conflict."
             + " Set one to use a different data directory.";
         }
         {
@@ -719,7 +737,7 @@ in
         };
 
       systemd.tmpfiles.rules = mapAttrsToList (
-        name: _: "d '${cfg.dataDir}/${name}' 0770 ${cfg.user} ${cfg.group} - -"
+        name: config: "d '${config.dataDir}/${name}' 0770 ${cfg.user} ${cfg.group} - -"
       ) servers;
 
       systemd.sockets = pipe servers [
@@ -960,7 +978,7 @@ in
               TimeoutStopSec = "1min 15s";
 
               Restart = conf.restart;
-              WorkingDirectory = "${cfg.dataDir}/${name}";
+              WorkingDirectory = "${conf.dataDir}/${name}";
               User = cfg.user;
               Group = cfg.group;
               EnvironmentFile = mkIf (cfg.environmentFile != null) (toString cfg.environmentFile);
