@@ -90,3 +90,11 @@ The changelog should be updated for any major and breaking changes to the reposi
 ### TODO
 
 Things that should get done in the future. If you feel like something needs work, feel free to include changes to TODO in your PR.
+
+## Packages
+
+### Server Derivations
+
+- All server derivations (unless not requiring Java) must get its JDK package from a `jdk_package` input, passed in when creating the package
+- All server derivations must pass through its JDK package as `passthru.java`
+- The selection of a Java version must be done through the `java_versions` attribute set, preferably using `getLatest`

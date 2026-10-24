@@ -67,6 +67,21 @@ See [TODO.md](./TODO.md).
 
 All of these are found under `legacyPackages`, since they are not derivations (i.e. an attrset of derivation, or a function that returns a derivation).
 
+#### Overriding Java version
+
+All server packages take a `jdk_package` argument, which can be used to override the Java version.
+For example:
+
+```nix
+minecraftServers.fabric.override { jdk_package = openjdk27; }
+```
+
+Additionally, all servers pass-through a `.java` to get the Java version that server uses, like so:
+
+```nix
+minecraftServers.fabric.java
+```
+
 ### `vanillaServers.*`
 
 [Source](./pkgs/vanilla-servers)

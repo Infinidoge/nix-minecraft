@@ -28,7 +28,6 @@ rec {
   # Mojang has since rewritten a lot of their codebase so that Java versions
   # are no longer as important for stability as they used to be. Meaning we can
   # target the latest JDK for all newer versions of Minecraft.
-  # TODO: Assert that jre_headless >= java version
   getLatest =
     javaVersion:
     if javaVersion == 8 then

@@ -3,6 +3,7 @@
   mkTextileLoader,
   loaderVersion,
   gameVersion,
+  jdk_package,
 }:
 let
   loader_lock = (lib.importJSON ./loader_locks.json).${loaderVersion};
@@ -10,7 +11,7 @@ let
 in
 mkTextileLoader {
   loaderName = "quilt";
-  inherit loaderVersion gameVersion;
+  inherit loaderVersion gameVersion jdk_package;
   serverLaunch = "org.quiltmc.loader.impl.launch.server.QuiltServerLauncher";
   inherit (loader_lock) mainClass;
   libraries = loader_lock.libraries ++ game_lock.libraries;

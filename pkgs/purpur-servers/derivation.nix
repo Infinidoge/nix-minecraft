@@ -2,7 +2,7 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  jre,
+  jdk_package,
   version,
   url,
   sha256,
@@ -23,7 +23,7 @@ stdenvNoCC.mkDerivation {
 
     cat > $out/bin/minecraft-server << EOF
     #!/bin/sh
-    exec ${jre}/bin/java ${log4j} \$@ -jar $out/lib/minecraft/server.jar nogui
+    exec ${jdk_package}/bin/java ${log4j} \$@ -jar $out/lib/minecraft/server.jar nogui
     EOF
     chmod +x $out/bin/minecraft-server
   '';
@@ -31,6 +31,7 @@ stdenvNoCC.mkDerivation {
   dontUnpack = true;
 
   passthru = {
+    java = jdk_package;
     updateScript = ./update.py;
     # If you plan on running paper without internet, be sure to link this jar
     # to `cache/mojang_{version}.jar`.

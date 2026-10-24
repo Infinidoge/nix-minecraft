@@ -2,6 +2,13 @@
 
 Documentation of major changes, newest first.
 
+## 2026-10-24: Change override name for Java of a Minecraft server to `jdk_package`
+
+All packages have been modified to allow overriding the Java version of a server using `jdk_package`, rather than a confusing mix of `jre` and `jre_headless`.
+
+Unfortunately due to the nature of this change, there is not an easy way to deprecate it in advance.
+Apologies for the inconvenience.
+
 ## 2024-06-07: Addition of systemd-sockets & deprecation of `runDir`
 
 With the addition systemd-socket server management, the `runDir` option has been deprecated.

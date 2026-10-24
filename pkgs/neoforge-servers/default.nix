@@ -39,7 +39,6 @@ let
             version = gameVersion;
           };
           minecraft-server = vanilla-server;
-          jre_headless = vanilla-server.java;
         }
       ) builds
     )

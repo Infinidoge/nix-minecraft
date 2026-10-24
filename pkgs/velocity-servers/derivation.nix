@@ -3,7 +3,7 @@
   stdenvNoCC,
   fetchurl,
   nixosTests,
-  jre_headless,
+  jdk_package,
   version,
   url,
   sha256,
@@ -22,7 +22,7 @@ stdenvNoCC.mkDerivation {
     cp -v $src $out/lib/minecraft/server.jar
     cat > $out/bin/velocity << EOF
     #!/bin/sh
-    exec ${jre_headless}/bin/java \$@ -jar $out/lib/minecraft/server.jar nogui
+    exec ${jdk_package}/bin/java \$@ -jar $out/lib/minecraft/server.jar nogui
     EOF
     chmod +x $out/bin/velocity
   '';
@@ -30,6 +30,7 @@ stdenvNoCC.mkDerivation {
   dontUnpack = true;
 
   passthru = {
+    java = jdk_package;
     tests = { inherit (nixosTests) minecraft-server; };
     updateScript = ./update.py;
   };

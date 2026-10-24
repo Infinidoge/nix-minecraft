@@ -1,10 +1,10 @@
 {
   lib,
   fetchurl,
-  jre_headless,
   linkFarm,
   makeWrapper,
   minecraft-server,
+  jdk_package ? minecraft-server.java,
   runCommand,
   stdenvNoCC,
   udev,
@@ -74,7 +74,7 @@ let
 
       wrapper = writeShellApplication {
         inherit name;
-        runtimeInputs = [ jre_headless ];
+        runtimeInputs = [ jdk_package ];
         # Unfortunately, library dependencies cannot just be added to the classpath. The
         # [installer](https://github.com/neoforged/LegacyInstaller/blob/e95a1687b24d6c1e4ba87c98ddcd42b83eeba555/src/main/java/net/minecraftforge/installer/Downloader.java#L114),
         # [and NeoForge itself](https://github.com/neoforged/FancyModLoader/blob/610108bbd862a87c1266076a2592dfbc732e19c4/loader/src/main/java/net/neoforged/fml/loading/LibraryFinder.java#L28)
@@ -103,13 +103,14 @@ stdenvNoCC.mkDerivation rec {
     substituteInPlace "$args" \
       --replace-fail "-DlibraryDirectory=libraries" "-DlibraryDirectory=$out/libraries" \
       --replace-fail "libraries/" "$out/libraries/"
-    makeWrapper "${jre_headless}/bin/java" "$out/bin/${meta.mainProgram}" \
+    makeWrapper "${jdk_package}/bin/java" "$out/bin/${meta.mainProgram}" \
       ${lib.optionalString stdenvNoCC.hostPlatform.isLinux "--prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ udev ]}"} \
       --append-flags "@$args"
   '';
 
   passthru = {
     inherit repository installer installer-unwrapped;
+    java = jdk_package;
     updateScript = ./update.py;
     gameVersion = gameVersion.version;
     loaderVersion = build.version;

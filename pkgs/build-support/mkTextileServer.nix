@@ -3,19 +3,19 @@
   lib,
   writeShellScriptBin,
   minecraft-server,
-  jre_headless,
+  jdk_package ? minecraft-server.java,
   loaderVersion,
   loaderDrv,
   loader ? (
     callPackage loaderDrv {
-      inherit loaderVersion;
+      inherit loaderVersion jdk_package;
       gameVersion = minecraft-server.version;
     }
   ),
   extraJavaArgs ? "",
   extraMinecraftArgs ? "",
 }:
-(writeShellScriptBin "minecraft-server" "exec ${lib.getExe jre_headless} -D${loader.propertyPrefix}.gameJarPath=${minecraft-server}/lib/minecraft/server.jar ${extraJavaArgs} $@ -jar ${loader}/lib/minecraft/launch.jar nogui ${extraMinecraftArgs}")
+(writeShellScriptBin "minecraft-server" "exec ${lib.getExe jdk_package} -D${loader.propertyPrefix}.gameJarPath=${minecraft-server}/lib/minecraft/server.jar ${extraJavaArgs} $@ -jar ${loader}/lib/minecraft/launch.jar nogui ${extraMinecraftArgs}")
 // rec {
   pname = "minecraft-server";
   version = "${minecraft-server.version}-${loader.loaderName}-${loader.loaderVersion}";
@@ -23,5 +23,6 @@
 
   passthru = {
     inherit loader;
+    java = jdk_package;
   };
 }

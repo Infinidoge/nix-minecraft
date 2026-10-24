@@ -3,7 +3,7 @@
   fetchurl,
   stdenvNoCC,
   writeText,
-  jre_headless,
+  jdk_package,
   loaderName,
   loaderVersion,
   launchPrefix ? loaderName,
@@ -31,7 +31,7 @@ stdenvNoCC.mkDerivation {
   pname = "${loaderName}-server-launch";
   version = "${loaderVersion}-${gameVersion}";
 
-  nativeBuildInputs = [ jre_headless ];
+  nativeBuildInputs = [ jdk_package ];
 
   buildPhase = ''
     ${lib.optionalString (mainClass != "") ''

@@ -3,6 +3,7 @@
   mkTextileLoader,
   loaderVersion,
   gameVersion,
+  jdk_package,
 }:
 let
   loader_lock = (lib.importJSON ./loader_locks.json).${loaderVersion};
@@ -11,7 +12,7 @@ in
 mkTextileLoader {
   loaderName = "legacy-fabric";
   launchPrefix = "fabric";
-  inherit loaderVersion gameVersion;
+  inherit loaderVersion gameVersion jdk_package;
   serverLaunch = "net.fabricmc.loader.impl.launch.server.FabricServerLauncher";
   inherit (loader_lock) mainClass;
   libraries = loader_lock.libraries ++ game_lock.libraries;

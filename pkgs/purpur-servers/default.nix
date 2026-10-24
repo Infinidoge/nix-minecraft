@@ -36,7 +36,7 @@ let
           inherit (value) sha256;
           version = "${mcVersion}";
           url = "https://api.purpurmc.org/v2/purpur/${mcVersion}/${buildNumber}/download";
-          jre = java_versions.getPaperRecommended mcVersion;
+          jdk_package = java_versions.getPaperRecommended mcVersion;
           log4j = getLog4j mcVersion;
           minecraft-server = vanillaServers."vanilla-${escapeVersion mcVersion}";
         }
