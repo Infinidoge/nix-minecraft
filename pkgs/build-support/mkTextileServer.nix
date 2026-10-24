@@ -3,6 +3,7 @@
   lib,
   writeShellScriptBin,
   minecraft-server,
+  java_versions,
   jdk_package ? minecraft-server.java,
   loaderVersion,
   loaderDrv,
@@ -24,5 +25,6 @@
   passthru = {
     inherit loader;
     java = jdk_package;
+    recommendedJVMArgs = java_versions.recommendedJVMArgs jdk_package;
   };
 }

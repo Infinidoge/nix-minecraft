@@ -4,6 +4,7 @@
   linkFarm,
   makeWrapper,
   minecraft-server,
+  java_versions,
   jdk_package ? minecraft-server.java,
   runCommand,
   stdenvNoCC,
@@ -111,6 +112,7 @@ stdenvNoCC.mkDerivation rec {
   passthru = {
     inherit repository installer installer-unwrapped;
     java = jdk_package;
+    recommendedJVMArgs = java_versions.recommendedJVMArgs jdk_package;
     updateScript = ./update.py;
     gameVersion = gameVersion.version;
     loaderVersion = build.version;

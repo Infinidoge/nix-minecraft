@@ -63,4 +63,35 @@ rec {
       jdk21
     else
       jdk25;
+
+  # Recommended flags are from here:
+  # https://exa.y2k.diy/garden/jvm-args/
+
+  # NOTE: These flags are deliberately sparse!
+  # They are universal and have little downside
+  # Akair's flags, and other flags based on 'benchmarks'
+  # and tend to do more harm than good
+  # If a set of flags always improved performance,
+  # The JDK maintainers would make it the default
+  # As can be seen with ZGenerational becoming the default for ZGC
+  # Please read the above link for more information
+  recommendedJVMArgs =
+    jdk_package:
+    let
+      javaVersion = getMajorVersion jdk_package;
+    in
+    if javaVersion >= 25 then
+      [
+        "-XX:+UseZGC"
+        "-XX:+UseCompactObjectHeaders"
+      ]
+    else if javaVersion >= 21 then
+      [
+        "-XX:+UseZGC"
+        "-XX:+ZGenerational"
+      ]
+    else if javaVersion >= 8 then
+      [ "-XX:+UseG1GC" ]
+    else
+      [ ];
 }

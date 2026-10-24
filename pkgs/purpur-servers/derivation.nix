@@ -2,6 +2,7 @@
   lib,
   stdenvNoCC,
   fetchurl,
+  java_versions,
   jdk_package,
   version,
   url,
@@ -32,6 +33,7 @@ stdenvNoCC.mkDerivation {
 
   passthru = {
     java = jdk_package;
+    recommendedJVMArgs = java_versions.recommendedJVMArgs jdk_package;
     updateScript = ./update.py;
     # If you plan on running paper without internet, be sure to link this jar
     # to `cache/mojang_{version}.jar`.

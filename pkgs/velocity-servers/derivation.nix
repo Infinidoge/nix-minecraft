@@ -3,6 +3,7 @@
   stdenvNoCC,
   fetchurl,
   nixosTests,
+  java_versions,
   jdk_package,
   version,
   url,
@@ -31,6 +32,7 @@ stdenvNoCC.mkDerivation {
 
   passthru = {
     java = jdk_package;
+    recommendedJVMArgs = java_versions.recommendedJVMArgs jdk_package;
     tests = { inherit (nixosTests) minecraft-server; };
     updateScript = ./update.py;
   };

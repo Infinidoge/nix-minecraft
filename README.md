@@ -76,11 +76,19 @@ For example:
 minecraftServers.fabric.override { jdk_package = openjdk27; }
 ```
 
-Additionally, all servers pass-through a `.java` to get the Java version that server uses, like so:
+Additionally, all servers pass-through `.java` and `.recommendedJVMArgs` attributes.
+For example:
 
 ```nix
-minecraftServers.fabric.java
+minecraftServers.fabric-26_1_2.java == openjdk25
+minecraftServers.fabric-26_1_2.recommendedJVMArgs == [
+  "-XX:+UseZGC"
+  "-XX:+UseCompactObjectHeaders"
+]
 ```
+
+The recommended JVM arguments are simple and straight forward, based on the recommendations found [here, by Exa](https://exa.y2k.diy/garden/jvm-args/).
+If you change the `jdk_package` of a server, its `recommendedJVMArgs` will change accordingly.
 
 ### `vanillaServers.*`
 
