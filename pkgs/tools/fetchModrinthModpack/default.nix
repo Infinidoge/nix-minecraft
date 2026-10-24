@@ -81,11 +81,8 @@ let
             exit 1
           fi
 
-          # Make sure the extracted mrpack has permissions
-          if [ "$(stat -c '%a' "$index_json_path")" == 0 ]; then
-            find ./pack-src/ -type d -exec chmod 755 {} \;
-            find ./pack-src/ -type f -exec chmod 644 {} \;
-          fi
+          # Make sure the extracted mrpack has read/write permissions
+          chmod -R u+rwX pack-src/
 
           while IFS= read -r file; do
             if [ "${side}" != "both" ]; then
