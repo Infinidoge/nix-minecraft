@@ -2,6 +2,11 @@
 
 Documentation of major changes, newest first.
 
+## 2026-10-24: `services.minecraft-servers.servers.<name>.jvmOpts` has been renamed to `jvmArgs`
+
+`jvmArgs` is more accurate than `jvmOpts`.
+Renamed for consistency with `recommendedJVMArgs`.
+
 ## 2026-10-24: Change override name for Java of a Minecraft server to `jdk_package`
 
 All packages have been modified to allow overriding the Java version of a server using `jdk_package`, rather than a confusing mix of `jre` and `jre_headless`.

@@ -318,6 +318,10 @@ in
         types.submodule (
           { name, ... }:
           {
+            imports = [
+              (lib.mkRenamedOptionModule [ "jvmOpts" ] [ "jvmArgs" ])
+            ];
+
             options = {
               enable = mkEnableOpt ''
                 Whether to enable this server.
@@ -573,7 +577,7 @@ in
                 example = "pkgs.minecraftServers.vanilla-1_18_2";
               };
 
-              jvmOpts = mkOpt' (
+              jvmArgs = mkOpt' (
                 with types; coercedTo (listOf str) (lib.concatStringsSep " ") (separatedString " ")
               ) "-Xmx2G -Xms1G" "JVM options for this server.";
 
