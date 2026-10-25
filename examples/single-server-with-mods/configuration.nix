@@ -13,6 +13,7 @@
     openFirewall = true;
     servers.fabric = {
       enable = true;
+      allocatedRAM = "4G";
 
       # Specify the custom minecraft server package
       package = pkgs.fabricServers.fabric-1_21_1.override {

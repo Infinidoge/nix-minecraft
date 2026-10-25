@@ -25,7 +25,7 @@ testers.nixosTest {
           };
 
           enable = true;
-          jvmOpts = "-Xmx512M"; # Avoid OOM
+          allocatedRAM = "512M"; # Avoid OOM
           package = pkgs.vanilla-server;
           serverProperties = {
             server-port = 25565;

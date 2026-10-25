@@ -21,7 +21,7 @@ testers.nixosTest {
             tmux.enable = false;
             systemd-socket.enable = true;
           };
-          jvmOpts = "-Xmx512M"; # Avoid OOM
+          allocatedRAM = "512M"; # Avoid OOM
           package = pkgs.paperServers.paper-1_19_4;
           serverProperties = {
             server-port = 25565;

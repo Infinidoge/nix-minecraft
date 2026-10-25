@@ -40,6 +40,7 @@ let
   normalizeFiles = files: mapAttrs configToPath (filterAttrs (_: nonEmptyValue) files);
   nonEmptyValue = x: nonEmpty x && (x ? value -> nonEmpty x.value);
   nonEmpty = x: x != { } && x != [ ];
+  ramInJVMArgs = server: (lib.hasInfix "-Xmx" server.jvmArgs || lib.hasInfix "-Xms" server.jvmArgs);
 
   configToPath =
     name: config:
@@ -166,7 +167,7 @@ let
         };
         hooks = {
           start = ''
-            ${tmux} -S ${sock} new -d ${getExe server.package} ${server.jvmOpts}
+            ${tmux} -S ${sock} new -d ${getExe server.package} ${server.finalJvmArgs}
 
             # HACK: PrivateUsers makes every user besides root/minecraft `nobody`, so this restores old tmux behavior
             # See https://github.com/Infinidoge/nix-minecraft/issues/5
@@ -200,7 +201,7 @@ let
         };
         hooks = {
           start = ''
-            ${getExe server.package} ${server.jvmOpts}
+            ${getExe server.package} ${server.finalJvmArgs}
           '';
           postStart = "";
           stop = ''
@@ -288,6 +289,8 @@ in
       syntax @varname@.
     '';
 
+    recommendedJVMArgs = mkBoolOpt' false "Whether to add recommended JVM args to all servers by default";
+
     managementSystem = mkOption {
       type = managementSystem;
       description = ''
@@ -316,7 +319,7 @@ in
       '';
       type = types.attrsOf (
         types.submodule (
-          { name, ... }:
+          { name, config, ... }:
           {
             imports = [
               (lib.mkRenamedOptionModule [ "jvmOpts" ] [ "jvmArgs" ])
@@ -579,7 +582,13 @@ in
 
               jvmArgs = mkOpt' (
                 with types; coercedTo (listOf str) (lib.concatStringsSep " ") (separatedString " ")
-              ) "-Xmx2G -Xms1G" "JVM options for this server.";
+              ) "" "JVM arguments for this server.";
+
+              finalJvmArgs = mkOption {
+                description = "Final JVM arguments, with allocatedRAM arguments included";
+                type = with types; coercedTo (listOf str) (lib.concatStringsSep " ") (separatedString " ");
+                readOnly = true;
+              };
 
               path =
                 with types;
@@ -587,6 +596,16 @@ in
                   Packages added to the Minecraft server's <literal>PATH</literal> environment variable.
                   Works as <option>systemd.services.<name>.path</option>.
                 '';
+
+              allocatedRAM = mkOpt' (with types; nullOr (strMatching "[[:digit:]]+[kKmMgG]?")) "2G" ''
+                How much RAM to allocate for the server.
+                This sets -Xmx and -Xms accordingly.
+              '';
+
+              recommendedJVMArgs = mkBoolOpt' cfg.recommendedJVMArgs ''
+                Whether to add the recommended JVM args to `jvmArgs`
+                See https://exa.y2k.diy/garden/jvm-args/
+              '';
 
               environment =
                 with types;
@@ -642,6 +661,14 @@ in
 
             config = {
               allowedSymlinks = [ "/nix/store" ];
+              jvmArgs = (mkIf config.recommendedJVMArgs config.package.recommendedJVMArgs or [ ]);
+              finalJvmArgs = mkMerge [
+                config.jvmArgs
+                (mkIf (config.allocatedRAM != null && ramInJVMArgs config) [
+                  "-Xmx${config.allocatedRAM}"
+                  "-Xms${config.allocatedRAM}"
+                ])
+              ];
             };
           }
         )
@@ -695,14 +722,20 @@ in
         }
       ];
 
-      warnings = lib.optional (cfg.runDir != options.services.minecraft-servers.runDir.default) ''
-        `runDir` has been deprecated.
+      warnings =
+        (lib.optional (cfg.runDir != options.services.minecraft-servers.runDir.default) ''
+          `runDir` has been deprecated.
 
-        Please use `services.minecraft-servers.managementSystem.tmux.socketPath` instead.
-        For example, `name: "${cfg.runDir}/''${name}.sock"`.
+          Please use `services.minecraft-servers.managementSystem.tmux.socketPath` instead.
+          For example, `name: "${cfg.runDir}/''${name}.sock"`.
 
-        See the changelog file for more information.
-      '';
+          See the changelog file for more information.'')
+        ++ (mapAttrsToList
+          (name: _: ''
+            Set `servers.${name}.allocatedRAM = null;` if setting `-Xmx` or `-Xms` in `servers.${name}.jvmArgs`
+            `allocatedRAM` is ignored while `jvmArgs` sets `-Xmx` or `-Xms`.'')
+          (filterAttrs (_: server: server.allocatedRAM != null && ramInJVMArgs server) servers)
+        );
 
       networking.firewall =
         let

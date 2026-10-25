@@ -1,5 +1,9 @@
 # TODO
 
+## Deprecations
+
+- `jre`/`jre_headless`: Revert commit
+
 ## Documentation
 
 ### Improve [README.md](./README.md)

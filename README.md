@@ -402,6 +402,11 @@ Name of the group to create and run servers under. In order to modify the server
 File consisting of lines in the form `varname=value` to define environment variables for the minecraft servers. 
 Secrets (database passwords, secret keys, etc.) can be substituted into server files without adding them to the Nix store by defining them in the environment file and adding them `servers.<name>.files` with the syntax `@varname@`.
 
+#### `recommendedJVMArgs`
+
+If `true`, the `servers.<name>.recommendedJVMArgs` will be enabled by default for all servers.
+Defaults to `false`
+
 ### `servers.<name>`
 
 This family of options govern individual servers, which will be created on boot.
@@ -500,10 +505,24 @@ Minecraft server properties for the server.properties file of this server. See [
 The Minecraft server package to use. Example:
 `pkgs.minecraftServers.vanilla-1_18_2`
 
+#### `servers.<name>.allocatedRAM`
+
+The amount of RAM to allocate to this server, in the format expected by `-Xmx` and `-Xms`.
+Defaults to `2G`.
+
+**Prefer using this to `jvmArgs` directly.**
+If you need to set `-Xmx` and `-Xms` yourself in `jvmArgs`, set `allocatedRAM` to `null`.
+
+#### `servers.<name>.recommendedJVMArgs`
+
+If `true`, adds the recommended JVM args from `package.recommendedJVMArgs` to `jvmArgs`
+Defaults to `false`.
+**Consider setting this to `true`, as it can improve server performance at no cost.**
+
 #### `servers.<name>.jvmArgs`
 
-JVM arguments for this server, usually used to set ram amount. Example:
-`-Xms6144M -Xmx8192M`
+JVM arguments for this server.
+For setting the amount of allocated RAM, see `allocatedRAM`.
 
 #### `servers.<name>.symlinks`
 

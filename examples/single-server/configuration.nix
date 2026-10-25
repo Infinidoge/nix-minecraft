@@ -13,7 +13,7 @@
     openFirewall = true;
     servers.vanilla = {
       enable = true;
-      jvmOpts = "-Xmx4G -Xms2G";
+      allocatedRAM = "4G";
 
       # Specify the custom minecraft server package
       package = pkgs.minecraftServers.vanilla-server;

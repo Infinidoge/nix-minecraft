@@ -15,7 +15,7 @@ testers.nixosTest {
         eula = true;
         servers.neoforge = {
           enable = true;
-          jvmOpts = "-Xmx512M"; # Avoid OOM
+          allocatedRAM = "512M"; # Avoid OOM
           package = pkgs.neoforge-server;
           serverProperties = {
             server-port = 25565;
