@@ -2,7 +2,6 @@
   lib,
   self,
   outputs,
-  system,
   stdenvNoCC,
 }:
 stdenvNoCC.mkDerivation {
@@ -13,6 +12,6 @@ stdenvNoCC.mkDerivation {
     "checkPhase"
     "installPhase"
   ];
-  checkPhase = "${lib.getExe outputs.formatter.${system}} --ci $src";
+  checkPhase = "${lib.getExe outputs.formatter.${stdenvNoCC.hostPlatform.system}} --ci $src";
   installPhase = ''mkdir "$out"'';
 }
