@@ -35,7 +35,7 @@
       mkTests =
         pkgs:
         let
-          inherit (pkgs.stdenvNoCC) isLinux;
+          inherit (pkgs.stdenvNoCC.hostPlatform) isLinux;
           inherit (pkgs.lib) optionalAttrs mapAttrs;
           callPackage = pkgs.newScope {
             inherit self;
