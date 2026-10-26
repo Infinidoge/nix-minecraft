@@ -692,7 +692,7 @@ in
             config.services.minecraft-server.enable
             -> lib.all (dir: dir != config.services.minecraft-server.dataDir) dataDirs;
           message =
-            "`services.minecraft-servers.dataDir` and  `services.minecraft-server.<serverName>.dataDir` conflict."
+            "`services.minecraft-servers.servers.<serverName>.dataDir` and  `services.minecraft-server.dataDir` conflict."
             + " Set one to use a different data directory.";
         }
         {
