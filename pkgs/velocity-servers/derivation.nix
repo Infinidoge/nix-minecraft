@@ -9,7 +9,23 @@
   url,
   sha256,
   channel ? "default",
+
+  jre,
+  jre_headless,
 }:
+let
+  jdk_package' =
+    if jre != null then
+      lib.warn "use jdk_package to override the jdk of nix-minecraft packages" jre
+    else if jre_headless != null then
+      lib.warn "use jdk_package to override the jdk of nix-minecraft packages" jre_headless
+    else
+      jdk_package;
+in
+let
+  jdk_package = jdk_package';
+in
+
 stdenvNoCC.mkDerivation {
   pname = "velocity";
   inherit version;

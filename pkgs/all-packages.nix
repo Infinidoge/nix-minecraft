@@ -12,6 +12,18 @@ let
     {
       inherit lib callPackage;
       java_versions = callPackage ./java-versions.nix { };
+
+      jre = null;
+      jre_headless = null;
+    }
+    // buildSupport
+  );
+
+  # Version of callPackage that doesn't remove jre/jre_headless, for tools, which don't deal with jdk_package
+  callPackage' = pkgs.newScope (
+    {
+      inherit lib callPackage;
+      java_versions = callPackage ./java-versions.nix { };
     }
     // buildSupport
   );
@@ -47,4 +59,4 @@ rec {
   minecraft-server = vanilla-server;
   neoforge-server = neoforgeServers.neoforge;
 }
-// (builtins.mapAttrs (n: v: callPackage v { }) (lib.our.rakeLeaves ./tools))
+// (builtins.mapAttrs (n: v: callPackage' v { }) (lib.our.rakeLeaves ./tools))
