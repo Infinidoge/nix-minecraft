@@ -679,6 +679,7 @@ in
   config = mkIf cfg.enable (
     let
       servers = filterAttrs (_: cfg: cfg.enable) cfg.servers;
+      shellRequired = any (server: server.managementSystem.tmux.enable) (attrValues servers);
     in
     {
       users = {
@@ -689,6 +690,7 @@ in
           homeMode = "770";
           isSystemUser = true;
           group = "minecraft";
+          shell = mkIf shellRequired pkgs.bashInteractive;
         };
         groups.minecraft = mkIf (cfg.group == "minecraft") { };
       };
