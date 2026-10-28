@@ -2715,5 +2715,12 @@
       "sha256": "85be73b90f295acd8d5d45a00ad10bac791d4b72b7554172612a89565ebaaa8f",
       "channel": "STABLE"
     }
+  },
+  "4.3.1": {
+    "45": {
+      "url": "https://fill-data.papermc.io/v1/objects/0844bcabdcdb4f5b875906fd4c3365bc1bb76918e42bc595ed88ad195258dd75/velocity-4.3.1-45.jar",
+      "sha256": "0844bcabdcdb4f5b875906fd4c3365bc1bb76918e42bc595ed88ad195258dd75",
+      "channel": "STABLE"
+    }
   }
 }
