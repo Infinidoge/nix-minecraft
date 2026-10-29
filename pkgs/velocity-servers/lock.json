@@ -2722,5 +2722,12 @@
       "sha256": "0844bcabdcdb4f5b875906fd4c3365bc1bb76918e42bc595ed88ad195258dd75",
       "channel": "STABLE"
     }
+  },
+  "4.3.2-SNAPSHOT": {
+    "46": {
+      "url": "https://fill-data.papermc.io/v1/objects/a2b59b1f68d7cff5a8b66e26de57314438c529c3debbb0c523a39b22d1d36470/velocity-4.3.2-SNAPSHOT-46.jar",
+      "sha256": "a2b59b1f68d7cff5a8b66e26de57314438c529c3debbb0c523a39b22d1d36470",
+      "channel": "BETA"
+    }
   }
 }
