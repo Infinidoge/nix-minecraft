@@ -1,5 +1,8 @@
 **/.mypy_cache
 **/__pycache__
-**/result
+**/result*
 /tmp
 http_cache
+
+# vm tests
+.nixos-test-history
