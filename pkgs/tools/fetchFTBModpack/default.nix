@@ -34,8 +34,6 @@ let
       packId ? null,
       versionId ? null,
       packHash ? "",
-      # Number of download threads given to the FTB server installer.
-      threads ? 4,
       ...
     }@args:
     let
@@ -105,7 +103,7 @@ let
             -just-files \
             -dir "$out" \
             -no-colours \
-            -threads ${toString threads}
+            -threads "''${NIX_BUILD_CORES:-0}"
 
           runHook postBuild
         '';

@@ -308,18 +308,16 @@ in
 }
 ```
 
-The `packId` and `versionId` are parsed from the installer `url`, so you only need to paste the link from the pack's server-files page. Provide `packId` and `versionId` directly instead of `url` if you prefer. The `pname` and `version` used for the store path are optional and default to `ftb-pack`/`<versionId>`. `threads` (default `4`) controls the installer's download threads.
+The `packId` and `versionId` are parsed from the installer `url`, so you only need to paste the link from the pack's server-files page. Provide `packId` and `versionId` directly instead of `url` if you prefer. The `pname` and `version` used for the store path are optional and default to `ftb-pack`/`<versionId>`. Download threads come from Nix's `NIX_BUILD_CORES`.
 
-The pack exposes a `serverFiles` registry mirroring the `symlinks`/`files` server options, derived from the pack layout, so you can wire the whole pack without hand listing directories:
+The pack exposes a `serverFiles` registry mirroring the `symlinks`/`files` server options, derived from the pack layout, so you can wire the whole pack without hand listing directories. `serverFiles.symlinks` is exactly the hand-written `symlinks` above, so it only contains `mods`.
 
 ```nix
 symlinks = modpack.serverFiles.symlinks;
 files = modpack.serverFiles.files;
 ```
 
-
-`mods` stays a read-only symlink. Every other top-level entry is copied writable. Names starting with `.` and names ending in `.jar` are excluded.
-
+`serverFiles.files` copies every other top-level entry into the server directory and makes it writable. Names starting with `.` and names ending in `.jar` are excluded. That default is deliberate: some packs break when config or data files are symlinked instead of copied. If a directory is large and you know it is safe to link, remove it from `serverFiles.files` and add it to `symlinks` yourself.
 
 ```nix
 let
