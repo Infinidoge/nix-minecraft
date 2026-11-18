@@ -3283,6 +3283,22 @@
     "hash": "sha1-qkiipSFdrDvyay94CNDzAevBMjo=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.109/neoforge-26.3.0.109-universal.jar"
   },
+  "net.neoforged:neoforge:26.3.0.110:universal": {
+    "hash": "sha1-aAbnBWa2qraF0p9IDgByx2rSLfI=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.110/neoforge-26.3.0.110-universal.jar"
+  },
+  "net.neoforged:neoforge:26.3.0.111:universal": {
+    "hash": "sha1-/bkFvWbFQsY1Hqb+efYba/6/Lwk=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.111/neoforge-26.3.0.111-universal.jar"
+  },
+  "net.neoforged:neoforge:26.3.0.112:universal": {
+    "hash": "sha1-XUm9J8zVDzBjPBH5fzDmEEyHgBQ=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.112/neoforge-26.3.0.112-universal.jar"
+  },
+  "net.neoforged:neoforge:26.3.0.113:universal": {
+    "hash": "sha1-eu9oa0aoFCZSb5NvEcFbEZYqOHc=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.113/neoforge-26.3.0.113-universal.jar"
+  },
   "net.neoforged:neoforge:26.3.0.76:universal": {
     "hash": "sha1-FjmT+9AnmY2NGpUfKO1bNE2WtrY=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.76/neoforge-26.3.0.76-universal.jar"
@@ -3617,7 +3633,7 @@
   },
   "org.jspecify:jspecify:1.0.1": {
     "hash": "sha1-PWD9mOuK3nMAT0GVw3tjF+As89c=",
-    "url": "https://maven.neoforged.net/releases/org/jspecify/jspecify/1.0.1/jspecify-1.0.1.jar"
+    "url": "https://libraries.minecraft.net/org/jspecify/jspecify/1.0.1/jspecify-1.0.1.jar"
   },
   "org.lwjgl:lwjgl-sdl:3.4.3": {
     "hash": "sha1-wCFGc11v9w0HDHNTK0NeXIk6NGs=",

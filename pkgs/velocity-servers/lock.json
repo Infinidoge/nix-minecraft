@@ -2743,6 +2743,11 @@
       "url": "https://fill-data.papermc.io/v1/objects/74fa2a58d9c25aaff0354ae5c20be0a63b30391f8a3d0895ed517f354e3720ee/velocity-4.3.2-SNAPSHOT-49.jar",
       "sha256": "74fa2a58d9c25aaff0354ae5c20be0a63b30391f8a3d0895ed517f354e3720ee",
       "channel": "BETA"
+    },
+    "50": {
+      "url": "https://fill-data.papermc.io/v1/objects/3d3934f3343743392d404d9faad6d70fb2ed1cce82833923dc63f96cca72df9a/velocity-4.3.2-SNAPSHOT-50.jar",
+      "sha256": "3d3934f3343743392d404d9faad6d70fb2ed1cce82833923dc63f96cca72df9a",
+      "channel": "BETA"
     }
   }
 }
