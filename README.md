@@ -280,6 +280,65 @@ in
 
 The resulting derivation contains downloaded pack files and applied overrides. Like `fetchPackwizModpack`, it also exposes a `manifest` attribute and an `addFiles` helper.
 
+### `fetchFTBModpack`
+
+[Source](./pkgs/tools/fetchFTBModpack)
+
+This function packages a [Feed The Beast](https://www.feed-the-beast.com/modpacks/server-files/linux) modpack from its server installer URL. It runs FTB's official per-version installer binary inside a fixed-output derivation. Minimal example:
+
+```nix
+let
+  modpack = pkgs.fetchFTBModpack {
+    # Copy this URL from the pack's "Server Files" page
+    url = "https://api.feed-the-beast.com/v1/modpacks/public/modpack/130/100501/server/linux";
+    # You must fill this in on the first build; it will fail and tell you the hash
+    packHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+  };
+in
+{
+  services.minecraft-servers.servers.cool-modpack = {
+    enable = true;
+    package = pkgs.neoforgeServers.neoforge-1_21_1-21_1_248;
+    symlinks = {
+      "mods" = "${modpack}/mods";
+    };
+    # symlinks = modpack.serverFiles.symlinks;
+    files = modpack.serverFiles.files;
+  };
+}
+```
+
+The `packId` and `versionId` are parsed from the installer `url`, so you only need to paste the link from the pack's server-files page. Provide `packId` and `versionId` directly instead of `url` if you prefer. The `pname` and `version` used for the store path are optional and default to `ftb-pack`/`<versionId>`. Download threads come from Nix's `NIX_BUILD_CORES`.
+
+The pack exposes a `serverFiles` registry mirroring the `symlinks`/`files` server options, derived from the pack layout, so you can wire the whole pack without hand listing directories. `serverFiles.symlinks` is exactly the hand-written `symlinks` above, so it only contains `mods`.
+
+```nix
+symlinks = modpack.serverFiles.symlinks;
+files = modpack.serverFiles.files;
+```
+
+`serverFiles.files` copies every other top-level entry into the server directory and makes it writable. Names starting with `.` and names ending in `.jar` are excluded. That default is deliberate: some packs break when config or data files are symlinked instead of copied. If a directory is large and you know it is safe to link, remove it from `serverFiles.files` and add it to `symlinks` yourself.
+
+```nix
+let
+  inherit (inputs.nix-minecraft.lib) escapeVersion;
+  modpack = pkgs.fetchFTBModpack {
+    url = "https://api.feed-the-beast.com/v1/modpacks/public/modpack/130/100501/server/linux";
+    packHash = "sha256-jx2rrXZQPGAQss5crJ3rBD2eC1znV2Z0trD5CXsdDz8=";
+  };
+  mcVersion = modpack.manifest.modPackTargets.mcVersion; # e.g. "1.21.1"
+  loaderVersion = modpack.manifest.modPackTargets.modLoader.version; # e.g. "21.1.248"
+in
+{
+  services.minecraft-servers.servers.stoneblock = {
+    enable = true;
+    package = pkgs.neoforgeServers."neoforge-${escapeVersion mcVersion}-${escapeVersion loaderVersion}";
+    symlinks = modpack.serverFiles.symlinks;
+    files = modpack.serverFiles.files;
+  };
+}
+```
+
 ### Others
 
 All of these packages are also available under `packages`, not just `legacyPackages`.
