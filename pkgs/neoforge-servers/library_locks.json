@@ -463,6 +463,10 @@
     "hash": "sha1-76LlYRXSKFPRBSSHSnu7ZFVcKig=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/12.0.16/earlydisplay-12.0.16.jar"
   },
+  "net.neoforged.fancymodloader:earlydisplay:12.0.17": {
+    "hash": "sha1-rO5T7+HKc+KY+BWIUxdnFC0hA3A=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/12.0.17/earlydisplay-12.0.17.jar"
+  },
   "net.neoforged.fancymodloader:earlydisplay:2.0.17@jar": {
     "hash": "sha1-1q8T4SkOecfkUBoJfN0b1QUx9fM=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/2.0.17/earlydisplay-2.0.17.jar"
@@ -594,6 +598,10 @@
   "net.neoforged.fancymodloader:loader:12.0.16": {
     "hash": "sha1-7bsu6CEahnIVlwvBWunDVPpW3Ak=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/12.0.16/loader-12.0.16.jar"
+  },
+  "net.neoforged.fancymodloader:loader:12.0.17": {
+    "hash": "sha1-g5oCSCU8B5nzgWBwq/XilJODtFo=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/12.0.17/loader-12.0.17.jar"
   },
   "net.neoforged.fancymodloader:loader:2.0.17@jar": {
     "hash": "sha1-4YfpSd6hRyaSTChO+L9tUeTIdSY=",
@@ -2999,6 +3007,10 @@
     "hash": "sha1-Yl2CRrp45FV7beg4NCcQjvVs8x4=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.1.2.129/neoforge-26.1.2.129-universal.jar"
   },
+  "net.neoforged:neoforge:26.1.2.130:universal": {
+    "hash": "sha1-IDS5yDdNw1BgG7f0gvOKqtXf/pU=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.1.2.130/neoforge-26.1.2.130-universal.jar"
+  },
   "net.neoforged:neoforge:26.1.2.71:universal": {
     "hash": "sha1-L7Yeri6ntV/hfQ26acqxML6woFQ=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.1.2.71/neoforge-26.1.2.71-universal.jar"
@@ -3326,6 +3338,14 @@
   "net.neoforged:neoforge:26.3.0.115:universal": {
     "hash": "sha1-47X/gfWF8Nb83Z1zQ7cRX6ZAGhI=",
     "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.115/neoforge-26.3.0.115-universal.jar"
+  },
+  "net.neoforged:neoforge:26.3.0.116:universal": {
+    "hash": "sha1-aZp3N/7Y4Sz/yrNZRNyzC4yuCtw=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.116/neoforge-26.3.0.116-universal.jar"
+  },
+  "net.neoforged:neoforge:26.3.0.117:universal": {
+    "hash": "sha1-tjuSz5Km3xNzz5emQp/bDngwMbM=",
+    "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/26.3.0.117/neoforge-26.3.0.117-universal.jar"
   },
   "net.neoforged:neoforge:26.3.0.76:universal": {
     "hash": "sha1-FjmT+9AnmY2NGpUfKO1bNE2WtrY=",
